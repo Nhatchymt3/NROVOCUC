@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 06, 2024 lúc 07:06 AM
+-- Thời gian đã tạo: Th4 06, 2024 lúc 03:34 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -59,7 +59,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `create_time`, `update_time`, `ban`, `point_post`, `last_post`, `role`, `is_admin`, `last_time_login`, `last_time_logout`, `ip_address`, `active`, `server_login`, `bd_player`, `gift_time`, `vnd`, `tongnap`, `magioithieu`, `browser_version`, `tichdiem`, `status`, `chucnang`) VALUES
-(2584, 'bkt', '1', '2024-02-05 11:53:11', '2024-02-05 11:53:11', 0, 0, 0, -1, 1, '2024-04-05 16:12:21', '2024-04-05 16:26:38', '127.0.0.1', 0, -1, 1, '0', 3310000, 0, 'di65dgag7r', NULL, 0, 1, 2);
+(2584, 'bkt', '1', '2024-02-05 11:53:11', '2024-02-05 11:53:11', 0, 0, 0, -1, 1, '2024-04-06 10:22:39', '2024-04-06 10:50:42', '0:0:0:0:0:0:0:1', 0, -1, 1, '0', 3310000, 0, 'di65dgag7r', NULL, 0, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -96,31 +96,6 @@ INSERT INTO `achievement` (`id`, `info1`, `info2`, `count_purpose`, `gem`) VALUE
 (13, 'Lần đầu tiêu tiền', 'Tiêu ít nhất  530k VNĐ', 530000, 30000),
 (14, 'Lần đầu tiêu tiền', 'Tiêu ít nhất  570k VNĐ', 570000, 30000),
 (15, 'Lần đầu tiêu tiền', 'Tiêu ít nhất  610k VNĐ', 610000, 30000);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `baiviet_hoangvietdung`
---
-
-CREATE TABLE `baiviet_hoangvietdung` (
-  `id` int(11) NOT NULL,
-  `account_id` text NOT NULL,
-  `top_baiviet` int(11) NOT NULL,
-  `new` text NOT NULL,
-  `avta` int(11) NOT NULL,
-  `tieude` text NOT NULL,
-  `noidung` text NOT NULL,
-  `time` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
---
--- Đang đổ dữ liệu cho bảng `baiviet_hoangvietdung`
---
-
-INSERT INTO `baiviet_hoangvietdung` (`id`, `account_id`, `top_baiviet`, `new`, `avta`, `tieude`, `noidung`, `time`) VALUES
-(8, '1', 1, '1', 8, '⚡️【04/09: PHIÊN BẢN THỬ NGHIỆM NroZeni⚡️ ', '⚡️【04/09: CHƠI PHIÊN BẢN THỬ NGHIỆM】⚡️ \r\n______________________________\r\n💥 LOA LOA LOA LOA 💥 \r\n🐉 Ngọc Rồng Solomon Chính Thức Mở Beta Cho Anh Em Trải Nghiệm\r\n⚔  Tạo acc trãi nghiệm được tặng 50.000.000 vnđ \r\n🎁 Giftcode những phần quà vô cùng hấp dẫn \r\n🎁 Tặng 100.000 Thỏi Vàng ( 2 tỷ ngọc xanh , 2 tỷ hồng ngọc )\r\n💥 Skip 1 số nhiệm vụ cơ bản để đi toàn map\r\n🎁Shop đa dạng với nhìu cải trang, linh thú, pet, hào quang.... được cập nhật mới nhất 2023\r\n🎁 Đồ thần linh nhặt được từ các hoạt động săn boss, up cold,...\r\n:b  Đấy Đủ Phiên Bản Mod 231 (apk,ios,pc)\r\n:b  Hỗ trợ cài tencen(trực tiếp) cho máy ios\r\n____________________________\r\n🔥 Set Kích Hoạt Full :\r\n      + Trái Đất ( songoku, karin, kaioken )\r\n      + Namec (Laze , đẻ trứng, liên hoàn)\r\n      + Xayda (Cadic , Kakarot, nappa)\r\n____________________________\r\n🌸  Cơ chế chuyển sinh nhân vật đa dạng tăng sđ,hp,ki,giap cho nhân vật\r\n💮  Đặc biệt xuất hiện chiến thần đồng hành cùng nhân vật hỗ trợ nhân vật tăng chỉ số của bản thân khi đột phá chiến thần.\r\n____________________________\r\n\r\n☑ Cơ chế đổi đồ hủy diệt : \r\n      + 1 set thần linh \r\n      + 5 món x99 thức ăn gặp bill để đổi đồ\r\n☑ Cơ chế đổi đồ thiên sứ :\r\n      + Giấy công thức thiên sứ + đá cầu vòng + 999 mãnh thiên sứ để đổi đồ thiên sứ ( có tỉ lệ ra dòng ẩn ngẫu nhiên )\r\n☑ Cơ chế học skill mới :\r\n      + accout mới tạo tự động tặng free skill 9 đặt biệt của mỗi hành tinh\r\n      + khi đạt mức thành thạo tối đa, đến gặp thiên sứ whis ở thần vũ trụ để nâng cấp\r\n ____________________________\r\n💥 Đặc Biệt:\r\n + Đầy đủ phó bản : Khi Gas, Bản Đồ Kho Báu, Doanh Trại, Lãnh Địa Ban Hội, Ngọc Rồng Sao Đen , ước ngọc rồng namec... \r\n+ Sự kiện update liên tục, đam bảo cân bằng cho game , giống 90% bên teamobie\r\n+ boss đa dạng cho anh em cày săn\r\n+ Hỗ trợ nhiệm vụ cho anh em khi làm tránh bị phá\r\n ____________________________\r\n🎀Ngọc Rồng Solomon - Hành Trình Bất Diệt🎀\r\n👉Link trang chủ :  http://nro-solomon.online/\r\n👉Link Fanpage : https://www.facebook.com/NroSolomon/\r\n👉Tham gia group : https://www.facebook.com/groups/nrosolomon', '2023-09-03 20:14:20'),
-(10, '1', 0, '0', 10, 'Hí Anh Em ', 'Comment văn minh vui vẻ không tục nha ae !', '2023-09-03 20:27:42');
 
 -- --------------------------------------------------------
 
@@ -750,20 +725,6 @@ CREATE TABLE `clan_sv2` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cmt_hoangvietdung`
---
-
-CREATE TABLE `cmt_hoangvietdung` (
-  `id` int(11) NOT NULL,
-  `baiviet_id` text NOT NULL,
-  `khach_id` text NOT NULL,
-  `noidung` text NOT NULL,
-  `time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `comments`
 --
 
@@ -776,6 +737,133 @@ CREATE TABLE `comments` (
   `image` int(11) NOT NULL,
   `gender` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cvh_baiviet`
+--
+
+CREATE TABLE `cvh_baiviet` (
+  `id` int(11) NOT NULL,
+  `title` varchar(999) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `if_admin` varchar(999) NOT NULL,
+  `views` text NOT NULL DEFAULT '0',
+  `likes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `comments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
+  `poster` varchar(999) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `created` date NOT NULL DEFAULT current_timestamp(),
+  `time` varchar(999) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cvh_baiviet`
+--
+
+INSERT INTO `cvh_baiviet` (`id`, `title`, `content`, `if_admin`, `views`, `likes`, `comments`, `status`, `role`, `poster`, `created`, `time`) VALUES
+(10, 'Thông báo update sự kiện hè', '<p>Thời gian diễn ra sự kiện: 00h ng&agrave;y 15/6-15/7<br>Hoạt động h&egrave; bao gồm c&aacute;c nội dung sau:<br>​⭐1/ Săn bắt c&ocirc;n tr&ugrave;ng:<br>- Trong thơi gian diễn ra hoạt động sự kiện h&egrave;. Người chơi c&oacute; thể nhận được c&aacute;c loại bọ khi đ&aacute;nh qu&aacute;i như sau:<br>- Rừng dương xỉ, rừng bambo nhận được Bọ Kiến Vương Hai Sừng<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng nhận được Bọ Hung T&ecirc; Gi&aacute;c<br>- Đồi nấm t&iacute;m, thung lũng namec nhận được Bọ Kẹp K&igrave;m<br>- Ngo&agrave;i ra c&aacute;c cư d&acirc;n c&oacute; thể bắt c&aacute;c loại bọ qu&yacute; hiếm hơn như Bọ C&aacute;nh Cứng v&agrave; Ng&agrave;i Đ&ecirc;m bằng c&aacute;ch sau:<br>*Bọ C&aacute;nh Cứng:<br>- Để bắt được Bọ C&aacute;nh Cứng, c&aacute;c cư d&acirc;n cần c&oacute; những bật phẩm sau:<br>- Bọ Kiến Vương Hai Sừng x10<br>- Bọ Hung T&ecirc; Gi&aacute;c x10<br>- Bọ Kẹp K&igrave;m x10<br>- Hũ Mật Ong x1<br>- Hũ mật ong được b&aacute;n tại Santa với gi&aacute; 200 Triệu V&agrave;ng<br>- Những khu vực sẽ xuất hiện Bọ C&aacute;nh Cứng:<br>- Rừng dương xỉ, rừng bambo<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng<br>- Đồi nấm t&iacute;m, thung lũng namec<br>- Khi đ&atilde; c&oacute; đủ c&aacute;c nguy&ecirc;n liệu, c&aacute;c cư d&acirc;n di chuyển tới khu vực xuất hiện Bọ C&aacute;nh Cứng v&agrave; ấn sử dụng Hũ Mật Ong để tiến h&agrave;nh bắt Bọ C&aacute;nh Cứng<br>- Đưa Bọ C&aacute;nh Cứng cho Quy L&atilde;o sẽ nhận được 1 phần qu&agrave; ngẫu nhi&ecirc;n sau:<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng )<br>- Quả B&oacute;ng Si&ecirc;u Việt ( Hạn sử dụng )<br>- C&acirc;y Kem ( Hạn sử dụng )<br>- C&aacute; Heo ( Hạn sử dụng )<br>- Con Diều ( Hạn sử dụng - Vĩnh Viễn )<br>- Diều Rồng ( Hạn sử dụng - Vĩnh Viễn )<br>- Xi&ecirc;n C&aacute; ( Hạn sử dụng - Vĩnh Viễn )<br>- Bọ C&aacute;nh Cứng (pet) ( Hạn sử dụng - Vĩnh Viễn )<br>*Ng&agrave;i Đ&ecirc;m:<br>- Để bắt được Ng&agrave;i Đ&ecirc;m, c&aacute;c cư d&acirc;n cần c&oacute; những bật phẩm sau:<br>- Bọ Kiến Vương Hai Sừng x10<br>- Bọ Hung T&ecirc; Gi&aacute;c x10<br>- Bọ Kẹp K&igrave;m x10<br>- Hũ Mật Ong x1<br>- Vợt Bắt Bọ x1<br>- Vợt Bắt Bọ Được b&aacute;n tại Santa với gi&aacute; 500 Triệu V&agrave;ng<br>- Những khu vực sẽ xuất hiện Ng&agrave;i Đ&ecirc;m:<br>- Rừng dương xỉ, rừng bambo<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng<br>- Đồi nấm t&iacute;m, thung lũng namec<br>- Khi đ&atilde; c&oacute; đủ c&aacute;c nguy&ecirc;n liệu, c&aacute;c cư d&acirc;n di chuyển tới khu vực xuất hiện Ng&agrave;i Đ&ecirc;m v&agrave; ấn sử dụng Vợt Bắt Bọ để tiến h&agrave;nh bắt Ng&agrave;i Đ&ecirc;m<br>- Đưa Ng&agrave;i Đ&ecirc;m cho Quy L&atilde;o sẽ nhận được 1 phần qu&agrave; ngẫu nhi&ecirc;n sau:<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng )<br>- Quả B&oacute;ng Si&ecirc;u Việt ( Hạn sử dụng )<br>- C&acirc;y Kem ( Hạn sử dụng )<br>- C&aacute; Heo ( Hạn sử dụng )<br>- Con Diều ( Hạn sử dụng )<br>- Diều Rồng ( Hạn sử dụng )<br>- Xi&ecirc;n C&aacute; ( Hạn sử dụng - Vĩnh Viễn )<br>- Bong B&oacute;ng Heo ( Hạn sử dụng - Vĩnh Viễn )<br>- B&oacute;ng Vịt V&agrave;ng ( Hạn sử dụng - Vĩnh Viễn )<br>- Ng&agrave;i Đ&ecirc;m (pet) ( Hạn sử dụng - Vĩnh Viễn )<br>- Th&uacute; cưỡi Ve Sầu X&ecirc;n ( Hạn sử dụng - Vĩnh Viễn )<br>- Th&uacute; cưỡi Ve Sầu X&ecirc;n Tiến H&oacute;a ( Hạn sử dụng - Vĩnh Viễn )<br>⭐2/ Săn Bắt Hải Sản<br>- Trong thời gian diễn ra sự kiện h&egrave;, c&aacute;c cư d&acirc;n c&oacute; thể sưu tầm c&aacute;c lo&agrave;i động vật biển để đổi qu&agrave;<br>- Trong thời gian diễn ra sự kiện, tại Santa c&oacute; b&aacute;n vật phẩm Quần Đi Biển với gi&aacute; 100 triệu v&agrave;ng<br>- Khi mặc quần đi biển v&agrave;o c&aacute;c cư d&acirc;n phải cởi &aacute;o v&agrave; cải trang v&agrave; t&aacute;ch hợp thể ra đ&aacute;nh qu&aacute;i sẽ c&oacute; cơ hội nhận được Vỏ ốc, S&ograve;, Cua, Sao biển<br>- Tại Santa cũng c&oacute; b&aacute;n Tr&aacute;i dừa với gi&aacute; 20 triệu v&agrave;ng, khi d&ugrave;ng tr&aacute;i dừa c&ugrave;ng với quần đi biển sẽ c&oacute; tỉ lệ đ&aacute;nh qu&aacute;i rơi c&aacute;c vật phẩm Vỏ ốc, S&ograve;, Cua, Sao biển cao hơn ( Bắt buộc phải mặc quần đi biển )<br>- T&iacute;ch Vỏ ốc, S&ograve;, Cua, Sao biển v&agrave; mang đến Quy L&atilde;o Kame để đổi qu&agrave;. Nhiều phần qu&agrave; hấp dẫn đang chờ đ&oacute;n c&aacute;c cư d&acirc;n kh&aacute;m ph&aacute;<br>*Đổi qu&agrave;:<br>- Vỏ ốc x99 sẽ đổi được ngẫu nhi&ecirc;n<br>B&oacute; hoa hồng v&agrave;ng hạn sử dụng hoặc vĩnh viễn<br>B&oacute; hoa hồng đỏ hạn sử dụng hoặc vĩnh viễn<br>- Vỏ s&ograve; x99 sẽ đổi được ngẫu nhi&ecirc;n<br>C&aacute; ch&agrave; b&aacute; hạn sử dụng hoặc vĩnh viễn<br>C&acirc;y nắp ấm hạn sử dụng hoặc vĩnh viễn<br>- Cua x99 sẽ đổi được ngẫu nhi&ecirc;n<br>Phượng Ho&agrave;ng Lửa hạn sử dụng hoặc vĩnh viễn<br>R&ugrave;a Bay hạn sử dụng hoặc vĩnh viễn<br>- Sao biển x99 sẽ đổi được ngẫu nhi&ecirc;n<br>Bong B&oacute;ng Heo hạn sử dụng hoặc vĩnh viễn<br>B&oacute;ng vịt v&agrave;ng hạn sử dụng hoặc vĩnh viễn<br>*Ngo&agrave;i ra bạn c&oacute; thể sử dụng:<br>- Vỏ ốc x99 + Vỏ s&ograve; x99 + Cua x99 + Sao biển x99 sẽ đổi được cải trang h&egrave; 2023 ngẫu nhi&ecirc;n ( Hạn sử dụng hoặc vĩnh viễn )<br>⭐3/ Giftcode Sự Kiện H&egrave;<br>- C&aacute;c cư d&acirc;n h&atilde;y tới npc ở nh&agrave; v&agrave;o mục qu&agrave; tặng v&agrave; nhập giftcode: sukienhe<br>Qu&agrave; từ giftcode sẽ l&agrave;:<br>Quần hoa x1 Hạn Sử Dụng<br>Tr&aacute;i Dừa x1<br>⭐4/ V&ograve;ng Quay Thượng Đế:<br>V&ograve;ng Quay Thượng Đế sẽ cập nhật những vật phẩm sau:<br>- Quạt Ba Ti&ecirc;u ( Hạn sử dụng - Vĩnh Viễn )<br>- Vỏ Ốc ( Hạn sử dụng - Vĩnh Viễn )<br>- C&aacute; Heo ( Hạn sử dụng - Vĩnh Viễn )<br>- Con Diều ( Hạn sử dụng - Vĩnh Viễn )<br>- Diều Rồng ( Hạn sử dụng - Vĩnh Viễn )<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng - Vĩnh Viễn )<br>Ch&uacute;c c&aacute;c cư d&acirc;n c&oacute; những ng&agrave;y h&egrave; vui vẻ<br>------------------------------★------------------------------<br>NGỌC RỒNG HADES - TỰA GAME TUỔI THƠ<br>- Fanpage : https://www.facebook.com/nrohades<br>- Trang chủ : http://nrohades.com<br>- Gruop : https://www.facebook.com/groups/ngocronghades<br><br></p>\r\n<center><img class=\"img-fluid rounded-4 w-100 object-fit-cover\" src=\"https://i.ibb.co/47sN7wb/354254552-214136714896244-5514405491694721852-n.jpg\" width=\"680\" height=\"680\"></center>', '{\"name\":\"ADMIN\",\"avatar\":\"\\/assets\\/images\\/avatar\\/admin\\/6.png\"}', '12134', '[\"caovanhuy\",\"td\",\"despair\",\"a\"]', '[{\"account_id\":\"1\",\"noidung\":\"có cái ***** ***** ***** mày\",\"time\":1699179193}]', 1, 2, '100', '2023-10-26', '1698299697'),
+(15, 'Huyy liu tiu diu', 'Share sụt', '', '5866', '[]', '[{\"account_id\":\"2584\",\"noidung\":\"https://viet69z.pro\",\"time\":1699179131}]', 1, 1, '2584', '2023-11-05', '1699179030');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cvh_giftcode`
+--
+
+CREATE TABLE `cvh_giftcode` (
+  `id` int(11) NOT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `luot` int(11) NOT NULL,
+  `item` text NOT NULL,
+  `option` text NOT NULL,
+  `status` varchar(999) NOT NULL,
+  `hsd` varchar(999) NOT NULL,
+  `time` varchar(999) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cvh_giftcode`
+--
+
+INSERT INTO `cvh_giftcode` (`id`, `code`, `luot`, `item`, `option`, `status`, `hsd`, `time`) VALUES
+(10, 'aaaa', 0, '[{\"id\":\"642\",\"soluong\":\"1\"}]', '[{\"id\":\"77\",\"param\":\"50\"},{\"id\":\"103\",\"param\":\"50\"},{\"id\":\"50\",\"param\":\"50\"},{\"id\":\"101\",\"param\":\"1000\"},{\"id\":\"134\",\"param\":\"1\"},{\"id\":\"137\",\"param\":\"1\"}]', '1', '2023-11-04', '1698986017'),
+(11, '9FW0UZ', 99, '[{\"id\":\"3\",\"soluong\":\"1\"}]', '[{\"id\":30,\"param\":0}]', '1', '2023-11-26', '1699178407'),
+(12, 'JF2O9R', 99, '[{\"id\":\"3\",\"soluong\":\"\"}]', '[{\"id\":30,\"param\":0}]', '1', '2023-11-25', '1699868439');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cvh_history_giftcode`
+--
+
+CREATE TABLE `cvh_history_giftcode` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `player_id` int(11) DEFAULT 0,
+  `code` varchar(50) DEFAULT NULL,
+  `time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Lịch sử nhận gift code';
+
+--
+-- Đang đổ dữ liệu cho bảng `cvh_history_giftcode`
+--
+
+INSERT INTO `cvh_history_giftcode` (`id`, `player_id`, `code`, `time`) VALUES
+(1, 1, 'aaaa', '2023-11-03 11:35:13');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cvh_recharge`
+--
+
+CREATE TABLE `cvh_recharge` (
+  `id` int(11) NOT NULL,
+  `account_id` varchar(999) NOT NULL,
+  `code` varchar(999) NOT NULL,
+  `serial` varchar(999) NOT NULL,
+  `amount` varchar(999) NOT NULL,
+  `type` varchar(999) NOT NULL,
+  `tranid` varchar(999) NOT NULL,
+  `amount_real` varchar(999) NOT NULL,
+  `status` int(11) NOT NULL,
+  `time` varchar(999) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cvh_setting`
+--
+
+CREATE TABLE `cvh_setting` (
+  `id` int(11) NOT NULL,
+  `title` varchar(999) NOT NULL,
+  `description` varchar(999) NOT NULL,
+  `author` varchar(999) NOT NULL,
+  `keywords` varchar(999) NOT NULL,
+  `logo` varchar(999) NOT NULL,
+  `size_logo` int(11) NOT NULL,
+  `eff_load` varchar(99) NOT NULL DEFAULT 'false',
+  `nhanqua` varchar(999) DEFAULT NULL,
+  `user_nhanqua` text NOT NULL DEFAULT '[]',
+  `vongquay` varchar(999) DEFAULT NULL,
+  `mtv` varchar(999) DEFAULT NULL,
+  `amount_mtv` varchar(999) NOT NULL DEFAULT '1',
+  `thongbao` varchar(99) NOT NULL,
+  `nd_thongbao` text NOT NULL,
+  `favicon` varchar(999) NOT NULL,
+  `background` varchar(999) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cvh_setting`
+--
+
+INSERT INTO `cvh_setting` (`id`, `title`, `description`, `author`, `keywords`, `logo`, `size_logo`, `eff_load`, `nhanqua`, `user_nhanqua`, `vongquay`, `mtv`, `amount_mtv`, `thongbao`, `nd_thongbao`, `favicon`, `background`) VALUES
+(1, 'Trang Chính Thức - Ngọc Rồng Lux', 'Website chính thức của Ngọc Rồng Lux – Game Bay Vien Ngoc Rong Mobile nhập vai trực tuyến trên máy tính và điện thoại về Game 7 Viên Ngọc Rồng hấp dẫn nhất hiện nay!', 'Ngọc Rồng Lux', 'Ngọc Rồng Lux,ngoc rong lux, game ngoc rong, game 7 vien ngoc rong, game bay vien ngoc rong', '/logo.png', 55, 'false', 'false', '[\"caovanhuy\",\"td\"]', 'false', 'true', '10000', 'true', '<p style=\"text-align: center;\"><img src=\"../logo.png\" alt=\"img-fluid\" width=\"230\" height=\"89\"></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'comic sans ms\', sans-serif; color: rgb(248, 98, 31); font-size: 10pt;\"><strong>Ch&agrave;o Mừng Ng&agrave;y Lễ HalloWeen 2023</strong></span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'comic sans ms\', sans-serif; color: rgb(248, 98, 31); font-size: 10pt;\"><strong>Ngọc Rồng Lux Ch&iacute;nh Thức Open</strong></span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'comic sans ms\', sans-serif; color: rgb(248, 98, 31); font-size: 10pt;\"><strong>Ch&uacute;c C&aacute;c Bạn C&oacute; Một Ng&agrave;y Lễ Vui Vẻ</strong></span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'comic sans ms\', sans-serif; color: rgb(248, 98, 31); font-size: 10pt;\"><strong>Mở Th&agrave;nh Vi&ecirc;n Miễn Ph&iacute; Trong Ng&agrave;y 31/12/2023 (10H - 11H)</strong></span></p>', 'https://seeklogo.com/images/D/dragon-ball-with-4-stars-logo-F11C43957B-seeklogo.com.png', 'https://www.wallpapertip.com/wmimgs/2-22249_dragon-ball-z-desktop.jpg');
 
 -- --------------------------------------------------------
 
@@ -2563,7 +2651,7 @@ INSERT INTO `item_shop` (`id`, `tab_id`, `temp_id`, `is_new`, `is_sell`, `type_s
 (511, 19, 350, 1, 1, 1, 500, 0, '2022-06-16 08:45:25', 0),
 (512, 19, 351, 1, 1, 1, 500, 0, '2022-06-16 08:45:33', 0),
 (513, 19, 453, 1, 1, 1, 500, 0, '2022-06-16 08:45:51', 0),
-(514, 19, 921, 1, 1, 1, 1000, 0, '2022-06-16 08:46:14', 0),
+(514, 19, 454, 1, 1, 1, 1000, 0, '2022-06-16 08:46:14', 0),
 (515, 20, 379, 1, 1, 0, 100000000, 0, '2022-07-02 07:21:22', 0),
 (537, 24, 559, 0, 1, 0, 555, 0, '2022-09-24 17:13:02', 0),
 (538, 24, 546, 0, 1, 0, 555, 0, '2022-09-24 17:23:02', 0),
@@ -5234,7 +5322,7 @@ INSERT INTO `item_template` (`id`, `TYPE`, `gender`, `NAME`, `description`, `ico
 (918, 27, 3, 'Lính bảo vệ tròn', 'Vật phẩm sự kiện', 8444, -1, 1, 0, 0, 0, -1, -1, -1),
 (919, 27, 3, 'Búp bê', 'Vật phẩm sự kiện', 8472, -1, 1, 0, 0, 0, -1, -1, -1),
 (920, 23, 3, 'Gậy như ý', 'Vật phẩm sự kiện. Dùng để bay phục hồi HP, KI', 8482, 10, 0, 0, 0, 0, -1, -1, -1),
-(921, 27, 3, 'Bông Tai Porata Cấp 2', 'Sử dung để hợp thể với đệ tử', 7993, -1, 0, 1500000, 0, 0, -1, -1, -1),
+(921, 27, 3, 'Bông Tai Porata Cấp 2', 'Sử dụng Hợp thể Đệ tử được ngoại hình BTC4. Chỉ số hợp thể Tăng cao hơn 15% BTC1', 7993, -1, 0, 1500000, 0, 0, -1, -1, -1),
 (922, 5, 0, 'Cải trang Goku Noel', 'Vật phẩm sự kiện', 8483, -1, 0, 0, 0, 0, 937, 938, 939),
 (923, 5, 1, 'Cải trang Pico Noel', 'Vật phẩm sự kiện', 8545, -1, 0, 0, 0, 0, 943, 944, 945),
 (924, 5, 2, 'Cải trang Radic Noel', 'Vật phẩm sự kiện', 8514, -1, 0, 0, 0, 0, 940, 941, 942),
@@ -5443,7 +5531,7 @@ INSERT INTO `item_template` (`id`, `TYPE`, `gender`, `NAME`, `description`, `ico
 (1126, 5, 3, 'CT Hợp thể C3 Namec', 'Ngoại hình BTC3', 13510, -1, 0, 0, 0, 0, 1249, 1250, 1251),
 (1127, 5, 3, 'CT Hợp thể C3 Trái đất', 'Ngoại hình BTC3', 13574, -1, 0, 0, 0, 0, 1255, 1256, 1257),
 (1128, 5, 3, 'CT Hợp thể VIP', 'Ngoại hình VIP', 13542, -1, 0, 0, 0, 0, 1252, 1253, 1254),
-(1129, 27, 3, 'Bông tai Porata cấp 4', 'Sử dụng Hợp thể Đệ tử được ngoại hình BTC3. Chỉ số hợp thể Tăng cao hơn 15% BTC3', 13509, -1, 0, 1500000000, 0, 0, -1, -1, -1),
+(1129, 27, 3, 'Bông tai Porata cấp 4', 'Sử dụng Hợp thể Đệ tử được ngoại hình BTC4. Chỉ số hợp thể Tăng cao hơn 15% BTC3', 13509, -1, 0, 1500000000, 0, 0, -1, -1, -1),
 (1130, 5, 3, 'Cải trang Gojo', 'Dùng để thay đổi ngoại hình', 13613, -1, 0, 0, 0, 0, 1258, 1259, 1260),
 (1131, 11, 3, 'Danh hiệu TOP 1 NẠP', 'Độc nhất vô nhị', 10678, 83, 0, 0, 0, 0, -1, -1, -1),
 (1132, 27, 3, 'Vé Tặng Hồng ngọc', 'Dùng để tặng Hồng ngọc của mình cho người khác. Người chuyển sẽ mất thêm 100 Hồng ngọc khi chuyển đi', 11177, -1, 1, 0, 0, 0, -1, -1, -1),
@@ -8973,7 +9061,7 @@ CREATE TABLE `player` (
 --
 
 INSERT INTO `player` (`id`, `account_id`, `name`, `head`, `gender`, `have_tennis_space_ship`, `clan_id_sv1`, `clan_id_sv2`, `data_inventory`, `data_location`, `data_point`, `data_magic_tree`, `items_body`, `items_bag`, `items_box`, `items_box_lucky_round`, `friends`, `enemies`, `data_intrinsic`, `data_item_time`, `data_item_time_sieucap`, `data_task`, `data_mabu_egg`, `data_dua`, `Tai_xiu`, `data_charm`, `skills`, `skills_shortcut`, `pet`, `data_black_ball`, `data_side_task`, `create_time`, `violate`, `violate1`, `pointPvp`, `info_phoban`, `info_achievement`, `Thu_TrieuHoi`, `nhiemvu_chienthan`, `NguHanhSonPoint`, `data_card`, `vnd`, `dhieu`, `dhtime`, `dhtime2`, `dhtime3`, `dhtime4`, `poingapthu`, `poinBoss`) VALUES
-(2122, 2584, 'bkt', 6, 2, 0, -1, -1, '[12000266873,999999996,205000,0,0]', '[5,733,408]', '[0,1577880,577881,1000,1000,100,100,15,0,0,0,114,153,0,0]', '[10,23,0,1708905300124,1708885979196]', '[\"[2,1,\\\"[\\\\\\\"[47,4]\\\\\\\",\\\\\\\"[223,1]\\\\\\\",\\\\\\\"[226,100]\\\\\\\"]\\\",1712318717600]\",\"[8,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[23,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[29,1,\\\"[\\\\\\\"[7,9]\\\\\\\",\\\\\\\"[223,1]\\\\\\\",\\\\\\\"[226,100]\\\\\\\"]\\\",1712324725152]\",\"[-1,0,\\\"[]\\\",1712333541351]\",\"[1446,1,\\\"[\\\\\\\"[50,20]\\\\\\\",\\\\\\\"[77,33]\\\\\\\",\\\\\\\"[103,37]\\\\\\\",\\\\\\\"[5,15]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712311838462]\",\"[-1,0,\\\"[]\\\",1712333541351]\",\"[-1,0,\\\"[]\\\",1712333541351]\",\"[1326,1,\\\"[\\\\\\\"[50,5]\\\\\\\",\\\\\\\"[77,7]\\\\\\\",\\\\\\\"[103,3]\\\\\\\",\\\\\\\"[5,1]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712324607573]\",\"[1297,1,\\\"[\\\\\\\"[14,13]\\\\\\\",\\\\\\\"[93,2]\\\\\\\"]\\\",1712311838462]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\"]', '[\"[457,220,\\\"[\\\\\\\"[30,1]\\\\\\\"]\\\",1708885979196]\",\"[595,19,\\\"[\\\\\\\"[2,256]\\\\\\\"]\\\",1708886017656]\",\"[1525,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1708888425714]\",\"[926,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1708905308277]\",\"[674,99799,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311895517]\",\"[1518,99,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311938885]\",\"[1740,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311757507]\",\"[1741,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311758130]\",\"[1015,9969,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311893402]\",\"[1529,98745,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311796295]\",\"[1482,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311800585]\",\"[1102,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311838462]\",\"[1326,1,\\\"[\\\\\\\"[50,7]\\\\\\\",\\\\\\\"[77,5]\\\\\\\",\\\\\\\"[103,5]\\\\\\\",\\\\\\\"[5,4]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712324597911]\",\"[1517,9009,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311887089]\",\"[1854,29,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712318704944]\",\"[2,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[17,2,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712324739780]\",\"[222,2,\\\"[\\\\\\\"[69,1]\\\\\\\"]\\\",1712318775597]\",\"[1519,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712318892109]\",\"[18,3,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333658023]\"]', '[\"[12,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\",\"[-1,0,\\\"[]\\\",1712333541352]\"]', '[\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1528,1,\\\"[]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1439,1,\\\"[\\\\\\\"[50,21]\\\\\\\",\\\\\\\"[77,44]\\\\\\\",\\\\\\\"[103,45]\\\\\\\",\\\\\\\"[5,26]\\\\\\\",\\\\\\\"[93,2]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1528,1,\\\"[]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1439,1,\\\"[\\\\\\\"[50,21]\\\\\\\",\\\\\\\"[77,44]\\\\\\\",\\\\\\\"[103,45]\\\\\\\",\\\\\\\"[5,26]\\\\\\\",\\\\\\\"[93,2]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1528,1,\\\"[]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1528,1,\\\"[]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712333541352]\"]', '[]', '[]', '[0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0]', '[30,0,0]', '[]', '[]', '[0,0,0,0,0,0]', '[1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196]', '[\"[4,1,1712318704860,0]\",\"[5,0,0,0]\",\"[8,0,0,0]\",\"[13,0,0,0]\",\"[14,0,0,0]\",\"[21,0,0,0]\",\"[23,0,0,0]\",\"[25,0,0,0]\",\"[19,0,0,0]\"]', '[-1,4,-1,-1,-1]', '[\"[7,2,\\\"$[LV2] Hủy Diệt\\\",0,446188890,2,1]\",\"[0,1537880,280,587,1000,1540,1340,86,30,2,1540,904]\",\"[\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712333541354]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712333541354]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712333541354]\\\",\\\"[29,1,\\\\\\\"[\\\\\\\\\\\\\\\"[107,5]\\\\\\\\\\\\\\\"]\\\\\\\",1708885979196]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712333541354]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712333541354]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712333541354]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712333541354]\\\"]\",\"[\\\"[0,1]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\"]\"]', '[\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\"]', '[29,1712311953558,0,2,4,0]', '2024-02-25 18:32:59', 1712312071051, 0, 0, '[0,0]', '{\"numPayMoney\":4165,\"numHoiSinh\":0,\"numSkillChuong\":0,\"numSellItem\":0,\"numSkillDacBiet\":0,\"numKillNguoiRom\":0,\"numHourOnline\":0,\"listReceiveGem\":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],\"numPickGem\":0,\"numKillSieuQuai\":0,\"numFly\":0,\"numKillMobFly\":0,\"numPvpWin\":0,\"numGivePea\":0}', '[0,\"bktt\",92,12750,1712334143275,0,0,128019]', '[0,0,0,10,1]', 0, '[]', 0, '[1,1]', '[0,0]', '[0,0]', '[0,0]', '[0,0]', 200, 0);
+(2122, 2584, 'admin', 6, 2, 0, -1, -1, '[9820266873,999998996,204790,0,0]', '[154,520,360]', '[0,1608261,608264,1000,1000,100,100,15,0,0,0,2129,1906,0,0]', '[10,23,0,1708905300124,1708885979196]', '[\"[2,1,\\\"[\\\\\\\"[47,4]\\\\\\\",\\\\\\\"[223,1]\\\\\\\",\\\\\\\"[226,100]\\\\\\\",\\\\\\\"[107,6]\\\\\\\"]\\\",1712318717600]\",\"[8,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[23,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[29,1,\\\"[\\\\\\\"[7,9]\\\\\\\",\\\\\\\"[223,1]\\\\\\\",\\\\\\\"[226,100]\\\\\\\"]\\\",1712324725152]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[1326,1,\\\"[\\\\\\\"[50,5]\\\\\\\",\\\\\\\"[77,7]\\\\\\\",\\\\\\\"[103,3]\\\\\\\",\\\\\\\"[5,1]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712324607573]\",\"[1297,1,\\\"[\\\\\\\"[14,13]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712398915533]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\"]', '[\"[457,220,\\\"[\\\\\\\"[30,1]\\\\\\\"]\\\",1708885979196]\",\"[595,19,\\\"[\\\\\\\"[2,256]\\\\\\\"]\\\",1708886017656]\",\"[1525,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1708888425714]\",\"[926,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1708905308277]\",\"[674,99799,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311895517]\",\"[1518,99,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311938885]\",\"[1740,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311757507]\",\"[1741,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311758130]\",\"[1015,9969,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311893402]\",\"[1529,98745,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311796295]\",\"[1482,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311800585]\",\"[1102,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311838462]\",\"[1326,1,\\\"[\\\\\\\"[50,7]\\\\\\\",\\\\\\\"[77,5]\\\\\\\",\\\\\\\"[103,5]\\\\\\\",\\\\\\\"[5,4]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712324597911]\",\"[1517,9009,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311887089]\",\"[1854,29,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712318704944]\",\"[2,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[17,2,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712324739780]\",\"[454,1,\\\"[\\\\\\\"[242,1]\\\\\\\"]\\\",1712398037110]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\"]', '[\"[12,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\"]', '[\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1439,1,\\\"[\\\\\\\"[50,21]\\\\\\\",\\\\\\\"[77,44]\\\\\\\",\\\\\\\"[103,45]\\\\\\\",\\\\\\\"[5,26]\\\\\\\",\\\\\\\"[93,2]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1439,1,\\\"[\\\\\\\"[50,21]\\\\\\\",\\\\\\\"[77,44]\\\\\\\",\\\\\\\"[103,45]\\\\\\\",\\\\\\\"[5,26]\\\\\\\",\\\\\\\"[93,2]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\"]', '[]', '[]', '[0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0]', '[30,0,0]', '[]', '[]', '[0,0,0,0,0,0]', '[1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196]', '[\"[4,1,1712397618332,0]\",\"[5,0,0,0]\",\"[8,0,0,0]\",\"[13,0,0,0]\",\"[14,0,0,0]\",\"[21,0,0,0]\",\"[23,0,0,0]\",\"[25,0,0,0]\",\"[19,0,0,0]\"]', '[-1,4,-1,-1,-1]', '[\"[7,2,\\\"$[LV2] Hủy Diệt\\\",6,442592192,4,1]\",\"[0,1543740,1440,644,1000,1540,1380,86,30,2,2002,1794]\",\"[\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[29,1,\\\\\\\"[\\\\\\\\\\\\\\\"[107,5]\\\\\\\\\\\\\\\"]\\\\\\\",1708885979196]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\"]\",\"[\\\"[0,1]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\"]\"]', '[\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\"]', '[-1,0,0,0,5,0]', '2024-02-25 18:32:59', 0, 0, 0, '[0,0]', '{\"numPayMoney\":7758,\"numHoiSinh\":0,\"numSkillChuong\":0,\"numSellItem\":0,\"numSkillDacBiet\":0,\"numKillNguoiRom\":0,\"numHourOnline\":0,\"listReceiveGem\":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],\"numPickGem\":0,\"numKillSieuQuai\":0,\"numFly\":0,\"numKillMobFly\":0,\"numPvpWin\":0,\"numGivePea\":0}', '[0,\"bktt\",83,13487,1712400118568,0,0,128019]', '[0,0,0,10,1]', 0, '[]', 0, '[1,1]', '[0,0]', '[0,0]', '[0,0]', '[0,0]', 200, 0);
 
 -- --------------------------------------------------------
 
@@ -42153,12 +42241,6 @@ ALTER TABLE `achievement`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `baiviet_hoangvietdung`
---
-ALTER TABLE `baiviet_hoangvietdung`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `bg_item_template`
 --
 ALTER TABLE `bg_item_template`
@@ -42196,17 +42278,41 @@ ALTER TABLE `clan_sv2`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `cmt_hoangvietdung`
---
-ALTER TABLE `cmt_hoangvietdung`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_id` (`post_id`);
+
+--
+-- Chỉ mục cho bảng `cvh_baiviet`
+--
+ALTER TABLE `cvh_baiviet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `cvh_giftcode`
+--
+ALTER TABLE `cvh_giftcode`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `cvh_history_giftcode`
+--
+ALTER TABLE `cvh_history_giftcode`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `cvh_recharge`
+--
+ALTER TABLE `cvh_recharge`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `cvh_setting`
+--
+ALTER TABLE `cvh_setting`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `dhvt_template`
@@ -42486,12 +42592,6 @@ ALTER TABLE `achievement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `baiviet_hoangvietdung`
---
-ALTER TABLE `baiviet_hoangvietdung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT cho bảng `caption`
 --
 ALTER TABLE `caption`
@@ -42510,16 +42610,40 @@ ALTER TABLE `card_detail`
   MODIFY `card_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT cho bảng `cmt_hoangvietdung`
---
-ALTER TABLE `cmt_hoangvietdung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `cvh_baiviet`
+--
+ALTER TABLE `cvh_baiviet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT cho bảng `cvh_giftcode`
+--
+ALTER TABLE `cvh_giftcode`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `cvh_history_giftcode`
+--
+ALTER TABLE `cvh_history_giftcode`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `cvh_recharge`
+--
+ALTER TABLE `cvh_recharge`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `cvh_setting`
+--
+ALTER TABLE `cvh_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `dhvt_template`
