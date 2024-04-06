@@ -1,3 +1,4 @@
 @echo off
-java -jar dist/Ahwuoc.jar
+chcp 65001 > nul
+java -jar dist/nro.jar
 pause

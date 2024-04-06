@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 06, 2024 lúc 03:34 PM
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 06, 2024 at 05:30 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `nro`
+-- Database: `nro`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `account`
+-- Table structure for table `account`
 --
 
 CREATE TABLE `account` (
@@ -55,16 +55,17 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `account`
+-- Dumping data for table `account`
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `create_time`, `update_time`, `ban`, `point_post`, `last_post`, `role`, `is_admin`, `last_time_login`, `last_time_logout`, `ip_address`, `active`, `server_login`, `bd_player`, `gift_time`, `vnd`, `tongnap`, `magioithieu`, `browser_version`, `tichdiem`, `status`, `chucnang`) VALUES
-(2584, 'bkt', '1', '2024-02-05 11:53:11', '2024-02-05 11:53:11', 0, 0, 0, -1, 1, '2024-04-06 10:22:39', '2024-04-06 10:50:42', '0:0:0:0:0:0:0:1', 0, -1, 1, '0', 3310000, 0, 'di65dgag7r', NULL, 0, 1, 2);
+(2585, 'mamemxd', 'mamem', '2024-04-06 14:55:31', '2024-04-06 14:55:31', 0, 0, 0, -1, 0, '2024-04-06 14:58:08', '2024-04-06 15:03:08', '27.68.157.181', 1, -1, 1, '0', 0, 0, NULL, NULL, 0, 1, 0),
+(2586, 'admin', 'admin', '2024-04-06 14:57:11', '2024-04-06 14:57:11', 0, 0, 0, -1, 1, '2024-04-06 15:20:55', '2024-04-06 15:30:30', '116.111.203.184', 1, -1, 1, '0', 0, 0, NULL, NULL, 0, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `achievement`
+-- Table structure for table `achievement`
 --
 
 CREATE TABLE `achievement` (
@@ -76,7 +77,7 @@ CREATE TABLE `achievement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `achievement`
+-- Dumping data for table `achievement`
 --
 
 INSERT INTO `achievement` (`id`, `info1`, `info2`, `count_purpose`, `gem`) VALUES
@@ -100,7 +101,7 @@ INSERT INTO `achievement` (`id`, `info1`, `info2`, `count_purpose`, `gem`) VALUE
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bg_item_template`
+-- Table structure for table `bg_item_template`
 --
 
 CREATE TABLE `bg_item_template` (
@@ -112,7 +113,7 @@ CREATE TABLE `bg_item_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `bg_item_template`
+-- Dumping data for table `bg_item_template`
 --
 
 INSERT INTO `bg_item_template` (`id`, `image_id`, `layer`, `dx`, `dy`) VALUES
@@ -576,7 +577,7 @@ INSERT INTO `bg_item_template` (`id`, `image_id`, `layer`, `dx`, `dy`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `caption`
+-- Table structure for table `caption`
 --
 
 CREATE TABLE `caption` (
@@ -585,7 +586,7 @@ CREATE TABLE `caption` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `caption`
+-- Dumping data for table `caption`
 --
 
 INSERT INTO `caption` (`id`, `NAME`) VALUES
@@ -615,7 +616,7 @@ INSERT INTO `caption` (`id`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `card`
+-- Table structure for table `card`
 --
 
 CREATE TABLE `card` (
@@ -626,7 +627,7 @@ CREATE TABLE `card` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `card`
+-- Dumping data for table `card`
 --
 
 INSERT INTO `card` (`card_id`, `NAME`, `khuyen_mai`, `status`) VALUES
@@ -638,7 +639,7 @@ INSERT INTO `card` (`card_id`, `NAME`, `khuyen_mai`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `card_detail`
+-- Table structure for table `card_detail`
 --
 
 CREATE TABLE `card_detail` (
@@ -649,7 +650,7 @@ CREATE TABLE `card_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `card_detail`
+-- Dumping data for table `card_detail`
 --
 
 INSERT INTO `card_detail` (`card_detail_id`, `card_id`, `price`, `thoi_vang`) VALUES
@@ -678,7 +679,7 @@ INSERT INTO `card_detail` (`card_detail_id`, `card_id`, `price`, `thoi_vang`) VA
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `clan_sv1`
+-- Table structure for table `clan_sv1`
 --
 
 CREATE TABLE `clan_sv1` (
@@ -696,7 +697,7 @@ CREATE TABLE `clan_sv1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `clan_sv1`
+-- Dumping data for table `clan_sv1`
 --
 
 INSERT INTO `clan_sv1` (`id`, `NAME`, `slogan`, `img_id`, `power_point`, `max_member`, `clan_point`, `LEVEL`, `members`, `doanh_trai`, `create_time`) VALUES
@@ -706,7 +707,7 @@ INSERT INTO `clan_sv1` (`id`, `NAME`, `slogan`, `img_id`, `power_point`, `max_me
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `clan_sv2`
+-- Table structure for table `clan_sv2`
 --
 
 CREATE TABLE `clan_sv2` (
@@ -725,7 +726,7 @@ CREATE TABLE `clan_sv2` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -741,7 +742,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cvh_baiviet`
+-- Table structure for table `cvh_baiviet`
 --
 
 CREATE TABLE `cvh_baiviet` (
@@ -760,17 +761,16 @@ CREATE TABLE `cvh_baiviet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `cvh_baiviet`
+-- Dumping data for table `cvh_baiviet`
 --
 
 INSERT INTO `cvh_baiviet` (`id`, `title`, `content`, `if_admin`, `views`, `likes`, `comments`, `status`, `role`, `poster`, `created`, `time`) VALUES
-(10, 'Thông báo update sự kiện hè', '<p>Thời gian diễn ra sự kiện: 00h ng&agrave;y 15/6-15/7<br>Hoạt động h&egrave; bao gồm c&aacute;c nội dung sau:<br>​⭐1/ Săn bắt c&ocirc;n tr&ugrave;ng:<br>- Trong thơi gian diễn ra hoạt động sự kiện h&egrave;. Người chơi c&oacute; thể nhận được c&aacute;c loại bọ khi đ&aacute;nh qu&aacute;i như sau:<br>- Rừng dương xỉ, rừng bambo nhận được Bọ Kiến Vương Hai Sừng<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng nhận được Bọ Hung T&ecirc; Gi&aacute;c<br>- Đồi nấm t&iacute;m, thung lũng namec nhận được Bọ Kẹp K&igrave;m<br>- Ngo&agrave;i ra c&aacute;c cư d&acirc;n c&oacute; thể bắt c&aacute;c loại bọ qu&yacute; hiếm hơn như Bọ C&aacute;nh Cứng v&agrave; Ng&agrave;i Đ&ecirc;m bằng c&aacute;ch sau:<br>*Bọ C&aacute;nh Cứng:<br>- Để bắt được Bọ C&aacute;nh Cứng, c&aacute;c cư d&acirc;n cần c&oacute; những bật phẩm sau:<br>- Bọ Kiến Vương Hai Sừng x10<br>- Bọ Hung T&ecirc; Gi&aacute;c x10<br>- Bọ Kẹp K&igrave;m x10<br>- Hũ Mật Ong x1<br>- Hũ mật ong được b&aacute;n tại Santa với gi&aacute; 200 Triệu V&agrave;ng<br>- Những khu vực sẽ xuất hiện Bọ C&aacute;nh Cứng:<br>- Rừng dương xỉ, rừng bambo<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng<br>- Đồi nấm t&iacute;m, thung lũng namec<br>- Khi đ&atilde; c&oacute; đủ c&aacute;c nguy&ecirc;n liệu, c&aacute;c cư d&acirc;n di chuyển tới khu vực xuất hiện Bọ C&aacute;nh Cứng v&agrave; ấn sử dụng Hũ Mật Ong để tiến h&agrave;nh bắt Bọ C&aacute;nh Cứng<br>- Đưa Bọ C&aacute;nh Cứng cho Quy L&atilde;o sẽ nhận được 1 phần qu&agrave; ngẫu nhi&ecirc;n sau:<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng )<br>- Quả B&oacute;ng Si&ecirc;u Việt ( Hạn sử dụng )<br>- C&acirc;y Kem ( Hạn sử dụng )<br>- C&aacute; Heo ( Hạn sử dụng )<br>- Con Diều ( Hạn sử dụng - Vĩnh Viễn )<br>- Diều Rồng ( Hạn sử dụng - Vĩnh Viễn )<br>- Xi&ecirc;n C&aacute; ( Hạn sử dụng - Vĩnh Viễn )<br>- Bọ C&aacute;nh Cứng (pet) ( Hạn sử dụng - Vĩnh Viễn )<br>*Ng&agrave;i Đ&ecirc;m:<br>- Để bắt được Ng&agrave;i Đ&ecirc;m, c&aacute;c cư d&acirc;n cần c&oacute; những bật phẩm sau:<br>- Bọ Kiến Vương Hai Sừng x10<br>- Bọ Hung T&ecirc; Gi&aacute;c x10<br>- Bọ Kẹp K&igrave;m x10<br>- Hũ Mật Ong x1<br>- Vợt Bắt Bọ x1<br>- Vợt Bắt Bọ Được b&aacute;n tại Santa với gi&aacute; 500 Triệu V&agrave;ng<br>- Những khu vực sẽ xuất hiện Ng&agrave;i Đ&ecirc;m:<br>- Rừng dương xỉ, rừng bambo<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng<br>- Đồi nấm t&iacute;m, thung lũng namec<br>- Khi đ&atilde; c&oacute; đủ c&aacute;c nguy&ecirc;n liệu, c&aacute;c cư d&acirc;n di chuyển tới khu vực xuất hiện Ng&agrave;i Đ&ecirc;m v&agrave; ấn sử dụng Vợt Bắt Bọ để tiến h&agrave;nh bắt Ng&agrave;i Đ&ecirc;m<br>- Đưa Ng&agrave;i Đ&ecirc;m cho Quy L&atilde;o sẽ nhận được 1 phần qu&agrave; ngẫu nhi&ecirc;n sau:<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng )<br>- Quả B&oacute;ng Si&ecirc;u Việt ( Hạn sử dụng )<br>- C&acirc;y Kem ( Hạn sử dụng )<br>- C&aacute; Heo ( Hạn sử dụng )<br>- Con Diều ( Hạn sử dụng )<br>- Diều Rồng ( Hạn sử dụng )<br>- Xi&ecirc;n C&aacute; ( Hạn sử dụng - Vĩnh Viễn )<br>- Bong B&oacute;ng Heo ( Hạn sử dụng - Vĩnh Viễn )<br>- B&oacute;ng Vịt V&agrave;ng ( Hạn sử dụng - Vĩnh Viễn )<br>- Ng&agrave;i Đ&ecirc;m (pet) ( Hạn sử dụng - Vĩnh Viễn )<br>- Th&uacute; cưỡi Ve Sầu X&ecirc;n ( Hạn sử dụng - Vĩnh Viễn )<br>- Th&uacute; cưỡi Ve Sầu X&ecirc;n Tiến H&oacute;a ( Hạn sử dụng - Vĩnh Viễn )<br>⭐2/ Săn Bắt Hải Sản<br>- Trong thời gian diễn ra sự kiện h&egrave;, c&aacute;c cư d&acirc;n c&oacute; thể sưu tầm c&aacute;c lo&agrave;i động vật biển để đổi qu&agrave;<br>- Trong thời gian diễn ra sự kiện, tại Santa c&oacute; b&aacute;n vật phẩm Quần Đi Biển với gi&aacute; 100 triệu v&agrave;ng<br>- Khi mặc quần đi biển v&agrave;o c&aacute;c cư d&acirc;n phải cởi &aacute;o v&agrave; cải trang v&agrave; t&aacute;ch hợp thể ra đ&aacute;nh qu&aacute;i sẽ c&oacute; cơ hội nhận được Vỏ ốc, S&ograve;, Cua, Sao biển<br>- Tại Santa cũng c&oacute; b&aacute;n Tr&aacute;i dừa với gi&aacute; 20 triệu v&agrave;ng, khi d&ugrave;ng tr&aacute;i dừa c&ugrave;ng với quần đi biển sẽ c&oacute; tỉ lệ đ&aacute;nh qu&aacute;i rơi c&aacute;c vật phẩm Vỏ ốc, S&ograve;, Cua, Sao biển cao hơn ( Bắt buộc phải mặc quần đi biển )<br>- T&iacute;ch Vỏ ốc, S&ograve;, Cua, Sao biển v&agrave; mang đến Quy L&atilde;o Kame để đổi qu&agrave;. Nhiều phần qu&agrave; hấp dẫn đang chờ đ&oacute;n c&aacute;c cư d&acirc;n kh&aacute;m ph&aacute;<br>*Đổi qu&agrave;:<br>- Vỏ ốc x99 sẽ đổi được ngẫu nhi&ecirc;n<br>B&oacute; hoa hồng v&agrave;ng hạn sử dụng hoặc vĩnh viễn<br>B&oacute; hoa hồng đỏ hạn sử dụng hoặc vĩnh viễn<br>- Vỏ s&ograve; x99 sẽ đổi được ngẫu nhi&ecirc;n<br>C&aacute; ch&agrave; b&aacute; hạn sử dụng hoặc vĩnh viễn<br>C&acirc;y nắp ấm hạn sử dụng hoặc vĩnh viễn<br>- Cua x99 sẽ đổi được ngẫu nhi&ecirc;n<br>Phượng Ho&agrave;ng Lửa hạn sử dụng hoặc vĩnh viễn<br>R&ugrave;a Bay hạn sử dụng hoặc vĩnh viễn<br>- Sao biển x99 sẽ đổi được ngẫu nhi&ecirc;n<br>Bong B&oacute;ng Heo hạn sử dụng hoặc vĩnh viễn<br>B&oacute;ng vịt v&agrave;ng hạn sử dụng hoặc vĩnh viễn<br>*Ngo&agrave;i ra bạn c&oacute; thể sử dụng:<br>- Vỏ ốc x99 + Vỏ s&ograve; x99 + Cua x99 + Sao biển x99 sẽ đổi được cải trang h&egrave; 2023 ngẫu nhi&ecirc;n ( Hạn sử dụng hoặc vĩnh viễn )<br>⭐3/ Giftcode Sự Kiện H&egrave;<br>- C&aacute;c cư d&acirc;n h&atilde;y tới npc ở nh&agrave; v&agrave;o mục qu&agrave; tặng v&agrave; nhập giftcode: sukienhe<br>Qu&agrave; từ giftcode sẽ l&agrave;:<br>Quần hoa x1 Hạn Sử Dụng<br>Tr&aacute;i Dừa x1<br>⭐4/ V&ograve;ng Quay Thượng Đế:<br>V&ograve;ng Quay Thượng Đế sẽ cập nhật những vật phẩm sau:<br>- Quạt Ba Ti&ecirc;u ( Hạn sử dụng - Vĩnh Viễn )<br>- Vỏ Ốc ( Hạn sử dụng - Vĩnh Viễn )<br>- C&aacute; Heo ( Hạn sử dụng - Vĩnh Viễn )<br>- Con Diều ( Hạn sử dụng - Vĩnh Viễn )<br>- Diều Rồng ( Hạn sử dụng - Vĩnh Viễn )<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng - Vĩnh Viễn )<br>Ch&uacute;c c&aacute;c cư d&acirc;n c&oacute; những ng&agrave;y h&egrave; vui vẻ<br>------------------------------★------------------------------<br>NGỌC RỒNG HADES - TỰA GAME TUỔI THƠ<br>- Fanpage : https://www.facebook.com/nrohades<br>- Trang chủ : http://nrohades.com<br>- Gruop : https://www.facebook.com/groups/ngocronghades<br><br></p>\r\n<center><img class=\"img-fluid rounded-4 w-100 object-fit-cover\" src=\"https://i.ibb.co/47sN7wb/354254552-214136714896244-5514405491694721852-n.jpg\" width=\"680\" height=\"680\"></center>', '{\"name\":\"ADMIN\",\"avatar\":\"\\/assets\\/images\\/avatar\\/admin\\/6.png\"}', '12134', '[\"caovanhuy\",\"td\",\"despair\",\"a\"]', '[{\"account_id\":\"1\",\"noidung\":\"có cái ***** ***** ***** mày\",\"time\":1699179193}]', 1, 2, '100', '2023-10-26', '1698299697'),
-(15, 'Huyy liu tiu diu', 'Share sụt', '', '5866', '[]', '[{\"account_id\":\"2584\",\"noidung\":\"https://viet69z.pro\",\"time\":1699179131}]', 1, 1, '2584', '2023-11-05', '1699179030');
+(10, 'Thông báo update sự kiện hè', '<p>Thời gian diễn ra sự kiện: 00h ng&agrave;y 15/6-15/7<br>Hoạt động h&egrave; bao gồm c&aacute;c nội dung sau:<br>​⭐1/ Săn bắt c&ocirc;n tr&ugrave;ng:<br>- Trong thơi gian diễn ra hoạt động sự kiện h&egrave;. Người chơi c&oacute; thể nhận được c&aacute;c loại bọ khi đ&aacute;nh qu&aacute;i như sau:<br>- Rừng dương xỉ, rừng bambo nhận được Bọ Kiến Vương Hai Sừng<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng nhận được Bọ Hung T&ecirc; Gi&aacute;c<br>- Đồi nấm t&iacute;m, thung lũng namec nhận được Bọ Kẹp K&igrave;m<br>- Ngo&agrave;i ra c&aacute;c cư d&acirc;n c&oacute; thể bắt c&aacute;c loại bọ qu&yacute; hiếm hơn như Bọ C&aacute;nh Cứng v&agrave; Ng&agrave;i Đ&ecirc;m bằng c&aacute;ch sau:<br>*Bọ C&aacute;nh Cứng:<br>- Để bắt được Bọ C&aacute;nh Cứng, c&aacute;c cư d&acirc;n cần c&oacute; những bật phẩm sau:<br>- Bọ Kiến Vương Hai Sừng x10<br>- Bọ Hung T&ecirc; Gi&aacute;c x10<br>- Bọ Kẹp K&igrave;m x10<br>- Hũ Mật Ong x1<br>- Hũ mật ong được b&aacute;n tại Santa với gi&aacute; 200 Triệu V&agrave;ng<br>- Những khu vực sẽ xuất hiện Bọ C&aacute;nh Cứng:<br>- Rừng dương xỉ, rừng bambo<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng<br>- Đồi nấm t&iacute;m, thung lũng namec<br>- Khi đ&atilde; c&oacute; đủ c&aacute;c nguy&ecirc;n liệu, c&aacute;c cư d&acirc;n di chuyển tới khu vực xuất hiện Bọ C&aacute;nh Cứng v&agrave; ấn sử dụng Hũ Mật Ong để tiến h&agrave;nh bắt Bọ C&aacute;nh Cứng<br>- Đưa Bọ C&aacute;nh Cứng cho Quy L&atilde;o sẽ nhận được 1 phần qu&agrave; ngẫu nhi&ecirc;n sau:<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng )<br>- Quả B&oacute;ng Si&ecirc;u Việt ( Hạn sử dụng )<br>- C&acirc;y Kem ( Hạn sử dụng )<br>- C&aacute; Heo ( Hạn sử dụng )<br>- Con Diều ( Hạn sử dụng - Vĩnh Viễn )<br>- Diều Rồng ( Hạn sử dụng - Vĩnh Viễn )<br>- Xi&ecirc;n C&aacute; ( Hạn sử dụng - Vĩnh Viễn )<br>- Bọ C&aacute;nh Cứng (pet) ( Hạn sử dụng - Vĩnh Viễn )<br>*Ng&agrave;i Đ&ecirc;m:<br>- Để bắt được Ng&agrave;i Đ&ecirc;m, c&aacute;c cư d&acirc;n cần c&oacute; những bật phẩm sau:<br>- Bọ Kiến Vương Hai Sừng x10<br>- Bọ Hung T&ecirc; Gi&aacute;c x10<br>- Bọ Kẹp K&igrave;m x10<br>- Hũ Mật Ong x1<br>- Vợt Bắt Bọ x1<br>- Vợt Bắt Bọ Được b&aacute;n tại Santa với gi&aacute; 500 Triệu V&agrave;ng<br>- Những khu vực sẽ xuất hiện Ng&agrave;i Đ&ecirc;m:<br>- Rừng dương xỉ, rừng bambo<br>- Rừng nguy&ecirc;n sinh, rừng th&ocirc;ng<br>- Đồi nấm t&iacute;m, thung lũng namec<br>- Khi đ&atilde; c&oacute; đủ c&aacute;c nguy&ecirc;n liệu, c&aacute;c cư d&acirc;n di chuyển tới khu vực xuất hiện Ng&agrave;i Đ&ecirc;m v&agrave; ấn sử dụng Vợt Bắt Bọ để tiến h&agrave;nh bắt Ng&agrave;i Đ&ecirc;m<br>- Đưa Ng&agrave;i Đ&ecirc;m cho Quy L&atilde;o sẽ nhận được 1 phần qu&agrave; ngẫu nhi&ecirc;n sau:<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng )<br>- Quả B&oacute;ng Si&ecirc;u Việt ( Hạn sử dụng )<br>- C&acirc;y Kem ( Hạn sử dụng )<br>- C&aacute; Heo ( Hạn sử dụng )<br>- Con Diều ( Hạn sử dụng )<br>- Diều Rồng ( Hạn sử dụng )<br>- Xi&ecirc;n C&aacute; ( Hạn sử dụng - Vĩnh Viễn )<br>- Bong B&oacute;ng Heo ( Hạn sử dụng - Vĩnh Viễn )<br>- B&oacute;ng Vịt V&agrave;ng ( Hạn sử dụng - Vĩnh Viễn )<br>- Ng&agrave;i Đ&ecirc;m (pet) ( Hạn sử dụng - Vĩnh Viễn )<br>- Th&uacute; cưỡi Ve Sầu X&ecirc;n ( Hạn sử dụng - Vĩnh Viễn )<br>- Th&uacute; cưỡi Ve Sầu X&ecirc;n Tiến H&oacute;a ( Hạn sử dụng - Vĩnh Viễn )<br>⭐2/ Săn Bắt Hải Sản<br>- Trong thời gian diễn ra sự kiện h&egrave;, c&aacute;c cư d&acirc;n c&oacute; thể sưu tầm c&aacute;c lo&agrave;i động vật biển để đổi qu&agrave;<br>- Trong thời gian diễn ra sự kiện, tại Santa c&oacute; b&aacute;n vật phẩm Quần Đi Biển với gi&aacute; 100 triệu v&agrave;ng<br>- Khi mặc quần đi biển v&agrave;o c&aacute;c cư d&acirc;n phải cởi &aacute;o v&agrave; cải trang v&agrave; t&aacute;ch hợp thể ra đ&aacute;nh qu&aacute;i sẽ c&oacute; cơ hội nhận được Vỏ ốc, S&ograve;, Cua, Sao biển<br>- Tại Santa cũng c&oacute; b&aacute;n Tr&aacute;i dừa với gi&aacute; 20 triệu v&agrave;ng, khi d&ugrave;ng tr&aacute;i dừa c&ugrave;ng với quần đi biển sẽ c&oacute; tỉ lệ đ&aacute;nh qu&aacute;i rơi c&aacute;c vật phẩm Vỏ ốc, S&ograve;, Cua, Sao biển cao hơn ( Bắt buộc phải mặc quần đi biển )<br>- T&iacute;ch Vỏ ốc, S&ograve;, Cua, Sao biển v&agrave; mang đến Quy L&atilde;o Kame để đổi qu&agrave;. Nhiều phần qu&agrave; hấp dẫn đang chờ đ&oacute;n c&aacute;c cư d&acirc;n kh&aacute;m ph&aacute;<br>*Đổi qu&agrave;:<br>- Vỏ ốc x99 sẽ đổi được ngẫu nhi&ecirc;n<br>B&oacute; hoa hồng v&agrave;ng hạn sử dụng hoặc vĩnh viễn<br>B&oacute; hoa hồng đỏ hạn sử dụng hoặc vĩnh viễn<br>- Vỏ s&ograve; x99 sẽ đổi được ngẫu nhi&ecirc;n<br>C&aacute; ch&agrave; b&aacute; hạn sử dụng hoặc vĩnh viễn<br>C&acirc;y nắp ấm hạn sử dụng hoặc vĩnh viễn<br>- Cua x99 sẽ đổi được ngẫu nhi&ecirc;n<br>Phượng Ho&agrave;ng Lửa hạn sử dụng hoặc vĩnh viễn<br>R&ugrave;a Bay hạn sử dụng hoặc vĩnh viễn<br>- Sao biển x99 sẽ đổi được ngẫu nhi&ecirc;n<br>Bong B&oacute;ng Heo hạn sử dụng hoặc vĩnh viễn<br>B&oacute;ng vịt v&agrave;ng hạn sử dụng hoặc vĩnh viễn<br>*Ngo&agrave;i ra bạn c&oacute; thể sử dụng:<br>- Vỏ ốc x99 + Vỏ s&ograve; x99 + Cua x99 + Sao biển x99 sẽ đổi được cải trang h&egrave; 2023 ngẫu nhi&ecirc;n ( Hạn sử dụng hoặc vĩnh viễn )<br>⭐3/ Giftcode Sự Kiện H&egrave;<br>- C&aacute;c cư d&acirc;n h&atilde;y tới npc ở nh&agrave; v&agrave;o mục qu&agrave; tặng v&agrave; nhập giftcode: sukienhe<br>Qu&agrave; từ giftcode sẽ l&agrave;:<br>Quần hoa x1 Hạn Sử Dụng<br>Tr&aacute;i Dừa x1<br>⭐4/ V&ograve;ng Quay Thượng Đế:<br>V&ograve;ng Quay Thượng Đế sẽ cập nhật những vật phẩm sau:<br>- Quạt Ba Ti&ecirc;u ( Hạn sử dụng - Vĩnh Viễn )<br>- Vỏ Ốc ( Hạn sử dụng - Vĩnh Viễn )<br>- C&aacute; Heo ( Hạn sử dụng - Vĩnh Viễn )<br>- Con Diều ( Hạn sử dụng - Vĩnh Viễn )<br>- Diều Rồng ( Hạn sử dụng - Vĩnh Viễn )<br>- V&aacute;n Lướt S&oacute;ng ( Hạn sử dụng - Vĩnh Viễn )<br>Ch&uacute;c c&aacute;c cư d&acirc;n c&oacute; những ng&agrave;y h&egrave; vui vẻ<br>------------------------------★------------------------------<br>NGỌC RỒNG HADES - TỰA GAME TUỔI THƠ<br>- Fanpage : https://www.facebook.com/nrohades<br>- Trang chủ : http://nrohades.com<br>- Gruop : https://www.facebook.com/groups/ngocronghades<br><br></p>\r\n<center><img class=\"img-fluid rounded-4 w-100 object-fit-cover\" src=\"https://i.ibb.co/47sN7wb/354254552-214136714896244-5514405491694721852-n.jpg\" width=\"680\" height=\"680\"></center>', '{\"name\":\"ADMIN\",\"avatar\":\"\\/assets\\/images\\/avatar\\/admin\\/6.png\"}', '12136', '[\"caovanhuy\",\"td\",\"despair\",\"a\"]', '[{\"account_id\":\"1\",\"noidung\":\"có cái ***** ***** ***** mày\",\"time\":1699179193}]', 1, 2, '100', '2023-10-26', '1698299697');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cvh_giftcode`
+-- Table structure for table `cvh_giftcode`
 --
 
 CREATE TABLE `cvh_giftcode` (
@@ -785,7 +785,7 @@ CREATE TABLE `cvh_giftcode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `cvh_giftcode`
+-- Dumping data for table `cvh_giftcode`
 --
 
 INSERT INTO `cvh_giftcode` (`id`, `code`, `luot`, `item`, `option`, `status`, `hsd`, `time`) VALUES
@@ -796,7 +796,7 @@ INSERT INTO `cvh_giftcode` (`id`, `code`, `luot`, `item`, `option`, `status`, `h
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cvh_history_giftcode`
+-- Table structure for table `cvh_history_giftcode`
 --
 
 CREATE TABLE `cvh_history_giftcode` (
@@ -807,7 +807,7 @@ CREATE TABLE `cvh_history_giftcode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Lịch sử nhận gift code';
 
 --
--- Đang đổ dữ liệu cho bảng `cvh_history_giftcode`
+-- Dumping data for table `cvh_history_giftcode`
 --
 
 INSERT INTO `cvh_history_giftcode` (`id`, `player_id`, `code`, `time`) VALUES
@@ -816,7 +816,7 @@ INSERT INTO `cvh_history_giftcode` (`id`, `player_id`, `code`, `time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cvh_recharge`
+-- Table structure for table `cvh_recharge`
 --
 
 CREATE TABLE `cvh_recharge` (
@@ -835,7 +835,7 @@ CREATE TABLE `cvh_recharge` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cvh_setting`
+-- Table structure for table `cvh_setting`
 --
 
 CREATE TABLE `cvh_setting` (
@@ -859,7 +859,7 @@ CREATE TABLE `cvh_setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `cvh_setting`
+-- Dumping data for table `cvh_setting`
 --
 
 INSERT INTO `cvh_setting` (`id`, `title`, `description`, `author`, `keywords`, `logo`, `size_logo`, `eff_load`, `nhanqua`, `user_nhanqua`, `vongquay`, `mtv`, `amount_mtv`, `thongbao`, `nd_thongbao`, `favicon`, `background`) VALUES
@@ -868,7 +868,7 @@ INSERT INTO `cvh_setting` (`id`, `title`, `description`, `author`, `keywords`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `dhvt_template`
+-- Table structure for table `dhvt_template`
 --
 
 CREATE TABLE `dhvt_template` (
@@ -882,7 +882,7 @@ CREATE TABLE `dhvt_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `dhvt_template`
+-- Dumping data for table `dhvt_template`
 --
 
 INSERT INTO `dhvt_template` (`id`, `cup`, `time`, `gem`, `gold`, `min_start`, `min_limit`) VALUES
@@ -891,7 +891,7 @@ INSERT INTO `dhvt_template` (`id`, `cup`, `time`, `gem`, `gold`, `min_start`, `m
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `flag_bag`
+-- Table structure for table `flag_bag`
 --
 
 CREATE TABLE `flag_bag` (
@@ -904,7 +904,7 @@ CREATE TABLE `flag_bag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `flag_bag`
+-- Dumping data for table `flag_bag`
 --
 
 INSERT INTO `flag_bag` (`id`, `icon_data`, `NAME`, `gold`, `gem`, `icon_id`) VALUES
@@ -1046,7 +1046,7 @@ INSERT INTO `flag_bag` (`id`, `icon_data`, `NAME`, `gold`, `gem`, `icon_id`) VAL
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `gidtcode_history`
+-- Table structure for table `gidtcode_history`
 --
 
 CREATE TABLE `gidtcode_history` (
@@ -1056,10 +1056,20 @@ CREATE TABLE `gidtcode_history` (
   `time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Lịch sử nhận gift code';
 
+--
+-- Dumping data for table `gidtcode_history`
+--
+
+INSERT INTO `gidtcode_history` (`id`, `player_id`, `code`, `time`) VALUES
+(9681, 2586, 'qua1', '2024-04-06 08:01:41'),
+(9682, 2586, 'qua2', '2024-04-06 08:01:50'),
+(9683, 2586, 'qua3', '2024-04-06 08:01:59'),
+(9684, 2586, 'qua5', '2024-04-06 08:02:09');
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `giftcodeviet`
+-- Table structure for table `giftcodeviet`
 --
 
 CREATE TABLE `giftcodeviet` (
@@ -1070,20 +1080,20 @@ CREATE TABLE `giftcodeviet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `giftcodeviet`
+-- Dumping data for table `giftcodeviet`
 --
 
 INSERT INTO `giftcodeviet` (`id`, `Code`, `Luot`, `Item`) VALUES
-(1, 'qua1', 18531, '[{\"item\":457,\"soluong\":200,\"Option\":[{\"option\":30,\"chiso\":0}]}]'),
-(2, 'qua2', 19022, '[{\"item\":861,\"soluong\":100000,\"Option\":[{\"option\":30,\"chiso\":0}]}]'),
-(3, 'qua3', 19130, '[\r\n{\"item\":381,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]},{\"item\":382,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]},{\"item\":383,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]},{\"item\":384,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]}\r\n]'),
+(1, 'qua1', 18530, '[{\"item\":457,\"soluong\":200,\"Option\":[{\"option\":30,\"chiso\":0}]}]'),
+(2, 'qua2', 19021, '[{\"item\":861,\"soluong\":100000,\"Option\":[{\"option\":30,\"chiso\":0}]}]'),
+(3, 'qua3', 19129, '[\r\n{\"item\":381,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]},{\"item\":382,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]},{\"item\":383,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]},{\"item\":384,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]}\r\n]'),
 (4, 'qua4', 19110, '[\r\n{\"item\":1312,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]}\r\n]'),
-(19, 'qua5', 19110, '[\r\n{\"item\":1529,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]}\r\n]');
+(19, 'qua5', 19109, '[\r\n{\"item\":1529,\"soluong\":10,\"Option\":[{\"option\":30,\"chiso\":0}]}\r\n]');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `head_avatar`
+-- Table structure for table `head_avatar`
 --
 
 CREATE TABLE `head_avatar` (
@@ -1092,7 +1102,7 @@ CREATE TABLE `head_avatar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `head_avatar`
+-- Dumping data for table `head_avatar`
 --
 
 INSERT INTO `head_avatar` (`head_id`, `avatar_id`) VALUES
@@ -1481,7 +1491,7 @@ INSERT INTO `head_avatar` (`head_id`, `avatar_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `history_event`
+-- Table structure for table `history_event`
 --
 
 CREATE TABLE `history_event` (
@@ -1494,7 +1504,7 @@ CREATE TABLE `history_event` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `history_gold`
+-- Table structure for table `history_gold`
 --
 
 CREATE TABLE `history_gold` (
@@ -1504,7 +1514,7 @@ CREATE TABLE `history_gold` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `history_gold`
+-- Dumping data for table `history_gold`
 --
 
 INSERT INTO `history_gold` (`id`, `name`, `gold`) VALUES
@@ -1770,7 +1780,7 @@ INSERT INTO `history_gold` (`id`, `name`, `gold`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `history_receive_goldbar`
+-- Table structure for table `history_receive_goldbar`
 --
 
 CREATE TABLE `history_receive_goldbar` (
@@ -1788,7 +1798,7 @@ CREATE TABLE `history_receive_goldbar` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `history_transaction`
+-- Table structure for table `history_transaction`
 --
 
 CREATE TABLE `history_transaction` (
@@ -1806,7 +1816,7 @@ CREATE TABLE `history_transaction` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `img_by_name`
+-- Table structure for table `img_by_name`
 --
 
 CREATE TABLE `img_by_name` (
@@ -1816,7 +1826,7 @@ CREATE TABLE `img_by_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `img_by_name`
+-- Dumping data for table `img_by_name`
 --
 
 INSERT INTO `img_by_name` (`id`, `NAME`, `n_frame`) VALUES
@@ -1903,7 +1913,7 @@ INSERT INTO `img_by_name` (`id`, `NAME`, `n_frame`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `intrinsic`
+-- Table structure for table `intrinsic`
 --
 
 CREATE TABLE `intrinsic` (
@@ -1918,7 +1928,7 @@ CREATE TABLE `intrinsic` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `intrinsic`
+-- Dumping data for table `intrinsic`
 --
 
 INSERT INTO `intrinsic` (`id`, `NAME`, `param_from_1`, `param_to_1`, `param_from_2`, `param_to_2`, `icon`, `gender`) VALUES
@@ -1953,7 +1963,7 @@ INSERT INTO `intrinsic` (`id`, `NAME`, `param_from_1`, `param_to_1`, `param_from
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `item_option_template`
+-- Table structure for table `item_option_template`
 --
 
 CREATE TABLE `item_option_template` (
@@ -1962,7 +1972,7 @@ CREATE TABLE `item_option_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `item_option_template`
+-- Dumping data for table `item_option_template`
 --
 
 INSERT INTO `item_option_template` (`id`, `NAME`) VALUES
@@ -2222,7 +2232,7 @@ INSERT INTO `item_option_template` (`id`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `item_shop`
+-- Table structure for table `item_shop`
 --
 
 CREATE TABLE `item_shop` (
@@ -2239,7 +2249,7 @@ CREATE TABLE `item_shop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `item_shop`
+-- Dumping data for table `item_shop`
 --
 
 INSERT INTO `item_shop` (`id`, `tab_id`, `temp_id`, `is_new`, `is_sell`, `type_sell`, `cost`, `icon_spec`, `create_time`, `item_spec`) VALUES
@@ -2865,7 +2875,7 @@ INSERT INTO `item_shop` (`id`, `tab_id`, `temp_id`, `is_new`, `is_sell`, `type_s
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `item_shop_option`
+-- Table structure for table `item_shop_option`
 --
 
 CREATE TABLE `item_shop_option` (
@@ -2875,7 +2885,7 @@ CREATE TABLE `item_shop_option` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `item_shop_option`
+-- Dumping data for table `item_shop_option`
 --
 
 INSERT INTO `item_shop_option` (`item_shop_id`, `option_id`, `param`) VALUES
@@ -4375,7 +4385,7 @@ INSERT INTO `item_shop_option` (`item_shop_id`, `option_id`, `param`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `item_template`
+-- Table structure for table `item_template`
 --
 
 CREATE TABLE `item_template` (
@@ -4396,7 +4406,7 @@ CREATE TABLE `item_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `item_template`
+-- Dumping data for table `item_template`
 --
 
 INSERT INTO `item_template` (`id`, `TYPE`, `gender`, `NAME`, `description`, `icon_id`, `part`, `is_up_to_up`, `power_require`, `gold`, `gem`, `head`, `body`, `leg`) VALUES
@@ -6453,7 +6463,7 @@ INSERT INTO `item_template` (`id`, `TYPE`, `gender`, `NAME`, `description`, `ico
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `map_template`
+-- Table structure for table `map_template`
 --
 
 CREATE TABLE `map_template` (
@@ -6473,7 +6483,7 @@ CREATE TABLE `map_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `map_template`
+-- Dumping data for table `map_template`
 --
 
 INSERT INTO `map_template` (`id`, `NAME`, `zones`, `max_player`, `data`, `type`, `planet_id`, `bg_type`, `tile_id`, `bg_id`, `waypoints`, `mobs`, `npcs`) VALUES
@@ -6638,7 +6648,7 @@ INSERT INTO `map_template` (`id`, `NAME`, `zones`, `max_player`, `data`, `type`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `mob_template`
+-- Table structure for table `mob_template`
 --
 
 CREATE TABLE `mob_template` (
@@ -6654,7 +6664,7 @@ CREATE TABLE `mob_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `mob_template`
+-- Dumping data for table `mob_template`
 --
 
 INSERT INTO `mob_template` (`id`, `TYPE`, `NAME`, `hp`, `range_move`, `speed`, `dart_type`, `percent_dame`, `percent_tiem_nang`) VALUES
@@ -6758,7 +6768,7 @@ INSERT INTO `mob_template` (`id`, `TYPE`, `NAME`, `hp`, `range_move`, `speed`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `naptien`
+-- Table structure for table `naptien`
 --
 
 CREATE TABLE `naptien` (
@@ -6776,7 +6786,7 @@ CREATE TABLE `naptien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `naptien`
+-- Dumping data for table `naptien`
 --
 
 INSERT INTO `naptien` (`id`, `uid`, `sotien`, `seri`, `code`, `loaithe`, `time`, `noidung`, `tinhtrang`, `tranid`, `magioithieu`) VALUES
@@ -6799,7 +6809,7 @@ INSERT INTO `naptien` (`id`, `uid`, `sotien`, `seri`, `code`, `loaithe`, `time`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nclass`
+-- Table structure for table `nclass`
 --
 
 CREATE TABLE `nclass` (
@@ -6808,7 +6818,7 @@ CREATE TABLE `nclass` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `nclass`
+-- Dumping data for table `nclass`
 --
 
 INSERT INTO `nclass` (`id`, `NAME`) VALUES
@@ -6819,7 +6829,7 @@ INSERT INTO `nclass` (`id`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `npc_template`
+-- Table structure for table `npc_template`
 --
 
 CREATE TABLE `npc_template` (
@@ -6832,7 +6842,7 @@ CREATE TABLE `npc_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `npc_template`
+-- Dumping data for table `npc_template`
 --
 
 INSERT INTO `npc_template` (`id`, `NAME`, `head`, `body`, `leg`, `avatar`) VALUES
@@ -6943,7 +6953,7 @@ INSERT INTO `npc_template` (`id`, `NAME`, `head`, `body`, `leg`, `avatar`) VALUE
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `part`
+-- Table structure for table `part`
 --
 
 CREATE TABLE `part` (
@@ -6953,7 +6963,7 @@ CREATE TABLE `part` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `part`
+-- Dumping data for table `part`
 --
 
 INSERT INTO `part` (`id`, `TYPE`, `DATA`) VALUES
@@ -9001,7 +9011,7 @@ INSERT INTO `part` (`id`, `TYPE`, `DATA`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `player`
+-- Table structure for table `player`
 --
 
 CREATE TABLE `player` (
@@ -9057,16 +9067,17 @@ CREATE TABLE `player` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `player`
+-- Dumping data for table `player`
 --
 
 INSERT INTO `player` (`id`, `account_id`, `name`, `head`, `gender`, `have_tennis_space_ship`, `clan_id_sv1`, `clan_id_sv2`, `data_inventory`, `data_location`, `data_point`, `data_magic_tree`, `items_body`, `items_bag`, `items_box`, `items_box_lucky_round`, `friends`, `enemies`, `data_intrinsic`, `data_item_time`, `data_item_time_sieucap`, `data_task`, `data_mabu_egg`, `data_dua`, `Tai_xiu`, `data_charm`, `skills`, `skills_shortcut`, `pet`, `data_black_ball`, `data_side_task`, `create_time`, `violate`, `violate1`, `pointPvp`, `info_phoban`, `info_achievement`, `Thu_TrieuHoi`, `nhiemvu_chienthan`, `NguHanhSonPoint`, `data_card`, `vnd`, `dhieu`, `dhtime`, `dhtime2`, `dhtime3`, `dhtime4`, `poingapthu`, `poinBoss`) VALUES
-(2122, 2584, 'admin', 6, 2, 0, -1, -1, '[9820266873,999998996,204790,0,0]', '[154,520,360]', '[0,1608261,608264,1000,1000,100,100,15,0,0,0,2129,1906,0,0]', '[10,23,0,1708905300124,1708885979196]', '[\"[2,1,\\\"[\\\\\\\"[47,4]\\\\\\\",\\\\\\\"[223,1]\\\\\\\",\\\\\\\"[226,100]\\\\\\\",\\\\\\\"[107,6]\\\\\\\"]\\\",1712318717600]\",\"[8,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[23,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[29,1,\\\"[\\\\\\\"[7,9]\\\\\\\",\\\\\\\"[223,1]\\\\\\\",\\\\\\\"[226,100]\\\\\\\"]\\\",1712324725152]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[1326,1,\\\"[\\\\\\\"[50,5]\\\\\\\",\\\\\\\"[77,7]\\\\\\\",\\\\\\\"[103,3]\\\\\\\",\\\\\\\"[5,1]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712324607573]\",\"[1297,1,\\\"[\\\\\\\"[14,13]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712398915533]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\"]', '[\"[457,220,\\\"[\\\\\\\"[30,1]\\\\\\\"]\\\",1708885979196]\",\"[595,19,\\\"[\\\\\\\"[2,256]\\\\\\\"]\\\",1708886017656]\",\"[1525,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1708888425714]\",\"[926,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1708905308277]\",\"[674,99799,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311895517]\",\"[1518,99,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311938885]\",\"[1740,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311757507]\",\"[1741,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311758130]\",\"[1015,9969,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311893402]\",\"[1529,98745,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311796295]\",\"[1482,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311800585]\",\"[1102,1,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311838462]\",\"[1326,1,\\\"[\\\\\\\"[50,7]\\\\\\\",\\\\\\\"[77,5]\\\\\\\",\\\\\\\"[103,5]\\\\\\\",\\\\\\\"[5,4]\\\\\\\",\\\\\\\"[93,1]\\\\\\\"]\\\",1712324597911]\",\"[1517,9009,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712311887089]\",\"[1854,29,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712318704944]\",\"[2,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[17,2,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712324739780]\",\"[454,1,\\\"[\\\\\\\"[242,1]\\\\\\\"]\\\",1712398037110]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\"]', '[\"[12,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1708885979196]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\",\"[-1,0,\\\"[]\\\",1712398959244]\"]', '[\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1439,1,\\\"[\\\\\\\"[50,21]\\\\\\\",\\\\\\\"[77,44]\\\\\\\",\\\\\\\"[103,45]\\\\\\\",\\\\\\\"[5,26]\\\\\\\",\\\\\\\"[93,2]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1439,1,\\\"[\\\\\\\"[50,21]\\\\\\\",\\\\\\\"[77,44]\\\\\\\",\\\\\\\"[103,45]\\\\\\\",\\\\\\\"[5,26]\\\\\\\",\\\\\\\"[93,2]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1528,1,\\\"[]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959244]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\",\"[1519,0,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712398959245]\"]', '[]', '[]', '[0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0]', '[30,0,0]', '[]', '[]', '[0,0,0,0,0,0]', '[1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196,1708885979196]', '[\"[4,1,1712397618332,0]\",\"[5,0,0,0]\",\"[8,0,0,0]\",\"[13,0,0,0]\",\"[14,0,0,0]\",\"[21,0,0,0]\",\"[23,0,0,0]\",\"[25,0,0,0]\",\"[19,0,0,0]\"]', '[-1,4,-1,-1,-1]', '[\"[7,2,\\\"$[LV2] Hủy Diệt\\\",6,442592192,4,1]\",\"[0,1543740,1440,644,1000,1540,1380,86,30,2,2002,1794]\",\"[\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[29,1,\\\\\\\"[\\\\\\\\\\\\\\\"[107,5]\\\\\\\\\\\\\\\"]\\\\\\\",1708885979196]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712398959245]\\\"]\",\"[\\\"[0,1]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\"]\"]', '[\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\"]', '[-1,0,0,0,5,0]', '2024-02-25 18:32:59', 0, 0, 0, '[0,0]', '{\"numPayMoney\":7758,\"numHoiSinh\":0,\"numSkillChuong\":0,\"numSellItem\":0,\"numSkillDacBiet\":0,\"numKillNguoiRom\":0,\"numHourOnline\":0,\"listReceiveGem\":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],\"numPickGem\":0,\"numKillSieuQuai\":0,\"numFly\":0,\"numKillMobFly\":0,\"numPvpWin\":0,\"numGivePea\":0}', '[0,\"bktt\",83,13487,1712400118568,0,0,128019]', '[0,0,0,10,1]', 0, '[]', 0, '[1,1]', '[0,0]', '[0,0]', '[0,0]', '[0,0]', 200, 0);
+(2123, 2586, 'nrovocuc', 29, 1, 0, -1, -1, '[2000200000,1000000000,105000,0,0]', '[22,523,336]', '[0,1504180,504180,1000,1000,100,200,10,0,0,0,100,169,0,0]', '[10,23,0,1712415486363,1712415486363]', '[\"[1,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415486363]\",\"[7,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415486363]\",\"[28,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415486363]\",\"[22,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415486365]\",\"[-1,0,\\\"[]\\\",1712416855225]\",\"[-1,0,\\\"[]\\\",1712416855225]\",\"[-1,0,\\\"[]\\\",1712416855225]\",\"[-1,0,\\\"[]\\\",1712416855225]\",\"[-1,0,\\\"[]\\\",1712416855225]\",\"[-1,0,\\\"[]\\\",1712416855225]\",\"[-1,0,\\\"[]\\\",1712416855225]\",\"[-1,0,\\\"[]\\\",1712416855225]\"]', '[\"[457,220,\\\"[\\\\\\\"[30,1]\\\\\\\"]\\\",1712415486365]\",\"[220,1,\\\"[\\\\\\\"[71,1]\\\\\\\"]\\\",1712415509196]\",\"[1854,3,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712415560513]\",\"[381,10,\\\"[\\\\\\\"[30,0]\\\\\\\"]\\\",1712415719064]\",\"[382,10,\\\"[\\\\\\\"[30,0]\\\\\\\"]\\\",1712415719064]\",\"[383,10,\\\"[\\\\\\\"[30,0]\\\\\\\"]\\\",1712415719064]\",\"[384,10,\\\"[\\\\\\\"[30,0]\\\\\\\"]\\\",1712415719064]\",\"[1529,10,\\\"[\\\\\\\"[30,0]\\\\\\\"]\\\",1712415729431]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\"]', '[\"[12,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415486365]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855226]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\",\"[-1,0,\\\"[]\\\",1712416855227]\"]', '[]', '[]', '[]', '[0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0]', '[2,0,0]', '[]', '[]', '[0,0,0,0,0,0]', '[1712415486367,1712415486367,1712415486367,1712415486367,1712415486367,1712415486367,1712415486367,1712415486367,1712415486367,1712415486367]', '[\"[2,1,1712415956283,0]\",\"[3,0,0,0]\",\"[7,0,0,0]\",\"[11,0,0,0]\",\"[12,0,0,0]\",\"[17,0,0,0]\",\"[18,0,0,0]\",\"[26,0,0,0]\",\"[19,0,0,0]\"]', '[2,-1,-1,-1,-1]', '[]', '[\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\"]', '[-1,0,0,0,5,0]', '2024-04-06 14:58:06', 0, 0, 0, '[0,0]', '{\"numPayMoney\":1936,\"numHoiSinh\":0,\"numSkillChuong\":0,\"numSellItem\":0,\"numSkillDacBiet\":0,\"numKillNguoiRom\":0,\"numHourOnline\":0,\"listReceiveGem\":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],\"numPickGem\":0,\"numKillSieuQuai\":0,\"numFly\":0,\"numKillMobFly\":0,\"numPvpWin\":0,\"numGivePea\":0}', '[-1]', '[0,0,0,10,0]', 0, '[]', 0, '[1,1]', '[0,0]', '[0,0]', '[0,0]', '[0,0]', 0, 0),
+(2124, 2585, 'top0ne', 28, 2, 0, -1, -1, '[12000233464,999999999,205000,0,0]', '[14,1186,408]', '[0,1524120,88120,982,1000,100,100,95,0,0,0,83,91,0,0]', '[10,0,0,1712415495189,1712415488959]', '[\"[2,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415488959]\",\"[8,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415488959]\",\"[29,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415488959]\",\"[23,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415488959]\",\"[12,1,\\\"[\\\\\\\"[107,5]\\\\\\\"]\\\",1712415488960]\",\"[-1,0,\\\"[]\\\",1712415488975]\",\"[-1,0,\\\"[]\\\",1712415488975]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\"]', '[\"[457,220,\\\"[\\\\\\\"[30,1]\\\\\\\"]\\\",1712415488960]\",\"[595,22,\\\"[\\\\\\\"[2,256]\\\\\\\"]\\\",1712415495189]\",\"[1854,7,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712415675047]\",\"[73,14,\\\"[\\\\\\\"[73,0]\\\\\\\"]\\\",1712415742152]\",\"[224,1,\\\"[\\\\\\\"[67,1]\\\\\\\"]\\\",1712415757308]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\"]', '[\"[-1,0,\\\"[]\\\",1712415488975]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\",\"[-1,0,\\\"[]\\\",1712415488976]\"]', '[]', '[]', '[]', '[0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0,0]', '[0,0,0,0,0,0,0,0,0,0,0]', '[2,1,0]', '[]', '[]', '[0,0,0,0,0,0]', '[1712415488960,1712415488960,1712415488960,1712415488960,1712415488960,1712415488960,1712415488960,1712415488960,1712415488960,1712415488960]', '[\"[4,1,1712415781427,0]\",\"[5,0,0,0]\",\"[8,0,0,0]\",\"[13,0,0,0]\",\"[14,0,0,0]\",\"[21,0,0,0]\",\"[23,0,0,0]\",\"[25,0,0,0]\",\"[19,0,0,0]\"]', '[4,-1,-1,-1,-1]', '[\"[0,1,\\\"$Đệ tử\\\",0,1276762581,0,1]\",\"[0,2000,0,1000,1000,1160,1840,113,10,2,1160,1840]\",\"[\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\",\\\"[-1,0,\\\\\\\"[]\\\\\\\",1712415510205]\\\"]\",\"[\\\"[0,1]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\",\\\"[-1,0]\\\"]\"]', '[\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\",\"[0,0,0]\"]', '[-1,0,0,0,5,0]', '2024-04-06 14:58:08', 1712415576716, 0, 0, '[0,0]', '{\"numPayMoney\":300,\"numHoiSinh\":0,\"numSkillChuong\":0,\"numSellItem\":0,\"numSkillDacBiet\":0,\"numKillNguoiRom\":0,\"numHourOnline\":0,\"listReceiveGem\":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],\"numPickGem\":0,\"numKillSieuQuai\":0,\"numFly\":0,\"numKillMobFly\":0,\"numPvpWin\":0,\"numGivePea\":0}', '[-1]', '[0,0,0,10,0]', 0, '[]', 0, '[1,1]', '[0,0]', '[0,0]', '[0,0]', '[0,0]', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `posts`
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -9083,7 +9094,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `tieude`, `noidung`, `username`, `created_at`, `theloai`, `ghimbai`, `image`, `trangthai`, `tinhtrang`) VALUES
@@ -9094,7 +9105,7 @@ INSERT INTO `posts` (`id`, `tieude`, `noidung`, `username`, `created_at`, `thelo
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `post_question`
+-- Table structure for table `post_question`
 --
 
 CREATE TABLE `post_question` (
@@ -9109,7 +9120,7 @@ CREATE TABLE `post_question` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `radar`
+-- Table structure for table `radar`
 --
 
 CREATE TABLE `radar` (
@@ -9129,7 +9140,7 @@ CREATE TABLE `radar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `radar`
+-- Dumping data for table `radar`
 --
 
 INSERT INTO `radar` (`id`, `iconId`, `rank`, `max`, `type`, `template`, `body`, `name`, `info`, `options`, `require`, `require_level`, `aura_id`) VALUES
@@ -9156,7 +9167,7 @@ INSERT INTO `radar` (`id`, `iconId`, `rank`, `max`, `type`, `template`, `body`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `recharge_card`
+-- Table structure for table `recharge_card`
 --
 
 CREATE TABLE `recharge_card` (
@@ -9173,7 +9184,7 @@ CREATE TABLE `recharge_card` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `referral`
+-- Table structure for table `referral`
 --
 
 CREATE TABLE `referral` (
@@ -9187,7 +9198,7 @@ CREATE TABLE `referral` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `shop`
+-- Table structure for table `shop`
 --
 
 CREATE TABLE `shop` (
@@ -9198,7 +9209,7 @@ CREATE TABLE `shop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `shop`
+-- Dumping data for table `shop`
 --
 
 INSERT INTO `shop` (`id`, `npc_id`, `tag_name`, `type_shop`) VALUES
@@ -9231,7 +9242,7 @@ INSERT INTO `shop` (`id`, `npc_id`, `tag_name`, `type_shop`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `shop_ky_gui`
+-- Table structure for table `shop_ky_gui`
 --
 
 CREATE TABLE `shop_ky_gui` (
@@ -9251,7 +9262,7 @@ CREATE TABLE `shop_ky_gui` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `side_task_template`
+-- Table structure for table `side_task_template`
 --
 
 CREATE TABLE `side_task_template` (
@@ -9265,7 +9276,7 @@ CREATE TABLE `side_task_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `side_task_template`
+-- Dumping data for table `side_task_template`
 --
 
 INSERT INTO `side_task_template` (`id`, `NAME`, `max_count_lv1`, `max_count_lv2`, `max_count_lv3`, `max_count_lv4`, `max_count_lv5`) VALUES
@@ -9332,7 +9343,7 @@ INSERT INTO `side_task_template` (`id`, `NAME`, `max_count_lv1`, `max_count_lv2`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `skill_template`
+-- Table structure for table `skill_template`
 --
 
 CREATE TABLE `skill_template` (
@@ -9349,7 +9360,7 @@ CREATE TABLE `skill_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `skill_template`
+-- Dumping data for table `skill_template`
 --
 
 INSERT INTO `skill_template` (`nclass_id`, `id`, `NAME`, `max_point`, `mana_use_type`, `TYPE`, `icon_id`, `dam_info`, `slot`, `skills`) VALUES
@@ -9384,7 +9395,7 @@ INSERT INTO `skill_template` (`nclass_id`, `id`, `NAME`, `max_point`, `mana_use_
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `small_version`
+-- Table structure for table `small_version`
 --
 
 CREATE TABLE `small_version` (
@@ -9396,7 +9407,7 @@ CREATE TABLE `small_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `small_version`
+-- Dumping data for table `small_version`
 --
 
 INSERT INTO `small_version` (`id`, `x1`, `x2`, `x3`, `x4`) VALUES
@@ -41775,7 +41786,7 @@ INSERT INTO `small_version` (`id`, `x1`, `x2`, `x3`, `x4`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tab_shop`
+-- Table structure for table `tab_shop`
 --
 
 CREATE TABLE `tab_shop` (
@@ -41785,7 +41796,7 @@ CREATE TABLE `tab_shop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tab_shop`
+-- Dumping data for table `tab_shop`
 --
 
 INSERT INTO `tab_shop` (`id`, `shop_id`, `NAME`) VALUES
@@ -41839,7 +41850,7 @@ INSERT INTO `tab_shop` (`id`, `shop_id`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `task_main_template`
+-- Table structure for table `task_main_template`
 --
 
 CREATE TABLE `task_main_template` (
@@ -41849,7 +41860,7 @@ CREATE TABLE `task_main_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `task_main_template`
+-- Dumping data for table `task_main_template`
 --
 
 INSERT INTO `task_main_template` (`id`, `NAME`, `detail`) VALUES
@@ -41892,7 +41903,7 @@ INSERT INTO `task_main_template` (`id`, `NAME`, `detail`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `task_sub_template`
+-- Table structure for table `task_sub_template`
 --
 
 CREATE TABLE `task_sub_template` (
@@ -41905,7 +41916,7 @@ CREATE TABLE `task_sub_template` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `task_sub_template`
+-- Dumping data for table `task_sub_template`
 --
 
 INSERT INTO `task_sub_template` (`task_main_id`, `NAME`, `max_count`, `notify`, `npc_id`, `map`) VALUES
@@ -42048,7 +42059,7 @@ INSERT INTO `task_sub_template` (`task_main_id`, `NAME`, `max_count`, `notify`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `thecao`
+-- Table structure for table `thecao`
 --
 
 CREATE TABLE `thecao` (
@@ -42065,7 +42076,7 @@ CREATE TABLE `thecao` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `token`
+-- Table structure for table `token`
 --
 
 CREATE TABLE `token` (
@@ -42079,7 +42090,7 @@ CREATE TABLE `token` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `transactions`
+-- Table structure for table `transactions`
 --
 
 CREATE TABLE `transactions` (
@@ -42094,16 +42105,16 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `transactions`
+-- Dumping data for table `transactions`
 --
 
 INSERT INTO `transactions` (`id`, `uid`, `sotien`, `noidung`, `tinhtrang`, `tranid`, `time`, `processed`) VALUES
-(77, 2577, 10.00, NULL, NULL, NULL, '2024-01-28 04:21:27', 0);
+(77, 2577, '10.00', NULL, NULL, NULL, '2024-01-28 04:21:27', 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `trans_log`
+-- Table structure for table `trans_log`
 --
 
 CREATE TABLE `trans_log` (
@@ -42119,7 +42130,7 @@ CREATE TABLE `trans_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `trans_log`
+-- Dumping data for table `trans_log`
 --
 
 INSERT INTO `trans_log` (`id`, `name`, `amount`, `seri`, `pin`, `type`, `status`, `trans_id`, `date`) VALUES
@@ -42129,7 +42140,7 @@ INSERT INTO `trans_log` (`id`, `name`, `amount`, `seri`, `pin`, `type`, `status`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `type_item`
+-- Table structure for table `type_item`
 --
 
 CREATE TABLE `type_item` (
@@ -42138,7 +42149,7 @@ CREATE TABLE `type_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `type_item`
+-- Dumping data for table `type_item`
 --
 
 INSERT INTO `type_item` (`id`, `NAME`) VALUES
@@ -42182,7 +42193,7 @@ INSERT INTO `type_item` (`id`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `type_map`
+-- Table structure for table `type_map`
 --
 
 CREATE TABLE `type_map` (
@@ -42191,7 +42202,7 @@ CREATE TABLE `type_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `type_map`
+-- Dumping data for table `type_map`
 --
 
 INSERT INTO `type_map` (`id`, `NAME`) VALUES
@@ -42204,7 +42215,7 @@ INSERT INTO `type_map` (`id`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `type_sell_item_shop`
+-- Table structure for table `type_sell_item_shop`
 --
 
 CREATE TABLE `type_sell_item_shop` (
@@ -42213,7 +42224,7 @@ CREATE TABLE `type_sell_item_shop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `type_sell_item_shop`
+-- Dumping data for table `type_sell_item_shop`
 --
 
 INSERT INTO `type_sell_item_shop` (`id`, `NAME`) VALUES
@@ -42224,165 +42235,165 @@ INSERT INTO `type_sell_item_shop` (`id`, `NAME`) VALUES
 (4, 'Coupon');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `account`
+-- Indexes for table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Chỉ mục cho bảng `achievement`
+-- Indexes for table `achievement`
 --
 ALTER TABLE `achievement`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `bg_item_template`
+-- Indexes for table `bg_item_template`
 --
 ALTER TABLE `bg_item_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `caption`
+-- Indexes for table `caption`
 --
 ALTER TABLE `caption`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `card`
+-- Indexes for table `card`
 --
 ALTER TABLE `card`
   ADD PRIMARY KEY (`card_id`);
 
 --
--- Chỉ mục cho bảng `card_detail`
+-- Indexes for table `card_detail`
 --
 ALTER TABLE `card_detail`
   ADD PRIMARY KEY (`card_detail_id`),
   ADD KEY `card_id` (`card_id`);
 
 --
--- Chỉ mục cho bảng `clan_sv1`
+-- Indexes for table `clan_sv1`
 --
 ALTER TABLE `clan_sv1`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `clan_sv2`
+-- Indexes for table `clan_sv2`
 --
 ALTER TABLE `clan_sv2`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_id` (`post_id`);
 
 --
--- Chỉ mục cho bảng `cvh_baiviet`
+-- Indexes for table `cvh_baiviet`
 --
 ALTER TABLE `cvh_baiviet`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `cvh_giftcode`
+-- Indexes for table `cvh_giftcode`
 --
 ALTER TABLE `cvh_giftcode`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `cvh_history_giftcode`
+-- Indexes for table `cvh_history_giftcode`
 --
 ALTER TABLE `cvh_history_giftcode`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `cvh_recharge`
+-- Indexes for table `cvh_recharge`
 --
 ALTER TABLE `cvh_recharge`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `cvh_setting`
+-- Indexes for table `cvh_setting`
 --
 ALTER TABLE `cvh_setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `dhvt_template`
+-- Indexes for table `dhvt_template`
 --
 ALTER TABLE `dhvt_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `flag_bag`
+-- Indexes for table `flag_bag`
 --
 ALTER TABLE `flag_bag`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `gidtcode_history`
+-- Indexes for table `gidtcode_history`
 --
 ALTER TABLE `gidtcode_history`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `giftcodeviet`
+-- Indexes for table `giftcodeviet`
 --
 ALTER TABLE `giftcodeviet`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `head_avatar`
+-- Indexes for table `head_avatar`
 --
 ALTER TABLE `head_avatar`
   ADD PRIMARY KEY (`head_id`);
 
 --
--- Chỉ mục cho bảng `history_event`
+-- Indexes for table `history_event`
 --
 ALTER TABLE `history_event`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `history_gold`
+-- Indexes for table `history_gold`
 --
 ALTER TABLE `history_gold`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `history_receive_goldbar`
+-- Indexes for table `history_receive_goldbar`
 --
 ALTER TABLE `history_receive_goldbar`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Chỉ mục cho bảng `img_by_name`
+-- Indexes for table `img_by_name`
 --
 ALTER TABLE `img_by_name`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `NAME` (`NAME`);
 
 --
--- Chỉ mục cho bảng `intrinsic`
+-- Indexes for table `intrinsic`
 --
 ALTER TABLE `intrinsic`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `item_option_template`
+-- Indexes for table `item_option_template`
 --
 ALTER TABLE `item_option_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `item_shop`
+-- Indexes for table `item_shop`
 --
 ALTER TABLE `item_shop`
   ADD PRIMARY KEY (`id`),
@@ -42390,82 +42401,82 @@ ALTER TABLE `item_shop`
   ADD KEY `temp_id` (`temp_id`);
 
 --
--- Chỉ mục cho bảng `item_shop_option`
+-- Indexes for table `item_shop_option`
 --
 ALTER TABLE `item_shop_option`
   ADD KEY `item_shop_id` (`item_shop_id`),
   ADD KEY `option_id` (`option_id`);
 
 --
--- Chỉ mục cho bảng `item_template`
+-- Indexes for table `item_template`
 --
 ALTER TABLE `item_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `map_template`
+-- Indexes for table `map_template`
 --
 ALTER TABLE `map_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `mob_template`
+-- Indexes for table `mob_template`
 --
 ALTER TABLE `mob_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `naptien`
+-- Indexes for table `naptien`
 --
 ALTER TABLE `naptien`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `nclass`
+-- Indexes for table `nclass`
 --
 ALTER TABLE `nclass`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `npc_template`
+-- Indexes for table `npc_template`
 --
 ALTER TABLE `npc_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `part`
+-- Indexes for table `part`
 --
 ALTER TABLE `part`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `player`
+-- Indexes for table `player`
 --
 ALTER TABLE `player`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `account_id` (`account_id`);
 
 --
--- Chỉ mục cho bảng `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `post_question`
+-- Indexes for table `post_question`
 --
 ALTER TABLE `post_question`
   ADD PRIMARY KEY (`question_id`),
   ADD KEY `FKpijp3eahwssnf3qu27bydj928` (`account_id`);
 
 --
--- Chỉ mục cho bảng `radar`
+-- Indexes for table `radar`
 --
 ALTER TABLE `radar`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `recharge_card`
+-- Indexes for table `recharge_card`
 --
 ALTER TABLE `recharge_card`
   ADD PRIMARY KEY (`recharge_card_id`),
@@ -42473,7 +42484,7 @@ ALTER TABLE `recharge_card`
   ADD KEY `account_id` (`account_id`);
 
 --
--- Chỉ mục cho bảng `referral`
+-- Indexes for table `referral`
 --
 ALTER TABLE `referral`
   ADD PRIMARY KEY (`id`),
@@ -42481,64 +42492,64 @@ ALTER TABLE `referral`
   ADD KEY `referred_id` (`referred_id`);
 
 --
--- Chỉ mục cho bảng `shop`
+-- Indexes for table `shop`
 --
 ALTER TABLE `shop`
   ADD PRIMARY KEY (`id`),
   ADD KEY `npc_id` (`npc_id`);
 
 --
--- Chỉ mục cho bảng `shop_ky_gui`
+-- Indexes for table `shop_ky_gui`
 --
 ALTER TABLE `shop_ky_gui`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `side_task_template`
+-- Indexes for table `side_task_template`
 --
 ALTER TABLE `side_task_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `skill_template`
+-- Indexes for table `skill_template`
 --
 ALTER TABLE `skill_template`
   ADD PRIMARY KEY (`nclass_id`,`id`);
 
 --
--- Chỉ mục cho bảng `small_version`
+-- Indexes for table `small_version`
 --
 ALTER TABLE `small_version`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `tab_shop`
+-- Indexes for table `tab_shop`
 --
 ALTER TABLE `tab_shop`
   ADD PRIMARY KEY (`id`),
   ADD KEY `shop_id` (`shop_id`);
 
 --
--- Chỉ mục cho bảng `task_main_template`
+-- Indexes for table `task_main_template`
 --
 ALTER TABLE `task_main_template`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `task_sub_template`
+-- Indexes for table `task_sub_template`
 --
 ALTER TABLE `task_sub_template`
   ADD KEY `task_main_id` (`task_main_id`);
 
 --
--- Chỉ mục cho bảng `thecao`
+-- Indexes for table `thecao`
 --
 ALTER TABLE `thecao`
   ADD PRIMARY KEY (`id`),
   ADD KEY `account_id` (`account_id`);
 
 --
--- Chỉ mục cho bảng `token`
+-- Indexes for table `token`
 --
 ALTER TABLE `token`
   ADD PRIMARY KEY (`token_id`),
@@ -42546,299 +42557,299 @@ ALTER TABLE `token`
   ADD UNIQUE KEY `UK_1l8br3dq53yfan1deqeb246os` (`account_id`);
 
 --
--- Chỉ mục cho bảng `transactions`
+-- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `trans_log`
+-- Indexes for table `trans_log`
 --
 ALTER TABLE `trans_log`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `type_item`
+-- Indexes for table `type_item`
 --
 ALTER TABLE `type_item`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `type_map`
+-- Indexes for table `type_map`
 --
 ALTER TABLE `type_map`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `type_sell_item_shop`
+-- Indexes for table `type_sell_item_shop`
 --
 ALTER TABLE `type_sell_item_shop`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `account`
+-- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2585;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2587;
 
 --
--- AUTO_INCREMENT cho bảng `achievement`
+-- AUTO_INCREMENT for table `achievement`
 --
 ALTER TABLE `achievement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `caption`
+-- AUTO_INCREMENT for table `caption`
 --
 ALTER TABLE `caption`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT cho bảng `card`
+-- AUTO_INCREMENT for table `card`
 --
 ALTER TABLE `card`
   MODIFY `card_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `card_detail`
+-- AUTO_INCREMENT for table `card_detail`
 --
 ALTER TABLE `card_detail`
   MODIFY `card_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT cho bảng `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `cvh_baiviet`
+-- AUTO_INCREMENT for table `cvh_baiviet`
 --
 ALTER TABLE `cvh_baiviet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT cho bảng `cvh_giftcode`
+-- AUTO_INCREMENT for table `cvh_giftcode`
 --
 ALTER TABLE `cvh_giftcode`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `cvh_history_giftcode`
+-- AUTO_INCREMENT for table `cvh_history_giftcode`
 --
 ALTER TABLE `cvh_history_giftcode`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `cvh_recharge`
+-- AUTO_INCREMENT for table `cvh_recharge`
 --
 ALTER TABLE `cvh_recharge`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `cvh_setting`
+-- AUTO_INCREMENT for table `cvh_setting`
 --
 ALTER TABLE `cvh_setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `dhvt_template`
+-- AUTO_INCREMENT for table `dhvt_template`
 --
 ALTER TABLE `dhvt_template`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `gidtcode_history`
+-- AUTO_INCREMENT for table `gidtcode_history`
 --
 ALTER TABLE `gidtcode_history`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9681;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9685;
 
 --
--- AUTO_INCREMENT cho bảng `giftcodeviet`
+-- AUTO_INCREMENT for table `giftcodeviet`
 --
 ALTER TABLE `giftcodeviet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT cho bảng `history_event`
+-- AUTO_INCREMENT for table `history_event`
 --
 ALTER TABLE `history_event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `history_gold`
+-- AUTO_INCREMENT for table `history_gold`
 --
 ALTER TABLE `history_gold`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1267;
 
 --
--- AUTO_INCREMENT cho bảng `img_by_name`
+-- AUTO_INCREMENT for table `img_by_name`
 --
 ALTER TABLE `img_by_name`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
--- AUTO_INCREMENT cho bảng `item_shop`
+-- AUTO_INCREMENT for table `item_shop`
 --
 ALTER TABLE `item_shop`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1537;
 
 --
--- AUTO_INCREMENT cho bảng `naptien`
+-- AUTO_INCREMENT for table `naptien`
 --
 ALTER TABLE `naptien`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT cho bảng `player`
+-- AUTO_INCREMENT for table `player`
 --
 ALTER TABLE `player`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2123;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2125;
 
 --
--- AUTO_INCREMENT cho bảng `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `post_question`
+-- AUTO_INCREMENT for table `post_question`
 --
 ALTER TABLE `post_question`
   MODIFY `question_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `recharge_card`
+-- AUTO_INCREMENT for table `recharge_card`
 --
 ALTER TABLE `recharge_card`
   MODIFY `recharge_card_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4344;
 
 --
--- AUTO_INCREMENT cho bảng `referral`
+-- AUTO_INCREMENT for table `referral`
 --
 ALTER TABLE `referral`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `shop`
+-- AUTO_INCREMENT for table `shop`
 --
 ALTER TABLE `shop`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT cho bảng `tab_shop`
+-- AUTO_INCREMENT for table `tab_shop`
 --
 ALTER TABLE `tab_shop`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=534;
 
 --
--- AUTO_INCREMENT cho bảng `thecao`
+-- AUTO_INCREMENT for table `thecao`
 --
 ALTER TABLE `thecao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `token`
+-- AUTO_INCREMENT for table `token`
 --
 ALTER TABLE `token`
   MODIFY `token_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19017;
 
 --
--- AUTO_INCREMENT cho bảng `transactions`
+-- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
--- AUTO_INCREMENT cho bảng `trans_log`
+-- AUTO_INCREMENT for table `trans_log`
 --
 ALTER TABLE `trans_log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
--- AUTO_INCREMENT cho bảng `type_item`
+-- AUTO_INCREMENT for table `type_item`
 --
 ALTER TABLE `type_item`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT cho bảng `type_sell_item_shop`
+-- AUTO_INCREMENT for table `type_sell_item_shop`
 --
 ALTER TABLE `type_sell_item_shop`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `card_detail`
+-- Constraints for table `card_detail`
 --
 ALTER TABLE `card_detail`
   ADD CONSTRAINT `card_detail_ibfk_1` FOREIGN KEY (`card_id`) REFERENCES `card` (`card_id`);
 
 --
--- Các ràng buộc cho bảng `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
 
 --
--- Các ràng buộc cho bảng `player`
+-- Constraints for table `player`
 --
 ALTER TABLE `player`
   ADD CONSTRAINT `player_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`);
 
 --
--- Các ràng buộc cho bảng `post_question`
+-- Constraints for table `post_question`
 --
 ALTER TABLE `post_question`
   ADD CONSTRAINT `FKpijp3eahwssnf3qu27bydj928` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`);
 
 --
--- Các ràng buộc cho bảng `recharge_card`
+-- Constraints for table `recharge_card`
 --
 ALTER TABLE `recharge_card`
   ADD CONSTRAINT `recharge_card_ibfk_1` FOREIGN KEY (`card_detail_id`) REFERENCES `card_detail` (`card_detail_id`),
   ADD CONSTRAINT `recharge_card_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`);
 
 --
--- Các ràng buộc cho bảng `referral`
+-- Constraints for table `referral`
 --
 ALTER TABLE `referral`
   ADD CONSTRAINT `referral_ibfk_1` FOREIGN KEY (`referrer_id`) REFERENCES `account` (`id`),
   ADD CONSTRAINT `referral_ibfk_2` FOREIGN KEY (`referred_id`) REFERENCES `account` (`id`);
 
 --
--- Các ràng buộc cho bảng `shop`
+-- Constraints for table `shop`
 --
 ALTER TABLE `shop`
   ADD CONSTRAINT `shop_ibfk_1` FOREIGN KEY (`npc_id`) REFERENCES `npc_template` (`id`);
 
 --
--- Các ràng buộc cho bảng `skill_template`
+-- Constraints for table `skill_template`
 --
 ALTER TABLE `skill_template`
   ADD CONSTRAINT `skill_template_ibfk_1` FOREIGN KEY (`nclass_id`) REFERENCES `nclass` (`id`);
 
 --
--- Các ràng buộc cho bảng `tab_shop`
+-- Constraints for table `tab_shop`
 --
 ALTER TABLE `tab_shop`
   ADD CONSTRAINT `tab_shop_ibfk_1` FOREIGN KEY (`shop_id`) REFERENCES `shop` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `thecao`
+-- Constraints for table `thecao`
 --
 ALTER TABLE `thecao`
   ADD CONSTRAINT `thecao_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`);
 
 --
--- Các ràng buộc cho bảng `token`
+-- Constraints for table `token`
 --
 ALTER TABLE `token`
   ADD CONSTRAINT `token_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`);
