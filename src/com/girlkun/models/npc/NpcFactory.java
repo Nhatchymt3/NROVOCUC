@@ -2773,7 +2773,6 @@ public class NpcFactory {
                             switch (player.combineNew.typeCombine) {
                                 case CombineServiceNew.EP_SAO_TRANG_BI:
                                 case CombineServiceNew.AN_TRANG_BI:
-                                case CombineServiceNew.PHA_LE_HOA_TRANG_BI:
                                 case CombineServiceNew.CHUYEN_HOA_TRANG_BI:
                                 case CombineServiceNew.NANG_CAP_CHAN_MENH:
                                 case CombineServiceNew.RANDOM_SKHC2:
@@ -2821,7 +2820,8 @@ public class NpcFactory {
                                             break;
                                     }
                                     CombineServiceNew.gI().startCombine(player);
-
+                                    break;
+                                case CombineServiceNew.PHA_LE_HOA_TRANG_BI:
                                 case CombineServiceNew.DUNGHOPSKH:
                                     switch (select) {
                                         case 0:
@@ -2841,6 +2841,7 @@ public class NpcFactory {
                                             break;
                                     }
                                     CombineServiceNew.gI().startCombine(player);
+                                    break;
                             }
                         } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_CHUYEN_HOA_DO_HUY_DIET) {
                             if (select == 0) {
