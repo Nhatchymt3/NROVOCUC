@@ -114,7 +114,7 @@ public class ServerNotify extends Thread {
                     + "\n- tt : Hiện thông tin cơ bản khi quá chỉ số hiển thị"
                     + "\n- quai : Xem HP Quái đang đánh"
                     + "\n- autohoisinh : Auto hồi sinh liên tục"
-                    + "\n- autots : Auto hồi sinh liên tục"
+                    + "\n- autots : TĐLT"
                     + "\n- autonoitai : Auto mở nội tại nhanh"
                     + "\n- stop : Dừng Tất cả lệnh Auto");
 
