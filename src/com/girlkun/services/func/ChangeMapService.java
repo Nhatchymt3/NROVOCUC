@@ -894,7 +894,7 @@ public class ChangeMapService {
                 case 108: //dòng sông băng
                 case 109: //rừng băng
                 case 110: //hang băng
-                    if (TaskService.gI().getIdTask(player) < ConstTask.TASK_22_1) {
+                    if (TaskService.gI().getIdTask(player) < ConstTask.TASK_24_4) {
                         Service.gI().sendThongBao(player, "Vui lòng hoàn thành nhiệm vụ trước khi tới đây!");
                         return null;
                     }
@@ -909,7 +909,7 @@ public class ChangeMapService {
                 case 99: //thung lũng phía bắc
                 case 100: //thị trấn ginder
                 case 104:
-                    if (TaskService.gI().getIdTask(player) < ConstTask.TASK_25_0) {
+                    if (TaskService.gI().getIdTask(player) < ConstTask.TASK_21_4) {
                         Service.gI().sendThongBao(player, "Vui lòng hoàn thành nhiệm vụ trước khi tới đây!");
                         return null;
                     }
