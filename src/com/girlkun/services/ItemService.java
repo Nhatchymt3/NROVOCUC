@@ -394,7 +394,7 @@ public class ItemService {
                 gender = 1;
                 break;
         }
-        int[][] items = {{555, 556, 561, 562, 563}, {557, 558, 564, 565, 561}, {559, 560, 566, 567, 561}}; //td, namec,xd
+        int[][] items = {{555, 556, 562, 563 , 561}, {557, 558, 564, 565, 561}, {559, 560, 566, 567, 561}}; //td, namec,xd
         Item item = randomcs_dtl(items[gender][select], gender);
 
         if (item != null && InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {

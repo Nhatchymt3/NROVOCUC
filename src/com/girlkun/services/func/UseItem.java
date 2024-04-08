@@ -1294,7 +1294,7 @@ public class UseItem {
                 pl.itemTime.lastTimegiodungkeo = System.currentTimeMillis();
                 pl.itemTime.isgiodungkeo = true;
                 break;
-            case 1317:// cn
+            case 1317:// cuồng bạo
                 pl.itemTimesieucap.lastTimeUseXiMuoi = System.currentTimeMillis();
                 pl.itemTimesieucap.isUseXiMuoi = true;
                 Service.getInstance().point(pl);

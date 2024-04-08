@@ -1749,7 +1749,14 @@ public class CombineServiceNew {
                     itemId = Manager.doSKHVip[itemTS.template.gender][itemTS.template.type][6];
                 }
             }
-            int skhId = ItemService.gI().randomSKHId(itemTS.template.gender);
+            int skhId =0;
+            if (itemTS.template.type == 4) {
+                
+                 skhId = ItemService.gI().randomSKHId(player.gender);
+            }else
+            {
+                 skhId = ItemService.gI().randomSKHId(itemTS.template.gender);
+            }
             Item item;
             if (new Item(itemId).isDTL()) {
                 item = Util.ratiItemTL(itemId);
@@ -1803,7 +1810,14 @@ public class CombineServiceNew {
             } else {
                 itemId = Manager.doSKHThuong[montldau.template.gender][montldau.template.type];
             }
-            int skhId = ItemService.gI().randomSKHId(montldau.template.gender);
+            int skhId =0;
+            if (montldau.template.type == 4) {
+                
+                 skhId = ItemService.gI().randomSKHId(player.gender);
+            }else
+            {
+                 skhId = ItemService.gI().randomSKHId(montldau.template.gender);
+            }
             Item item = ItemService.gI().itemSKH(itemId, skhId);
             InventoryServiceNew.gI().addItemBag(player, item);
             itemDTL.forEach(i -> InventoryServiceNew.gI().subQuantityItemsBag(player, i, 1));
@@ -1891,7 +1905,14 @@ public class CombineServiceNew {
             } else {
                 itemId = Manager.doSKHThuong[montldau.template.gender][montldau.template.type];
             }
-            int skhId = ItemService.gI().SKHC2(montldau.template.gender);
+            int skhId =0;
+            if (montldau.template.type == 4) {
+                
+                 skhId = ItemService.gI().randomSKHId(player.gender);
+            }else
+            {
+                 skhId = ItemService.gI().randomSKHId(montldau.template.gender);
+            }
             Item item = ItemService.gI().itemSKHC2(itemId, skhId);
             InventoryServiceNew.gI().addItemBag(player, item);
             itemDTL.forEach(i -> InventoryServiceNew.gI().subQuantityItemsBag(player, i, 1));
