@@ -364,333 +364,333 @@ public class SetClothes {
                         case 217://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                thienXinHang++;
+                                thienXinHangc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                thienXinHang++;
+                                thienXinHangc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                thienXinHang++;
+                                thienXinHangc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                thienXinHang++;
+                                thienXinHangc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                thienXinHang++;
+                                thienXinHangc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                thienXinHang++;
+                                thienXinHangc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                thienXinHang++;
+                                thienXinHangc2++;
                                 level7++;
                             }
                             break;
                         case 218://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                kirin++;
+                                kirinc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                kirin++;
+                                kirinc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                kirin++;
+                                kirinc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                kirin++;
+                                kirinc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                kirin++;
+                                kirinc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                kirin++;
+                                kirinc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                kirin++;
+                                kirinc2++;
                                 level7++;
                             }
                             break;
                         case 219://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                songoku++;
+                                songokuc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                songoku++;
+                                songokuc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                songoku++;
+                                songokuc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                songoku++;
+                                songokuc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                songoku++;
+                                songokuc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                songoku++;
+                                songokuc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                songoku++;
+                                songokuc2++;
                                 level7++;
                             }
                             break;
                         case 220://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                picolo++;
+                                picoloc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                picolo++;
+                                picoloc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                picolo++;
+                                picoloc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                picolo++;
+                                picoloc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                picolo++;
+                                picoloc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                picolo++;
+                                picoloc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                picolo++;
+                                picoloc2++;
                                 level7++;
                             }
                             break;
                         case 221://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                ocTieu++;
+                                picoloc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                ocTieu++;
+                                picoloc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                ocTieu++;
+                                picoloc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                ocTieu++;
+                                picoloc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                ocTieu++;
+                                picoloc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                ocTieu++;
+                                picoloc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                ocTieu++;
+                                picoloc2++;
                                 level7++;
                             }
                             break;
                         case 222://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                pikkoroDaimao++;
+                                pikkoroDaimaoc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                pikkoroDaimao++;
+                                pikkoroDaimaoc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                pikkoroDaimao++;
+                                pikkoroDaimaoc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                pikkoroDaimao++;
+                                pikkoroDaimaoc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                pikkoroDaimao++;
+                                pikkoroDaimaoc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                pikkoroDaimao++;
+                                pikkoroDaimaoc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                pikkoroDaimao++;
+                                pikkoroDaimaoc2++;
                                 level7++;
                             }
                             break;
                         case 223://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                kakarot++;
+                                kakarotc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                kakarot++;
+                                kakarotc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                kakarot++;
+                                kakarotc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                kakarot++;
+                                kakarotc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                kakarot++;
+                                kakarotc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                kakarot++;
+                                kakarotc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                kakarot++;
+                                kakarotc2++;
                                 level7++;
                             }
                             break;
                         case 224://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                cadic++;
+                                cadicc2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                cadic++;
+                                cadicc2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                cadic++;
+                                cadicc2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                cadic++;
+                                cadicc2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                cadic++;
+                                cadicc2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                cadic++;
+                                cadicc2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                cadic++;
+                                cadicc2++;
                                 level7++;
                             }
                             break;
                         case 225://kaioken
                             if (io.param == 1) {
                                 level = true;
-                                nappa++;
+                                nappac2++;
                                 level1++;
                             }
                             if (io.param == 2) {
                                 level = true;
-                                nappa++;
+                                nappac2++;
                                 level2++;
                             }
                             if (io.param == 3) {
                                 level = true;
-                                nappa++;
+                                nappac2++;
                                 level3++;
                             }
                             if (io.param == 4) {
                                 level = true;
-                                nappa++;
+                                nappac2++;
                                 level4++;
                             }
                             if (io.param == 5) {
                                 level = true;
-                                nappa++;
+                                nappac2++;
                                 level5++;
                             }
                             if (io.param == 6) {
                                 level = true;
-                                nappa++;
+                                nappac2++;
                                 level6++;
                             }
                             if (io.param == 7) {
                                 level = true;
-                                nappa++;
+                                nappac2++;
                                 level7++;
                             }
                             break;

@@ -702,15 +702,15 @@ public class NPoint {
             this.hpMax += ((double) this.hpMax * tl / 100);
         }
         //set nappa
-//        if (this.player.setClothes.nappa == 5) {
-//            if (this.player.setClothes.cuonghoaskh == 5) {
-//                this.hpMax += ((double) this.hpMax * 200 / 100);
-//            } else {
-//                this.hpMax += ((double) this.hpMax * 100 / 100);
-//            }
-//        }
+       if (this.player.setClothes.nappa == 5) {
+           if (this.player.setClothes.cuonghoaskh == 5) {
+               this.hpMax += ((double) this.hpMax * 200 / 100);
+           } else {
+               this.hpMax += ((double) this.hpMax * 100 / 100);
+           }
+       }
         ///////////////SKH LEVE//////////////////////////
-        if (this.player.setClothes.nappa == 5) {
+        if (this.player.setClothes.nappac2 == 5) {
             if (this.player.setClothes.level1 == 5) {
                 this.hpMax += ((double) this.hpMax * 100 / 100);
             } else if (this.player.setClothes.level2 == 5) {
@@ -1054,14 +1054,14 @@ public class NPoint {
         for (Integer tl : this.tlMp) {
             this.mpMax += (this.mpMax * tl / 100);
         }
-//        if (this.player.setClothes.picolo == 5) {
-//            if (this.player.setClothes.cuonghoaskh == 5) {
-//                this.mpMax += ((double) this.mpMax * 200 / 100);
-//            } else {
-//                this.mpMax += ((double) this.mpMax * 100 / 100);
-//            }
-//        }
-        if (this.player.setClothes.picolo == 5) {
+       if (this.player.setClothes.picolo == 5) {
+           if (this.player.setClothes.cuonghoaskh == 5) {
+               this.mpMax += ((double) this.mpMax * 200 / 100);
+           } else {
+               this.mpMax += ((double) this.mpMax * 100 / 100);
+           }
+       }
+        if (this.player.setClothes.picoloc2 == 5) {
             if (this.player.setClothes.level1 == 5) {
                 this.mpMax += ((double) this.mpMax * 100 / 100);
             } else if (this.player.setClothes.level2 == 5) {
@@ -1829,14 +1829,14 @@ public class NPoint {
                     percentDameIntrinsic = intrinsic.param1;
                 }
                 percentDameSkill = skillSelect.damage;
-//                if (this.player.setClothes.songoku == 5) {
-//                    if (this.player.setClothes.cuonghoaskh == 5) {
-//                        percentXDame = 200;
-//                    } else {
-//                        percentXDame = 100;
-//                    }
-//                }
-                if (this.player.setClothes.songoku == 5) {
+               if (this.player.setClothes.songoku == 5) {
+                   if (this.player.setClothes.cuonghoaskh == 5) {
+                       percentXDame = 200;
+                   } else {
+                       percentXDame = 100;
+                   }
+               }
+                if (this.player.setClothes.songokuc2 == 5) {
                     if (this.player.setClothes.level1 == 5) {
                         percentXDame = 100;
                     } else if (this.player.setClothes.level2 == 5) {
@@ -1868,15 +1868,15 @@ public class NPoint {
                 }
                 percentDameSkill = skillSelect.damage;
                 //////////SKH Thường///////////////
-//                if (this.player.setClothes.kakarot == 5) {
-//                    if (this.player.setClothes.cuonghoaskh == 5) {
-//                        percentXDame = 200; //tăng 100% dame
-//                    } else {
-//                        percentXDame = 100;
-//                    }
-//                }
+               if (this.player.setClothes.kakarot == 5) {
+                   if (this.player.setClothes.cuonghoaskh == 5) {
+                       percentXDame = 200; //tăng 100% dame
+                   } else {
+                       percentXDame = 100;
+                   }
+               }
                 /////////////SKH LEVEL
-                if (this.player.setClothes.kakarot == 5) {
+                if (this.player.setClothes.kakarotc2 == 5) {
                     if (this.player.setClothes.level1 == 5) {
                         percentXDame = 100;
                     } else if (this.player.setClothes.level2 == 5) {
@@ -1921,15 +1921,16 @@ public class NPoint {
                     percentDameIntrinsic = intrinsic.param1;
                 }
                 percentDameSkill = skillSelect.damage;
-//                if (this.player.setClothes.thienXinHang == 5) {
-//                    if (this.player.setClothes.cuonghoaskh == 5) {
-//                        percentXDame = 200;
-//                    } else {
-//                        percentXDame = 100;
-//                    }
-//                }
+                ///skh thường
+               if (this.player.setClothes.thienXinHang == 5) {
+                   if (this.player.setClothes.cuonghoaskh == 5) {
+                       percentXDame = 200;
+                   } else {
+                       percentXDame = 100;
+                   }
+               }
                 //////////SKH LEVEL//////////////////////////
-                if (this.player.setClothes.thienXinHang == 5) {
+                if (this.player.setClothes.thienXinHangc2 == 5) {
                     if (this.player.setClothes.level1 == 5) {
                         percentXDame = 100;
                     } else if (this.player.setClothes.level2 == 5) {
@@ -1965,15 +1966,15 @@ public class NPoint {
                 }
 
                 percentDameSkill = skillSelect.damage;
-//                if (this.player.setClothes.ocTieu == 5) {
-//                    if (this.player.setClothes.cuonghoaskh == 5) {
-//                        percentXDame = 200;
-//                    } else {
-//                        percentXDame = 100;
-//                    }
-//                }
+               if (this.player.setClothes.ocTieu == 5) {
+                   if (this.player.setClothes.cuonghoaskh == 5) {
+                       percentXDame = 200;
+                   } else {
+                       percentXDame = 100;
+                   }
+               }
                 //////////SKH LEVEL//////////////////////////
-                if (this.player.setClothes.ocTieu == 5) {
+                if (this.player.setClothes.ocTieuc2 == 5) {
                     if (this.player.setClothes.level1 == 5) {
                         percentXDame = 100;
                     } else if (this.player.setClothes.level2 == 5) {
@@ -2010,14 +2011,14 @@ public class NPoint {
                 return dameSkill;
             case Skill.QUA_CAU_KENH_KHI:
                 double dame = this.dame * 40;
-//                if (this.player.setClothes.kirin == 5) {
-//                    if (this.player.setClothes.cuonghoaskh == 5) {
-//                        dame *= 4;
-//                    } else {
-//                        dame *= 2;
-//                    }
-//                }
-                if (this.player.setClothes.kirin == 5) {
+               if (this.player.setClothes.kirin == 5) {
+                   if (this.player.setClothes.cuonghoaskh == 5) {
+                       dame *= 4;
+                   } else {
+                       dame *= 2;
+                   }
+               }
+                if (this.player.setClothes.kirinc2 == 5) {
                     if (this.player.setClothes.level1 == 5) {
                         dame *= 2;
                     } else if (this.player.setClothes.level2 == 5) {
@@ -2556,7 +2557,7 @@ public class NPoint {
             for (int i = 0; i < this.defg; i++) {
                 tiemNangUse *= 5L;
             }
-            if ((this.defg + point) <= getCritLimit()) {
+            if ((this.defg + point) <= getDefLimit()) {
                 if (doUseTiemNang(tiemNangUse)) {
                     defg += point;
                 }
