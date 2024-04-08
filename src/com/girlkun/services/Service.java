@@ -881,7 +881,7 @@ public class Service {
                 int songuoi = Client.gI().getPlayers().size();
                 String systemInfo = SystemInfoManager.getSystemInfoMessage();
                 NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_ADMIN, -1,
-                        "|7|Quản Trị Admin: Anh Quốc Dz"
+                        "|7|Quản Trị Admin: Nhatchymte"
                         + "\n|1|Tổng player: " + songuoi + "\n"
                         + "|1|Tổng Sessions: " + GirlkunSessionManager.gI().getSessions().size() + "\n"
                         + systemInfo,

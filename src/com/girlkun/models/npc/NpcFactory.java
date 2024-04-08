@@ -1,9 +1,6 @@
 package com.girlkun.models.npc;
 
 import com.girlkun.consts.ConstMap;
-import com.girlkun.models.boss.list_boss.nappa.Kuku;
-import com.girlkun.server.ServerManager;
-import com.girlkun.server.io.MySession;
 import com.girlkun.models.map.challenge.MartialCongressService;
 import com.girlkun.services.*;
 import com.girlkun.consts.ConstNpc;
@@ -18,7 +15,6 @@ import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossData;
 import com.girlkun.models.boss.BossID;
 import com.girlkun.models.boss.BossManager;
-import com.girlkun.models.boss.BossesData;
 import com.girlkun.models.boss.list_boss.MiNuong;
 import com.girlkun.models.boss.list_boss.NhanBan;
 import com.girlkun.models.clan.Clan;
@@ -33,36 +29,29 @@ import com.girlkun.services.func.SummonDragon;
 
 import static com.girlkun.services.func.SummonDragon.SHENRON_1_STAR_WISHES_1;
 import static com.girlkun.services.func.SummonDragon.SHENRON_1_STAR_WISHES_2;
-import static com.girlkun.services.func.SummonDragon.SHENRON_2_STARS_WHISHES;
 import static com.girlkun.services.func.SummonDragon.SHENRON_SAY;
 
 import com.girlkun.models.player.Player;
 import com.girlkun.models.item.Item;
-import com.girlkun.models.item.Item.ItemOption;
 import com.girlkun.models.kygui.ShopKyGuiService;
 import com.girlkun.models.map.Map;
-import com.girlkun.models.map.Zone;
 import com.girlkun.models.map.blackball.BlackBallWar;
 import com.girlkun.models.map.MapMaBu.MapMaBu;
 import com.girlkun.models.map.doanhtrai.DoanhTrai;
 import com.girlkun.models.map.doanhtrai.DoanhTraiService;
 import com.girlkun.models.map.gas.Gas;
 import com.girlkun.models.map.gas.GasService;
-import com.girlkun.models.player.Inventory;
-import com.girlkun.models.player.NPoint;
 import com.girlkun.models.matches.PVPService;
 import com.girlkun.models.matches.TOP;
 import com.girlkun.models.matches.pvp.DaiHoiVoThuat;
 import com.girlkun.models.matches.pvp.DaiHoiVoThuatService;
 import com.girlkun.models.mob.Mob;
-import com.girlkun.models.player.GiftcodeViet;
 import com.girlkun.models.shop.ShopServiceNew;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.network.io.Message;
 import com.girlkun.server.Client;
 import com.girlkun.server.Maintenance;
 import com.girlkun.server.Manager;
-import com.girlkun.server.ServerNotify;
 import static com.girlkun.services.NgocRongNamecService.TIME_OP;
 import com.girlkun.services.func.CombineServiceNew;
 import com.girlkun.services.func.Input;
@@ -71,27 +60,19 @@ import com.girlkun.utils.Logger;
 import com.girlkun.utils.TimeUtil;
 import com.girlkun.utils.Util;
 import java.util.ArrayList;
-import com.girlkun.services.func.ChonAiDay;
 import com.girlkun.services.func.GoiRongBang;
 import com.girlkun.services.func.GoiRongXuong;
-import static com.girlkun.services.func.GoiRongXuong.HALLOWEN_1_STAR_WISHES_1;
-import static com.girlkun.services.func.GoiRongXuong.HALLOWEN_SAY;
 import com.girlkun.services.func.TaiXiu;
-import com.girlkun.services.func.UseItem;
 import com.girlkun.utils.SkillUtil;
 import java.sql.Connection;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
 
 public class NpcFactory {
 
@@ -2665,6 +2646,8 @@ public class NpcFactory {
                                 "Pha lê\nhóa\ntrang bị",
                                 "Tinh ấn\ntrang bị",
                                 "Chân mệnh",
+                                "Ramdom SKH",
+                                "Nâng Cấp SKH",
                                 "Nâng Cấp\nLEVEL SKH"
                         );
                     } else if (this.mapId == 121) {
@@ -2708,6 +2691,12 @@ public class NpcFactory {
                                             "Nhận Chân mệnh", "Nâng cấp Chân mệnh");
                                     break;
                                 case 4:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.RANDOM_SKH);
+                                    break;
+                                case 5:
+                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.RANDOM_SKHC2);
+                                    break;
+                                case 6:
                                     CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_LEVEL_SKH);
                                     break;
 
@@ -5679,7 +5668,7 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 47 || this.mapId == 84) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
-                                "Xin chào, cậu muốn tôi giúp gì?", "Nhiệm vụ\nhàng ngày", "Tích lũy\nNạp", "Danh hiệu", "Nhận Quà\nGiới Thiệu", "Từ chối");
+                                "Xin chào, cậu muốn tôi giúp gì?", "Nhiệm vụ\nhàng ngày", "Tích lũy\nNạp", "Danh hiệu", "Nhận Quà\nGiới Thiệu","Giftcode", "Từ chối");
                     }
                 }
             }
@@ -5736,6 +5725,9 @@ public class NpcFactory {
                                             "Mở thành viên\n10 diểm");
 
                                     break;
+                                case 4:
+                                    Input.gI().createFormGiftCode(player);
+                                break;
 
                             }
                         } else if (player.iDMark.getIndexMenu() == 123422) {

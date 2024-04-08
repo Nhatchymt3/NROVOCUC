@@ -29,7 +29,7 @@ public class SetClothes {
     public byte broly;
     public byte cell;
 
-    public byte tabi;
+    public byte nhatchymte;
     public byte setDHD;
     public byte setDTS;
     public byte setDTL;
@@ -894,7 +894,7 @@ public class SetClothes {
         this.setDHD = 0;
         this.setDTS = 0;
         this.setDTL = 0;
-        this.tabi = 0;
+        this.nhatchymte = 0;
         this.tinhan = 0;
         this.nhatan = 0;
         this.nguyetan = 0;

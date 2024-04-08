@@ -327,11 +327,13 @@ public class SummonDragon {
         switch (this.menuShenron) {
             case ConstNpc.SHENRON_1_1:
                 switch (this.select) {
-                    case 0: //2 Tỷ vàng
+                    case 0: //đổi skill 2 3 đệ tử
                         if (playerSummonShenron.pet != null) {
                             if (playerSummonShenron.pet.playerSkill.skills.get(1).skillId != -1) {
                                 playerSummonShenron.pet.openSkill2();
-                                playerSummonShenron.pet.openSkill3();
+                                if (playerSummonShenron.pet.playerSkill.skills.get(2).skillId != -1) {
+                                    playerSummonShenron.pet.openSkill3();
+                                }
 
                             } else {
                                 Service.getInstance().sendThongBao(playerSummonShenron, "Ít nhất đệ tử ngươi phải có chiêu 2 chứ!");
@@ -344,7 +346,7 @@ public class SummonDragon {
                             return;
                         }
                         break;
-                    case 1: //găng tay đang đeo lên 1 cấp
+                    case 1: //đổi skill 4 đệ tử
                         if (this.playerSummonShenron.pet.nPoint.power > 20000000000L) {
                             if (this.playerSummonShenron.pet != null) {
                                 if (this.playerSummonShenron.pet.playerSkill.skills.get(1).skillId != -1) {
@@ -372,7 +374,7 @@ public class SummonDragon {
                             return;
                         }
                         break;
-                    case 3: //thay chiêu 2-3 đệ tử
+                    case 3: // 2 tỷ tnsm
                         if ((this.playerSummonShenron.nPoint.power >= 1000) && (this.playerSummonShenron.nPoint.power <= 180000000000L)) {
                             Service.getInstance().addSMTN(this.playerSummonShenron, (byte) 2, 2000000000, false);
                         } else {
@@ -391,7 +393,7 @@ public class SummonDragon {
                 Item rada = this.playerSummonShenron.inventory.itemsBody.get(4);
 
                 switch (this.select) {
-                    case 0: 
+                    case 0: // áo sư phụ lên 1 cấp
                         if (ao.isNotNullItem()) {
                             int level = 0;
                             for (ItemOption io : ao.itemOptions) {
@@ -420,12 +422,12 @@ public class SummonDragon {
                                 return;
                             }
                         } else {
-                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có đeo găng đâu");
+                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có mặc áo đâu");
                             reOpenShenronWishes(playerSummonShenron);
                             return;
                         }
                         break;
-                    case 1: //đổi Skill 4 detu
+                    case 1: // quần sư phụ lên 1 cấp
                         if (quan.isNotNullItem()) {
                             int level = 0;
                             for (ItemOption io : quan.itemOptions) {
@@ -454,13 +456,13 @@ public class SummonDragon {
                                 return;
                             }
                         } else {
-                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có đeo găng đâu");
+                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có mặc quần đâu");
                             reOpenShenronWishes(playerSummonShenron);
                             return;
                         }
 
                         break;
-                    case 2: //+2 tỷ smtn
+                    case 2: // găng sư phụ lên 1 cấp
                         if (gang.isNotNullItem()) {
                             int level = 0;
                             for (ItemOption io : gang.itemOptions) {
@@ -494,7 +496,7 @@ public class SummonDragon {
                             return;
                         }
                         break;
-                    case 3: //găng tay đệ lên 1 cấp
+                    case 3: // giày sư phụ lên 1 cấp
                         if (giay.isNotNullItem()) {
                             int level = 0;
                             for (ItemOption io : giay.itemOptions) {
@@ -523,12 +525,12 @@ public class SummonDragon {
                                 return;
                             }
                         } else {
-                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có đeo găng đâu");
+                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có mang giày đâu");
                             reOpenShenronWishes(playerSummonShenron);
                             return;
                         }
                         break;
-                    case 4: //găng tay đệ lên 1 cấp
+                    case 4: // rada sư phụ lên 1 cấp
                         if (rada.isNotNullItem()) {
                             int level = 0;
                             for (ItemOption io : rada.itemOptions) {
@@ -557,7 +559,7 @@ public class SummonDragon {
                                 return;
                             }
                         } else {
-                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có đeo găng đâu");
+                            Service.getInstance().sendThongBao(playerSummonShenron, "Ngươi hiện tại có đeo rada đâu");
                             reOpenShenronWishes(playerSummonShenron);
                             return;
                         }

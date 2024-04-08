@@ -290,16 +290,16 @@ public class ItemService {
         }
 
         int[][] options = {
-            {128, 129, 127, 210, 211}, // 1 trái đất
-            {130, 131, 132, 210, 211}, // 2 nm
-            {133, 135, 134, 210, 211} // 3 xd
+            {129, 127,128}, // 1 trái đất
+            {130, 131, 132}, // 2 nm
+            {133, 135, 134} // 3 xd
         };
 
-        int skhv1 = 20;  // Tỉ lệ xác suất cho sự kiện 1 (20%)
-        int skhv2 = 20;  // Tỉ lệ xác suất cho sự kiện 2 (20%)
-        int skhv3 = 20;  // Tỉ lệ xác suất cho sự kiện 3 (20%)
-        int skhv4 = 20;  // Tỉ lệ xác suất cho sự kiện 4 (20%)
-        int skhv5 = 20;  // Tỉ lệ xác suất cho sự kiện 5 (20%)
+        int skhv1 = 30;  // Tỉ lệ xác suất cho sự kiện 1 (20%)
+        int skhv2 = 30;  // Tỉ lệ xác suất cho sự kiện 2 (20%)
+        int skhv3 = 40;  // Tỉ lệ xác suất cho sự kiện 3 (20%)
+        //int skhv4 = 25;  // Tỉ lệ xác suất cho sự kiện 4 (20%)
+        //int skhv5 = 20;  // Tỉ lệ xác suất cho sự kiện 5 (20%)
 
         int skhId = -1;
         int rd = Util.nextInt(1, 100);
@@ -310,11 +310,12 @@ public class ItemService {
             skhId = 1;
         } else if (rd <= skhv1 + skhv2 + skhv3) {
             skhId = 2;
-        } else if (rd <= skhv1 + skhv2 + skhv3 + skhv4) {
-            skhId = 3;
         } else {
-            skhId = 4;
+            skhId = 3;
         }
+        // } else {
+        //     skhId = 4;
+        // }
 
         return options[gender][skhId];
     }
@@ -354,7 +355,7 @@ public class ItemService {
 
         int[][] options = {
             {217, 218, 219}, // 1 trái đất
-            {220, 221, 222}, // 2 nm
+            {222, 221, 220}, // 2 nm
             {223, 224, 225} // 3 xd
         };
 

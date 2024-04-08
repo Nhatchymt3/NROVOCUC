@@ -305,13 +305,13 @@ public class NPoint {
             }
         }
 
-        this.player.setClothes.tabi = 0;
+        this.player.setClothes.nhatchymte = 0;
         for (Item item : this.player.inventory.itemsBody) {
             if (item.isNotNullItem()) {
                 for (Item.ItemOption io : item.itemOptions) {
                     switch (io.optionTemplate.id) {
                         case 193:
-                            player.setClothes.tabi++;
+                            player.setClothes.nhatchymte++;
                     }
                 }
                 if (item.template.id >= 592 && item.template.id <= 594) {
@@ -2542,6 +2542,25 @@ public class NPoint {
                     player.autoSD = false;
                     player.autoGiap = false;
                 }
+                player.autocso = false;
+                player.autoHP = false;
+                player.autoKI = false;
+                player.autoSD = false;
+                player.autoGiap = false;
+                Service.getInstance().sendThongBao(player, "|7|Vui lòng mở giới hạn sức mạnh");
+                return;
+            }
+        }
+        if (type == 3) {
+            tiemNangUse = 50000000L;
+            for (int i = 0; i < this.defg; i++) {
+                tiemNangUse *= 5L;
+            }
+            if ((this.defg + point) <= getCritLimit()) {
+                if (doUseTiemNang(tiemNangUse)) {
+                    defg += point;
+                }
+            } else {
                 player.autocso = false;
                 player.autoHP = false;
                 player.autoKI = false;
