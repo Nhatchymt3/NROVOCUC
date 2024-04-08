@@ -2904,9 +2904,9 @@ public class NpcFactory {
                                     CombineServiceNew.gI().startCombine(player);
                                 case CombineServiceNew.PHAN_RA_DO_THAN_LINH:
                                 case CombineServiceNew.NANG_CAP_SKH_VIP:
-                                case CombineServiceNew.MO_CHI_SO_BONG_TAI_2:
-                                case CombineServiceNew.MO_CHI_SO_BONG_TAI_3:
-                                case CombineServiceNew.MO_CHI_SO_BONG_TAI_4:
+                                // case CombineServiceNew.MO_CHI_SO_BONG_TAI_2:
+                                // case CombineServiceNew.MO_CHI_SO_BONG_TAI_3:
+                                // case CombineServiceNew.MO_CHI_SO_BONG_TAI_4:
                                 case CombineServiceNew.NANG_CAP_BONG_TAI:
                                 //case CombineServiceNew.NANGCAPBONGTAI:
                                 case CombineServiceNew.OPTIONBONGTAI:

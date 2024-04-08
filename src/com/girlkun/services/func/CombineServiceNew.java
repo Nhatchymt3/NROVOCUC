@@ -695,50 +695,54 @@ public class CombineServiceNew {
                             "Cần 1 Bông tai Porata cấp 1, 2 hoặc 3 và Mảnh vỡ bông tai", "Đóng");
                 }
                 break;
-            case NANGCAPBONGTAI:
-                if (player.combineNew.itemsCombine.size() == 2) {
-                    Item bongTai = null;
-                    Item manhVo = null;
-                    for (Item item : player.combineNew.itemsCombine) {
-                        if (item.template.id == 921) {
-                            bongTai = item;
-                        } else if (item.template.id == 933) {
-                            manhVo = item;
-                        }
-                    }
-                    if (bongTai != null && manhVo != null && manhVo.quantity >= 99 && bongTai.template.id == 921) {
-                        player.combineNew.goldCombine = 500000000;
-                        player.combineNew.gemCombine = 1000;
-                        player.combineNew.ratioCombine = 50;
-                        String npcSay = "Bông tai Porata cấp 2" + "\n|2|";
-                        for (Item.ItemOption io : bongTai.itemOptions) {
-                            npcSay += io.getOptionString() + "\n";
-                        }
-                        npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
-                        if (player.combineNew.goldCombine <= player.inventory.gold) {
-                            npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
-                                    "Nâng cấp\ncần " + player.combineNew.gemCombine + " Hồng ngọc");
-                        } else {
-                            npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
-                        }
-                    } else {
-                        this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                                "Cần 1 Bông tai Porata cấp 1, 2 hoặc 3 và X99 Mảnh vỡ bông tai", "Đóng");
-                    }
-                } else {
-                    this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                            "Cần 1 Bông tai Porata và x99 mãnh vỡ bongi tai", "Đóng");
-                }
-                break;
+            // case NANGCAPBONGTAI:
+            //     if (player.combineNew.itemsCombine.size() == 2) {
+            //         Item bongTai = null;
+            //         Item manhVo = null;
+            //         for (Item item : player.combineNew.itemsCombine) {
+            //             if (item.template.id == 921) {
+            //                 bongTai = item;
+            //             } else if (item.template.id == 933) {
+            //                 manhVo = item;
+            //             }
+            //         }
+            //         if (bongTai != null && manhVo != null && manhVo.quantity >= 99 && bongTai.template.id == 921) {
+            //             player.combineNew.goldCombine = 500000000;
+            //             player.combineNew.gemCombine = 1000;
+            //             player.combineNew.ratioCombine = 50;
+            //             String npcSay = "Bông tai Porata cấp 2" + "\n|2|";
+            //             for (Item.ItemOption io : bongTai.itemOptions) {
+            //                 npcSay += io.getOptionString() + "\n";
+            //             }
+            //             npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
+            //             if (player.combineNew.goldCombine <= player.inventory.gold) {
+            //                 npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
+            //                         "Nâng cấp\ncần " + player.combineNew.gemCombine + " Hồng ngọc");
+            //             } else {
+            //                 npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
+            //             }
+            //         } else {
+            //             this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                     "Cần 1 Bông tai Porata cấp 1, 2 hoặc 3 và X99 Mảnh vỡ bông tai", "Đóng");
+            //         }
+            //     } else {
+            //         this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                 "Cần 1 Bông tai Porata và x99 mãnh vỡ bongi tai", "Đóng");
+            //     }
+            //     break;
             case OPTIONBONGTAI:
                 if (player.combineNew.itemsCombine.size() == 3) {
                     Item bongTai = null;
                     Item manhHon = null;
                     Item daXanhLam = null;
                     for (Item item : player.combineNew.itemsCombine) {
-                        if (item.template.id == 921) {
+                        if (item.template.id == 454) {
+                            bongTai = item;
+                        }  else if (item.template.id == 921) {
+                            bongTai = item;
+                        } else if (item.template.id == 1165) {
                             bongTai = item;
                         } else if (item.template.id == 934) {
                             manhHon = item;
@@ -775,133 +779,133 @@ public class CombineServiceNew {
                 }
                 break;
 
-            case MO_CHI_SO_BONG_TAI_2:
-                if (player.combineNew.itemsCombine.size() == 3) {
-                    Item bongTai = null;
-                    Item manhHon = null;
-                    Item daXanhLam = null;
-                    for (Item item : player.combineNew.itemsCombine) {
-                        if (item.template.id == 921) {
-                            bongTai = item;
-                        } else if (item.template.id == 934) {
-                            manhHon = item;
-                        } else if (item.template.id == 935) {
-                            daXanhLam = item;
-                        }
-                    }
-                    if (bongTai != null && manhHon != null && daXanhLam != null && manhHon.quantity >= 99) {
+            // case MO_CHI_SO_BONG_TAI_2:
+            //     if (player.combineNew.itemsCombine.size() == 3) {
+            //         Item bongTai = null;
+            //         Item manhHon = null;
+            //         Item daXanhLam = null;
+            //         for (Item item : player.combineNew.itemsCombine) {
+            //             if (item.template.id == 921) {
+            //                 bongTai = item;
+            //             } else if (item.template.id == 934) {
+            //                 manhHon = item;
+            //             } else if (item.template.id == 935) {
+            //                 daXanhLam = item;
+            //             }
+            //         }
+            //         if (bongTai != null && manhHon != null && daXanhLam != null && manhHon.quantity >= 99) {
 
-                        player.combineNew.goldCombine = 2000000000;
-                        player.combineNew.gemCombine = 1000;
-                        player.combineNew.ratioCombine = 50;
+            //             player.combineNew.goldCombine = 2000000000;
+            //             player.combineNew.gemCombine = 1000;
+            //             player.combineNew.ratioCombine = 50;
 
-                        String npcSay = "Bông tai Porata cấp 2" + "\n|2|";
-                        for (Item.ItemOption io : bongTai.itemOptions) {
-                            npcSay += io.getOptionString() + "\n";
-                        }
-                        npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
-                        if (player.combineNew.goldCombine <= player.inventory.gold) {
-                            npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
-                                    "Nâng cấp\ncần " + player.combineNew.gemCombine + " ngọc");
-                        } else {
-                            npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
-                        }
-                    } else {
-                        this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                                "Cần 1 Bông tai Porata cấp 2, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
-                    }
-                } else {
-                    this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                            "Cần 1 Bông tai Porata cấp 2, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
-                }
-                break;
+            //             String npcSay = "Bông tai Porata cấp 2" + "\n|2|";
+            //             for (Item.ItemOption io : bongTai.itemOptions) {
+            //                 npcSay += io.getOptionString() + "\n";
+            //             }
+            //             npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
+            //             if (player.combineNew.goldCombine <= player.inventory.gold) {
+            //                 npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
+            //                         "Nâng cấp\ncần " + player.combineNew.gemCombine + " ngọc");
+            //             } else {
+            //                 npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
+            //             }
+            //         } else {
+            //             this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                     "Cần 1 Bông tai Porata cấp 2, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
+            //         }
+            //     } else {
+            //         this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                 "Cần 1 Bông tai Porata cấp 2, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
+            //     }
+            //     break;
 
-            case MO_CHI_SO_BONG_TAI_3:
-                if (player.combineNew.itemsCombine.size() == 3) {
-                    Item bongTai = null;
-                    Item manhHon = null;
-                    Item daXanhLam = null;
-                    for (Item item : player.combineNew.itemsCombine) {
-                        if (item.template.id == 1165) {
-                            bongTai = item;
-                        } else if (item.template.id == 934) {
-                            manhHon = item;
-                        } else if (item.template.id == 935) {
-                            daXanhLam = item;
-                        }
-                    }
-                    if (bongTai != null && manhHon != null && daXanhLam != null && manhHon.quantity >= 99) {
+            // case MO_CHI_SO_BONG_TAI_3:
+            //     if (player.combineNew.itemsCombine.size() == 3) {
+            //         Item bongTai = null;
+            //         Item manhHon = null;
+            //         Item daXanhLam = null;
+            //         for (Item item : player.combineNew.itemsCombine) {
+            //             if (item.template.id == 1165) {
+            //                 bongTai = item;
+            //             } else if (item.template.id == 934) {
+            //                 manhHon = item;
+            //             } else if (item.template.id == 935) {
+            //                 daXanhLam = item;
+            //             }
+            //         }
+            //         if (bongTai != null && manhHon != null && daXanhLam != null && manhHon.quantity >= 99) {
 
-                        player.combineNew.goldCombine = 2000000000;
-                        player.combineNew.gemCombine = 1000;
-                        player.combineNew.ratioCombine = 50;
+            //             player.combineNew.goldCombine = 2000000000;
+            //             player.combineNew.gemCombine = 1000;
+            //             player.combineNew.ratioCombine = 50;
 
-                        String npcSay = "Bông tai Porata cấp 3" + "\n|2|";
-                        for (Item.ItemOption io : bongTai.itemOptions) {
-                            npcSay += io.getOptionString() + "\n";
-                        }
-                        npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
-                        if (player.combineNew.goldCombine <= player.inventory.gold) {
-                            npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
-                                    "Nâng cấp\ncần " + player.combineNew.gemCombine + " ngọc");
-                        } else {
-                            npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
-                        }
-                    } else {
-                        this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                                "Cần 1 Bông tai Porata cấp 3, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
-                    }
-                } else {
-                    this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                            "Cần 1 Bông tai Porata cấp 3, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
-                }
-                break;
-            case MO_CHI_SO_BONG_TAI_4:
-                if (player.combineNew.itemsCombine.size() == 3) {
-                    Item bongTai = null;
-                    Item manhHon = null;
-                    Item daXanhLam = null;
-                    for (Item item : player.combineNew.itemsCombine) {
-                        if (item.template.id == 1129) {
-                            bongTai = item;
-                        } else if (item.template.id == 934) {
-                            manhHon = item;
-                        } else if (item.template.id == 935) {
-                            daXanhLam = item;
-                        }
-                    }
-                    if (bongTai != null && manhHon != null && daXanhLam != null && manhHon.quantity >= 99) {
+            //             String npcSay = "Bông tai Porata cấp 3" + "\n|2|";
+            //             for (Item.ItemOption io : bongTai.itemOptions) {
+            //                 npcSay += io.getOptionString() + "\n";
+            //             }
+            //             npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
+            //             if (player.combineNew.goldCombine <= player.inventory.gold) {
+            //                 npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
+            //                         "Nâng cấp\ncần " + player.combineNew.gemCombine + " ngọc");
+            //             } else {
+            //                 npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
+            //             }
+            //         } else {
+            //             this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                     "Cần 1 Bông tai Porata cấp 3, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
+            //         }
+            //     } else {
+            //         this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                 "Cần 1 Bông tai Porata cấp 3, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
+            //     }
+            //     break;
+            // case MO_CHI_SO_BONG_TAI_4:
+            //     if (player.combineNew.itemsCombine.size() == 3) {
+            //         Item bongTai = null;
+            //         Item manhHon = null;
+            //         Item daXanhLam = null;
+            //         for (Item item : player.combineNew.itemsCombine) {
+            //             if (item.template.id == 1129) {
+            //                 bongTai = item;
+            //             } else if (item.template.id == 934) {
+            //                 manhHon = item;
+            //             } else if (item.template.id == 935) {
+            //                 daXanhLam = item;
+            //             }
+            //         }
+            //         if (bongTai != null && manhHon != null && daXanhLam != null && manhHon.quantity >= 99) {
 
-                        player.combineNew.goldCombine = 2000000000;
-                        player.combineNew.gemCombine = 1000;
-                        player.combineNew.ratioCombine = 50;
+            //             player.combineNew.goldCombine = 2000000000;
+            //             player.combineNew.gemCombine = 1000;
+            //             player.combineNew.ratioCombine = 50;
 
-                        String npcSay = "Bông tai Porata cấp 4" + "\n|2|";
-                        for (Item.ItemOption io : bongTai.itemOptions) {
-                            npcSay += io.getOptionString() + "\n";
-                        }
-                        npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
-                        if (player.combineNew.goldCombine <= player.inventory.gold) {
-                            npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
-                                    "Nâng cấp\ncần " + player.combineNew.gemCombine + " ngọc");
-                        } else {
-                            npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
-                            baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
-                        }
-                    } else {
-                        this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                                "Cần 1 Bông tai Porata cấp 4, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
-                    }
-                } else {
-                    this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                            "Cần 1 Bông tai Porata cấp 4, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
-                }
-                break;
+            //             String npcSay = "Bông tai Porata cấp 4" + "\n|2|";
+            //             for (Item.ItemOption io : bongTai.itemOptions) {
+            //                 npcSay += io.getOptionString() + "\n";
+            //             }
+            //             npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
+            //             if (player.combineNew.goldCombine <= player.inventory.gold) {
+            //                 npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
+            //                         "Nâng cấp\ncần " + player.combineNew.gemCombine + " ngọc");
+            //             } else {
+            //                 npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
+            //                 baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
+            //             }
+            //         } else {
+            //             this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                     "Cần 1 Bông tai Porata cấp 4, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
+            //         }
+            //     } else {
+            //         this.baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU,
+            //                 "Cần 1 Bông tai Porata cấp 4, X99 Mảnh hồn bông tai và 1 Đá xanh lam", "Đóng");
+            //     }
+            //     break;
 
             ////Phân rẫ đồ thân linh
 //            case PHAN_RA_DO_THAN_LINH:

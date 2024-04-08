@@ -423,7 +423,7 @@ public class Input {
                                         return;
                                     }
 
-                                    IntrinsicService.gI().open(player); // Gọi hàm mở nội tại thường
+                                    IntrinsicService.gI().openVip(player); // Gọi hàm mở nội tại thường
 
                                     player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
 
@@ -435,7 +435,7 @@ public class Input {
                                     }
 
                                     if ((i + 1) % 3 == 0) { // Mỗi 3 lần mở nội tại thường thì thực hiện mở nội tại VIP
-                                        IntrinsicService.gI().openVip(player); // Gọi hàm mở nội tại VIP
+                                        IntrinsicService.gI().open(player); // Gọi hàm mở nội tại VIP
                                         countOpened++;
                                     }
                                     i++;

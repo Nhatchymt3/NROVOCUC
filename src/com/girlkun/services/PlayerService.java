@@ -299,12 +299,12 @@ public class PlayerService {
                     return;
                 }
             } else {
-                if (player.inventory.gem >= COST_GOLD_HOI) {
-                    player.inventory.gem -= COST_GOLD_HOI;
+                if (player.inventory.gold >= COST_GOLD_HOI) {
+                    player.inventory.gold -= COST_GOLD_HOI;
                     canHs = true;
                 } else {
                     Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI
-                            - player.inventory.gem) + " vàng");
+                            - player.inventory.gold) + " vàng");
                     return;
                 }
             }

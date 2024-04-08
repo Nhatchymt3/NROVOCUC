@@ -336,6 +336,8 @@ public class UseItem {
                             break;
                         case 1482: //thú cưng
                             Input.gI().TAOPET(pl);
+                            InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+                            InventoryServiceNew.gI().sendItemBags(pl);
                             break;
                         case 668: //hopquatanthu
                             hopquatanthu(pl, item);
@@ -768,7 +770,6 @@ public class UseItem {
     private void opendetuvip(Player player, Item item) {
         Input.gI().TAOPET(player);
         InventoryServiceNew.gI().subQuantityItemsBag(player, item, 1);
-        InventoryServiceNew.gI().sendItemBags(player);
     }
 
     private void tangdiemboss(Player pl, Item item) {

@@ -97,13 +97,13 @@ public class IntrinsicService {
                     
             }
 
-    public void showConfirmOpen(Player player) {
-        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC, -1, "Bạn muốn đổi Nội Tại khác\nvới giá là "
+    public void showConfirmOpenVip(Player player) {
+        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC_VIP, -1, "Bạn muốn đổi Nội Tại khác\nvới giá là "
                 + COST_OPEN[player.playerIntrinsic.countOpen > 7 ? 7:player.playerIntrinsic.countOpen] + " Tr vàng ?", "Mở\nNội Tại", "Từ chối");
     }
 
-    public void showConfirmOpenVip(Player player) {
-        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC_VIP, -1,
+    public void showConfirmOpen(Player player) {
+        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC, -1,
                 "Bạn có muốn mở Nội Tại\nvới giá là 100 ngọc và\ntái lập giá vàng quay lại ban đầu không?", "Mở\nNội VIP", "Từ chối");
     }
 
@@ -135,7 +135,8 @@ public class IntrinsicService {
 
     public void openVip(Player player) {
         if (player.nPoint.power >= 10000000000L) {
-            int goldRequire = COST_OPEN[player.playerIntrinsic.countOpen > 7 ? 7:player.playerIntrinsic.countOpen] * 1000000;
+            //int goldRequire = COST_OPEN[player.playerIntrinsic.countOpen > 7 ? 7:player.playerIntrinsic.countOpen] * 1000000;
+            int goldRequire = 2000000000;
             if (player.inventory.gold >= goldRequire) {
                 player.inventory.gold -= goldRequire;
                 PlayerService.gI().sendInfoHpMpMoney(player);
