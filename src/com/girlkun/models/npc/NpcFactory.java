@@ -5680,24 +5680,24 @@ public class NpcFactory {
                         if (player.iDMark.isBaseMenu()) {
                             switch (select) {
                                 case 0:
-                                    if (player.playerTask.sideTask.template != null) {
-                                        String npcSay = "Nhiệm vụ hiện tại: " + player.playerTask.sideTask.getName() + " ("
-                                                + player.playerTask.sideTask.getLevel() + ")"
-                                                + "\nHiện tại đã hoàn thành: " + player.playerTask.sideTask.count + "/"
-                                                + player.playerTask.sideTask.maxCount + " ("
-                                                + player.playerTask.sideTask.getPercentProcess() + "%)\nSố nhiệm vụ còn lại trong ngày: "
-                                                + player.playerTask.sideTask.leftTask + "/" + ConstTask.MAX_SIDE_TASK;
-                                        this.createOtherMenu(player, ConstNpc.MENU_OPTION_PAY_SIDE_TASK,
-                                                npcSay, "Trả nhiệm\nvụ", "Hủy nhiệm\nvụ");
-                                    } else {
-                                        this.createOtherMenu(player, ConstNpc.MENU_OPTION_LEVEL_SIDE_TASK,
-                                                "Tôi có vài nhiệm vụ theo cấp bậc, "
-                                                + "sức cậu có thể làm được cái nào?\b|5|Phần thưởng:\b|7| Dễ: 1 Thỏi vàng + 200 hồng ngọc\n Bình thường: 2 Thỏi vàng + 400 hồng ngọc\n Khó: 3 Thỏi vàng + 600 hồng ngọc\n Siêu khó: 4 Thỏi vàng + 800 hồng ngọc\n Địa ngục: 5 Thỏi vàng + 1000 hồng ngọc",
-                                                "Dễ", "Bình thường", "Khó", "Siêu khó", "Địa ngục", "Từ chối");
-                                    }
+                                    // if (player.playerTask.sideTask.template != null) {
+                                    //     String npcSay = "Nhiệm vụ hiện tại: " + player.playerTask.sideTask.getName() + " ("
+                                    //             + player.playerTask.sideTask.getLevel() + ")"
+                                    //             + "\nHiện tại đã hoàn thành: " + player.playerTask.sideTask.count + "/"
+                                    //             + player.playerTask.sideTask.maxCount + " ("
+                                    //             + player.playerTask.sideTask.getPercentProcess() + "%)\nSố nhiệm vụ còn lại trong ngày: "
+                                    //             + player.playerTask.sideTask.leftTask + "/" + ConstTask.MAX_SIDE_TASK;
+                                    //     this.createOtherMenu(player, ConstNpc.MENU_OPTION_PAY_SIDE_TASK,
+                                    //             npcSay, "Trả nhiệm\nvụ", "Hủy nhiệm\nvụ");
+                                    // } else {
+                                    //     this.createOtherMenu(player, ConstNpc.MENU_OPTION_LEVEL_SIDE_TASK,
+                                    //             "Tôi có vài nhiệm vụ theo cấp bậc, "
+                                    //             + "sức cậu có thể làm được cái nào?\b|5|Phần thưởng:\b|7| Dễ: 1 Thỏi vàng + 200 hồng ngọc\n Bình thường: 2 Thỏi vàng + 400 hồng ngọc\n Khó: 3 Thỏi vàng + 600 hồng ngọc\n Siêu khó: 4 Thỏi vàng + 800 hồng ngọc\n Địa ngục: 5 Thỏi vàng + 1000 hồng ngọc",
+                                    //             "Dễ", "Bình thường", "Khó", "Siêu khó", "Địa ngục", "Từ chối");
+                                    // }
                                     break;
                                 case 1:
-                                    player.achievement.Show();
+                                    //player.achievement.Show();
                                     break;
                                 case 2:
                                     this.createOtherMenu(player, 888,

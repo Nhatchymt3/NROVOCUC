@@ -55,7 +55,7 @@ public class BoMong {
                         + " (" + Util.numberToMoney(getCount(temp.getIndex()))
                         + "/"
                         + Util.numberToMoney((long) temp.getCount_Purpose()) + ")");
-                msg.writer().writeShort(temp.getGem());
+                msg.writer().writeShort(temp.getTV());
                 msg.writer().writeBoolean(getCount(temp.getIndex()) >= temp.getCount_Purpose()); //isfinish
                 msg.writer().writeBoolean(this.listReceiveGem.get(temp.getIndex())); //isreceiv
             }
@@ -93,9 +93,9 @@ public class BoMong {
                 }
             }
             this.listReceiveGem.set(index, Boolean.TRUE);
-            this.player.inventory.ruby += temp.getGem();
+            this.player.inventory.ruby += temp.getTV();
             Service.getInstance().sendMoney(this.player);
-            Service.getInstance().sendThongBao(this.player, "Nhận thành công " + temp.getGem() + " hồng ngọc");
+            Service.getInstance().sendThongBao(this.player, "Nhận thành công " + temp.getTV() + " hồng ngọc");
         } else {
             Service.getInstance().sendThongBao(this.player, "Không có phần thưởng");
         }

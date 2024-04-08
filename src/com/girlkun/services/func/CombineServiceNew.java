@@ -744,7 +744,9 @@ public class CombineServiceNew {
                             bongTai = item;
                         } else if (item.template.id == 1165) {
                             bongTai = item;
-                        } else if (item.template.id == 934) {
+                        } else if (item.template.id == 1129) {
+                            bongTai = item;
+                        }else if (item.template.id == 934) {
                             manhHon = item;
                         } else if (item.template.id == 935) {
                             daXanhLam = item;
@@ -3178,23 +3180,23 @@ public class CombineServiceNew {
     private float getRatioPhaLeHoa(int star) {
         switch (star) {
             case 0:
-                return 65f;
+                return 90f;
             case 1:
-                return 50f;
+                return 70f;
             case 2:
-                return 30f;
+                return 50f;
             case 3:
-                return 15f;
+                return 30f;
             case 4:
-                return 10f;
+                return 20f;
             case 5:
-                return 5f;
+                return 10f;
             case 6:
-                return 3f;
+                return 5f;
             case 7:
-                return 2f;
-            case 8:
                 return 1f;
+            case 8:
+                return 0.1f;
         }
         return 0;
     }

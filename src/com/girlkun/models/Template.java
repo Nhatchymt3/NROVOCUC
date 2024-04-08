@@ -18,18 +18,18 @@ public class Template {
         String info1;
         String info2;
         double count_Purpose;
-        int gem;
+        int TV;
 
         public AchievementTemplate() {
 
         }
 
-        public AchievementTemplate(int index, String info1, String info2, double count, int gem) {
+        public AchievementTemplate(int index, String info1, String info2, double count, int TV) {
             this.index = index;
             this.info1 = info1;
             this.info2 = info2;
             this.count_Purpose = count;
-            this.gem = gem;
+            this.TV = TV;
         }
 
     }

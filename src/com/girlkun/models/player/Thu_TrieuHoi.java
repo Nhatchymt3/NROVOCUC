@@ -230,12 +230,12 @@ public class Thu_TrieuHoi extends Player {
             return;
         }
         if (Util.canDoWithTime(masterr.Autothucan, 900000) && masterr.trangthai == true) {
-            if (masterr.inventory.ruby < 200) {
+            if (masterr.inventory.gold < 20000000) {
                 Service.gI().sendThongBao(masterr,
-                        "|7|Không đủ Hồng ngọc");
+                        "|7|Không đủ Vàng");
                 return;
             }
-            masterr.inventory.ruby -= 200;
+            masterr.inventory.gold -= 20000000;
             masterr.TrieuHoiThucAn++;
             masterr.Autothucan = System.currentTimeMillis();
             if (masterr.TrieuHoiThucAn > 200) {
