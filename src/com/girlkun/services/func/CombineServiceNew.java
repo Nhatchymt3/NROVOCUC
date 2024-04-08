@@ -1347,7 +1347,7 @@ public class CombineServiceNew {
             case NANG_CAP_LEVEL_SKH:
                 nangCapLEVELSKH(player);
                 break;
-            case NANGCAPBONGTAI: //
+            case NANG_CAP_BONG_TAI: //
                 nangcapporata(player);
                 break;
 
@@ -2527,9 +2527,12 @@ public class CombineServiceNew {
                 player.inventory.ruby -= gem;
                 if (Util.isTrue(30, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);//xoa mãnh mvbt
-                    bongtai.itemOptions.clear();
-                    bongtai.itemOptions.add(new Item.ItemOption(243, 1));
-                    bongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
+                     Item newbongtai = ItemService.gI().createNewItem((short)921,1);
+                     newbongtai.itemOptions.clear();
+                     newbongtai.itemOptions.add(new Item.ItemOption(243, 1));
+                     newbongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                     InventoryServiceNew.gI().addItemBag(player, newbongtai);
                     sendEffectSuccessCombine(player);
                 } else {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99); //xoa mãnh mvbt
@@ -2539,14 +2542,17 @@ public class CombineServiceNew {
                 Service.gI().sendMoney(player);
                 reOpenItemCombine(player);
             }
-            if (levelbongtai == 243 && bongtai != null && manhVo != null && manhVo.quantity >= 99) {
+            if (levelbongtai == 243 && bongtai != null && manhVo != null && manhVo.quantity >= 999) {
                 player.inventory.gold -= gold;
                 player.inventory.ruby -= gem;
                 if (Util.isTrue(20, 100)) {
-                    InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);//xoa mãnh mvbt
-                    bongtai.itemOptions.clear();
-                    bongtai.itemOptions.add(new Item.ItemOption(244, 1));
-                    bongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 999);//xoa mãnh mvbt
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
+                    Item newbongtai = ItemService.gI().createNewItem((short)1165,1);
+                    newbongtai.itemOptions.clear();
+                    newbongtai.itemOptions.add(new Item.ItemOption(244, 1));
+                    newbongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                    InventoryServiceNew.gI().addItemBag(player, newbongtai);
                     sendEffectSuccessCombine(player);
                 } else {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99); //xoa mãnh mvbt
@@ -2561,9 +2567,12 @@ public class CombineServiceNew {
                 player.inventory.ruby -= gem;
                 if (Util.isTrue(10, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);//xoa mãnh mvbt
-                    bongtai.itemOptions.clear();
-                    bongtai.itemOptions.add(new Item.ItemOption(245, 1));
-                    bongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
+                    Item newbongtai = ItemService.gI().createNewItem((short)1129,1);
+                    newbongtai.itemOptions.clear();
+                    newbongtai.itemOptions.add(new Item.ItemOption(245, 1));
+                    newbongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                    InventoryServiceNew.gI().addItemBag(player, newbongtai);
                     sendEffectSuccessCombine(player);
                 } else {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99); //xoa mãnh mvbt

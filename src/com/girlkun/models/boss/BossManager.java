@@ -302,9 +302,7 @@ public class BossManager implements Runnable {
     }
 
     public void showListBoss(Player player) {
-        if (!player.isAdmin()) {
-            return;
-        }
+        
 
         Message msg;
         try {
@@ -347,11 +345,19 @@ public class BossManager implements Runnable {
                         msg.writer().writeUTF(boss.data[0].getName());
 
                         if (boss.zone != null) {
-                            msg.writer().writeUTF("Rơi ITEM");
-                            msg.writer().writeUTF(boss.zone.map.mapName + "(" + boss.zone.map.mapId + ") khu " + boss.zone.zoneId + "");
+                            msg.writer().writeUTF("Sống");
+                            if (player.isAdmin()) {
+                                // Nếu người dùng là quản trị viên, hiển thị thông tin đầy đủ
+                                msg.writer().writeUTF(boss.zone.map.mapName + "(" + boss.zone.map.mapId + ") khu " + boss.zone.zoneId);
+                            } else {
+                                // Nếu không, chỉ hiển thị tên khu
+                                msg.writer().writeUTF(boss.zone.map.mapName + "(" + boss.zone.map.mapId + ")  khu tự đi mà tìm");
+                            }
+                            
 
                         } else {
-
+                            msg.writer().writeUTF("Chết");
+                            msg.writer().writeUTF("Chết rồi");       
                         }
                     } else {
                         System.out.println("Lỗi: Mảng data của boss rỗng. ID của boss: " + boss.id);

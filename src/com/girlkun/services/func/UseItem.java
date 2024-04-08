@@ -768,6 +768,7 @@ public class UseItem {
     private void opendetuvip(Player player, Item item) {
         Input.gI().TAOPET(player);
         InventoryServiceNew.gI().subQuantityItemsBag(player, item, 1);
+        InventoryServiceNew.gI().sendItemBags(player);
     }
 
     private void tangdiemboss(Player pl, Item item) {

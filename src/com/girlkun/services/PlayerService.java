@@ -135,7 +135,7 @@ public class PlayerService {
         try {
             msg = new Message(-96);
             msg.writer().writeByte(0);
-            msg.writer().writeUTF("Member Của Quốc");
+            msg.writer().writeUTF("Member nhatchymte");
             msg.writer().writeByte((int) Client.gI().getPlayers().stream().count());
 
             for (Player onlinePlayer : Client.gI().getPlayers()) {
@@ -281,9 +281,9 @@ public class PlayerService {
         playerBaned.iDMark.setBan(true);
     }
 
-    private static final int COST_GOLD_HOI_SINH = 10000000;
-    private static final int COST_GEM_HOI_SINH = 1;
-    private static final int COST_GOLD_HOI_SINH_NRSD = 20000000;
+    private static final int COST_GOLD_HOI_SINH_MABU = 100000000;
+    private static final int COST_GOLD_HOI = 50000000;
+    private static final int COST_GOLD_HOI_SINH_NRSD = 200000000;
 
     public void hoiSinh(Player player) {
     
@@ -299,11 +299,11 @@ public class PlayerService {
                     return;
                 }
             } else {
-                if (player.inventory.gem >= COST_GEM_HOI_SINH) {
-                    player.inventory.gem -= COST_GEM_HOI_SINH;
+                if (player.inventory.gem >= COST_GOLD_HOI) {
+                    player.inventory.gem -= COST_GOLD_HOI;
                     canHs = true;
                 } else {
-                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GEM_HOI_SINH
+                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI
                             - player.inventory.gem) + " vàng");
                     return;
                 }
@@ -328,11 +328,11 @@ public class PlayerService {
                     return;
                 }
             } else {
-                if (player.inventory.gold >= COST_GOLD_HOI_SINH) {
-                    player.inventory.gold -= COST_GOLD_HOI_SINH;
+                if (player.inventory.gold >= COST_GOLD_HOI_SINH_MABU) {
+                    player.inventory.gold -= COST_GOLD_HOI_SINH_MABU;
                     canHs = true;
                 } else {
-                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH
+                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH_MABU
                             - player.inventory.gold) + " vàng");
                     return;
                 }

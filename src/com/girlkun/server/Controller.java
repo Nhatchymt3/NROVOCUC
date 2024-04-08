@@ -311,7 +311,7 @@ public class Controller implements IMessageHandler {
                             Item caitrang = player.inventory.itemsBody.get(5);
 
                             if (bosse != null && bosse.id == id && !bosse.isDie()) {
-                                if (caitrang.isNotNullItem()) {
+                                if (caitrang.isNotNullItem()&& maydo != null) {
                                     for (Item.ItemOption io : caitrang.itemOptions) {
                                         option = io;
                                     }                    
@@ -326,7 +326,7 @@ public class Controller implements IMessageHandler {
                                         }
                                     } 
                                 } else {
-                                    Service.getInstance().sendThongBao(player, "|7|Bạn không có trang bị yardat");
+                                    Service.getInstance().sendThongBao(player, "|7|Bạn không có trang bị yardat hoặc không có rada dò boss");
                                 }
                                 if (player.isAdmin()) {
                                     if (player.haveBeQuynh == false) {

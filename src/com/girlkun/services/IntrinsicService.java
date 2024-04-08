@@ -107,7 +107,7 @@ public class IntrinsicService {
                 "Bạn có muốn mở Nội Tại\nvới giá là 100 ngọc và\ntái lập giá vàng quay lại ban đầu không?", "Mở\nNội VIP", "Từ chối");
     }
 
-    private void changeIntrinsic(Player player) {
+    private void changeIntrinsicVip(Player player) {
         List<Intrinsic> listIntrinsic = getIntrinsics(player.gender);
         player.playerIntrinsic.intrinsic = new Intrinsic(listIntrinsic.get(Util.nextInt(1, listIntrinsic.size() - 1)));
         player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
@@ -115,14 +115,31 @@ public class IntrinsicService {
         Service.getInstance().sendThongBao(player, "Bạn nhận được Nội tại:\n" + player.playerIntrinsic.intrinsic.getName().substring(0, player.playerIntrinsic.intrinsic.getName().indexOf(" [")));
         sendInfoIntrinsic(player);
     }
+    private void changeIntrinsic(Player player) {
+        List<Intrinsic> listIntrinsic = getIntrinsics(player.gender);
+        Intrinsic selectedIntrinsic = listIntrinsic.get(Util.nextInt(1, listIntrinsic.size() - 1));
+        int MAX_PARAM1_VALUE = (int) (selectedIntrinsic.paramTo1 * 0.7);
+        int MAX_PARAM2_VALUE = (int) (selectedIntrinsic.paramTo2 * 0.7);
+        // Giới hạn giá trị param1 và param2 theo giá trị tối đa
+        short maxParam1 = (short) Math.min(selectedIntrinsic.paramTo1, MAX_PARAM1_VALUE);
+        short maxParam2 = (short) Math.min(selectedIntrinsic.paramTo2, MAX_PARAM2_VALUE);
+        
+        player.playerIntrinsic.intrinsic = new Intrinsic(selectedIntrinsic);
+        player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, maxParam1);
+        player.playerIntrinsic.intrinsic.param2 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom2, maxParam2);
+        
+        Service.getInstance().sendThongBao(player, "Bạn nhận được Nội tại:\n" + player.playerIntrinsic.intrinsic.getName().substring(0, player.playerIntrinsic.intrinsic.getName().indexOf(" [")));
+        sendInfoIntrinsic(player);
+    }
 
-    public void open(Player player) {
+
+    public void openVip(Player player) {
         if (player.nPoint.power >= 10000000000L) {
             int goldRequire = COST_OPEN[player.playerIntrinsic.countOpen > 7 ? 7:player.playerIntrinsic.countOpen] * 1000000;
             if (player.inventory.gold >= goldRequire) {
                 player.inventory.gold -= goldRequire;
                 PlayerService.gI().sendInfoHpMpMoney(player);
-                changeIntrinsic(player);
+                changeIntrinsicVip(player);
                 player.playerIntrinsic.countOpen++;
             } else {
                 Service.getInstance().sendThongBao(player, "Bạn không đủ vàng, còn thiếu "
@@ -133,7 +150,7 @@ public class IntrinsicService {
         }
     }
 
-    public void openVip(Player player) {
+    public void open(Player player) {
         if (player.nPoint.power >= 10000000000L) {
             int gemRequire = 100;
             if (player.inventory.gem >= 100) {

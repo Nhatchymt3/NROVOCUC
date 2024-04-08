@@ -707,7 +707,10 @@ public class Service {
     }
 
     public void chat(Player player, String text) throws Exception {
-
+        if (text.equals("b")) {
+            BossManager.gI().showListBoss(player);
+            return;
+        }
         if (player.getSession() != null && player.isAdmin()) {
             if (text.equals("r")) { // hồi all skill, Ki
                 Service.getInstance().releaseCooldownSkill(player);
@@ -839,10 +842,7 @@ public class Service {
             if (text.equals("nrnm")) {
                 Service.getInstance().activeNamecShenron(player);
             }
-            if (text.equals("a")) {
-                BossManager.gI().showListBoss(player);
-                return;
-            }
+            
 
             if (text.equals("p")) {
                 PlayerService.gI().showListAllPlayers(player);
