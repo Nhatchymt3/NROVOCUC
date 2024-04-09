@@ -200,7 +200,7 @@ public class MySession extends Session {
                     //-31 data item background
                     DataGame.sendDataItemBG(this);
                     Controller.getInstance().sendInfo(this);
-                    Service.getInstance().sendTimeSkill(player);
+                    //Service.getInstance().sendTimeSkill(player);
                     PlayerService.gI().sendInfoHpMp(player);
                     Logger.pink("LOGIN THÀNH CÔNG PLAYER:[" + this.player.name + "] : " + (System.currentTimeMillis() - st) + " ms\n");
 

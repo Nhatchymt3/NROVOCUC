@@ -9,8 +9,8 @@ import com.girlkun.services.GiftService;
 public class Inventory {
 
     public static final long LIMIT_GOLD = 1000000000000L;
-    public static final int MAX_ITEMS_BAG = 60;
-    public static final int MAX_ITEMS_BOX = 60;
+    public static final int MAX_ITEMS_BAG = 120;
+    public static final int MAX_ITEMS_BOX = 120;
 
     public Item trainArmor;
     public List<String> giftCode;

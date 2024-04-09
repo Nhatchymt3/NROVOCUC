@@ -1554,9 +1554,9 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         if (player.getSession().is_gift_box) {
-                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội", "Kho báu\ndưới biển", "Nhận quà\nđền bù");
+                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội", "Nhận quà\nđền bù");
                         } else {
-                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội", "Kho báu\ndưới biển");
+                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội");
                         }
                     }
                 }
@@ -1637,25 +1637,25 @@ public class NpcFactory {
                                     Service.getInstance().sendThongBao(player, "Yêu cầu có bang hội !!!");
                                 }
                                 break;
+                            // case 2:
+                            //     if (player.clan != null) {
+                            //         if (player.clan.banDoKhoBau != null) {
+                            //             this.createOtherMenu(player, ConstNpc.MENU_OPENED_BDKB,
+                            //                     "|7|BẢN ĐỒ KHO BÁU\n|6|Bang hội của con đang đi Bản đồ Kho báu cấp độ "
+                            //                     + player.clan.banDoKhoBau.level + "\nCon có muốn đi theo không?",
+                            //                     "Đồng ý", "Từ chối");
+                            //         } else {
+                            //             this.createOtherMenu(player, ConstNpc.MENU_OPEN_BDKB,
+                            //                     "|7|BẢN ĐỒ KHO BÁU\n|6|Bản đồ Kho báu đã chuẩn bị tiếp nhận các đợt tấn công của quái vật\n"
+                            //                     + "các con hãy giúp chúng ta tiêu diệt quái vật \n"
+                            //                     + "Ở đây có ta lo\nNhớ chọn cấp độ vừa sức mình nhé",
+                            //                     "Chọn\ncấp độ", "Từ chối");
+                            //         }
+                            //     } else {
+                            //         this.npcChat(player, "Con phải có bang hội ta mới có thể cho con đi");
+                            //     }
+                            //     break;
                             case 2:
-                                if (player.clan != null) {
-                                    if (player.clan.banDoKhoBau != null) {
-                                        this.createOtherMenu(player, ConstNpc.MENU_OPENED_BDKB,
-                                                "|7|BẢN ĐỒ KHO BÁU\n|6|Bang hội của con đang đi Bản đồ Kho báu cấp độ "
-                                                + player.clan.banDoKhoBau.level + "\nCon có muốn đi theo không?",
-                                                "Đồng ý", "Từ chối");
-                                    } else {
-                                        this.createOtherMenu(player, ConstNpc.MENU_OPEN_BDKB,
-                                                "|7|BẢN ĐỒ KHO BÁU\n|6|Bản đồ Kho báu đã chuẩn bị tiếp nhận các đợt tấn công của quái vật\n"
-                                                + "các con hãy giúp chúng ta tiêu diệt quái vật \n"
-                                                + "Ở đây có ta lo\nNhớ chọn cấp độ vừa sức mình nhé",
-                                                "Chọn\ncấp độ", "Từ chối");
-                                    }
-                                } else {
-                                    this.npcChat(player, "Con phải có bang hội ta mới có thể cho con đi");
-                                }
-                                break;
-                            case 3:
                                 if (player.getSession().is_gift_box) {
                                     if (PlayerDAO.setIs_gift_box(player)) {
                                         player.getSession().is_gift_box = false;
@@ -3868,8 +3868,8 @@ public class NpcFactory {
                                 case 0:
                                     this.createOtherMenu(player, ConstNpc.MENU_DI_CHUYEN,
                                             "|7|Con muốn đi đâu?"
-                                            + "\n|7|Map Ngũ Hành Sơn x2 Tnsm"
-                                            + "\n|7|LƯU Ý: Chỉ hỗ trợ cho tân thủ dưới 20 tỷ", "Map Ngũ\nHành Sơn", "Từ chối");
+                                            + "\n|7|Map Ngũ Hành Sơn x4 Tnsm"
+                                            + "\n|7|LƯU Ý: Chỉ hỗ trợ cho tân thủ dưới 80 tỷ", "Map Ngũ\nHành Sơn", "Từ chối");
                                     break;
                             }
                         } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_DI_CHUYEN) {

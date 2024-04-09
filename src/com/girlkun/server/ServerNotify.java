@@ -99,9 +99,7 @@ public class ServerNotify extends Thread {
 
             msg.writer().writeShort(0);
             msg.writer().writeUTF("Thông tin Nro Nro");
-            msg.writer().writeUTF("  Hồng ngọc săn Boss rơi đá đổi capsule hồng"
-                    + "\n  Vàng hồng ngọc làm nhiệm vụ hằng ngày"
-                    + "\n  Set kích hoạt đổi ở đảo kame"
+            msg.writer().writeUTF( "\n  Set kích hoạt đổi ở đảo kame"
                     + "\n  Nạp thẻ, đăng ký vui lòng lên Web");
 
             msg.writer().writeShort(1);

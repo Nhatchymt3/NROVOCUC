@@ -80,6 +80,7 @@ public class Player {
     public byte countBDKB;
     public boolean firstJoinBDKB;
     public long lastimeJoinBDKB;
+    public boolean haveNhanBan;
     public int goldChallenge;
     public boolean receivedWoodChest;
     public List<String> textRuongGo = new ArrayList<>();
@@ -101,6 +102,7 @@ public class Player {
     public boolean autoGiap = false;
     public boolean autouse = false;
     public boolean autodau = false;
+    public boolean isBuNhin = false;
 
     public boolean autodrop = false;
     public boolean autohoisinh = false;
@@ -726,6 +728,18 @@ public class Player {
                 return "";
         }
     }
+    public void chat(String text) {
+       try {
+        Service.gI().chat(this, text);
+       } catch (Exception e) {
+        // TODO: handle exception
+       }
+    }
+    public void checkAnThan(Player plAtt) {
+        if (plAtt != null && (plAtt.isPl() || plAtt.isPet) && plAtt.effectSkill.isAnThan) {
+            EffectSkillService.gI().removeAnThan(plAtt);
+        }
+    }
 
     public String NameThanthu(int CapBac) {
         switch (CapBac) {
@@ -854,6 +868,7 @@ public class Player {
             return 0;
         }
     }
+    
 
     protected void setDie(Player plAtt) {
         //xóa phù

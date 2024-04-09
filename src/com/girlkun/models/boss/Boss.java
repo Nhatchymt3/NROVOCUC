@@ -104,6 +104,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         this.initSkill();
         this.resetBase();
     }
+    
 
     protected void initSkill() {
         for (Skill skill : this.playerSkill.skills) {

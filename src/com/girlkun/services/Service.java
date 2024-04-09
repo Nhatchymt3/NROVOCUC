@@ -2256,7 +2256,8 @@ public class Service {
         } catch (Exception e) {
         }
     }
-
+    
+   
     public void sendTimeSkill(Player pl) {
         Message msg = null;
         try {

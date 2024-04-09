@@ -765,7 +765,6 @@ public class GodGK {
                             if ((new java.sql.Date(player.diemdanh1)).getDay() != (new java.sql.Date(System.currentTimeMillis())).getDay()) {
                                 player.diemdanh1 = 0;
                             }
-
                             player.nPoint.hp = plHp;
                             player.nPoint.mp = plMp;
                             player.iDMark.setLoadedAllDataPlayer(true);

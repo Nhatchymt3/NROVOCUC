@@ -20,10 +20,12 @@ import com.girlkun.models.matches.TOP;
 import com.girlkun.models.matches.pvp.DaiHoiVoThuat;
 import com.girlkun.models.npc.Npc;
 import com.girlkun.models.npc.NpcFactory;
+import com.girlkun.models.player.Namec;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.player.Referee;
 import com.girlkun.models.player.Referee1;
-
+import com.girlkun.models.player.Traidat;
+import com.girlkun.models.player.Xayda;
 import com.girlkun.models.reward.ItemMobReward;
 import com.girlkun.models.reward.ItemOptionMobReward;
 import com.girlkun.models.reward.MobReward;
@@ -286,6 +288,12 @@ public class Manager {
         r.initReferee();
         Referee1 r1 = new Referee1();
         r1.initReferee1();
+        Traidat td = new Traidat();
+        td.initTraidat();
+        Namec nm = new Namec();
+        nm.initNamec();
+        Xayda xd = new Xayda();
+        xd.initXayda();
     }
 
     public static void loadPart() {

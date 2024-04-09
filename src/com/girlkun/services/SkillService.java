@@ -1375,6 +1375,7 @@ public class SkillService {
         }
         return false;
     }
+    
 
     private void sendPlayerAttackMob(Player plAtt, Mob mob) {
         Message msg;

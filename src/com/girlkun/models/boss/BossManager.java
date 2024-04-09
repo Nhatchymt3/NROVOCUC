@@ -40,6 +40,7 @@ import com.girlkun.models.boss.list_boss.Mabu12h.Drabura;
 import com.girlkun.models.boss.list_boss.Mabu12h.Drabura2;
 import com.girlkun.models.boss.list_boss.Mabu12h.Yacon;
 import com.girlkun.models.boss.list_boss.MiNuong;
+import com.girlkun.models.boss.list_boss.ADMIN.Adminthan;
 //import com.girlkun.models.boss.list_boss.ThoTrang;
 import com.girlkun.models.boss.list_boss.doanh_trai.NinjaTim;
 import com.girlkun.models.boss.list_boss.doanh_trai.RobotVeSi;
@@ -128,6 +129,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.bossminuong);
             this.createBoss(BossID.KUKU);
             this.createBoss(BossID.MAP_DAU_DINH);
+            this.createBoss(BossID.ADMIN_THAN);
             this.createBoss(BossID.RAMBO);
             this.createBoss(BossID.FIDE);
             this.createBoss(BossID.DR_KORE);
@@ -200,7 +202,8 @@ public class BossManager implements Runnable {
                     return new Drabura();
                 case BossID.DRABURA_2:
                     return new Drabura2();
-
+                case BossID.ADMIN_THAN:
+                    return new Adminthan();
                 case BossID.BUI_BUI:
                     return new BuiBui();
                 case BossID.BUI_BUI_2:

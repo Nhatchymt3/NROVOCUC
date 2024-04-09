@@ -32,6 +32,7 @@ public class BossesData {
     private static final int REST_30_M = 1800;
     private static final int REST_1_H = 3600;
     private static final int REST_24_H = 86400000;
+    private static final int REST_3_H = 1080;
     private static final int REST_6_H = 21600;
 
     //************************************************************************** Boss nappa
@@ -151,6 +152,36 @@ public class BossesData {
             new String[]{}, //text chat 3
             -1
     );
+    public static final BossData ADMIN_THAN = new BossData(
+                        "Admin đẹp trai", // name
+                        ConstPlayer.TRAI_DAT, // gender
+                        new short[] { 1231, 1232, 1233, -1, 13, -1 }, // outfit {head, body, leg, bag, aura, eff}
+                        2000000, // dame
+                        new double[] { 2000000000 }, // hp
+                        new int[] { 1, 2, 3, 4, 5, 8, 9, 11, 12, 15, 16, 17, 18 }, // map join
+                        new int[][] {
+                                        { Skill.LIEN_HOAN, 7, 300 },
+                                        { Skill.DICH_CHUYEN_TUC_THOI, 7, 30000 },
+                                        { Skill.KAMEJOKO, 7, 500 },
+                                        { Skill.DICH_CHUYEN_TUC_THOI, 3, 60000 },
+                                        { Skill.THOI_MIEN, 7, 22000 },
+                                        { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
+                                        { Skill.KHIEN_NANG_LUONG, 7, 60000 },
+                                        { Skill.QUA_CAU_KENH_KHI, 7, 10000 },
+                        },
+
+                        // skill
+                        new String[] {}, // text chat 1
+                        new String[] { "|-1|Yếu thế cu",
+                                        "|-1|Nạp lần đầu đi nhé",
+                                        "|-1|Thiên thượng thiên hạ",
+                                        "|-1|Duy ngã độc tôn",
+                                        "|-1|Tuổi gì đòi 1vs1?", "|-2|Anh bảo chú này, nạp lần đầu đi!",
+                                        "|-1|Gọi cả bang đến đây anh tiếp"
+                        }, // text chat 2
+                        new String[] {}, // text chat 3
+                        REST_3_H
+                    );
 
     public static final BossData MAP_DAU_DINH = new BossData(
             "Mập Đầu Đinh", //name
@@ -1148,7 +1179,7 @@ public class BossesData {
             new short[]{1894, 1895, 1896, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             10000, //dame
             new double[]{100_000_000L}, //hp
-            new int[]{6, 27, 28, 29, 30, 13, 31, 32, 33, 34, 10, 19, 20, 35, 36, 37, 38}, //map join
+            new int[]{6, 27, 28, 29, 30}, //map join
 
            new int[][]{
                 {Skill.LIEN_HOAN, 3, 500000}},
@@ -1930,6 +1961,46 @@ public class BossesData {
             .secondsRest(REST_5_S)
             .build();
 
+    public static final BossData TRAI_DAT = BossData.builder()
+                        .name("Trái đất")// name
+                        .gender(ConstPlayer.TRAI_DAT) // gender
+                        .dame(100000) // dame
+                        .hp(new double[]{100000000L}) // hp
+                        .outfit(new short[] { 569, 472, 473, -1, 6, -1 }) // outfit {head, body, leg, bag, aura, eff}
+                        .mapJoin(new int[] { 190 })// map join
+                        .skillTemp(new int[][] { { Skill.DRAGON, 7, 400 },
+                        { Skill.KAMEJOKO, 7, 5000 },
+                        { Skill.DICH_CHUYEN_TUC_THOI, 7, 30000 }})  // skill//skill
+                        .secondsRest(REST_5_M).build();
+    public static final BossData NAMEC = BossData.builder()
+                        .name("Na mếc")
+                        .gender(ConstPlayer.NAMEC)
+                        .outfit(new short[] { 536, 476, 477, -1, 6, -1 })
+                        .dame(100000)
+                        .hp(new double[]{100000000L})
+                        .mapJoin(new int[] { 191 })
+                        .skillTemp(new int[][] { 
+                            { Skill.LIEN_HOAN, 7, 300 },
+                            { Skill.MASENKO, 7, 500 },
+                            { Skill.SOCOLA, 7, 30000 }
+                        })
+                        .secondsRest(REST_5_M)
+                        .build();
+                
+    public static final BossData XAYDA = BossData.builder()
+                        .name("Xay da")
+                        .gender(ConstPlayer.XAYDA)
+                        .outfit(new short[] { 538, 474, 475, -1, 6, -1 })
+                        .dame(100000)
+                        .hp(new double[]{100000000L})
+                        .mapJoin(new int[] { 192 })
+                        .skillTemp(new int[][] { 
+                            { Skill.GALICK, 7, 300 },
+                            { Skill.ANTOMIC, 7, 2000 },
+                            { Skill.DICH_CHUYEN_TUC_THOI, 7, 30000 }
+                        })
+                        .secondsRest(REST_5_M)
+                        .build();
     public static final BossData JACKY_CHUN = BossData.builder()
             .name("Jacky Chun")
             .gender(ConstPlayer.TRAI_DAT)
@@ -2025,6 +2096,7 @@ public class BossesData {
             new String[]{"|-1|Biến hình! Fushion Zamus V2"}, //text chat 3
             REST_10_M //second rest
     );
+    
     public static final BossData Super_Zamus2 = new BossData(
             "Fusion Zamasu V2", //name
             ConstPlayer.TRAI_DAT, //gender
@@ -2054,6 +2126,7 @@ public class BossesData {
             new String[]{"|-1|Haha các ngươi ghê đấy"}, //text chat 3
             REST_10_M //second rest
     );
+    
 }
 
 //************************************************************************** Boss nappa

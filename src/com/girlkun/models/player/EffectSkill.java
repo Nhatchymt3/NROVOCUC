@@ -54,6 +54,39 @@ public class EffectSkill {
     public boolean isBlindDCTT;
     public long lastTimeBlindDCTT;
     public int timeBlindDCTT;
+        // Cải trang Dracula hóa đá
+        public boolean isHoaDa;
+        public long lastTimeHoaDa;
+        public int timeHoaDa;
+        // Cải trang Dracula hóa đá
+        public boolean isHoaLanh;
+        public long lastTimeHoaLanh;
+        public int timeHoaLanh;
+        public long lastTimeHoaBinh;
+        // Cải trang Thỏ Đại Ca
+        public boolean isHoaCarot;
+        public long lastTimeHoaCarot;
+        public int timeHoaCarot;
+        // Cải trang Buibui
+        public boolean isLamCham;
+        public long lastTimeLamCham;
+        public int timeLamCham;
+        // Cải trang Sexy
+        public boolean isHorny;
+        public long lastTimeHorny;
+        public int timeHorny;
+        // Cải trang yacon
+        public boolean isAnThan;
+        public long lastTimeAnThan;
+        public int timeAnThan;
+         // Cải trang xin ba to
+        public boolean isPhanTam;
+        public long lastTimePhanTam;
+        public int timePhanTam;
+        //soi
+        public boolean isDanhHoi;
+        public long lastTimeDanhHoi;
+        public int timeDanhHoi;
 
     //socola
     public boolean isSocola;

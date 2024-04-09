@@ -408,6 +408,166 @@ public class EffectSkillService {
             com.girlkun.utils.Logger.logException(EffectSkillService.class, e);
         }
     }
+    public void setHoaDa(Player player, long lastTimeHoaDa, int timeHoaDa) {
+        player.effectSkill.lastTimeHoaDa = lastTimeHoaDa;
+        player.effectSkill.timeHoaDa = timeHoaDa;
+        player.effectSkill.isHoaDa = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void setHoaLanh(Player player, long lastTimeHoaLanh, int timeHoaLanh) {
+        player.effectSkill.lastTimeHoaLanh = lastTimeHoaLanh;
+        player.effectSkill.timeHoaLanh = timeHoaLanh;
+        player.effectSkill.isHoaLanh = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    // bui bui
+    public void setLamCham(Player player, long lastTimeLamCham, int timeLamCham) {
+        player.effectSkill.lastTimeLamCham = lastTimeLamCham;
+        player.effectSkill.timeLamCham = timeLamCham;
+        player.effectSkill.isLamCham = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removeLamCham(Player player) {
+        player.effectSkill.isLamCham = false;
+        try {
+            Service.gI().chat(player,"Nhẹ quá !");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+    // sexy
+    public void setHorny(Player player, long lastTimeHorny, int timeHorny) {
+        player.effectSkill.lastTimeHorny = lastTimeHorny;
+        player.effectSkill.timeHorny = timeHorny;
+        player.effectSkill.isHorny = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removeHorny(Player player) {
+        player.effectSkill.isHorny = false;
+        try {
+            Service.gI().chat(player,"Mình vừa sửa cái gì thế nhỉ ?");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+     // danh hoi
+    public void setDanhHoi(Player player, long lastTimeDanhHoi, int timeDanhHoi) {
+        player.effectSkill.lastTimeDanhHoi = lastTimeDanhHoi;
+        player.effectSkill.timeDanhHoi = timeDanhHoi;
+        player.effectSkill.isDanhHoi = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removeDanhHoi(Player player) {
+        player.effectSkill.isDanhHoi = false;
+        try {
+            Service.gI().chat(player,"Khịt khịt ");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+     // phan tam
+    public void setPhanTam(Player player, long lastTimePhanTam, int timePhanTam) {
+        player.effectSkill.lastTimePhanTam = lastTimePhanTam;
+        player.effectSkill.timePhanTam = timePhanTam;
+        player.effectSkill.isPhanTam = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removePhanTam(Player player) {
+        player.effectSkill.isPhanTam = false;
+        try {
+            Service.gI().chat(player,"Điếc cả tai");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+    // ân thân
+    public void setAnThan(Player player, long lastTimeAnThan, int timeAnThan) {
+        player.effectSkill.lastTimeAnThan = lastTimeAnThan;
+        player.effectSkill.timeAnThan = timeAnThan;
+        player.effectSkill.isAnThan = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removeAnThan(Player player) {
+        player.effectSkill.isAnThan = false;
+        try {
+            Service.gI().chat(player,"Bất ngờ chưa ?");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removeHoaDa(Player player) {
+        player.effectSkill.isHoaDa = false;
+         try {
+            Service.gI().chat(player,"Cử động được rồi ?");
+         } catch (Exception e) {
+            // TODO: handle exception
+         }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removeHoaLanh(Player player) {
+        player.effectSkill.isHoaLanh = false;
+        try {
+            Service.gI().chat(player,"Ấm quá !");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+    }
 
     //hiệu ứng biến khỉ
     public void sendEffectMonkey(Player player) {

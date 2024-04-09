@@ -48,6 +48,8 @@ public class BossID {
     public static final int SO_2 = -25;
     public static final int SO_1 = -26;
     public static final int TIEU_DOI_TRUONG = -27;
+    public static final int ADMIN_THAN = -7003;
+
 
     public static final int TDST = -223;
 

@@ -220,11 +220,12 @@ public class Mob {
         }
         tiemNang = Util.DoubleGioihan(pl.nPoint.calSucManhTiemNang(tiemNang));
         if (pl.zone.map.mapId >= 122 && pl.zone.map.mapId <= 124) {
-            if (pl.nPoint.power < 20000000000L) {
-                tiemNang *= 2;
-            } else {
-                tiemNang = 0;
-            }
+            if (pl.nPoint.power < 80000000000L) {
+                tiemNang *= 4;
+            }else
+            {
+                tiemNang =0;
+            } 
         }
         if (pl.zone.map.mapId == 155) {
             tiemNang *= 5;

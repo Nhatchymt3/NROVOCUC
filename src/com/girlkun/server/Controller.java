@@ -291,10 +291,22 @@ public class Controller implements IMessageHandler {
                     }
                     break;
                 case -113:
-                    if (player != null) {
-                        for (int i = 0; i < 5; i++) {
-                            player.playerSkill.skillShortCut[i] = _msg.reader().readByte();
+                    // if (player != null) {
+                    //     for (int i = 0; i < 5; i++) {
+                    //         player.playerSkill.skillShortCut[i] = _msg.reader().readByte();
+                    //     }
+                    //     player.playerSkill.sendSkillShortCut();
+                    // }
+                    // break;
+                    int sl = player.getSession().version >= 217 ? 10 : 5;
+                    int SkillNum = 0;
+                    for (int i = 0; i < sl; i++) {
+                        player.playerSkill.skillShortCut[i] = _msg.reader().readByte();
+                        if (player.playerSkill.skillShortCut[i] != -1) {
+                            SkillNum++;
                         }
+                    }
+                    if (SkillNum <= 2) {
                         player.playerSkill.sendSkillShortCut();
                     }
                     break;
@@ -874,6 +886,9 @@ public class Controller implements IMessageHandler {
         if (player.pet != null) {
             player.pet.setClothes.setup();
         }
+        // last time use skill
+        Service.gI().sendTimeSkill(player);
+        
 
         //clear vt sk
         clearVTSK(player);
