@@ -21,13 +21,17 @@ public class Adminthan extends Boss {
         int sb = Util.nextInt(1, 3);
         plKill.pointsb += sb;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
-        int[] listdots ={148,149,150,151,152,153,154,155,156,157,158,159,160,162};
+        int[] listdots ={1048,1049,1050,1051,1052,1053,1054,1055,1056,1057,1058,1059,1060,1062};
         int index =listdots[Util.nextInt(1, listdots.length-1)];  
-        ItemMap it = new ItemMap(this.zone, listdots[index] , 1, this.location.x * 20,
-                    this.zone.map.yPhysicInTop(this.location.x,
-                            this.location.y - 24),
-                    -1);
-        Service.getInstance().dropItemMap(this.zone, it);
+        Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, index, 1, this.location.x, this.location.y, plKill.id));
+    }
+
+    @Override
+    protected void notifyJoinMap() {
+        if (this.currentLevel == 1) {
+            return;
+        }
+        super.notifyJoinMap();
     }
 
     @Override

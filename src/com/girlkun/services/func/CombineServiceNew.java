@@ -2151,10 +2151,9 @@ public class CombineServiceNew {
                     // Trừ tài nguyên và kiểm tra thành công hoặc thất bại
                     player.inventory.gold -= gold;
                     player.inventory.ruby -= gem;
-                    int epint = (int) getRatioPhaLeHoa(star);
-
+                    byte ratio = (optionStar != null && optionStar.param > 4) ? (byte) 2 : 1;
                     // Kiểm tra và xác định trạng thái thành công hoặc thất bại
-                    flag = Util.isTrue(epint, 100);
+                    flag = Util.isTrue(player.combineNew.ratioCombine, 100 * ratio);
 
                     if (flag) {
                         // Xử lý khi quá trình pha lê hóa thành công
@@ -3186,15 +3185,15 @@ public class CombineServiceNew {
             case 2:
                 return 30f;
             case 3:
-                return 20f;
+                return 15f;
             case 4:
-                return 10f;
-            case 5:
                 return 5f;
-            case 6:
+            case 5:
                 return 3f;
-            case 7:
+            case 6:
                 return 2f;
+            case 7:
+                return 1.5f;
             case 8:
                 return 1f;
         }

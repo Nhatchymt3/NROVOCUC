@@ -156,13 +156,14 @@ public class BossesData {
                         "Admin đẹp trai", // name
                         ConstPlayer.TRAI_DAT, // gender
                         new short[] { 1231, 1232, 1233, -1, 13, -1 }, // outfit {head, body, leg, bag, aura, eff}
-                        200000000, // dame
-                        new double[] { 2000000000 }, // hp
-                        new int[] { 1, 2, 3, 4, 5, 8, 9, 11, 12, 15, 16, 17, 18 }, // map join
+                        50000000, // dame
+                        new double[] { 1000000000000L }, // hp
+                        new int[] { 6 }, // map join
                         new int[][] {
                                         { Skill.LIEN_HOAN, 7, 300 },
                                         { Skill.DICH_CHUYEN_TUC_THOI, 7, 30000 },
                                         { Skill.KAMEJOKO, 7, 500 },
+                                        { Skill.TAI_TAO_NANG_LUONG, 7, 10000 },
                                         { Skill.DICH_CHUYEN_TUC_THOI, 3, 60000 },
                                         { Skill.THOI_MIEN, 7, 22000 },
                                         { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
