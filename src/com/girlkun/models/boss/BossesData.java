@@ -156,7 +156,7 @@ public class BossesData {
                         "Admin đẹp trai", // name
                         ConstPlayer.TRAI_DAT, // gender
                         new short[] { 1231, 1232, 1233, -1, 13, -1 }, // outfit {head, body, leg, bag, aura, eff}
-                        2000000, // dame
+                        200000000, // dame
                         new double[] { 2000000000 }, // hp
                         new int[] { 1, 2, 3, 4, 5, 8, 9, 11, 12, 15, 16, 17, 18 }, // map join
                         new int[][] {

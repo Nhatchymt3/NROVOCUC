@@ -18,16 +18,16 @@ public class Adminthan extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int[] listdots ={148,149,150,151,152,153,154,155,156,157,158,159,160,162};
-        int iditem =listdots[Util.nextInt(1, 13)];  
-        ItemMap it = new ItemMap(this.zone,iditem, 1, this.location.x * 20,
-                    this.zone.map.yPhysicInTop(this.location.x,
-                            this.location.y - 24),
-                    -1);
-        Service.gI().dropItemMap(this.zone, it);
         int sb = Util.nextInt(1, 3);
         plKill.pointsb += sb;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
+        int[] listdots ={148,149,150,151,152,153,154,155,156,157,158,159,160,162};
+        int index =listdots[Util.nextInt(1, listdots.length-1)];  
+        ItemMap it = new ItemMap(this.zone, listdots[index] , 1, this.location.x * 20,
+                    this.zone.map.yPhysicInTop(this.location.x,
+                            this.location.y - 24),
+                    -1);
+        Service.getInstance().dropItemMap(this.zone, it);
     }
 
     @Override
