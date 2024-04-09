@@ -95,7 +95,7 @@ public class GodGK {
                     return null;
                 }
                 if (!session.isAdmin && editgame == true) {
-                    Service.getInstance().sendThongBaoOK(session, "Máy chủ đang bảo trì, vui lòng quay lại sau!");
+                    Service.getInstance().sendThongBaoOK(session, "Lỗi chưa biết nguyên nhân chính thức!");
                     return null;
                 }
                 if (rs.getBoolean("ban")) {
