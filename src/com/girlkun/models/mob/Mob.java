@@ -85,6 +85,12 @@ public class Mob {
     public static void initMopbbdkb(Mob mob, byte level) {
         mob.point.dame = (level * 3250 * mob.level * 4) * 5;
         mob.point.maxHp = (level * 12472 * mob.point.hp + level * 7263 * mob.tempId) / 2;
+        if (mob.point.dame >= 2000000000L) {
+            mob.point.dame = 2000000000L;
+        }
+        if (mob.point.maxHp >= 2000000000L) {
+            mob.point.maxHp = 2000000000L;
+        }
 
     }
 

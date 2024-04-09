@@ -378,7 +378,7 @@ public class Client implements Runnable {
         }
         scheduler.scheduleAtFixedRate(() -> {
             try {
-                Service.gI().chat(pl, "Sever Hồi Sinh Nro Nro Mãi Đỉnh");
+                Service.gI().chat(pl, "Sever Vô Cực Nro Nro Mãi Đỉnh");
             } catch (Exception e) {
 
             }

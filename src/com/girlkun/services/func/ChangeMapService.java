@@ -725,7 +725,7 @@ public class ChangeMapService {
             player.iDMark.setGotoFuture(true);
             player.type = 0;
             spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
-            effectChangeMap(player, 60, EFFECT_GO_TO_TUONG_LAI);
+            effectChangeMap(player, 30, EFFECT_GO_TO_TUONG_LAI);
         }
     }
 
@@ -735,7 +735,7 @@ public class ChangeMapService {
             player.iDMark.setGoToGas(true);
             player.type = 1;
             spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
-            effectChangeMap(player, 60, EFFECT_GO_TO_BDKG);
+            effectChangeMap(player, 30, EFFECT_GO_TO_BDKG);
         }
     }
 
@@ -745,7 +745,7 @@ public class ChangeMapService {
             player.iDMark.setGoToBDKB(true);
             player.type = 2;
             spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
-            effectChangeMap(player, 60, EFFECT_GO_TO_BDKG);
+            effectChangeMap(player, 30, EFFECT_GO_TO_BDKG);
         }
     }
 
