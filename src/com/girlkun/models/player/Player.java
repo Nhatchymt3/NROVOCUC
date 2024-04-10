@@ -326,7 +326,7 @@ public class Player {
         if (this.isBot) {
             active();
         }
-        if (this != null && this.name != null && !this.beforeDispose && !this.isBot && !this.isBoss) {
+        if (this != null && this.name != null && !this.beforeDispose && !this.isBot ) {
             try {
                 if (!iDMark.isBan()) {
                     if (nPoint != null) {
