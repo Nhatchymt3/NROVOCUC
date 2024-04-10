@@ -165,7 +165,6 @@ public class BossesData {
                                         { Skill.DICH_CHUYEN_TUC_THOI, 3, 60000 },
                                         {Skill.TAI_TAO_NANG_LUONG,7,20000},
                                         { Skill.THOI_MIEN, 7, 22000 },
-                                        { Skill.THAI_DUONG_HA_SAN, 7, 24000 },
                                         { Skill.KHIEN_NANG_LUONG, 7, 100000 },
                         },
 
