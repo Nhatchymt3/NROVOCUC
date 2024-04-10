@@ -5957,18 +5957,18 @@ public class NpcFactory {
 //                                        Service.gI().showListTop(player, Manager.topNV);
 //                                        break;
 //                                    }
-                                    // if (select == 1) {
-                                    //     Service.gI().showListTop(player, Manager.topSanBoss);
-                                    //     break;
-                                    // }
+                                    if (select == 0) {
+                                        Service.gI().showListTop(player, Manager.topSanBoss);
+                                        break;
+                                    }
 //                                    if (select == 2) {
 //                                        Service.gI().showListTop(player, Manager.topVND);
 //                                        break;
 //                                    }
-                                    if (select == 0) {
-                                        Service.gI().showListTop(player, Manager.topGapThu);
-                                        break;
-                                    }
+                                    // if (select == 0) {
+                                    //     Service.gI().showListTop(player, Manager.topGapThu);
+                                    //     break;
+                                    // }
                                     break;
                             }
                             break;

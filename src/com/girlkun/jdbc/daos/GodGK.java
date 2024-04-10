@@ -444,8 +444,8 @@ public class GodGK {
                             int timeBiNgo = Integer.parseInt(String.valueOf(dataArray.get(5)));
                             int timeMayDo = Integer.parseInt(String.valueOf(dataArray.get(6)));
                             int timeDuoi = Integer.parseInt(String.valueOf(dataArray.get(7)));
-                            int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(9)));
-                            int timeUseTDLT = Integer.parseInt(String.valueOf(dataArray.get(10)));
+                            int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(8)));
+                            int timeUseTDLT = Integer.parseInt(String.valueOf(dataArray.get(9)));
                             int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(11)));
                             int timeMayDoSC = Integer.parseInt(String.valueOf(dataArray.get(12)));
 
@@ -1526,9 +1526,9 @@ public class GodGK {
                 int timeBiNgo = Integer.parseInt(String.valueOf(dataArray.get(5)));
                 int timeMayDo = Integer.parseInt(String.valueOf(dataArray.get(6)));
                 int timeDuoi = Integer.parseInt(String.valueOf(dataArray.get(7)));
-                int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(9)));
+                int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(8)));
                 int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(11)));
-                int timeMayDoSC = Integer.parseInt(String.valueOf(dataArray.get(12)));
+                int timeMayDoSC = Integer.parseInt(String.valueOf(dataArray.get(11)));
 
                 player.itemTime.lastTimeBoHuyet = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeBoHuyet);
                 player.itemTime.lastTimeBoKhi = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeBoKhi);

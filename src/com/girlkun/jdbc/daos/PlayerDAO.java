@@ -218,6 +218,8 @@ public class PlayerDAO {
             dataArray.add(0); //máy dò
             dataArray.add(0); //thức ăn cold
             dataArray.add(0); //icon thức ăn cold
+            dataArray.add(0);// máy dò sc
+            
             String itemTime = dataArray.toJSONString();
             dataArray.clear();
             // item siêu cấp
