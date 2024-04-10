@@ -1741,19 +1741,20 @@ public class CombineServiceNew {
             }
             player.inventory.gold -= COST;
             Item itemTS = player.combineNew.itemsCombine.stream().filter(Item::isDTS).findFirst().get();
+            Item itemHD = player.combineNew.itemsCombine.stream().filter(Item::isDHD).findFirst().get();
             List<Item> itemSKH = player.combineNew.itemsCombine.stream().filter(item -> item.isNotNullItem() && item.isSKH()).collect(Collectors.toList());
             CombineServiceNew.gI().sendEffectOpenItem(player, itemTS.template.iconID, itemTS.template.iconID);
             short itemId;
             if (player.gender == 3 || itemTS.template.type == 4) {
-                itemId = Manager.radaSKHVip[Util.nextInt(0, 5)];
-                if (player.getSession().bdPlayer > 0 && Util.isTrue(1, (int) (100 / player.getSession().bdPlayer))) {
-                    itemId = Manager.radaSKHVip[6];
-                }
+                itemId = Manager.radaSKHVip[6];
+                // if (player.getSession().bdPlayer > 0 && Util.isTrue(1, (int) (100 / player.getSession().bdPlayer))) {
+                //     itemId = Manager.radaSKHVip;
+                // }
             } else {
-                itemId = Manager.doSKHVip[itemTS.template.gender][itemTS.template.type][Util.nextInt(0, 5)];
-                if (player.getSession().bdPlayer > 0 && Util.isTrue(1, (int) (100 / player.getSession().bdPlayer))) {
-                    itemId = Manager.doSKHVip[itemTS.template.gender][itemTS.template.type][6];
-                }
+                itemId = Manager.doSKHVip[itemTS.template.gender][itemTS.template.type][6];
+                // if (player.getSession().bdPlayer > 0 && Util.isTrue(1, (int) (100 / player.getSession().bdPlayer))) {
+                //     itemId = Manager.doSKHVip[itemTS.template.gender][itemTS.template.type];
+                // }
             }
             int skhId =0;
             if (itemTS.template.type == 4) {
@@ -1777,7 +1778,7 @@ public class CombineServiceNew {
             }
             InventoryServiceNew.gI().addItemBag(player, item);
             InventoryServiceNew.gI().subQuantityItemsBag(player, itemTS, 1);
-
+            InventoryServiceNew.gI().subQuantityItemsBag(player, itemHD, 1);
             InventoryServiceNew.gI().subQuantityItemsBag(player, dangusac, 1);
             itemSKH.forEach(i -> InventoryServiceNew.gI().subQuantityItemsBag(player, i, 1));
             InventoryServiceNew.gI().sendItemBags(player);
@@ -1914,10 +1915,10 @@ public class CombineServiceNew {
             int skhId =0;
             if (montldau.template.type == 4) {
                 
-                 skhId = ItemService.gI().randomSKHId(player.gender);
+                 skhId = ItemService.gI().randomSKHc2Id(player.gender);
             }else
             {
-                 skhId = ItemService.gI().randomSKHId(montldau.template.gender);
+                 skhId = ItemService.gI().randomSKHc2Id(montldau.template.gender);
             }
             Item item = ItemService.gI().itemSKHC2(itemId, skhId);
             InventoryServiceNew.gI().addItemBag(player, item);

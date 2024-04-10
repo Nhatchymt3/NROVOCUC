@@ -319,6 +319,41 @@ public class ItemService {
 
         return options[gender][skhId];
     }
+    public int randomSKHc2Id(byte gender) {
+        if (gender == 3) {
+            gender = 2;
+        }
+
+        int[][] options = {
+            {219,218,217}, // 1 trái đất
+            {220, 221, 222}, // 2 nm
+            {223, 225, 224} // 3 xd
+        };
+
+        int skhv1 = 30;  // Tỉ lệ xác suất cho sự kiện 1 (20%)
+        int skhv2 = 30;  // Tỉ lệ xác suất cho sự kiện 2 (20%)
+        int skhv3 = 40;  // Tỉ lệ xác suất cho sự kiện 3 (20%)
+        //int skhv4 = 25;  // Tỉ lệ xác suất cho sự kiện 4 (20%)
+        //int skhv5 = 20;  // Tỉ lệ xác suất cho sự kiện 5 (20%)
+
+        int skhId = -1;
+        int rd = Util.nextInt(1, 100);
+
+        if (rd <= skhv1) {
+            skhId = 0;
+        } else if (rd <= skhv1 + skhv2) {
+            skhId = 1;
+        } else if (rd <= skhv1 + skhv2 + skhv3) {
+            skhId = 2;
+        } else {
+            skhId = 3;
+        }
+        // } else {
+        //     skhId = 4;
+        // }
+
+        return options[gender][skhId];
+    }
 
     public int randomskhdunghop(byte gender) {
         if (gender == 3) {
@@ -857,6 +892,7 @@ public class ItemService {
     public Item itemSKH(int itemId, int skhId) {
         Item item = createItemSetKichHoat(itemId, 1);
         if (item != null) {
+            item.itemOptions.clear();
             item.itemOptions.addAll(ItemService.gI().getListOptionItemShop((short) itemId));
             item.itemOptions.add(new Item.ItemOption(skhId, 1));
             item.itemOptions.add(new Item.ItemOption(optionIdSKH(skhId), 1));
@@ -869,9 +905,9 @@ public class ItemService {
         Item item = createItemSetKichHoat(itemId, 1);
         if (item != null) {
             item.itemOptions.addAll(ItemService.gI().getListOptionItemShop((short) itemId));
-            item.itemOptions.add(new Item.ItemOption(skhId, 1));
-            item.itemOptions.add(new Item.ItemOption(optionIdSKHFusion(skhId), 1));
-            item.itemOptions.add(new Item.ItemOption(30, 1));
+            item.itemOptions.add(new Item.ItemOption(skhId, 0));
+            item.itemOptions.add(new Item.ItemOption(optionIdSKHFusion(skhId), 0));
+            item.itemOptions.add(new Item.ItemOption(30, 0));
         }
         return item;
     }
@@ -879,10 +915,11 @@ public class ItemService {
     public Item itemSKHC2(int itemId, int skhc2) {
         Item item = createItemSetKichHoat(itemId, 1);
         if (item != null) {
+            item.itemOptions.clear();
             item.itemOptions.addAll(ItemService.gI().getListOptionItemShop((short) itemId));
             item.itemOptions.add(new Item.ItemOption(skhc2, 1));
-            item.itemOptions.add(new Item.ItemOption(optionSKHC2(skhc2), 1));
-            item.itemOptions.add(new Item.ItemOption(30, 1));
+            item.itemOptions.add(new Item.ItemOption(optionSKHC2(skhc2), 100));
+            item.itemOptions.add(new Item.ItemOption(30, 0));
         }
         return item;
     }
@@ -960,23 +997,23 @@ public class ItemService {
     public int optionSKHC2(int skhId) {
         switch (skhId) {
             case 217: //Set Viet Taiyoken
-                return 226;
-            case 218: //Set Viet Genki
-                return 227;
-            case 219: //Set Viet Kamejoko
-                return 228;
-            case 220: //Set Viet KI
                 return 229;
-            case 221: //Set Viet Dame
+            case 218: //Set Viet Genki
                 return 230;
-            case 222: //Set Viet Summon
+            case 219: //Set Viet Kamejoko
                 return 231;
-            case 223: //Set Viet Galick
+            case 220: //Set Viet KI
                 return 232;
-            case 224: //Set Viet Monkey
+            case 221: //Set Viet Dame
                 return 233;
-            case 225:
+            case 222: //Set Viet Summon
                 return 234;
+            case 223: //Set Viet Galick
+                return 226;
+            case 224: //Set Viet Monkey
+                return 227;
+            case 225:
+                return 228;
 
         }
         return 0;
