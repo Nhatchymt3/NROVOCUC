@@ -5824,53 +5824,64 @@ public class NpcFactory {
                                         this.npcChat(player, "Yều cầu đạt 100 tỷ sức mạnh");
                                     }
                                     break;
-                                case 1:
+                                    case 1:
                                     if (player.lastTimeTitle1 > 0) {
-                                        Service.gI().removeTitle(player);
                                         player.isTitleUse1 = !player.isTitleUse1;
                                         Service.gI().point(player);
                                         Service.gI().sendThongBao(player, "Đã " + (player.isTitleUse1 ? "Bật" : "Tắt") + " Danh Hiệu!");
-                                        Service.gI().sendTitle(player, 891);
-                                        Service.gI().sendTitle(player, 890);
-                                        Service.gI().sendTitle(player, 889);
-                                        Service.gI().sendTitle(player, 888);
+                                        // Service.gI().sendTitle(player, 891);
+                                        // Service.gI().sendTitle(player, 890);
+                                        // Service.gI().sendTitle(player, 889);
+                                        // Service.gI().sendTitle(player, 888);
                                         Service.gI().removeTitle(player);
-                                    } else if (player.lastTimeTitle2 > 0) {
-                                        Service.gI().removeTitle(player);
-                                        player.isTitleUse2 = !player.isTitleUse2;
-                                        Service.gI().point(player);
-                                        Service.gI().sendThongBao(player, "Đã " + (player.isTitleUse2 ? "Bật" : "Tắt") + " Danh Hiệu!");
-                                        Service.gI().sendTitle(player, 890);
-                                        Service.gI().sendTitle(player, 889);
-                                        Service.gI().sendTitle(player, 888);
-                                        Service.gI().sendTitle(player, 891);
-                                        Service.gI().removeTitle(player);
-                                    } else if (player.lastTimeTitle3 > 0) {
-                                        Service.gI().removeTitle(player);
+                                    }  else if (player.lastTimeTitle3 > 0) {
                                         player.isTitleUse3 = !player.isTitleUse3;
                                         Service.gI().point(player);
                                         Service.gI().sendThongBao(player, "Đã " + (player.isTitleUse3 ? "Bật" : "Tắt") + " Danh Hiệu!");
-                                        Service.gI().sendTitle(player, 891);
-                                        Service.gI().sendTitle(player, 890);
-                                        Service.gI().sendTitle(player, 889);
-                                        Service.gI().sendTitle(player, 888);
-                                        Service.gI().removeTitle(player);
+                                        // Service.gI().sendTitle(player, 891);
+                                        // Service.gI().sendTitle(player, 890);
+                                        // Service.gI().sendTitle(player, 889);
+                                        // Service.gI().sendTitle(player, 888);
                                     }
+                                    
                                     break;
                                 case 2:
+                                if (player.lastTimeTitle2 > 0) {
+                                    player.isTitleUse2 = !player.isTitleUse2;
+                                    Service.gI().point(player);
+                                    Service.gI().sendThongBao(player, "Đã " + (player.isTitleUse4 ? "Bật" : "Tắt") + " Danh Hiệu!");
+                                    // Service.gI().sendTitle(player, 891);
+                                    // Service.gI().sendTitle(player, 890);
+                                    // Service.gI().sendTitle(player, 889);
+                                    // Service.gI().sendTitle(player, 888);
                                     Service.gI().removeTitle(player);
+                                }
+                                    break;
+                                case 3:
+                                if (player.lastTimeTitle3 > 0) {
+                                    player.isTitleUse3 = !player.isTitleUse3;
+                                    Service.gI().point(player);
+                                    Service.gI().sendThongBao(player, "Đã " + (player.isTitleUse4 ? "Bật" : "Tắt") + " Danh Hiệu!");
+                                    // Service.gI().sendTitle(player, 891);
+                                    // Service.gI().sendTitle(player, 890);
+                                    // Service.gI().sendTitle(player, 889);
+                                    // Service.gI().sendTitle(player, 888);
+                                    Service.gI().removeTitle(player);
+                                }
+                                    break;
+                                case 4:
+                                if (player.lastTimeTitle4 > 0) {
                                     player.isTitleUse4 = !player.isTitleUse4;
                                     Service.gI().point(player);
                                     Service.gI().sendThongBao(player, "Đã " + (player.isTitleUse4 ? "Bật" : "Tắt") + " Danh Hiệu!");
-                                    Service.gI().sendTitle(player, 891);
-                                    Service.gI().sendTitle(player, 890);
-                                    Service.gI().sendTitle(player, 889);
-                                    Service.gI().sendTitle(player, 888);
+                                    // Service.gI().sendTitle(player, 891);
+                                    // Service.gI().sendTitle(player, 890);
+                                    // Service.gI().sendTitle(player, 889);
+                                    // Service.gI().sendTitle(player, 888);
                                     Service.gI().removeTitle(player);
+                                }
                                     break;
-                                case 3:
-                                    Service.gI().sendThongBao(player, "Hiện tại chưa có danh hiệu mới");
-                                    break;
+                                
                             }
                         }
                     }
@@ -5922,8 +5933,7 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     createOtherMenu(player, ConstNpc.BASE_MENU,
                             "|7| BẢNG XẾP HẠNG\n|6|"
-                            + "\b|1|Người Muốn Xem TOP Gì?",
-                            "Gắp Thú", "Săn Boss",
+                            + "\b|1|Người Muốn Xem TOP Gì?", "Săn Boss",
                             "Đóng");
                 }
             }
@@ -5947,10 +5957,10 @@ public class NpcFactory {
 //                                        Service.gI().showListTop(player, Manager.topNV);
 //                                        break;
 //                                    }
-                                    if (select == 1) {
-                                        Service.gI().showListTop(player, Manager.topSanBoss);
-                                        break;
-                                    }
+                                    // if (select == 1) {
+                                    //     Service.gI().showListTop(player, Manager.topSanBoss);
+                                    //     break;
+                                    // }
 //                                    if (select == 2) {
 //                                        Service.gI().showListTop(player, Manager.topVND);
 //                                        break;

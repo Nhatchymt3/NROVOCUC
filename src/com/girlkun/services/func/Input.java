@@ -6,7 +6,6 @@ import com.girlkun.jdbc.daos.PlayerDAO;
 import com.girlkun.models.item.Item;
 import com.girlkun.models.map.Zone;
 import com.girlkun.models.npc.Npc;
-import static com.girlkun.models.npc.NpcFactory.PLAYERID_OBJECT;
 import com.girlkun.models.npc.NpcManager;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.player.GiftcodeViet;
@@ -17,7 +16,6 @@ import com.girlkun.network.session.ISession;
 import com.girlkun.server.Client;
 import com.girlkun.server.Manager;
 import com.girlkun.services.Service;
-import com.girlkun.services.GiftService;
 import com.girlkun.services.IntrinsicService;
 import com.girlkun.services.InventoryServiceNew;
 import com.girlkun.services.ItemService;
@@ -402,49 +400,47 @@ public class Input {
                         Service.getInstance().sendThongBao(player, "Không online");
                     }
                     break;
-                /////
-                case auto_mo_noi_tai:
+
+                    case auto_mo_noi_tai:
                     player.idnoitai = Integer.parseInt(text[0]); // Người dùng nhập ID
                     player.chisonoitai = Integer.parseInt(text[1]); // Người dùng nhập nội tại
-
+                
                     if (player.chisonoitai <= 0 || player.chisonoitai > 150) {
                         Service.getInstance().sendThongBao(player, "Số lượng nội tại không hợp lệ");
                     } else if (player.nPoint.power <= 10000000000L) {
                         Service.getInstance().sendThongBao(player, "|7|Bạn không đủ 10 tỷ sức mạnh");
                     } else {
                         if (player.autonoitai) {
-                            scheduler.scheduleAtFixedRate(() -> {
+                            new Thread(() -> {
                                 try {
                                     int countOpened = 0;
-                                    int i = 0;
-                                    if (player.inventory.gold < 2000000000) {
-                                        Service.getInstance().sendThongBao(player, "Không đủ vàng để mở nội tại");
-                                        player.autonoitai = false; // Dừng lịch trình nếu không đủ vàng
-                                        return;
+                                    while (player.autonoitai) { // Vòng lặp chạy khi player.autonoitai là true
+                                        if (player.inventory.gold < 2000000000) {
+                                            Service.getInstance().sendThongBao(player, "Không đủ vàng để mở nội tại");
+                                            player.autonoitai = false; // Dừng vòng lặp nếu không đủ vàng
+                                            break; // Thoát khỏi vòng lặp
+                                        }
+                
+                                        IntrinsicService.gI().openVip(player); // Gọi hàm mở nội tại thường
+                                        countOpened +=1;
+                                        player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
+                
+                                        if (player.playerIntrinsic.intrinsic.param1 >= player.chisonoitai
+                                                && player.playerIntrinsic.intrinsic.id == player.idnoitai) {
+                                            Service.getInstance().sendThongBao(player, "|1|Đã mở " + (countOpened) + " nội tại và đạt được mục tiêu");
+                                            player.autonoitai = false; // Dừng vòng lặp nếu đạt được mục tiêu
+                                            break; // Thoát khỏi vòng lặp
+                                        }               
+                                        Thread.sleep(500); // Chờ 500ms trước khi thực hiện lần lặp tiếp theo
                                     }
-
-                                    IntrinsicService.gI().openVip(player); // Gọi hàm mở nội tại thường
-
-                                    player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
-
-                                    if (player.playerIntrinsic.intrinsic.param1 >= player.chisonoitai
-                                            && player.playerIntrinsic.intrinsic.id == player.idnoitai) {
-                                        Service.getInstance().sendThongBao(player, "|1|Đã mở " + (i + 1) + " nội tại và đạt được mục tiêu");
-                                        player.autonoitai = false;
-                                        return;
-                                    }
-
-                                    if ((i + 1) % 3 == 0) { // Mỗi 3 lần mở nội tại thường thì thực hiện mở nội tại VIP
-                                        IntrinsicService.gI().open(player); // Gọi hàm mở nội tại VIP
-                                        countOpened++;
-                                    }
-                                    i++;
-                                } catch (Exception e) {
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
                                 }
-                            }, 0, 500, TimeUnit.MILLISECONDS);
+                            }).start();
                         }
                     }
                     break;
+                
                 ///mua nhiều vp
                 case MUA_NHIEU_VP:
                     player.soluongmuanhieu = Integer.parseInt(text[0]);

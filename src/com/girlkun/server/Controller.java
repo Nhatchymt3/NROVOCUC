@@ -243,7 +243,7 @@ public class Controller implements IMessageHandler {
                     if (player != null && !Maintenance.isRuning) {
                         byte typeBuy = _msg.reader().readByte();
                         int tempId = _msg.reader().readShort();
-                        int quantity = 0;
+                        int quantity = 1;
                         try {
                             quantity = _msg.reader().readShort();
                         } catch (Exception e) {
@@ -878,7 +878,6 @@ public class Controller implements IMessageHandler {
         // last time use skill
         Service.gI().sendTimeSkill(player);
         
-
         //clear vt sk
         clearVTSK(player);
 
@@ -911,27 +910,34 @@ public class Controller implements IMessageHandler {
             ServerNotify.gI().notify("Người chơi: " + player.name + " sở hữu ĐỆ TỬ cấp bậc: "
                     + player.NameThanthu(player.TrieuHoiCapBac) + " Đã vào game");
         }
-//        if (player.inventory.itemsBody.get(11).isNotNullItem()) {
-//            scheduler.scheduleAtFixedRate(() -> {
-//                try {
-//                    Service.getInstance().sendFoot(player, (short) player.inventory.itemsBody.get(11).template.id);
-//                } catch (Exception e) {
-//
-//                }
-//
-//            }, 0, 5000, TimeUnit.MILLISECONDS);
-//        }
-//        //last time use skill
-//        Service.getInstance().sendTimeSkill(player);
-//        if (player.inventory.itemsBody.get(10).isNotNullItem()) {
-//            scheduler.scheduleAtFixedRate(() -> {
-//                try {
-//                    Service.getInstance().sendPetFollow(player, (short) (player.inventory.itemsBody.get(10).template.iconID - 1));
-//                } catch (Exception e) {
-//
-//                }
-//            }, 0, 5000, TimeUnit.MILLISECONDS);
-//        }
+        if (player.inventory.itemsBody.get(11).isNotNullItem()) {
+            new Thread(() -> {
+                try {
+                    Service.getInstance().sendFoot(player, (short) player.inventory.itemsBody.get(11).template.id);
+                } catch (Exception e) {
+
+                }
+            }).start();
+        }
+        if (player.inventory.itemsBody.get(10).isNotNullItem()) {
+            new Thread(() -> {
+                try {
+                    Thread.sleep(1000);
+                    Service.gI().sendPetFollow(player,
+                            (short) (player.inventory.itemsBody.get(10).template.iconID - 1));
+                } catch (Exception e) {
+                }
+            }).start();
+        }
+        if (player.lastTimeTitle1 > 0 ||player.lastTimeTitle2 > 0||player.lastTimeTitle3 > 0||player.lastTimeTitle4 > 0) {
+            new Thread(() -> {
+                try {
+                    Thread.sleep(1000);
+                    Service.gI().removeTitle(player);
+                } catch (Exception e) {
+                }
+            }).start();
+        }
 //        if (player.lastTimeTitle1 > 0) {
 //            scheduler.scheduleAtFixedRate(() -> {
 //                try {

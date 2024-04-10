@@ -155,7 +155,7 @@ public class MySession extends Session {
             return;
         }
         if (Maintenance.isRuning) {
-            Service.getInstance().sendThongBaoOK(this, "Máy Chủ NRO NisKey HIỆN TẠI ĐANG BẢO TRÌ VUI LÒNG QUAY LẠI SAU");
+            Service.getInstance().sendThongBaoOK(this, "Máy Chủ NRO Vô Cực HIỆN TẠI ĐANG BẢO TRÌ VUI LÒNG QUAY LẠI SAU");
             return;
         }
         if (!this.isAdmin && Client.gI().getPlayers().size() >= Manager.MAX_PLAYER) {

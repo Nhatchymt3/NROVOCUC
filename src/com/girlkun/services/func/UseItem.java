@@ -325,6 +325,9 @@ public class UseItem {
                         case 380: //cskb
                             openCSKB(pl, item);
                             break;
+                        case 1982: //cskbsc
+                            openCSKBSC(pl, item);
+                            break;
                         case 1296: //cskb
                             maydoboss1(pl, item);
                             break;
@@ -360,7 +363,8 @@ public class UseItem {
                         case 383: //bổ khí
                         case 384: //giáp xên
                         case 385: //ẩn danh
-                        case 379: //máy dò capsule
+                        case 379://máy dò capsule
+                        case 1983:
                         case 1990: //máy dò kẹo
                         case 1201:
 
@@ -796,7 +800,36 @@ public class UseItem {
     private void openCSKB(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             short[] temp = {76, 188, 189, 190, 381, 382, 383, 384, 385};
-            int[][] gold = {{5000, 20000}};
+            int[][] gold = {{1000000, 3000000}};
+            byte index = (byte) Util.nextInt(0, temp.length - 1);
+            short[] icon = new short[2];
+            icon[0] = item.template.iconID;
+            if (index <= 3) {
+                pl.inventory.gold += Util.nextInt(gold[0][0], gold[0][1]);
+                if (pl.inventory.gold > Inventory.LIMIT_GOLD) {
+                    pl.inventory.gold = Inventory.LIMIT_GOLD;
+                }
+                PlayerService.gI().sendInfoHpMpMoney(pl);
+                icon[1] = 930;
+            } else {
+                Item it = ItemService.gI().createNewItem(temp[index]);
+                it.itemOptions.add(new ItemOption(73, 0));
+                InventoryServiceNew.gI().addItemBag(pl, it);
+                icon[1] = it.template.iconID;
+            }
+            InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+            InventoryServiceNew.gI().sendItemBags(pl);
+
+            CombineServiceNew.gI().sendEffectOpenItem(pl, icon[0], icon[1]);
+        } else {
+            Service.getInstance().sendThongBao(pl, "Hàng trang đã đầy");
+        }
+    }
+
+    private void openCSKBSC(Player pl, Item item) {
+        if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
+            short[] temp = {76, 188, 189, 190, 1099,1100,1101,1102};
+            int[][] gold = {{3000000, 6000000}};
             byte index = (byte) Util.nextInt(0, temp.length - 1);
             short[] icon = new short[2];
             icon[0] = item.template.iconID;
@@ -1291,6 +1324,10 @@ public class UseItem {
             case 379: //máy dò capsule
                 pl.itemTime.lastTimeUseMayDo = System.currentTimeMillis();
                 pl.itemTime.isUseMayDo = true;
+                break;
+            case 1983: //máy dò capsuleSC
+                pl.itemTime.lastTimeUseMayDoSC = System.currentTimeMillis();
+                pl.itemTime.isUseMayDoSC = true;
                 break;
             case 1990: //máy dò kẹo
                 pl.itemTime.lastTimegiodungkeo = System.currentTimeMillis();

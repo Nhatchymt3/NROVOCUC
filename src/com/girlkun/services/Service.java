@@ -171,21 +171,21 @@ public class Service {
                     }
                 }
             }
-            if (id == 889) {
-                if (player.lastTimeTitle2 > 0 && player.isTitleUse2) {
-                    me.writer().writeShort(85); // đại thần
-                }
-            }
-            if (id == 890) {
-                if (player.lastTimeTitle3 > 0 && player.isTitleUse3) {
-                    me.writer().writeShort(310); // trùm cuối
-                }
-            }
-            if (id == 891) {
-                if (player.lastTimeTitle4 > 0 && player.isTitleUse4) {
-                    me.writer().writeShort(2023); // trùm cuối
-                }
-            }
+            // if (id == 889) {
+            //     if (player.lastTimeTitle2 > 0 && player.isTitleUse2) {
+            //         me.writer().writeShort(90); // đại thần
+            //     }
+            // }
+            // if (id == 890) {
+            //     if (player.lastTimeTitle3 > 0 && player.isTitleUse3) {
+            //         me.writer().writeShort(2024); // trùm cuối
+            //     }
+            // }
+            // if (id == 891) {
+            //     if (player.lastTimeTitle4 > 0 && player.isTitleUse4) {
+            //         me.writer().writeShort(2023); // trùm cuối
+            //     }
+            // }
             me.writer().writeByte(1);
             me.writer().writeByte(-1);
             me.writer().writeShort(50);
@@ -210,9 +210,9 @@ public class Service {
             player.getSession().sendMessage(me);
             this.sendMessAllPlayerInMap(player, me);
             me.cleanup();
-            if (player.inventory.itemsBody.get(11).isNotNullItem()) {
-                Service.getInstance().sendFoot(player, (short) player.inventory.itemsBody.get(11).template.id);
-            }
+            // if (player.inventory.itemsBody.get(11).isNotNullItem()) {
+            //     Service.getInstance().sendFoot(player, (short) player.inventory.itemsBody.get(11).template.id);
+            // }
             if (player.isTitleUse1 == true && player.lastTimeTitle1 > 0) {
                 Service.getInstance().sendTitle(player, (short) 888);
             }
@@ -461,9 +461,11 @@ public class Service {
                 msg.writer().writeUTF("Top Sự Kiện");
             } else if (tops == Manager.topVND) {
                 msg.writer().writeUTF("Top Nạp");
-            } else if (tops == Manager.topGapThu) {
-                msg.writer().writeUTF("Top Gắp Thú");
-            } else if (tops == Manager.topSanBoss) {
+            } 
+            // else if (tops == Manager.topGapThu) {
+            //     msg.writer().writeUTF("Top Gắp Thú");
+            // } 
+            else if (tops == Manager.topSanBoss) {
                 msg.writer().writeUTF("Top Săn Boss");
             } else {
                 msg.writer().writeUTF("Top Sức mạnh");
@@ -1060,29 +1062,30 @@ public class Service {
                 Service.gI().sendTitle(player, 889);
                 Service.gI().sendThongBao(player, "Bạn nhận được 3 ngày danh hiệu !");
                 return;
-            } else if (text.startsWith("danhhieu3")) {
-                if (player.lastTimeTitle3 == 0) {
-                    player.lastTimeTitle3 += System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 3);
-                } else {
-                    player.lastTimeTitle3 += (1000 * 60 * 60 * 24 * 3);
-                }
-                player.isTitleUse3 = true;
-                Service.gI().point(player);
-                Service.gI().sendTitle(player, 890);
-                Service.gI().sendThongBao(player, "Bạn nhận được 3 ngày danh hiệu !");
-                return;
-            } else if (text.startsWith("danhhieu4")) {
-                if (player.lastTimeTitle4 == 0) {
-                    player.lastTimeTitle4 += System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 3);
-                } else {
-                    player.lastTimeTitle4 += (1000 * 60 * 60 * 24 * 3);
-                }
-                player.isTitleUse4 = true;
-                Service.gI().point(player);
-                Service.gI().sendTitle(player, 891);
-                Service.gI().sendThongBao(player, "Bạn nhận được 3 ngày danh hiệu !");
-                return;
-            }
+            } 
+            // else if (text.startsWith("danhhieu3")) {
+            //     if (player.lastTimeTitle3 == 0) {
+            //         player.lastTimeTitle3 += System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 3);
+            //     } else {
+            //         player.lastTimeTitle3 += (1000 * 60 * 60 * 24 * 3);
+            //     }
+            //     player.isTitleUse3 = true;
+            //     Service.gI().point(player);
+            //     Service.gI().sendTitle(player, 890);
+            //     Service.gI().sendThongBao(player, "Bạn nhận được 3 ngày danh hiệu !");
+            //     return;
+            // } else if (text.startsWith("danhhieu4")) {
+            //     if (player.lastTimeTitle4 == 0) {
+            //         player.lastTimeTitle4 += System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 3);
+            //     } else {
+            //         player.lastTimeTitle4 += (1000 * 60 * 60 * 24 * 3);
+            //     }
+            //     player.isTitleUse4 = true;
+            //     Service.gI().point(player);
+            //     Service.gI().sendTitle(player, 891);
+            //     Service.gI().sendThongBao(player, "Bạn nhận được 3 ngày danh hiệu !");
+            //     return;
+            // }
         } else if (text.equals("autonoitai")) {
             if (player.autonoitai == false) {
                 Input.gI().randomnoitai(player);
@@ -1592,6 +1595,7 @@ public class Service {
     }
 
     public void addSMTN(Player player, byte type, double param, boolean isOri) {
+        player.lastTimeaddTNSM = System.currentTimeMillis();
         if (player.isPet) {
             player.nPoint.powerUp(param);
             player.nPoint.tiemNangUp(param);

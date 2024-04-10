@@ -60,6 +60,9 @@ public class ItemTimeService {
         if (player.itemTime.isUseMayDo) {
             sendItemTime(player, 2758, (int) ((TIME_MAY_DO - (System.currentTimeMillis() - player.itemTime.lastTimeUseMayDo)) / 1000));
         }
+        if (player.itemTime.isUseMayDoSC) {
+            sendItemTime(player, 2758, (int) ((TIME_MAY_DO - (System.currentTimeMillis() - player.itemTime.lastTimeUseMayDoSC)) / 1000));
+        }
         if (player.itemTime.isgiodungkeo) {
             sendItemTime(player, 20040, (int) ((TIME_GIO_DUNG_KEO - (System.currentTimeMillis() - player.itemTime.lastTimegiodungkeo)) / 1000));
         }

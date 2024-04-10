@@ -98,8 +98,7 @@ public class IntrinsicService {
             }
 
     public void showConfirmOpenVip(Player player) {
-        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC_VIP, -1, "Bạn muốn đổi Nội Tại khác\nvới giá là "
-                + COST_OPEN[player.playerIntrinsic.countOpen > 7 ? 7:player.playerIntrinsic.countOpen] + " Tr vàng ?", "Mở\nNội Tại", "Từ chối");
+        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC_VIP, -1, "Bạn muốn đổi Nội Tại khác\nvới giá là 2 tỉ vàng ?", "Mở\nNội Tại", "Từ chối");
     }
 
     public void showConfirmOpen(Player player) {
@@ -109,12 +108,18 @@ public class IntrinsicService {
 
     private void changeIntrinsicVip(Player player) {
         List<Intrinsic> listIntrinsic = getIntrinsics(player.gender);
-        player.playerIntrinsic.intrinsic = new Intrinsic(listIntrinsic.get(Util.nextInt(1, listIntrinsic.size() - 1)));
-        player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
-        player.playerIntrinsic.intrinsic.param2 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom2, player.playerIntrinsic.intrinsic.paramTo2);
+        Intrinsic selectedIntrinsic = listIntrinsic.get(Util.nextInt(1, listIntrinsic.size() - 1));
+        int MIN_PARAM1_VALUE = (int) (selectedIntrinsic.paramFrom1 * 1.3); // Tăng giá trị min lên 30%
+        int MIN_PARAM2_VALUE = (int) (selectedIntrinsic.paramFrom2 * 1.3); // Tăng giá trị min lên 30%
+        
+        player.playerIntrinsic.intrinsic = new Intrinsic(selectedIntrinsic);
+        player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(MIN_PARAM1_VALUE, player.playerIntrinsic.intrinsic.paramTo1);
+        player.playerIntrinsic.intrinsic.param2 = (short) Util.nextInt(MIN_PARAM2_VALUE, player.playerIntrinsic.intrinsic.paramTo2);
+        
         Service.getInstance().sendThongBao(player, "Bạn nhận được Nội tại:\n" + player.playerIntrinsic.intrinsic.getName().substring(0, player.playerIntrinsic.intrinsic.getName().indexOf(" [")));
         sendInfoIntrinsic(player);
     }
+    
     private void changeIntrinsic(Player player) {
         List<Intrinsic> listIntrinsic = getIntrinsics(player.gender);
         Intrinsic selectedIntrinsic = listIntrinsic.get(Util.nextInt(1, listIntrinsic.size() - 1));

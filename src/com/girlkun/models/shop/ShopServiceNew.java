@@ -17,7 +17,7 @@ import com.girlkun.services.func.Input;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.Util;
 import java.sql.Connection;
-
+import java.util.ArrayList;
 import java.util.List;
 //import static sun.audio.AudioPlayer.player;
 
@@ -289,6 +289,7 @@ public class ShopServiceNew {
                 msg.writer().writeByte(31); // ID 31 là tùy chọn số lượng
                 msg.writer().writeShort(item.quantity);
 
+
                 // Ghi thông tin về loại mặt hàng (ví dụ: đồ trang trí)
                 msg.writer().writeByte(1);
                 if (item.template.type == 5) {
@@ -394,7 +395,7 @@ public class ShopServiceNew {
         }
         if (tagName.equals("ITEMS_LUCKY_ROUND")) {
             getItemSideBoxLuckyRound(player, player.inventory.itemsBoxCrackBall, type, tempId);
-
+            
             return;
         } else if (tagName.equals("ITEMS_REWARD")) {
             return;
@@ -829,4 +830,6 @@ public class ShopServiceNew {
         }
         openShopType4(player, player.iDMark.getTagNameShop(), items);
     }
+    
+    
 }

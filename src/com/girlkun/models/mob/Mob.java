@@ -602,6 +602,15 @@ public class Mob {
             player.achievement.plusCount(5);
         }
 
+        //roi cskbsc
+        if (player.itemTime.isUseMayDoSC && Util.isTrue(20, 100) && this.tempId > 57 && this.tempId < 66) {
+            if (player.chienthan.tasknow == 4) {
+                player.chienthan.dalamduoc++;
+            }
+            list.add(new ItemMap(zone, 1982, 1, x, player.location.y, player.id));
+            player.achievement.plusCount(5);
+        }
+
         //roi ngocrong
         if (Util.isTrue(5, 100)) {
             list.add(new ItemMap(zone, Manager.itemIds_NR[randomngocrong], Util.nextInt(1, 2), this.location.x, this.location.y, player.id));

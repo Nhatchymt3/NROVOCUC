@@ -752,13 +752,90 @@ public class InventoryServiceNew {
         return addItemList(player.inventory.itemsBox, item);
     }
 
+    // public boolean addItemList(List<Item> items, Item itemAdd) {
+    //     //nếu item ko có option, add option rỗng vào
+    //     if (itemAdd.itemOptions.isEmpty()) {
+    //         itemAdd.itemOptions.add(new Item.ItemOption(73, 0));
+    //     }
+      
+       
+    //     //item cộng thêm chỉ số param: tự động luyện tập
+    //     int[] idParam = isItemIncrementalOption(itemAdd);
+    //     if (idParam[0] != -1) {
+    //         for (Item it : items) {
+    //             if (it.isNotNullItem() && it.template.id == itemAdd.template.id) {
+    //                 for (Item.ItemOption io : it.itemOptions) {
+    //                     if (io.optionTemplate.id == idParam[0]) {
+    //                         io.param += idParam[1];
+    //                     }
+    //                 }
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     //item tăng số lượng
+    //     if (itemAdd != null && itemAdd.template != null && itemAdd.template.isUpToUp) {
+    //         for (Item it : items) {
+    //             if (!it.isNotNullItem() || it.template.id != itemAdd.template.id || (hasOptionTemplateId(it, 73) && hasOptionTemplateId(itemAdd, 30))) {
+    //                 continue;
+    //             }
+    //             if (!it.isNotNullItem() || it.template.id != itemAdd.template.id || (hasOptionTemplateId(it, 30) && hasOptionTemplateId(itemAdd, 73))) {
+    //                 continue;
+    //             }
+    //             if (!it.isNotNullItem() || it.template.id != itemAdd.template.id
+    //                     || (hasOptionTemplateId(it, 30) && hasOptionTemplateId(itemAdd, 86))
+    //                     || (hasOptionTemplateId(it, 30) && hasOptionTemplateId(itemAdd, 87))
+    //                     || (hasOptionTemplateId(it, 73) && hasOptionTemplateId(itemAdd, 86))
+    //                     || (hasOptionTemplateId(it, 73) && hasOptionTemplateId(itemAdd, 87))
+    //                     || (hasOptionTemplateId(it, 86) && hasOptionTemplateId(itemAdd, 30))
+    //                     || (hasOptionTemplateId(it, 87) && hasOptionTemplateId(itemAdd, 30))
+    //                     || (hasOptionTemplateId(it, 86) && hasOptionTemplateId(itemAdd, 73))
+    //                     || (hasOptionTemplateId(it, 87) && hasOptionTemplateId(itemAdd, 73))
+    //                     || (hasOptionTemplateId(it, 87) && hasOptionTemplateId(itemAdd, 86))
+    //                     || (hasOptionTemplateId(it, 86) && hasOptionTemplateId(itemAdd, 87))) {
+    //                 continue;
+    //             }
+    //             //457-thỏi vàng; 590-bí kiếp
+    //             if (itemAdd.template.id == 457 || itemAdd.template.type == 27 || itemAdd.template.type == 14 || itemAdd.template.type == 6
+    //                     || itemAdd.template.type == 12 || itemAdd.template.type == 29 || itemAdd.template.type == 33 || itemAdd.template.type == 31) {
+    //                 it.quantity += itemAdd.quantity;
+    //                 itemAdd.quantity = 0;
+    //                 return true;
+    //             }
+    //             if (it.quantity < 99) {
+    //                 int add = 99 - it.quantity;
+    //                 if (itemAdd.quantity <= add) {
+    //                     it.quantity += itemAdd.quantity;
+    //                     itemAdd.quantity = 0;
+    //                     return true;
+    //                 } else {
+    //                     it.quantity = 99;
+    //                     itemAdd.quantity -= add;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     //add item vào ô mới
+    //     if (itemAdd.quantity > 0) {
+    //         for (int i = 0; i < items.size(); i++) {
+    //             if (!items.get(i).isNotNullItem()) {
+    //                 items.set(i, ItemService.gI().copyItem(itemAdd));
+    //                 itemAdd.quantity = 0;
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
     public boolean addItemList(List<Item> items, Item itemAdd) {
         //nếu item ko có option, add option rỗng vào
         if (itemAdd.itemOptions.isEmpty()) {
+            if(itemAdd.template.type == 5){
+                itemAdd.itemOptions.add(new Item.ItemOption(232, 0));
+            }
             itemAdd.itemOptions.add(new Item.ItemOption(73, 0));
         }
-      
-       
+
         //item cộng thêm chỉ số param: tự động luyện tập
         int[] idParam = isItemIncrementalOption(itemAdd);
         if (idParam[0] != -1) {
@@ -773,48 +850,47 @@ public class InventoryServiceNew {
                 }
             }
         }
+
         //item tăng số lượng
-        if (itemAdd != null && itemAdd.template != null && itemAdd.template.isUpToUp) {
+        if (itemAdd.template.isUpToUp) {
             for (Item it : items) {
-                if (!it.isNotNullItem() || it.template.id != itemAdd.template.id || (hasOptionTemplateId(it, 73) && hasOptionTemplateId(itemAdd, 30))) {
-                    continue;
-                }
-                if (!it.isNotNullItem() || it.template.id != itemAdd.template.id || (hasOptionTemplateId(it, 30) && hasOptionTemplateId(itemAdd, 73))) {
-                    continue;
-                }
-                if (!it.isNotNullItem() || it.template.id != itemAdd.template.id
-                        || (hasOptionTemplateId(it, 30) && hasOptionTemplateId(itemAdd, 86))
-                        || (hasOptionTemplateId(it, 30) && hasOptionTemplateId(itemAdd, 87))
-                        || (hasOptionTemplateId(it, 73) && hasOptionTemplateId(itemAdd, 86))
-                        || (hasOptionTemplateId(it, 73) && hasOptionTemplateId(itemAdd, 87))
-                        || (hasOptionTemplateId(it, 86) && hasOptionTemplateId(itemAdd, 30))
-                        || (hasOptionTemplateId(it, 87) && hasOptionTemplateId(itemAdd, 30))
-                        || (hasOptionTemplateId(it, 86) && hasOptionTemplateId(itemAdd, 73))
-                        || (hasOptionTemplateId(it, 87) && hasOptionTemplateId(itemAdd, 73))
-                        || (hasOptionTemplateId(it, 87) && hasOptionTemplateId(itemAdd, 86))
-                        || (hasOptionTemplateId(it, 86) && hasOptionTemplateId(itemAdd, 87))) {
+                if (!it.isNotNullItem() || it.template.id != itemAdd.template.id) {
                     continue;
                 }
                 //457-thỏi vàng; 590-bí kiếp
-                if (itemAdd.template.id == 457 || itemAdd.template.type == 27 || itemAdd.template.type == 14 || itemAdd.template.type == 6
-                        || itemAdd.template.type == 12 || itemAdd.template.type == 29 || itemAdd.template.type == 33 || itemAdd.template.type == 31) {
+                if (itemAdd.template.id == 457
+                        || itemAdd.template.id == 590
+                        || itemAdd.template.id == 610
+                        || itemAdd.template.type == 14
+                        || itemAdd.template.type == 933
+                        || itemAdd.template.type == 934
+                        || itemAdd.template.id == 537
+                        || itemAdd.template.id == 538
+                        || itemAdd.template.type == 539                      
+                        || itemAdd.template.type == 541
+                        || itemAdd.template.type == 542
+                        || itemAdd.template.id == 2069
+                        || itemAdd.isManhTS()
+                        || itemAdd.template.type == 540) {
                     it.quantity += itemAdd.quantity;
                     itemAdd.quantity = 0;
                     return true;
                 }
-                if (it.quantity < 99) {
-                    int add = 99 - it.quantity;
+
+                if (it.quantity < 9999) {
+                    int add = 9999 - it.quantity;
                     if (itemAdd.quantity <= add) {
                         it.quantity += itemAdd.quantity;
                         itemAdd.quantity = 0;
                         return true;
                     } else {
-                        it.quantity = 99;
+                        it.quantity = 9999;
                         itemAdd.quantity -= add;
                     }
                 }
             }
         }
+
         //add item vào ô mới
         if (itemAdd.quantity > 0) {
             for (int i = 0; i < items.size(); i++) {

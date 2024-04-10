@@ -75,6 +75,7 @@ public class Player {
     public long hngocnhat = 0;
     public boolean resetdame = false;
     public long lastTimeDame;
+    public long lastTimeaddTNSM;
 
     public double dametong = 0;
     public byte countBDKB;
@@ -325,7 +326,7 @@ public class Player {
         if (this.isBot) {
             active();
         }
-        if (this != null && this.name != null && !this.beforeDispose && !this.isBot) {
+        if (this != null && this.name != null && !this.beforeDispose && !this.isBot && !this.isBoss) {
             try {
                 if (!iDMark.isBan()) {
                     if (nPoint != null) {
@@ -428,7 +429,7 @@ public class Player {
                         ChangeMapService.gI().changeMapBySpaceShip(this, 52, 0, -1);
                         isWin = false;
                     }
-                    if (this.location != null && this.location.lastTimeplayerMove < System.currentTimeMillis() - 30 * 60 * 1000) {
+                    if (this.location != null && this.location.lastTimeplayerMove < System.currentTimeMillis() - 30 * 60 * 1000 && this.lastTimeaddTNSM < System.currentTimeMillis() - 30 * 60 * 1000) {
                         Client.gI().kickSession(getSession());
                     }
                 } else {

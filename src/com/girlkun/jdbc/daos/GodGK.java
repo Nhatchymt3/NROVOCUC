@@ -444,9 +444,10 @@ public class GodGK {
                             int timeBiNgo = Integer.parseInt(String.valueOf(dataArray.get(5)));
                             int timeMayDo = Integer.parseInt(String.valueOf(dataArray.get(6)));
                             int timeDuoi = Integer.parseInt(String.valueOf(dataArray.get(7)));
-                            int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(8)));
-                            int timeUseTDLT = Integer.parseInt(String.valueOf(dataArray.get(9)));
-                            int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(10)));
+                            int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(9)));
+                            int timeUseTDLT = Integer.parseInt(String.valueOf(dataArray.get(10)));
+                            int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(11)));
+                            int timeMayDoSC = Integer.parseInt(String.valueOf(dataArray.get(12)));
 
                             player.itemTime.lastTimeBoHuyet = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeBoHuyet);
                             player.itemTime.lastTimeBoKhi = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeBoKhi);
@@ -455,6 +456,7 @@ public class GodGK {
                             player.itemTime.lastTimeAnDanh = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeAnDanh);
                             player.itemTime.lastTimeBiNgo = System.currentTimeMillis() - (ItemTime.TIME_BI_NGO - timeBiNgo);
                             player.itemTime.lastTimeUseMayDo = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO - timeMayDo);
+                            player.itemTime.lastTimeUseMayDoSC = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO - timeMayDoSC);
                             player.itemTime.lastTimeDuoikhi = System.currentTimeMillis() - (ItemTime.TIME_DUOI_KHI - timeDuoi);
                             player.itemTime.timeTDLT = timeUseTDLT * 60 * 1000;
                             player.itemTime.lastTimeUseTDLT = System.currentTimeMillis();
@@ -468,6 +470,7 @@ public class GodGK {
                             player.itemTime.isUseAnDanh = timeAnDanh != 0;
                             player.itemTime.isBiNgo = timeBiNgo != 0;
                             player.itemTime.isUseMayDo = timeMayDo != 0;
+                            player.itemTime.isUseMayDoSC = timeMayDoSC != 0;
                             player.itemTime.isgiodungkeo = timeMayDo != 0;
                             player.itemTime.isDuoikhi = timeDuoi != 0;
                             player.itemTime.isUseTDLT = timeUseTDLT != 0;
@@ -1523,8 +1526,9 @@ public class GodGK {
                 int timeBiNgo = Integer.parseInt(String.valueOf(dataArray.get(5)));
                 int timeMayDo = Integer.parseInt(String.valueOf(dataArray.get(6)));
                 int timeDuoi = Integer.parseInt(String.valueOf(dataArray.get(7)));
-                int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(8)));
-                int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(10)));
+                int iconDuoi = Integer.parseInt(String.valueOf(dataArray.get(9)));
+                int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(11)));
+                int timeMayDoSC = Integer.parseInt(String.valueOf(dataArray.get(12)));
 
                 player.itemTime.lastTimeBoHuyet = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeBoHuyet);
                 player.itemTime.lastTimeBoKhi = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeBoKhi);
@@ -1533,6 +1537,7 @@ public class GodGK {
                 player.itemTime.lastTimeAnDanh = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeAnDanh);
                 player.itemTime.lastTimeBiNgo = System.currentTimeMillis() - (ItemTime.TIME_BI_NGO - timeBiNgo);
                 player.itemTime.lastTimeUseMayDo = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO - timeMayDo);
+                player.itemTime.lastTimeUseMayDoSC = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO - timeMayDoSC);
                 player.itemTime.lastTimeDuoikhi = System.currentTimeMillis() - (ItemTime.TIME_DUOI_KHI - timeDuoi);
                 player.itemTime.iconDuoi = iconDuoi;
                 player.itemTime.lastTimeUseMayDo2 = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO2 - timeMayDo2);
@@ -1543,6 +1548,7 @@ public class GodGK {
                 player.itemTime.isUseAnDanh = timeAnDanh != 0;
                 player.itemTime.isBiNgo = timeBiNgo != 0;
                 player.itemTime.isUseMayDo = timeMayDo != 0;
+                player.itemTime.isUseMayDoSC = timeMayDoSC != 0;
                 player.itemTime.isDuoikhi = timeDuoi != 0;
                 player.itemTime.isUseMayDo2 = timeMayDo2 != 0;
                 dataArray.clear();

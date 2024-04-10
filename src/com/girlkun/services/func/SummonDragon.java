@@ -59,9 +59,12 @@ public class SummonDragon {
     public static final String SHENRON_SAY
             = "Ta sẽ ban cho người 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định";
 
+    // public static final String[] SHENRON_1_STAR_WISHES_1
+    //         = new String[]{"Đổi Skill\n2-3", "Đổi skill 4", "Chí mạng\nGốc +2%",
+    //             "+2 tỷ TNSM", "Điều ước\nkhác"};
     public static final String[] SHENRON_1_STAR_WISHES_1
             = new String[]{"Đổi Skill\n2-3", "Đổi skill 4", "Chí mạng\nGốc +2%",
-                "+2 tỷ TNSM", "Điều ước\nkhác"};
+                 "Điều ước\nkhác"};
     public static final String[] SHENRON_1_STAR_WISHES_2
             = new String[]{"ÁO[+1]", "QUẦN[+1]", "GĂNG[+1]",
                 "GIÀY[+1]", "RADA[+1]",
@@ -374,15 +377,15 @@ public class SummonDragon {
                             return;
                         }
                         break;
-                    case 3: // 2 tỷ tnsm
-                        if ((this.playerSummonShenron.nPoint.power >= 1000) && (this.playerSummonShenron.nPoint.power <= 180000000000L)) {
-                            Service.getInstance().addSMTN(this.playerSummonShenron, (byte) 2, 2000000000, false);
-                        } else {
-                            Service.getInstance().sendThongBao(playerSummonShenron, "Xin lỗi, điều ước này khó quá, ta không thể thực hiện.");
-                            reOpenShenronWishes(playerSummonShenron);
-                            return;
-                        }
-                        break;
+                    // case 3: // 2 tỷ tnsm
+                    //     if ((this.playerSummonShenron.nPoint.power >= 1000) && (this.playerSummonShenron.nPoint.power <= 180000000000L)) {
+                    //         Service.getInstance().addSMTN(this.playerSummonShenron, (byte) 2, 2000000000, false);
+                    //     } else {
+                    //         Service.getInstance().sendThongBao(playerSummonShenron, "Xin lỗi, điều ước này khó quá, ta không thể thực hiện.");
+                    //         reOpenShenronWishes(playerSummonShenron);
+                    //         return;
+                    //     }
+                    //     break;
                 }
                 break;
             case ConstNpc.SHENRON_1_2:

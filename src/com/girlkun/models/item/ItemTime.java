@@ -35,7 +35,9 @@ public class ItemTime {
     public long lastTimeAnDanh;
 
     public boolean isUseMayDo;
-    public long lastTimeUseMayDo;//lastime de chung 1 cai neu time = nhau
+    public long lastTimeUseMayDo;
+    public boolean isUseMayDoSC;
+    public long lastTimeUseMayDoSC;//lastime de chung 1 cai neu time = nhau
     public boolean isUseMayDo2;
     public long lastTimeUseMayDo2;
 
@@ -104,6 +106,11 @@ public class ItemTime {
         if (isUseMayDo) {
             if (Util.canDoWithTime(lastTimeUseMayDo, TIME_MAY_DO)) {
                 isUseMayDo = false;
+            }
+        }
+        if (isUseMayDoSC) {
+            if (Util.canDoWithTime(lastTimeUseMayDoSC, TIME_MAY_DO)) {
+                isUseMayDoSC = false;
             }
         }
         if (isgiodungkeo) {
