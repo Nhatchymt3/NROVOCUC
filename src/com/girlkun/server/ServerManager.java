@@ -104,7 +104,7 @@ public class ServerManager {
         new Thread(NgocRongNamecService.gI(), "Thread NRNM").start();
 
         new Thread(TopService.gI(), "Thread TOP").start();
-        new Thread(AutoMaintenance.gl(), "Thread bảo trì tự động nhé").start();
+        //new Thread(AutoMaintenance.gl(), "Thread bảo trì tự động nhé").start();
         new Thread(() -> {
             while (isRunning) {
                 try {
