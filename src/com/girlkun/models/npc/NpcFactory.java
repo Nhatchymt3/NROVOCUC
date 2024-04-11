@@ -1318,7 +1318,11 @@ public class NpcFactory {
             public void openBaseMenu(Player pl) {
                 if (canOpenNpc(pl)) {
                     if (this.mapId == 52) {
-                        createOtherMenu(pl, 0, DaiHoiVoThuatService.gI(DaiHoiVoThuat.gI().getDaiHoiNow()).Giai(pl), "Thông tin\nChi tiết", DaiHoiVoThuatService.gI(DaiHoiVoThuat.gI().getDaiHoiNow()).CanReg(pl) ? "Đăng ký" : "OK", "Đại Hội\nVõ Thuật\nLần thứ\n23");
+                        createOtherMenu(pl, 0, DaiHoiVoThuatService.gI(DaiHoiVoThuat.gI().getDaiHoiNow()).Giai(pl),
+                        "Thông tin\nChi tiết",
+                        DaiHoiVoThuatService.gI(DaiHoiVoThuat.gI().getDaiHoiNow()).CanReg(pl) ? "Đăng ký"
+                                : "OK",
+                        "Đại Hội\nVõ Thuật\nLần thứ\n23", "Giải siêu hạng\n");
                     } else if (this.mapId == 129) {
                         if (pl.levelWoodChest == 0) {
                             menuselect = new String[]{"Thi đấu\n" + 200 + " Hồng ngọc", "Về\nĐại Hội\nVõ Thuật"};
@@ -1349,24 +1353,28 @@ public class NpcFactory {
                             case 2:
                                 ChangeMapService.gI().changeMapNonSpaceship(player, 129, player.location.x, 360);
                                 break;
+                            case 3:
+                                ChangeMapService.gI().changeMapNonSpaceship(player, 113, player.location.x, 360);
+                                break;
                         }
                     } else if (this.mapId == 129) {
+                        // int goldchallenge = player.goldChallenge;
                         if (player.levelWoodChest == 0) {
                             switch (select) {
                                 case 0:
                                     if (InventoryServiceNew.gI().finditemWoodChest(player)) {
                                         if (player.inventory.ruby >= 200) {
                                             MartialCongressService.gI().startChallenge(player);
-//                                            Service.getInstance().sendThongBao(player, "Chức năng đang bảo trì");
+                                            player.inventory.ruby -= 200;
+                                            PlayerService.gI().sendInfoHpMpMoney(player);
+                                            player.goldChallenge += 2000000;
                                         } else {
-                                            Service.getInstance().sendThongBao(player, "Không đủ hồng ngọc, còn thiếu " + Util.numberToMoney(200 - player.inventory.ruby) + " Hồng ngọc");
+                                            Service.getInstance().sendThongBao(player, "Không đủ vàng, còn thiếu "
+                                                    + Util.numberToMoney(200 - player.inventory.ruby) + " Hồng ngọc");
                                         }
                                     } else {
                                         Service.getInstance().sendThongBao(player, "Hãy mở rương báu vật trước");
                                     }
-//                                        } else {
-//                                            Service.getInstance().sendThongBao(player, "Vui lòng chờ lượt sau");
-//                                        }
                                     break;
                                 case 1:
                                     ChangeMapService.gI().changeMapNonSpaceship(player, 52, player.location.x, 336);
@@ -1375,21 +1383,19 @@ public class NpcFactory {
                         } else {
                             switch (select) {
                                 case 0:
-//                                        if (MartialCongressService.gI().check == false){
                                     if (InventoryServiceNew.gI().finditemWoodChest(player)) {
                                         if (player.inventory.ruby >= 200) {
-//                                            Service.getInstance().sendThongBao(player, "Chức năng đang bảo trì");
                                             MartialCongressService.gI().startChallenge(player);
+                                            player.inventory.ruby -= (200);
+                                            PlayerService.gI().sendInfoHpMpMoney(player);
                                             player.goldChallenge += 200;
                                         } else {
-                                            Service.getInstance().sendThongBao(player, "Không đủ vàng, còn thiếu " + Util.numberToMoney(200 - player.inventory.ruby) + " vàng");
+                                            Service.getInstance().sendThongBao(player, "Không đủ vàng, còn thiếu "
+                                                    + Util.numberToMoney(200 - player.inventory.ruby) + " vàng");
                                         }
                                     } else {
                                         Service.getInstance().sendThongBao(player, "Hãy mở rương báu vật trước");
                                     }
-//                                        } else {
-//                                            Service.getInstance().sendThongBao(player, "Vui lòng chờ lượt sau");
-//                                        }
                                     break;
                                 case 1:
                                     if (!player.receivedWoodChest) {
@@ -1408,7 +1414,8 @@ public class NpcFactory {
                                             this.npcChat(player, "Hành trang đã đầy");
                                         }
                                     } else {
-                                        Service.getInstance().sendThongBao(player, "Mỗi ngày chỉ có thể nhận rương báu 1 lần");
+                                        Service.getInstance().sendThongBao(player,
+                                                "Mỗi ngày chỉ có thể nhận rương báu 1 lần");
                                     }
                                     break;
                                 case 2:
@@ -3565,7 +3572,7 @@ public class NpcFactory {
                                 break;
                                 case 2:
                                     List<TOP> tops = new ArrayList<>();
-                                    tops.addAll(Manager.realTopSieuHang((Connection) player));
+                                    tops.addAll(Manager.realTopSieuHang(player));
                                     Service.gI().showListTop(player, tops, (byte) 1);
                                     tops.clear();
                                     break;

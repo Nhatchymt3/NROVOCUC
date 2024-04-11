@@ -303,79 +303,86 @@ public class Controller implements IMessageHandler {
                     login2(_session, _msg);
                     break;
                 case -118:
-                    if (player != null) {
-                        int id = _msg.reader().readInt();
-                        Item maydo = InventoryServiceNew.gI().findItemBag(player, 1456);
-                        boolean processedBoss = false;
-                        Item.ItemOption option = null;
-                        for (Boss bosse : BossManager.gI().getBosses()) {
-                            Item caitrang = player.inventory.itemsBody.get(5);
-
-                            if (bosse != null && bosse.id == id && !bosse.isDie()) {
-                                if (caitrang.isNotNullItem()&& maydo != null) {
-                                    for (Item.ItemOption io : caitrang.itemOptions) {
-                                        option = io;
-                                    }                    
-                                    if (option.optionTemplate.id == 251) {
-                                        if (option.param > 0) {
-                                            option.param--;
-                                            ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
-                                            InventoryServiceNew.gI().sendItemBody(player);
-                                           
-                                        } else {
-                                          Service.getInstance().sendThongBao(player, "|7|Bạn đã hết lượt dịch chuyển");
-                                        }
-                                    } 
-                                } else {
-                                    Service.getInstance().sendThongBao(player, "|7|Bạn không có trang bị yardat hoặc không có rada dò boss");
-                                }
-                                if (player.isAdmin()) {
-                                    if (player.haveBeQuynh == false) {
-                                        ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
-                                        InventoryServiceNew.gI().sendItemBags(player);
+                if (player.zone.map.mapId==113) {
+                    int id = _msg.reader().readInt();
+                    if (id != -1 && player.id != id) {
+                        SieuHangService.gI().startChallenge(player, id);
+                    }else
+                    {
+                        if (player != null) {
+                            Item maydo = InventoryServiceNew.gI().findItemBag(player, 1456);
+                            boolean processedBoss = false;
+                            Item.ItemOption option = null;
+                            for (Boss bosse : BossManager.gI().getBosses()) {
+                                Item caitrang = player.inventory.itemsBody.get(5);
+                
+                                if (bosse != null && bosse.id == id && !bosse.isDie()) {
+                                    if (caitrang.isNotNullItem()&& maydo != null) {
+                                        for (Item.ItemOption io : caitrang.itemOptions) {
+                                            option = io;
+                                        }                    
+                                        if (option.optionTemplate.id == 251) {
+                                            if (option.param > 0) {
+                                                option.param--;
+                                                ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
+                                                InventoryServiceNew.gI().sendItemBody(player);
+                                               
+                                            } else {
+                                              Service.getInstance().sendThongBao(player, "|7|Bạn đã hết lượt dịch chuyển");
+                                            }
+                                        } 
                                     } else {
-                                        Service.getInstance().sendThongBao(player, "|7|Không thể thực hiện khi đang Hộ tống");
+                                        Service.getInstance().sendThongBao(player, "|7|Bạn không có trang bị yardat hoặc không có rada dò boss");
                                     }
-                                }
-                                processedBoss = true;
-                                break;
-                            }
-                        }
-                        if (!processedBoss) {
-                            for (Player onlinePlayer : Client.gI().getPlayers()) {
-                                if (player.isAdmin() && onlinePlayer != null && onlinePlayer.id == id) {
-                                    int genderValue = onlinePlayer.gender;
-                                    String planetName = Service.getInstance().get_HanhTinh(genderValue);
-                                    Item sothoivang = InventoryServiceNew.gI().findItemBag(onlinePlayer, 457);
-                                    int hongngoc = onlinePlayer.inventory.ruby;
-                                    Item sothoivang1 = InventoryServiceNew.gI().findItemBox(onlinePlayer, 457);
-                                    int quantityBag = (sothoivang != null) ? sothoivang.quantity : 0;
-                                    int quantityBox = (sothoivang1 != null) ? sothoivang1.quantity : 0;
-                                    int totalQuantity = quantityBag + quantityBox;
-                                    String sothoivangStr = String.valueOf(totalQuantity);
-                                    NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_QUAN_LY_PLAYER, 12713,
-                                            "|7|THÔNG TIN NHÂN VẬT"
-                                            + "\b\b|7|Tên nhân vật: " + (onlinePlayer.name)
-                                            + "\b\b|5|Số tiền: " + Util.format(onlinePlayer.getSession().vnd)
-                                            + "\b\b|5|Trang thái: " + (onlinePlayer.getSession().actived == false ? "Chưa kích hoạt" : "Đã kích hoạt")
-                                            + "\b\b|8|Số thỏi vàng hiện có: " + sothoivangStr
-                                            + "\b|8|Số hồng ngọc: " + hongngoc
-                                            + "\b|2|Sức mạnh: " + Util.numberToMoney(onlinePlayer.nPoint.power)
-                                            + "\b|2|Nhiệm vụ: " + Util.numberToMoney(onlinePlayer.playerTask.taskMain.id)
-                                            + "\b|2|Hành tinh: " + planetName
-                                            + "\b\b|1|HP Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.hpg)
-                                            + "\b|1|KI Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.mpg)
-                                            + "\b|1|Sức đánh Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.dameg)
-                                            + "\b|1|Giáp Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.defg)
-                                            + "\b\b|5|Tổng vàng nhặt: " + Util.format(onlinePlayer.vangnhat)
-                                            + "\b|3|Tổng Hồng ngọc nhặt: " + Util.format(onlinePlayer.hngocnhat),
-                                            new String[]{"Player", "Tặng Đệ", "Buff tiền", "Ban", "Kick"},
-                                            onlinePlayer);
+                                    if (player.isAdmin()) {
+                                        if (player.haveBeQuynh == false) {
+                                            ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                        } else {
+                                            Service.getInstance().sendThongBao(player, "|7|Không thể thực hiện khi đang Hộ tống");
+                                        }
+                                    }
+                                    processedBoss = true;
                                     break;
+                                }
+                            }
+                            if (!processedBoss) {
+                                for (Player onlinePlayer : Client.gI().getPlayers()) {
+                                    if (player.isAdmin() && onlinePlayer != null && onlinePlayer.id == id) {
+                                        int genderValue = onlinePlayer.gender;
+                                        String planetName = Service.getInstance().get_HanhTinh(genderValue);
+                                        Item sothoivang = InventoryServiceNew.gI().findItemBag(onlinePlayer, 457);
+                                        int hongngoc = onlinePlayer.inventory.ruby;
+                                        Item sothoivang1 = InventoryServiceNew.gI().findItemBox(onlinePlayer, 457);
+                                        int quantityBag = (sothoivang != null) ? sothoivang.quantity : 0;
+                                        int quantityBox = (sothoivang1 != null) ? sothoivang1.quantity : 0;
+                                        int totalQuantity = quantityBag + quantityBox;
+                                        String sothoivangStr = String.valueOf(totalQuantity);
+                                        NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_QUAN_LY_PLAYER, 12713,
+                                                "|7|THÔNG TIN NHÂN VẬT"
+                                                + "\b\b|7|Tên nhân vật: " + (onlinePlayer.name)
+                                                + "\b\b|5|Số tiền: " + Util.format(onlinePlayer.getSession().vnd)
+                                                + "\b\b|5|Trang thái: " + (onlinePlayer.getSession().actived == false ? "Chưa kích hoạt" : "Đã kích hoạt")
+                                                + "\b\b|8|Số thỏi vàng hiện có: " + sothoivangStr
+                                                + "\b|8|Số hồng ngọc: " + hongngoc
+                                                + "\b|2|Sức mạnh: " + Util.numberToMoney(onlinePlayer.nPoint.power)
+                                                + "\b|2|Nhiệm vụ: " + Util.numberToMoney(onlinePlayer.playerTask.taskMain.id)
+                                                + "\b|2|Hành tinh: " + planetName
+                                                + "\b\b|1|HP Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.hpg)
+                                                + "\b|1|KI Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.mpg)
+                                                + "\b|1|Sức đánh Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.dameg)
+                                                + "\b|1|Giáp Gốc: " + Util.powerToStringnew(onlinePlayer.nPoint.defg)
+                                                + "\b\b|5|Tổng vàng nhặt: " + Util.format(onlinePlayer.vangnhat)
+                                                + "\b|3|Tổng Hồng ngọc nhặt: " + Util.format(onlinePlayer.hngocnhat),
+                                                new String[]{"Player", "Tặng Đệ", "Buff tiền", "Ban", "Kick"},
+                                                onlinePlayer);
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
+                }
                     break;
                 case -103:
                     if (player != null) {
@@ -691,6 +698,8 @@ public class Controller implements IMessageHandler {
             }
         }
     }
+
+
 
     public void messageNotMap(MySession _session, Message _msg) {
         if (_msg != null) {

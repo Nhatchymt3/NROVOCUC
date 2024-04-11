@@ -2690,7 +2690,12 @@ public class NPoint {
     //**************************************************************************
     //POWER - TIEM NANG
     public void powerUp(double power) {
-        this.power += power;
+        if (this.power >= this.getPowerLimit()) {
+            this.power += 1;
+        }else
+        {
+            this.power += power;
+        }
         TaskService.gI().checkDoneTaskPower(player, this.power);
     }
 

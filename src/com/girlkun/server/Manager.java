@@ -62,6 +62,7 @@ import java.util.Properties;
 
 import com.girlkun.utils.Util;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -228,14 +229,23 @@ public class Manager {
         initMap();
 
     }
-
     public static List<TOP> realTopSieuHang(Player pl) {
         List<TOP> tops = new ArrayList<>();
         try {
-            GirlkunResultSet rs = GirlkunDB.executeQuery("SELECT id, CAST( split_str(data_point,',',18) AS UNSIGNED) AS rank FROM player WHERE CAST( split_str(data_point,',',18) AS UNSIGNED) <= " + pl.rankSieuHang + " ORDER BY CAST( split_str(data_point,',',18) AS UNSIGNED) ASC LIMIT 10");
+            GirlkunResultSet rs = GirlkunDB.executeQuery("SELECT " +
+                "id, " +
+                "CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 18), ',', -1) AS UNSIGNED) AS rank " +
+            "FROM " +
+                "player " +
+            "WHERE " +
+                "CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 18), ',', -1) AS UNSIGNED) > 0 " +
+                "AND CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 18), ',', -1) AS UNSIGNED) <= " + pl.rankSieuHang +
+            " ORDER BY rank ASC LIMIT 10"
+            );
             while (rs.next()) {
-                long rank = Long.parseLong(rs.getString("rank"));
-                if (Math.abs(rank - pl.rankSieuHang) <= 10) {
+                String rankString = rs.getString("rank");
+                BigInteger rank = new BigInteger(rankString);
+                if (Math.abs(rank.intValue() - pl.rankSieuHang) <= 10) {
                     TOP top = TOP.builder().id_player(rs.getInt("id")).build();
                     top.setInfo1("");
                     top.setInfo2("");
@@ -243,10 +253,13 @@ public class Manager {
                 }
             }
         } catch (Exception e) {
-            System.out.println("mmmmm");
+            System.out.println("Lỗi lấy danh sách để pk siêu hạng");
+            e.printStackTrace();
         }
         return tops;
     }
+    
+    
 
     public static List<TOP> realTopSieuHang(Connection con) {
         List<TOP> tops = new ArrayList<>();

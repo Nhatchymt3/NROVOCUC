@@ -109,8 +109,8 @@ public class IntrinsicService {
     private void changeIntrinsicVip(Player player) {
         List<Intrinsic> listIntrinsic = getIntrinsics(player.gender);
         Intrinsic selectedIntrinsic = listIntrinsic.get(Util.nextInt(1, listIntrinsic.size() - 1));
-        int MAX_PARAM1_VALUE = (int) (selectedIntrinsic.paramTo1 * 0.5);
-        int MAX_PARAM2_VALUE = (int) (selectedIntrinsic.paramTo2 * 0.5);
+        int MAX_PARAM1_VALUE = (int) (selectedIntrinsic.paramTo1 * 0.7);
+        int MAX_PARAM2_VALUE = (int) (selectedIntrinsic.paramTo2 * 0.7);
         // Giới hạn giá trị param1 và param2 theo giá trị tối đa
         short maxParam1 = (short) Math.min(selectedIntrinsic.paramTo1, MAX_PARAM1_VALUE);
         short maxParam2 = (short) Math.min(selectedIntrinsic.paramTo2, MAX_PARAM2_VALUE);

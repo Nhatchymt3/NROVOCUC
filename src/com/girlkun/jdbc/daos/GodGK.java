@@ -251,9 +251,9 @@ public class GodGK {
                             dataArray.get(10); //** Năng động
                             plHp = Integer.parseInt(String.valueOf(dataArray.get(11)));
                             plMp = Integer.parseInt(String.valueOf(dataArray.get(12)));
-                            if (dataArray.size() > 15) {
-                                player.numKillSieuHang = Long.parseLong(String.valueOf(dataArray.get(16)));
-                                player.rankSieuHang = Long.parseLong(String.valueOf(dataArray.get(17)));
+                            if (dataArray.size() > 13) {
+                                player.numKillSieuHang = Long.parseLong(String.valueOf(dataArray.get(13)));
+                                player.rankSieuHang = Long.parseLong(String.valueOf(dataArray.get(14)));
                                 if (player.rankSieuHang == 0) {
                                     player.rankSieuHang = ServerManager.gI().getNumPlayer();
                                 }
@@ -1347,9 +1347,17 @@ public class GodGK {
 //                player.nPoint.critg = Byte.parseByte(String.valueOf(dataArray.get(9)));
                 player.nPoint.critg = Integer.parseInt(String.valueOf(dataArray.get(9)));
 
+
                 dataArray.get(10); //** Năng động
                 plHp = Integer.parseInt(String.valueOf(dataArray.get(11)));
                 plMp = Integer.parseInt(String.valueOf(dataArray.get(12)));
+                if (dataArray.size() > 13) {
+                    player.numKillSieuHang = Long.parseLong(String.valueOf(dataArray.get(13)));
+                    player.rankSieuHang = Long.parseLong(String.valueOf(dataArray.get(14)));
+                    if (player.rankSieuHang == 0) {
+                        player.rankSieuHang = ServerManager.gI().getNumPlayer();
+                    }
+                }
                 dataArray.clear();
 
                 //data đậu thần

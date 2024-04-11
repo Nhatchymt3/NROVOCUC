@@ -420,9 +420,9 @@ public class Input {
                                             player.autonoitai = false; // Dừng vòng lặp nếu không đủ vàng
                                             break; // Thoát khỏi vòng lặp
                                         }
-                
+                        
                                         IntrinsicService.gI().openVip(player); // Gọi hàm mở nội tại thường
-                                        countOpened +=1;
+                                        countOpened += 1;
                                         player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
                                         if (player.playerIntrinsic.intrinsic.param1 >= player.chisonoitai
                                                 && player.playerIntrinsic.intrinsic.id == player.idnoitai) {
@@ -439,6 +439,7 @@ public class Input {
                             }).start();
                         }
                     }
+                        
                     break;
                 
                 ///mua nhiều vp

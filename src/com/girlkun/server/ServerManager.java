@@ -83,6 +83,16 @@ public class ServerManager {
         long delay = 500;
         delaylogin = System.currentTimeMillis();
         isRunning = true;
+        new Thread(() -> {
+            while (true) {
+                try {
+                    SieuHangManager.gI().update();
+                    Thread.sleep(50);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     //    JFrame frame = new JFrame("Ngọc rồng Nro ");
     //    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     //    ImageIcon icon = new ImageIcon("C:\\Users\\vt220\\Desktop\\CBRO Potara\\data\\girlkun\\icon\\icon.png");
