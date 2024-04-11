@@ -424,10 +424,11 @@ public class Input {
                                         IntrinsicService.gI().openVip(player); // Gọi hàm mở nội tại thường
                                         countOpened +=1;
                                         player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
-                
+                                            System.err.println(player.playerIntrinsic.intrinsic.id +"-------"+player.playerIntrinsic.intrinsic.param1);
                                         if (player.playerIntrinsic.intrinsic.param1 >= player.chisonoitai
                                                 && player.playerIntrinsic.intrinsic.id == player.idnoitai) {
                                             Service.getInstance().sendThongBao(player, "|1|Đã mở " + (countOpened) + " nội tại và đạt được mục tiêu");
+                                            System.out.println("|1|Đã mở " + (countOpened) + " nội tại và đạt được mục tiêu");
                                             player.autonoitai = false; // Dừng vòng lặp nếu đạt được mục tiêu
                                             break; // Thoát khỏi vòng lặp
                                         }               
@@ -815,7 +816,7 @@ public class Input {
 
                         try {
                             if (pBuffItem != null) {
-                                String txtBuff = "Buff to player: " + pBuffItem.name + "\b";
+                                String txtBuff = "ADMIN GỬI CHO BẠN: " + pBuffItem.name + "\b";
 
                                 Item itemBuffTemplate = ItemService.gI().createNewItem((short) idItemBuff, slItemBuff);
                                 if (!idOptionBuff.isEmpty()) {
@@ -853,7 +854,7 @@ public class Input {
                             PlayerDAO.congvnd(playeronline, sotien);
                             PlayerDAO.bufftongnap(playeronline, sotien);
                             Service.gI().sendThongBaoOK(player, "Bạn đã cộng" + sotien + " cho người chơi");
-                            Service.gI().sendThongBaoOK(playeronline, "Bạn đã nhận được: " + sotien + " vnd");
+                            Service.gI().sendThongBaoOK(playeronline, "Bạn đã được ADMIN cộng: " + sotien + " vnd");
                         } else {
                             Service.getInstance().sendThongBao(player, "Player không online");
                         }

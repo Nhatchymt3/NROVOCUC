@@ -2204,23 +2204,23 @@ public class NPoint {
     }
     //giam tnsm
     public double calSubTNSM(double tiemNang) {
-        if (power >= 300000000000L) {
-            tiemNang /= 1000;
-        } else if (power >= 180000000000L) {
-            tiemNang /= 750;
-        } else if (power >= 110000000000L) {
-            tiemNang /= 500;
-        } else if (power >= 100000000000L) {
-            tiemNang /= 400;
-        } else if (power >= 80000000000L) {
-            tiemNang /= 200;
-        } else if (power >= 90000000000L) {
-            tiemNang /= 100;
-        } else if (power >= 70000000000L) {
-            tiemNang /= 40;
-        } else if (power >= 60000000000L) {
-            tiemNang /= 25;
-        }
+        // if (power >= 300000000000L) {
+        //     tiemNang /= 1000;
+        // } else if (power >= 180000000000L) {
+        //     tiemNang /= 750;
+        // } else if (power >= 110000000000L) {
+        //     tiemNang /= 500;
+        // } else if (power >= 100000000000L) {
+        //     tiemNang /= 400;
+        // } else if (power >= 80000000000L) {
+        //     tiemNang /= 200;
+        // } else if (power >= 90000000000L) {
+        //     tiemNang /= 100;
+        // } else if (power >= 70000000000L) {
+        //     tiemNang /= 40;
+        // } else if (power >= 60000000000L) {
+        //     tiemNang /= 25;
+        // }
         return tiemNang;
     }
 

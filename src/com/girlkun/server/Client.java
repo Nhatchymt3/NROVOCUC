@@ -200,7 +200,7 @@ public class Client implements Runnable {
     }
 
     private String removePrefix(String playerName) {
-        String[] prefixes = {"[NROZENI] ", "[VIP 2]", "[VIP 3]", "$"};
+        String[] prefixes = {"[NRO] ", "[VIP 2]", "[VIP 3]", "$"};
         for (String prefix : prefixes) {
             if (playerName.startsWith(prefix)) {
                 playerName = playerName.substring(prefix.length());

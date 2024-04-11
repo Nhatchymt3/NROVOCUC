@@ -99,7 +99,7 @@ public class GodGK {
                     return null;
                 }
                 if (rs.getBoolean("ban")) {
-                    Service.getInstance().sendThongBaoOK(session, "Tài khoản của bạn đã bị khóa. Lý do : Clone trên 5 acc !!!");
+                    Service.getInstance().sendThongBaoOK(session, "Tài khoản của bạn đã bị khóa. vui lòng liên hệ admin !!!");
                 } else if (baotri && session.isAdmin) {
                     Service.getInstance().sendThongBaoOK(session, "Máy chủ đang bảo trì, vui lòng quay lại sau!");
                 } else if (secondsPass1 < Manager.SECOND_WAIT_LOGIN) {
@@ -146,7 +146,7 @@ public class GodGK {
 
                             player.id = rs.getInt("id");
                             player.vnd = rs.getInt("vnd");
-                            player.name = "[Nro] " + rs.getString("name");
+                            player.name = "[NRO] " + rs.getString("name");
                             player.head = rs.getShort("head");
                             player.gender = rs.getByte("gender");
                             player.haveTennisSpaceShip = rs.getBoolean("have_tennis_space_ship");

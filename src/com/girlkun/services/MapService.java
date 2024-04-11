@@ -158,20 +158,52 @@ public class MapService {
         }
     }
 
-    public Zone getZone(int mapId) {
-        Map map = getMapById(mapId);
-        if (map == null) {
-            return null;
+//     public Zone getZone(int mapId) {
+//         Map map = getMapById(mapId);
+//         if (map == null) {
+//             return null;
+//         }
+//         int z = Util.nextInt(0, map.zones.size() - 1);
+// //       int z = 0;
+//         while (map.zones.get(z).getNumOfPlayers() >= map.zones.get(z).maxPlayer) {
+//             z = Util.nextInt(0, map.zones.size() - 1);
+//             z++;
+//         }
+//         return map.zones.get(z);
+//     }
+
+        public Zone getZone(int mapId) {
+            Map map = getMapById(mapId);
+            if (map == null) {
+                return null;
+            }
+
+            int maxtemp = 7; // Số người chơi tối đa mặc định
+            boolean allZonesFull = true;
+
+            // Kiểm tra từng khu vực
+            for (Zone zone : map.zones) {
+                if (zone.getNumOfPlayers() < maxtemp) {
+                    allZonesFull = false;
+                    break;
+                }
+            }
+
+            // Nếu tất cả các khu đều đầy 7 người chơi, tăng giới hạn lên
+            if (allZonesFull) {
+                maxtemp++;
+            }
+
+            // Tìm khu vực thích hợp để tham gia
+            for (Zone zone : map.zones) {
+                if (zone.getNumOfPlayers() < maxtemp && zone.getNumOfPlayers() <= zone.maxPlayer ) {
+                    return zone;
+                }
+            }
+
+            return null; // Trả về null nếu không có khu vực nào có sẵn
         }
 
-        int z = Util.nextInt(0, map.zones.size() - 1);
-//       int z = 0;
-        while (map.zones.get(z).getNumOfPlayers() >= map.zones.get(z).maxPlayer) {
-            z = Util.nextInt(0, map.zones.size() - 1);
-            z++;
-        }
-        return map.zones.get(z);
-    }
 
     private Zone getZoneByMapIDAndZoneID(int mapId, int zoneId) {
         Zone zoneJoin = null;

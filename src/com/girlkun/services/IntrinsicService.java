@@ -109,8 +109,8 @@ public class IntrinsicService {
     private void changeIntrinsicVip(Player player) {
         List<Intrinsic> listIntrinsic = getIntrinsics(player.gender);
         Intrinsic selectedIntrinsic = listIntrinsic.get(Util.nextInt(1, listIntrinsic.size() - 1));
-        int MIN_PARAM1_VALUE = (int) (selectedIntrinsic.paramFrom1 * 1.3); // Tăng giá trị min lên 30%
-        int MIN_PARAM2_VALUE = (int) (selectedIntrinsic.paramFrom2 * 1.3); // Tăng giá trị min lên 30%
+        int MIN_PARAM1_VALUE = (int) (selectedIntrinsic.paramFrom1 * 5); // Tăng giá trị min lên 30%
+        int MIN_PARAM2_VALUE = (int) (selectedIntrinsic.paramFrom2 * 5); // Tăng giá trị min lên 30%
         
         player.playerIntrinsic.intrinsic = new Intrinsic(selectedIntrinsic);
         player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(MIN_PARAM1_VALUE, player.playerIntrinsic.intrinsic.paramTo1);

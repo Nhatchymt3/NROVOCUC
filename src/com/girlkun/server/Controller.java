@@ -938,6 +938,37 @@ public class Controller implements IMessageHandler {
                 }
             }).start();
         }
+
+        if (player.nPoint.dame >= 35000000) {
+            new Thread(() -> {
+                try {
+                    Thread.sleep(10000);
+                    GirlkunDB.executeUpdate("update account set ban = 1 where id = ? and username = ?",
+                            player.getSession().userId, player.getSession().uu);
+                    Client.gI().kickSession(player.getSession());
+                } catch (Exception e) {
+                }
+            }).start();
+        }
+        
+            new Thread(() -> {
+                try {
+                    GirlkunResultSet ipBanned = GirlkunDB.executeQuery("SELECT ip_address FROM account WHERE ban = true");
+
+                    while (ipBanned.next()) {
+                        String bannedIP = ipBanned.getString("ip_address");
+                    
+                        // So sánh địa chỉ IP của người truy cập với các địa chỉ IP bị cấm
+                        if (session.ipAddress.equals(bannedIP)) {
+                            Thread.sleep(10000);
+                            GirlkunDB.executeUpdate("update account set ban = 1 where id = ? and username = ?",
+                                    player.getSession().userId, player.getSession().uu);
+                            Client.gI().kickSession(player.getSession());
+                        }
+                    }
+                } catch (Exception e) {
+                }
+            }).start();
 //        if (player.lastTimeTitle1 > 0) {
 //            scheduler.scheduleAtFixedRate(() -> {
 //                try {
