@@ -1602,8 +1602,8 @@ public class Service {
             Player master = ((Pet) player).master;
 
             param = master.nPoint.calSubTNSM(param);
-            master.nPoint.powerUp(param);
-            master.nPoint.tiemNangUp(param);
+            // master.nPoint.powerUp(param);
+            // master.nPoint.tiemNangUp(param);
             addSMTN(master, type, param, true);
         } else if (player.isTrieuhoipet) {
             player.nPoint.powerUp(param);
@@ -1611,8 +1611,8 @@ public class Service {
             Player masterr = ((Thu_TrieuHoi) player).masterr;
 
             param = masterr.nPoint.calSubTNSM(param);
-            masterr.nPoint.powerUp(param);
-            masterr.nPoint.tiemNangUp(param);
+            // masterr.nPoint.powerUp(param);
+            // masterr.nPoint.tiemNangUp(param);
             addSMTN(masterr, type, param, true);
         } else {
             if (player.nPoint.power > player.nPoint.getPowerLimit()) {

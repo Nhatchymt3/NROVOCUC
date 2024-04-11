@@ -771,9 +771,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.hpMax += ((double) this.hpMax * 10 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.hpMax += ((double) this.hpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -786,9 +801,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.hpMax += ((double) this.hpMax * 20 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.hpMax += ((double) this.hpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -801,9 +831,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.hpMax += ((double) this.hpMax * 30 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.hpMax += ((double) this.hpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -816,9 +861,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.hpMax += ((double) this.hpMax * 40 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.hpMax += ((double) this.hpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -831,9 +891,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.hpMax += ((double) this.hpMax * 50 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.hpMax += ((double) this.hpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1123,9 +1198,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.mpMax += ((double) this.mpMax * 10 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.mpMax += ((double) this.mpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1138,9 +1228,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.mpMax += ((double) this.mpMax * 20 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.mpMax += ((double) this.mpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1153,9 +1258,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.mpMax += ((double) this.mpMax * 30 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.mpMax += ((double) this.mpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1168,9 +1288,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.mpMax += ((double) this.mpMax * 40 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.mpMax += ((double) this.mpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1183,9 +1318,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.mpMax += ((double) this.mpMax * 50 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.mpMax += ((double) this.mpMax * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1394,9 +1544,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.dame += ((double) this.dame * 10 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.dame += ((double) this.dame * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1409,9 +1574,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.dame += ((double) this.dame * 20 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.dame += ((double) this.dame * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1424,9 +1604,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.dame += ((double) this.dame * 30 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.dame += ((double) this.dame * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1439,9 +1634,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.dame += ((double) this.dame * 40 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.dame += ((double) this.dame * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }
@@ -1454,9 +1664,24 @@ public class NPoint {
                 ConstPlayer.HOP_THE_PORATA4
             };
 
-            for (int fusionType : fusionTypes) {
-                if (((Pet) this.player).master.fusion.typeFusion == fusionType) {
+            for (int i = 1; i < fusionTypes.length; i++) { // Bắt đầu từ index 1 để loại bỏ cấp 1
+                if (((Pet) this.player).master.fusion.typeFusion == fusionTypes[i]) {
+                    // Xác định phần trăm tăng chỉ số dựa trên cấp của hợp thể Porata
                     this.dame += ((double) this.dame * 50 / 100);//chi so hp
+                    double percentIncrease = 0;
+                    if (i == 1) {
+                        percentIncrease = 0.15; // 15% tăng chỉ số so với cấp 1
+                    } else {
+                        // Tính toán phần trăm tăng chỉ số dựa trên cấp độ trước đó
+                        double previousPercentIncrease = 0.15;
+                        for (int j = 1; j < i; j++) {
+                            previousPercentIncrease += previousPercentIncrease * 0.15;
+                        }
+                        percentIncrease = previousPercentIncrease;
+                    }
+                    
+                    // Tăng chỉ số hpMax dựa trên phần trăm tăng
+                    this.dame += ((double) this.dame * percentIncrease);
                     break; // Ngừng kiểm tra khi tìm thấy loại hợp thể phù hợp
                 }
             }

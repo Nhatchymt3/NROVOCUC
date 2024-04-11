@@ -424,7 +424,6 @@ public class Input {
                                         IntrinsicService.gI().openVip(player); // Gọi hàm mở nội tại thường
                                         countOpened +=1;
                                         player.playerIntrinsic.intrinsic.param1 = (short) Util.nextInt(player.playerIntrinsic.intrinsic.paramFrom1, player.playerIntrinsic.intrinsic.paramTo1);
-                                            System.err.println(player.playerIntrinsic.intrinsic.id +"-------"+player.playerIntrinsic.intrinsic.param1);
                                         if (player.playerIntrinsic.intrinsic.param1 >= player.chisonoitai
                                                 && player.playerIntrinsic.intrinsic.id == player.idnoitai) {
                                             Service.getInstance().sendThongBao(player, "|1|Đã mở " + (countOpened) + " nội tại và đạt được mục tiêu");
