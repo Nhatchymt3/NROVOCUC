@@ -232,15 +232,12 @@ public class Manager {
     public static List<TOP> realTopSieuHang(Player pl) {
         List<TOP> tops = new ArrayList<>();
         try {
-            GirlkunResultSet rs = GirlkunDB.executeQuery("SELECT " +
-                "id, " +
-                "CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 18), ',', -1) AS UNSIGNED) AS rank " +
-            "FROM " +
-                "player " +
-            "WHERE " +
-                "CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 18), ',', -1) AS UNSIGNED) > 0 " +
-                "AND CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 18), ',', -1) AS UNSIGNED) <= " + pl.rankSieuHang +
-            " ORDER BY rank ASC LIMIT 10"
+            int limit = Math.min(pl.rankSieuHang <= 5 ? 10 - (int)pl.rankSieuHang : 5, 10);
+            int offset = Math.max((int)pl.rankSieuHang - 6, 0);
+            GirlkunResultSet rs = GirlkunDB.executeQuery("SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) AS rank FROM player WHERE CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) <= " + pl.rankSieuHang +
+            " UNION ALL " +
+            "SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) AS rank FROM player WHERE CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) > " + pl.rankSieuHang +
+            " ORDER BY rank ASC LIMIT " + limit + " OFFSET " + offset
             );
             while (rs.next()) {
                 String rankString = rs.getString("rank");
@@ -264,7 +261,7 @@ public class Manager {
     public static List<TOP> realTopSieuHang(Connection con) {
         List<TOP> tops = new ArrayList<>();
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 18), ',', -1) AS UNSIGNED) AS rank FROM player ORDER BY rank ASC LIMIT 100");
+            PreparedStatement ps = con.prepareStatement("SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) AS rank FROM player ORDER BY rank ASC LIMIT 100;");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 long rank = rs.getLong("rank");
