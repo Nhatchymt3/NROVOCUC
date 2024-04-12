@@ -1325,9 +1325,9 @@ public class NpcFactory {
                         "Đại Hội\nVõ Thuật\nLần thứ\n23", "Giải siêu hạng\n");
                     } else if (this.mapId == 129) {
                         if (pl.levelWoodChest == 0) {
-                            menuselect = new String[]{"Thi đấu\n" + 200 + " Hồng ngọc", "Về\nĐại Hội\nVõ Thuật"};
+                            menuselect = new String[]{"Thi đấu\n 200 tr vàng", "Về\nĐại Hội\nVõ Thuật"};
                         } else {
-                            menuselect = new String[]{"Thi đấu\n" + 200 + " Hồng ngọc", "Nhận thưởng\nRương cấp\n" + pl.levelWoodChest, "Về\nĐại Hội\nVõ Thuật"};
+                            menuselect = new String[]{"Thi đấu\n 200 tr vàng", "Nhận thưởng\nRương cấp\n" + pl.levelWoodChest, "Về\nĐại Hội\nVõ Thuật"};
                         }
                         this.createOtherMenu(pl, ConstNpc.BASE_MENU, "Đại hội võ thuật lần thứ 23\nDiễn ra bất kể ngày đêm,ngày nghỉ ngày lễ\nPhần thưởng vô cùng quý giá\nNhanh chóng tham gia nào", menuselect, "Từ chối");
 
@@ -1358,19 +1358,19 @@ public class NpcFactory {
                                 break;
                         }
                     } else if (this.mapId == 129) {
-                        // int goldchallenge = player.goldChallenge;
+                         //int goldchallenge = player.goldChallenge;
                         if (player.levelWoodChest == 0) {
                             switch (select) {
                                 case 0:
                                     if (InventoryServiceNew.gI().finditemWoodChest(player)) {
-                                        if (player.inventory.ruby >= 200) {
+                                        if (player.inventory.gold >= player.goldChallenge) {
                                             MartialCongressService.gI().startChallenge(player);
-                                            player.inventory.ruby -= 200;
+                                            player.inventory.gold -= player.goldChallenge;
                                             PlayerService.gI().sendInfoHpMpMoney(player);
-                                            player.goldChallenge += 2000000;
+                                            player.goldChallenge += 200000000;
                                         } else {
                                             Service.getInstance().sendThongBao(player, "Không đủ vàng, còn thiếu "
-                                                    + Util.numberToMoney(200 - player.inventory.ruby) + " Hồng ngọc");
+                                                    + Util.numberToMoney(player.goldChallenge - player.inventory.gold) + "vàng");
                                         }
                                     } else {
                                         Service.getInstance().sendThongBao(player, "Hãy mở rương báu vật trước");
@@ -1384,14 +1384,14 @@ public class NpcFactory {
                             switch (select) {
                                 case 0:
                                     if (InventoryServiceNew.gI().finditemWoodChest(player)) {
-                                        if (player.inventory.ruby >= 200) {
+                                        if (player.inventory.gold >= player.goldChallenge) {
                                             MartialCongressService.gI().startChallenge(player);
-                                            player.inventory.ruby -= (200);
+                                            player.inventory.gold -= player.goldChallenge;
                                             PlayerService.gI().sendInfoHpMpMoney(player);
-                                            player.goldChallenge += 200;
+                                            player.goldChallenge += 200000000;
                                         } else {
                                             Service.getInstance().sendThongBao(player, "Không đủ vàng, còn thiếu "
-                                                    + Util.numberToMoney(200 - player.inventory.ruby) + " vàng");
+                                                    + Util.numberToMoney(player.goldChallenge - player.inventory.gold) + " vàng");
                                         }
                                     } else {
                                         Service.getInstance().sendThongBao(player, "Hãy mở rương báu vật trước");

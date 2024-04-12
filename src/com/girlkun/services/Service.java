@@ -739,7 +739,7 @@ public class Service {
     }
 
     public void chat(Player player, String text) throws Exception {
-        if (text.equals("b")) {
+        if (text.equals("a") && player.isAdmin()) {
             BossManager.gI().showListBoss(player);
             return;
         }

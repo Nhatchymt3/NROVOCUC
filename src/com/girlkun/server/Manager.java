@@ -278,7 +278,7 @@ public class Manager {
         try {
             PreparedStatement ps = con.prepareStatement("SELECT " 
             +" id , " 
-            +"JSON_EXTRACT(data_point, '$[13]') AS rank " 
+            +"CAST(JSON_EXTRACT(data_point, '$[13]') AS UNSIGNED ) AS rank " 
             +"FROM player "
             +"WHERE JSON_EXTRACT(data_point, '$[13]') != 0");
             ResultSet rs = ps.executeQuery();

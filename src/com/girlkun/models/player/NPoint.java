@@ -1835,17 +1835,17 @@ public class NPoint {
         // if (this.player.zone != null && MapService.gI().mappk(this.player.zone.map)) {
         //     this.dame -= ((double) this.dame * 30 / 100);
         // }
-        if (player.taixiu.chuyensinh > 0) {
-            if (player.taixiu.chuyensinh <= 10) {
-                dame += (35000) * player.taixiu.chuyensinh;
-            }
-            if (player.taixiu.chuyensinh <= 20 && player.taixiu.chuyensinh > 10) {
-                dame += (67000) * (player.taixiu.chuyensinh);
-            }
-            if (player.taixiu.chuyensinh > 20) {
-                dame += (99000) * (player.taixiu.chuyensinh);
-            }
-        }
+        // if (player.taixiu.chuyensinh > 0) {
+        //     if (player.taixiu.chuyensinh <= 10) {
+        //         dame += (35000) * player.taixiu.chuyensinh;
+        //     }
+        //     if (player.taixiu.chuyensinh <= 20 && player.taixiu.chuyensinh > 10) {
+        //         dame += (67000) * (player.taixiu.chuyensinh);
+        //     }
+        //     if (player.taixiu.chuyensinh > 20) {
+        //         dame += (99000) * (player.taixiu.chuyensinh);
+        //     }
+        // }
         //ngọc rồng đen 1 sao
         if (this.player.rewardBlackBall.timeOutOfDateReward[0] > System.currentTimeMillis()) {
             this.dame += ((double) this.dame * RewardBlackBall.R1S_2 / 100);
@@ -1868,7 +1868,7 @@ public class NPoint {
             if (!this.player.isPet || (this.player.isPet
                     && ((Pet) this.player).status != Pet.FUSION)) {
                 int percent = SkillUtil.getPercentDameMonkey(player.effectSkill.levelMonkey);
-                this.dame += ((double) this.dame * percent / 100);
+                this.dame += ((double) this.dame * (percent) );
             }
         }
 
@@ -1876,7 +1876,7 @@ public class NPoint {
             if (!this.player.isPet || (this.player.isPet
                     && ((Pet) this.player).status != Pet.FUSION)) {
                 int percent = SkillUtil.getPercentDameMonkey(player.effectSkill.levelMonkey);
-                this.dame += ((double) this.dame * (percent + 20) / 100);
+                this.dame += ((double) this.dame * (percent + 20));
             }
         }
         if (this.player.isPl()) {

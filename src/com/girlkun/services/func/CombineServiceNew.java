@@ -600,8 +600,8 @@ public class CombineServiceNew {
                             npcSay += io.getOptionString() + "\n";
                         }
                         npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.TileNangcap + "%" + "\n";
-                        if (player.combineNew.DiemNangcap <= player.pointsb) {
-                            npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.DiemNangcap) + " Điểm Săn Boss";
+                        if (player.combineNew.DiemNangcap <= player.combineNew.DiemNangcap) {
+                            npcSay += "|1|Cần " + Util.numberToMoney(player.pointsb) + " Điểm Săn Boss";
                             baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
                                     "Nâng cấp\ncần " + player.combineNew.DaNangcap + " Đá Hoàng Kim");
                         } else {
@@ -2233,7 +2233,7 @@ public class CombineServiceNew {
         if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {
             if (!player.combineNew.itemsCombine.isEmpty()) {
                 Item item = player.combineNew.itemsCombine.get(0);
-                Item dangusac = player.combineNew.itemsCombine.get(1);
+                Item manhan = player.combineNew.itemsCombine.get(1);
                 int star = 0;
                 Item.ItemOption optionStar = null;
                 //kiểm tra item dã có ấn chưa
@@ -2244,7 +2244,7 @@ public class CombineServiceNew {
                         break;
                     }
                 }
-                if (item != null && item.isNotNullItem() && dangusac != null && dangusac.isNotNullItem() && (dangusac.template.id == 1232 || dangusac.template.id == 1233 || dangusac.template.id == 1234) && dangusac.quantity >= 99) {
+                if (item != null && item.isNotNullItem() && manhan != null && manhan.isNotNullItem() && (manhan.template.id == 1232 || manhan.template.id == 1233 || manhan.template.id == 1234) && manhan.quantity >= 99) {
                     if (optionStar == null) {
                         int random = new Random().nextInt(100);
                         if (random < 35) {
@@ -2257,7 +2257,7 @@ public class CombineServiceNew {
                             item.itemOptions.add(new Item.ItemOption(34, 1));
                             sendEffectSuccessCombine(player);
                         }
-                        InventoryServiceNew.gI().subQuantityItemsBag(player, dangusac, 99);
+                        InventoryServiceNew.gI().subQuantityItemsBag(player, manhan, 99);
                         InventoryServiceNew.gI().sendItemBags(player);
                         reOpenItemCombine(player);
                     } else {
@@ -2510,6 +2510,7 @@ public class CombineServiceNew {
         Item bongtai = player.combineNew.itemsCombine.get(0);
         Item manhVo = player.combineNew.itemsCombine.get(1);
         int levelbongtai = 0;
+        List<int[]> optionold = new ArrayList<>();
         if (player.combineNew.itemsCombine.size() == 2) {
             int gold = player.combineNew.goldCombine;
             if (player.inventory.gold < gold) {
@@ -2526,6 +2527,10 @@ public class CombineServiceNew {
                     levelbongtai = io.optionTemplate.id;
                     break;
                 }
+                // if ((io.optionTemplate.id != 242 && io.optionTemplate.id != 243 && io.optionTemplate.id != 244 && io.optionTemplate.id != 246)) {
+                //     int[] option = {io.optionTemplate.id, io.param};
+                //     optionold.add(option);
+                // }
             }
 
             if (levelbongtai == 242 && bongtai != null && manhVo != null && manhVo.quantity >= 99) {
@@ -2536,8 +2541,11 @@ public class CombineServiceNew {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
                      Item newbongtai = ItemService.gI().createNewItem((short)921,1);
                      newbongtai.itemOptions.clear();
-                     newbongtai.itemOptions.add(new Item.ItemOption(243, 1));
-                     newbongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                     newbongtai.itemOptions.add(new Item.ItemOption(243, 0));
+                    //  for (int[] option : optionold) {
+                    //     newbongtai.itemOptions.add(new Item.ItemOption(option[0], option[1]));
+                    //     }
+                     newbongtai.itemOptions.add(new Item.ItemOption(246, 0));
                      InventoryServiceNew.gI().addItemBag(player, newbongtai);
                     sendEffectSuccessCombine(player);
                 } else {
@@ -2556,8 +2564,11 @@ public class CombineServiceNew {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
                     Item newbongtai = ItemService.gI().createNewItem((short)1165,1);
                     newbongtai.itemOptions.clear();
-                    newbongtai.itemOptions.add(new Item.ItemOption(244, 1));
-                    newbongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                    newbongtai.itemOptions.add(new Item.ItemOption(244, 0));
+                    // for (int[] option : optionold) {
+                    //     newbongtai.itemOptions.add(new Item.ItemOption(option[0], option[1]));
+                    // }
+                    newbongtai.itemOptions.add(new Item.ItemOption(246, 0));
                     InventoryServiceNew.gI().addItemBag(player, newbongtai);
                     sendEffectSuccessCombine(player);
                 } else {
@@ -2576,8 +2587,11 @@ public class CombineServiceNew {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
                     Item newbongtai = ItemService.gI().createNewItem((short)1129,1);
                     newbongtai.itemOptions.clear();
-                    newbongtai.itemOptions.add(new Item.ItemOption(245, 1));
-                    newbongtai.itemOptions.add(new Item.ItemOption(246, 1));
+                    newbongtai.itemOptions.add(new Item.ItemOption(245, 0));
+                    // for (int[] option : optionold) {
+                    //     newbongtai.itemOptions.add(new Item.ItemOption(option[0], option[1]));
+                    // }
+                    newbongtai.itemOptions.add(new Item.ItemOption(246, 0));
                     InventoryServiceNew.gI().addItemBag(player, newbongtai);
                     sendEffectSuccessCombine(player);
                 } else {
@@ -2599,7 +2613,7 @@ public class CombineServiceNew {
 
         if (player.combineNew.itemsCombine.size() == 2) {
             int diem = player.combineNew.DiemNangcap;
-            if (player.inventory.event < diem) {
+            if (player.pointsb < diem) {
                 Service.gI().sendThongBao(player, "Không đủ Điểm Săn Boss để thực hiện");
                 return;
             }
@@ -2618,7 +2632,7 @@ public class CombineServiceNew {
             int soluongda = player.combineNew.DaNangcap;
             if (dahoangkim != null && dahoangkim.quantity >= soluongda) {
                 if (chanmenh != null && (chanmenh.template.id >= 1300 && chanmenh.template.id < 1308)) {
-                    player.inventory.event -= diem;
+                    player.pointsb -= diem;
                     if (Util.isTrue(player.combineNew.TileNangcap, 100)) {
                         InventoryServiceNew.gI().subQuantityItemsBag(player, dahoangkim, soluongda);
                         chanmenh.template = ItemService.gI().getTemplate(chanmenh.template.id + 1);
@@ -3458,11 +3472,13 @@ public class CombineServiceNew {
 
     public boolean isTrangBiPhaLeHoa(Item item) {
         if (item != null && item.isNotNullItem()) {
-            if ((item.template.type <= 5 || item.template.type == 32 || item.template.type == 24 || item.template.type == 23
-                    || item.template.id == 1179
-                    || item.template.id == 1211 || item.template.id == 1212 || item.template.id == 1213 || item.template.id == 1242
-                    || item.template.id == 1243) && !item.isTrangBiHSD()) {
-                return true;
+            if ((item.template.type <= 5 || item.template.type == 32 
+                    // || item.template.type == 24 || item.template.type == 23
+                    // || item.template.id == 1179
+                    // || item.template.id == 1211 || item.template.id == 1212 || item.template.id == 1213 || item.template.id == 1242
+                    // || item.template.id == 1243
+                    ) && !item.isTrangBiHSD()) {
+                    return true;
             } else {
                 return false;
             }

@@ -309,14 +309,12 @@ public class Controller implements IMessageHandler {
                     }else
                     {
                         if (player != null) {
-                            Item maydo = InventoryServiceNew.gI().findItemBag(player, 1456);
-                            boolean processedBoss = false;
-                            Item.ItemOption option = null;
-                            for (Boss bosse : BossManager.gI().getBosses()) {
-                                Item caitrang = player.inventory.itemsBody.get(5);
-                
+                        boolean processedBoss = false;
+                        Item.ItemOption option = null;
+                        for (Boss bosse : BossManager.gI().getBosses()) {
+                            Item caitrang = player.inventory.itemsBody.get(5);
                                 if (bosse != null && bosse.id == Id && !bosse.isDie()) {
-                                    if (caitrang.isNotNullItem()&& maydo != null) {
+                                    if (caitrang.isNotNullItem()) {
                                         for (Item.ItemOption io : caitrang.itemOptions) {
                                             option = io;
                                         }                    
@@ -325,13 +323,13 @@ public class Controller implements IMessageHandler {
                                                 option.param--;
                                                 ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
                                                 InventoryServiceNew.gI().sendItemBody(player);
-                                               
+                                            
                                             } else {
-                                              Service.getInstance().sendThongBao(player, "|7|Bạn đã hết lượt dịch chuyển");
+                                            Service.getInstance().sendThongBao(player, "|7|Bạn đã hết lượt dịch chuyển");
                                             }
                                         } 
                                     } else {
-                                        Service.getInstance().sendThongBao(player, "|7|Bạn không có trang bị yardat hoặc không có rada dò boss");
+                                        Service.getInstance().sendThongBao(player, "|7|Bạn không có trang bị yardat");
                                     }
                                     if (player.isAdmin()) {
                                         if (player.haveBeQuynh == false) {
@@ -344,6 +342,7 @@ public class Controller implements IMessageHandler {
                                     processedBoss = true;
                                     break;
                                 }
+                
                             }
                             if (!processedBoss) {
                                 for (Player onlinePlayer : Client.gI().getPlayers()) {

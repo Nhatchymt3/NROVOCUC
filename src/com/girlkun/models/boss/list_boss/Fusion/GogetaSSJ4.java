@@ -107,7 +107,7 @@ public class GogetaSSJ4 extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int sb = Util.nextInt(1, 10);
+        int sb = Util.nextInt(1, 3);
         plKill.chienthan.dalamduoc++;
         plKill.achievement.plusCount(3);
         plKill.pointsb += sb;
