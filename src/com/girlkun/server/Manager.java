@@ -280,7 +280,8 @@ public class Manager {
             +" id , " 
             +"CAST(JSON_EXTRACT(data_point, '$[13]') AS UNSIGNED ) AS rank " 
             +"FROM player "
-            +"WHERE JSON_EXTRACT(data_point, '$[13]') != 0");
+            +"WHERE JSON_EXTRACT(data_point, '$[13]') != 0 "
+            +"ORDER BY rank asc");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 long rank = rs.getLong("rank");

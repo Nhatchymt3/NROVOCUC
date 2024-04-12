@@ -1868,7 +1868,7 @@ public class NPoint {
             if (!this.player.isPet || (this.player.isPet
                     && ((Pet) this.player).status != Pet.FUSION)) {
                 int percent = SkillUtil.getPercentDameMonkey(player.effectSkill.levelMonkey);
-                this.dame += ((double) this.dame * (percent) );
+                this.dame += ((double) this.dame * (percent)/100);
             }
         }
 
@@ -1876,7 +1876,7 @@ public class NPoint {
             if (!this.player.isPet || (this.player.isPet
                     && ((Pet) this.player).status != Pet.FUSION)) {
                 int percent = SkillUtil.getPercentDameMonkey(player.effectSkill.levelMonkey);
-                this.dame += ((double) this.dame * (percent + 20));
+                this.dame += ((double) this.dame * (percent + 20)/100);
             }
         }
         if (this.player.isPl()) {

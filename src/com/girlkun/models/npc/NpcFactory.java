@@ -1325,9 +1325,9 @@ public class NpcFactory {
                         "Đại Hội\nVõ Thuật\nLần thứ\n23", "Giải siêu hạng\n");
                     } else if (this.mapId == 129) {
                         if (pl.levelWoodChest == 0) {
-                            menuselect = new String[]{"Thi đấu\n 200 tr vàng", "Về\nĐại Hội\nVõ Thuật"};
+                            menuselect = new String[]{"Thi đấu\n"+200 +"tr vàng", "Về\nĐại Hội\nVõ Thuật"};
                         } else {
-                            menuselect = new String[]{"Thi đấu\n 200 tr vàng", "Nhận thưởng\nRương cấp\n" + pl.levelWoodChest, "Về\nĐại Hội\nVõ Thuật"};
+                            menuselect = new String[]{"Thi đấu\n"+200 +"tr vàng", "Nhận thưởng\nRương cấp\n" + pl.levelWoodChest, "Về\nĐại Hội\nVõ Thuật"};
                         }
                         this.createOtherMenu(pl, ConstNpc.BASE_MENU, "Đại hội võ thuật lần thứ 23\nDiễn ra bất kể ngày đêm,ngày nghỉ ngày lễ\nPhần thưởng vô cùng quý giá\nNhanh chóng tham gia nào", menuselect, "Từ chối");
 
@@ -5028,14 +5028,14 @@ public class NpcFactory {
                             case 0:
                                 if (player.nPoint.limitPower < 9) {
                                     this.createOtherMenu(player, ConstNpc.OPEN_POWER_MYSEFT,
-                                            "Ta sẽ truền năng lượng giúp con mở giới hạn sức mạnh của bản thân lên "
+                                            "Ta sẽ truyền năng lượng giúp con mở giới hạn sức mạnh của bản thân lên "
                                             + Util.numberToMoney(player.nPoint.getPowerNextLimit()),
                                             "Nâng ngay\n" + Util.numberToMoney(OpenPowerService.COST_SPEED_OPEN_LIMIT_POWER) + " vàng", "Đóng");
                                 } else if (player.nPoint.limitPower == 9) {
                                     this.createOtherMenu(player, ConstNpc.OPEN_POWER_MYSEFT,
-                                            "Ta sẽ truền năng lượng giúp con mở giới hạn sức mạnh của bản thân lên "
+                                            "Ta sẽ truyền năng lượng giúp con mở giới hạn sức mạnh của bản thân lên "
                                             + "400 tỷ Sức mạnh",
-                                            "Nâng ngay\n" + "1" + " hồng ngọc", "Đóng");
+                                            "Nâng ngay\n" + "500tr" + " vàng", "Đóng");
                                 } else {
                                     this.createOtherMenu(player, ConstNpc.IGNORE_MENU,
                                             "Sức mạnh của con đã đạt tới giới hạn",
@@ -5053,7 +5053,7 @@ public class NpcFactory {
                                         this.createOtherMenu(player, ConstNpc.OPEN_POWER_PET,
                                                 "Ta sẽ truền năng lượng giúp con mở giới hạn sức mạnh của Đệ tử lên "
                                                 + "300 tỷ Sức mạnh",
-                                                "Nâng ngay\n" + "1" + " hồng ngọc", "Đóng");
+                                                "Nâng ngay\n" + "500tr" + " vàng", "Đóng");
                                     } else {
                                         this.createOtherMenu(player, ConstNpc.IGNORE_MENU,
                                                 "Sức mạnh của đệ con đã đạt tới giới hạn",
@@ -5083,15 +5083,15 @@ public class NpcFactory {
                     } else if (player.iDMark.getIndexMenu() == ConstNpc.OPEN_POWER_MYSEFT && player.nPoint.limitPower == 9) {
                         switch (select) {
                             case 0:
-                                if (player.inventory.ruby >= 1) {
+                                if (player.inventory.gold >= OpenPowerService.COST_SPEED_OPEN_LIMIT_POWER) {
                                     if (OpenPowerService.gI().openPowerSpeed(player)) {
-                                        player.inventory.ruby -= 1;
+                                        player.inventory.gold -= OpenPowerService.COST_SPEED_OPEN_LIMIT_POWER;
                                         Service.getInstance().sendMoney(player);
                                     }
                                 } else {
                                     Service.getInstance().sendThongBao(player,
-                                            "Bạn không đủ hồng ngọc để mở, còn thiếu "
-                                            + Util.numberToMoney((1 - player.inventory.ruby)) + " hồng ngọc");
+                                            "Bạn không đủ vàng để mở, còn thiếu "
+                                            + Util.numberToMoney((OpenPowerService.COST_SPEED_OPEN_LIMIT_POWER - player.inventory.gold)) + " vàng");
                                 }
                                 break;
                         }
@@ -5111,15 +5111,15 @@ public class NpcFactory {
                     } else if (player.iDMark.getIndexMenu() == ConstNpc.OPEN_POWER_PET && player.pet.nPoint.limitPower == 9) {
                         switch (select) {
                             case 0:
-                                if (player.inventory.ruby >= 1) {
+                                if (player.inventory.gold >= OpenPowerService.COST_SPEED_OPEN_LIMIT_POWER) {
                                     if (OpenPowerService.gI().openPowerSpeed(player.pet)) {
-                                        player.inventory.ruby -= 1;
+                                        player.inventory.gold -= OpenPowerService.COST_SPEED_OPEN_LIMIT_POWER;
                                         Service.getInstance().sendMoney(player);
                                     }
                                 } else {
                                     Service.getInstance().sendThongBao(player,
-                                            "Bạn không đủ hồng ngọc để mở, còn thiếu "
-                                            + Util.numberToMoney((1 - player.inventory.ruby)) + " hồng ngọc");
+                                            "Bạn không đủ vàng để mở, còn thiếu "
+                                            + Util.numberToMoney((OpenPowerService.COST_SPEED_OPEN_LIMIT_POWER - player.inventory.gold)) + " vàng");
                                 }
                                 break;
                         }
