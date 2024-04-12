@@ -4455,7 +4455,7 @@ public class NpcFactory {
                         } else if (player.iDMark.getIndexMenu() == 1232) {
                             switch (select) {
                                 case 0:
-                                    if (player.inventory.event >= 999) {
+                                    if (player.pointsb >= 999) {
 
                                     } else {
                                         this.npcChat(player, "|7|Bạn không đủ điểm để nhận thú cưng");
@@ -5940,7 +5940,7 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     createOtherMenu(player, ConstNpc.BASE_MENU,
                             "|7| BẢNG XẾP HẠNG\n|6|"
-                            + "\b|1|Người Muốn Xem TOP Gì?", "Săn Boss",
+                            + "\b|1|Người Muốn Xem TOP Gì?", "Săn Boss","Sức Mạnh","Nhiệm Vụ",
                             "Đóng");
                 }
             }
@@ -5956,16 +5956,16 @@ public class NpcFactory {
 //                                        Service.gI().showListTop(player, Manager.topHP);
 //                                        break;
 //                                    }
-//                                    if (select == 0) {
-//                                        Service.gI().showListTop(player, Manager.topSM);
-//                                        break;
-//                                    }
-//                                    if (select == 1) {
-//                                        Service.gI().showListTop(player, Manager.topNV);
-//                                        break;
-//                                    }
                                     if (select == 0) {
                                         Service.gI().showListTop(player, Manager.topSanBoss);
+                                        break;
+                                    }
+                                    if (select == 1) {
+                                        Service.gI().showListTop(player, Manager.topSM);
+                                        break;
+                                    }
+                                    if (select == 2) {
+                                        Service.gI().showListTop(player, Manager.topNV);
                                         break;
                                     }
 //                                    if (select == 2) {
@@ -6016,7 +6016,7 @@ public class NpcFactory {
                                         if (option != null && option.optionTemplate.id == 251) {
                                             if (bikip != null && bikip.quantity >= 9999) {
                                                 option.param += 10;
-                                                Service.getInstance().sendThongBao(player, "|7|Phù phép thành công");
+                                                Service.getInstance().sendThongBao(player, "|7|Phù phép thành công thêm lượt dịch duyển");
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, bikip, 9999);
                                                 InventoryServiceNew.gI().sendItemBody(player);
                                             }
@@ -6030,7 +6030,7 @@ public class NpcFactory {
                                             InventoryServiceNew.gI().sendItemBody(player);
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, bikip, 9999);
                                             InventoryServiceNew.gI().sendItemBags(player);
-                                            Service.getInstance().sendThongBao(player, "|7|Phù phép thành công vc ");
+                                            Service.getInstance().sendThongBao(player, "|7|Phù phép thành công phù dịch chuyển vào cải trang đang mang ");
                                         } else {
                                             Service.getInstance().sendThongBao(player, "|7|Không đủ bí kíp để thực hiện");
                                         }
@@ -7426,7 +7426,7 @@ public class NpcFactory {
                                 case 0:
                                     if (player.pointsb >= select1) {
                                         player.pointsb -= select1;
-                                        pl.inventory.event += select1;
+                                        pl.pointsb += select1;
                                         Service.gI().sendThongBaoOK(player, "Đã tặng thành công " + select1 + " điểm săn boss cho " + pl.name);
                                         Service.gI().sendThongBaoOK(pl, "Bạn đã được " + player.name + " tặng " + select1 + " điểm săn boss");
                                     } else {
@@ -7436,7 +7436,7 @@ public class NpcFactory {
                                 case 1:
                                     if (player.pointsb >= select2) {
                                         player.pointsb -= select2;
-                                        pl.inventory.event += select2;
+                                        pl.pointsb += select2;
                                         Service.gI().sendThongBaoOK(player, "Đã tặng thành công " + select2 + " điểm săn boss cho " + pl.name);
                                         Service.gI().sendThongBaoOK(pl, "Bạn đã được " + player.name + " tặng " + select2 + " điểm săn boss");
                                     } else {
@@ -7446,7 +7446,7 @@ public class NpcFactory {
                                 case 2:
                                     if (player.pointsb >= select3) {
                                         player.pointsb -= select3;
-                                        pl.inventory.event += select3;
+                                        pl.pointsb += select3;
                                         Service.gI().sendThongBaoOK(player, "Đã tặng thành công " + select3 + " điểm săn boss cho " + pl.name);
                                         Service.gI().sendThongBaoOK(pl, "Bạn đã được " + player.name + " tặng " + select3 + " điểm săn boss");
                                     } else {
@@ -7456,7 +7456,7 @@ public class NpcFactory {
                                 case 3:
                                     if (player.pointsb >= select4) {
                                         player.pointsb -= select4;
-                                        pl.inventory.event += select4;
+                                        pl.pointsb += select4;
                                         Service.gI().sendThongBaoOK(player, "Đã tặng thành công " + select4 + " điểm săn boss cho " + pl.name);
                                         Service.gI().sendThongBaoOK(player, "Bạn đã được " + player.name + " tặng " + select4 + " điểm săn boss");
                                     } else {
@@ -7466,7 +7466,7 @@ public class NpcFactory {
                                 case 4:
                                     if (player.pointsb >= select5) {
                                         player.pointsb -= select5;
-                                        pl.inventory.event += select5;
+                                        pl.pointsb += select5;
                                         Service.gI().sendThongBaoOK(player, "Đã tặng thành công " + select5 + " điểm săn boss cho " + pl.name);
                                         Service.gI().sendThongBaoOK(pl, "Bạn đã được " + player.name + " tặng " + select5 + " điểm săn boss");
                                     } else {
@@ -7476,7 +7476,7 @@ public class NpcFactory {
                                 case 5:
                                     if (player.pointsb >= select6) {
                                         player.pointsb -= select6;
-                                        pl.inventory.event += select6;
+                                        pl.pointsb += select6;
                                         Service.gI().sendThongBaoOK(player, "Đã tặng thành công " + select6 + " điểm săn boss cho " + pl.name);
                                         Service.gI().sendThongBaoOK(pl, "Bạn đã được " + player.name + " tặng " + select6 + " điểm săn boss");
                                     } else {
@@ -7486,7 +7486,7 @@ public class NpcFactory {
                                 case 6:
                                     if (player.pointsb >= select7) {
                                         player.pointsb -= select7;
-                                        pl.inventory.event += select7;
+                                        pl.pointsb += select7;
                                         Service.gI().sendThongBaoOK(player, "Đã tặng thành công " + select7 + " điểm săn boss cho " + pl.name);
                                         Service.gI().sendThongBaoOK(pl, "Bạn đã được " + player.name + " tặng " + select7 + " điểm săn boss");
                                     } else {

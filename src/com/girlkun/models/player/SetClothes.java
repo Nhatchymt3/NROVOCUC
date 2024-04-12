@@ -760,6 +760,9 @@ public class SetClothes {
     }
 
     public void setzeni() {
+        if (player.isPet) {
+            return;
+        }
         for (int i = 5; i < 11; i++) {
             Item item = this.player.inventory.itemsBody.get(i);
             if (item.isNotNullItem()) {

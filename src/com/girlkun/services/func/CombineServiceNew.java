@@ -600,12 +600,12 @@ public class CombineServiceNew {
                             npcSay += io.getOptionString() + "\n";
                         }
                         npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.TileNangcap + "%" + "\n";
-                        if (player.combineNew.DiemNangcap <= player.inventory.event) {
+                        if (player.combineNew.DiemNangcap <= player.pointsb) {
                             npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.DiemNangcap) + " Điểm Săn Boss";
                             baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
                                     "Nâng cấp\ncần " + player.combineNew.DaNangcap + " Đá Hoàng Kim");
                         } else {
-                            npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.DiemNangcap - player.inventory.event) + " Điểm";
+                            npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.DiemNangcap - player.pointsb) + " Điểm";
                             baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
                         }
                     } else {

@@ -64,7 +64,7 @@ public class SkillUtil {
     }
 
     public static int getPercentHpMonkey(int level) { //tỉ lệ máu khỉ cộng thêm v
-        return (level + 3) * 2;
+        return (level + 3) * 10;
 
     }
 

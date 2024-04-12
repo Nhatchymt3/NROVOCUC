@@ -463,7 +463,7 @@ public class ShopServiceNew {
             player.soluongmuanhieu = 0;
             player.idmuanhieu = -1;
             return false;
-        } else if (player.inventory.event < event) {
+        } else if (player.pointsb < event) {
             Service.getInstance().sendThongBao(player, "Bạn không có đủ điểm săn Boss");
             player.soluongmuanhieu = 0;
             player.idmuanhieu = -1;

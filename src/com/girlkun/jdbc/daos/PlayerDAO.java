@@ -40,7 +40,7 @@ public class PlayerDAO {
 
             dataArray.add(2000000000); //vàng
             dataArray.add(1000000000); //ngọc xanh
-            dataArray.add(5000); //hồng ngọc
+            dataArray.add(0); //hồng ngọc
             dataArray.add(0); //point
             dataArray.add(0); //event
 
@@ -66,6 +66,8 @@ public class PlayerDAO {
             dataArray.add(0); //năng động
             dataArray.add(gender == 0 ? 200 : 100); //hp hiện tại
             dataArray.add(gender == 1 ? 200 : 100); //ki hiện tại
+            dataArray.add(0);
+            dataArray.add(0);
             String point = dataArray.toJSONString();
             dataArray.clear();
             // đậu thần

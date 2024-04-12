@@ -777,7 +777,7 @@ public class UseItem {
     }
 
     private void tangdiemboss(Player pl, Item item) {
-        pl.inventory.event++;
+        pl.pointsb++;
         InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
         Service.getInstance().sendThongBao(pl, "Bạn đã tăng điểm giết boss thành công");
 

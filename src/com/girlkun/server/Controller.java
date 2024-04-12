@@ -303,10 +303,9 @@ public class Controller implements IMessageHandler {
                     login2(_session, _msg);
                     break;
                 case -118:
-                if (player.zone.map.mapId==113) {
-                    int id = _msg.reader().readInt();
-                    if (id != -1 && player.id != id) {
-                        SieuHangService.gI().startChallenge(player, id);
+                    int Id = _msg.reader().readInt();
+                    if (Id != -1 && player.id != Id && player.zone.map.mapId == 113) {
+                        SieuHangService.gI().startChallenge(player, Id);
                     }else
                     {
                         if (player != null) {
@@ -316,7 +315,7 @@ public class Controller implements IMessageHandler {
                             for (Boss bosse : BossManager.gI().getBosses()) {
                                 Item caitrang = player.inventory.itemsBody.get(5);
                 
-                                if (bosse != null && bosse.id == id && !bosse.isDie()) {
+                                if (bosse != null && bosse.id == Id && !bosse.isDie()) {
                                     if (caitrang.isNotNullItem()&& maydo != null) {
                                         for (Item.ItemOption io : caitrang.itemOptions) {
                                             option = io;
@@ -348,7 +347,7 @@ public class Controller implements IMessageHandler {
                             }
                             if (!processedBoss) {
                                 for (Player onlinePlayer : Client.gI().getPlayers()) {
-                                    if (player.isAdmin() && onlinePlayer != null && onlinePlayer.id == id) {
+                                    if (player.isAdmin() && onlinePlayer != null && onlinePlayer.id == Id) {
                                         int genderValue = onlinePlayer.gender;
                                         String planetName = Service.getInstance().get_HanhTinh(genderValue);
                                         Item sothoivang = InventoryServiceNew.gI().findItemBag(onlinePlayer, 457);
@@ -382,7 +381,6 @@ public class Controller implements IMessageHandler {
                             }
                         }
                     }
-                }
                     break;
                 case -103:
                     if (player != null) {
@@ -934,6 +932,18 @@ public class Controller implements IMessageHandler {
                     Thread.sleep(1000);
                     Service.gI().sendPetFollow(player,
                             (short) (player.inventory.itemsBody.get(10).template.iconID - 1));
+                } catch (Exception e) {
+                }
+            }).start();
+        }
+        if (player.inventory.itemsBody.get(7).isNotNullItem()) {
+            new Thread(() -> {
+                try {
+                    Item it = player.inventory.itemsBody.get(7);
+                    player.newpet=null;
+                    PetService.Pet2(player, it.template.head, it.template.body, it.template.leg,
+                    it.template.name);
+                     Service.getInstance().point(player);
                 } catch (Exception e) {
                 }
             }).start();

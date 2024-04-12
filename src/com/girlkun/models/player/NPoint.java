@@ -2,17 +2,13 @@ package com.girlkun.models.player;
 
 import com.girlkun.consts.ConstPlayer;
 import com.girlkun.consts.ConstRatio;
-import com.girlkun.models.Template;
 import com.girlkun.models.card.Card;
 import com.girlkun.models.card.OptionCard;
 import com.girlkun.models.intrinsic.Intrinsic;
 import com.girlkun.models.item.Item;
-import com.girlkun.models.map.Map;
-import com.girlkun.models.mob.Mob;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.server.Manager;
 import com.girlkun.services.EffectSkillService;
-import com.girlkun.services.InventoryServiceNew;
 import com.girlkun.services.ItemService;
 import com.girlkun.services.MapService;
 import com.girlkun.services.PlayerService;
@@ -305,18 +301,18 @@ public class NPoint {
             }
         }
 
-        this.player.setClothes.nhatchymte = 0;
+        //this.player.setClothes.nhatchymte = 0;
         for (Item item : this.player.inventory.itemsBody) {
             if (item.isNotNullItem()) {
-                for (Item.ItemOption io : item.itemOptions) {
-                    switch (io.optionTemplate.id) {
-                        case 193:
-                            player.setClothes.nhatchymte++;
-                    }
-                }
-                if (item.template.id >= 592 && item.template.id <= 594) {
-                    teleport = true;
-                }
+                // for (Item.ItemOption io : item.itemOptions) {
+                //     switch (io.optionTemplate.id) {
+                //         case 193:
+                //             player.setClothes.nhatchymte++;
+                //     }
+                // }
+                // if (item.template.id >= 592 && item.template.id <= 594) {
+                //     teleport = true;
+                // }
                 for (Item.ItemOption io : item.itemOptions) {
                     switch (io.optionTemplate.id) {
                         case 0: //Tấn công +#
@@ -703,11 +699,11 @@ public class NPoint {
         }
         //set nappa
        if (this.player.setClothes.nappa == 5) {
-           if (this.player.setClothes.cuonghoaskh == 5) {
-               this.hpMax += ((double) this.hpMax * 200 / 100);
-           } else {
+        //    if (this.player.setClothes.cuonghoaskh == 5) {
+        //        this.hpMax += ((double) this.hpMax * 200 / 100);
+        //    } else {
                this.hpMax += ((double) this.hpMax * 100 / 100);
-           }
+        //    }
        }
         ///////////////SKH LEVE//////////////////////////
         if (this.player.setClothes.nappac2 == 5) {
@@ -729,9 +725,9 @@ public class NPoint {
 
         }
 
-        if (this.player.setClothes.supskhxd == 5) {
-            this.hpMax += ((double) this.hpMax * 100 / 100);
-        }
+        // if (this.player.setClothes.supskhxd == 5) {
+        //     this.hpMax += ((double) this.hpMax * 100 / 100);
+        // }
         //set tinh ấn
         if (this.player.setClothes.tinhan == 5) {
             this.hpMax += ((double) this.hpMax * 30 / 100);
@@ -1031,17 +1027,17 @@ public class NPoint {
 
             }
         }
-        if (player.taixiu.chuyensinh > 0) {
-            if (player.taixiu.chuyensinh <= 10) {
-                hpMax += (50000) * player.taixiu.chuyensinh;
-            }
-            if (player.taixiu.chuyensinh <= 20 && player.taixiu.chuyensinh > 10) {
-                hpMax += (70000) * (player.taixiu.chuyensinh);
-            }
-            if (player.taixiu.chuyensinh > 20) {
-                hpMax += (100000) * (player.taixiu.chuyensinh);
-            }
-        }
+        // if (player.taixiu.chuyensinh > 0) {
+        //     if (player.taixiu.chuyensinh <= 10) {
+        //         hpMax += (50000) * player.taixiu.chuyensinh;
+        //     }
+        //     if (player.taixiu.chuyensinh <= 20 && player.taixiu.chuyensinh > 10) {
+        //         hpMax += (70000) * (player.taixiu.chuyensinh);
+        //     }
+        //     if (player.taixiu.chuyensinh > 20) {
+        //         hpMax += (100000) * (player.taixiu.chuyensinh);
+        //     }
+        // }
         //bổ huyết
         if (this.player.itemTime != null && this.player.itemTime.isUseBoHuyet) {
             this.hpMax *= 2;
@@ -1070,15 +1066,18 @@ public class NPoint {
             this.hpMax += ((double) this.hpMax * 50 / 100);
         }
         if (this.player.zone != null && MapService.gI().isMapCold(this.player.zone.map)
-                && !this.isKhongLanh) {
+                && !this.isKhongLanh && !this.player.isBoss) {
             this.hpMax /= 2;
         }
-        if (this.player.zone != null && MapService.gI().mappk(this.player.zone.map)) {
-            this.hpMax -= ((double) this.hpMax * 30 / 100);
-        }
+        // if (this.player.zone != null && MapService.gI().mappk(this.player.zone.map)) {
+        //     this.hpMax -= ((double) this.hpMax * 30 / 100);
+        // }
         //mèo mun
         if (this.player.effectFlagBag.useMeoMun) {
             this.hpMax += ((double) this.hpMax * 15 / 100);
+        }
+        if (this.player.effectSkill.isHoaLanh && !this.isKhongLanh) {
+            this.hpMax /= 2;
         }
         if (this.player.isPl()) {
             if (this.player.TrieuHoipet != null && this.player.TrieuHoipet.getStatus() != Thu_TrieuHoi.GOHOME
@@ -1130,11 +1129,11 @@ public class NPoint {
             this.mpMax += (this.mpMax * tl / 100);
         }
        if (this.player.setClothes.picolo == 5) {
-           if (this.player.setClothes.cuonghoaskh == 5) {
-               this.mpMax += ((double) this.mpMax * 200 / 100);
-           } else {
+        //    if (this.player.setClothes.cuonghoaskh == 5) {
+        //        this.mpMax += ((double) this.mpMax * 200 / 100);
+        //    } else {
                this.mpMax += ((double) this.mpMax * 100 / 100);
-           }
+        //    }
        }
         if (this.player.setClothes.picoloc2 == 5) {
             if (this.player.setClothes.level1 == 5) {
@@ -1155,12 +1154,12 @@ public class NPoint {
 
         }
 
-        if (this.player.setClothes.supskhnm == 5) {
-            this.mpMax *= 2;
-        }
-        if (this.player.setClothes.picoloc2 == 5) {
-            this.mpMax *= 3;
-        }
+        // if (this.player.setClothes.supskhnm == 5) {
+        //     this.mpMax *= 2;
+        // }
+        // if (this.player.setClothes.picoloc2 == 5) {
+        //     this.mpMax *= 3;
+        // }
         //ngọc rồng đen 3 sao
         if (this.player.rewardBlackBall.timeOutOfDateReward[2] > System.currentTimeMillis()) {
             this.mpMax += (this.mpMax * RewardBlackBall.R3S_1 / 100);
@@ -1432,17 +1431,17 @@ public class NPoint {
             this.mpMax += this.player.pet.nPoint.mpMax;
         }
 
-        if (player.taixiu.chuyensinh > 0) {
-            if (player.taixiu.chuyensinh <= 10) {
-                mpMax += (313000) * player.taixiu.chuyensinh;
-            }
-            if (player.taixiu.chuyensinh <= 20 && player.taixiu.chuyensinh > 10) {
-                mpMax += (615000) * (player.taixiu.chuyensinh);
-            }
-            if (player.taixiu.chuyensinh > 20) {
-                mpMax += (917500) * (player.taixiu.chuyensinh);
-            }
-        }
+        // if (player.taixiu.chuyensinh > 0) {
+        //     if (player.taixiu.chuyensinh <= 10) {
+        //         mpMax += (313000) * player.taixiu.chuyensinh;
+        //     }
+        //     if (player.taixiu.chuyensinh <= 20 && player.taixiu.chuyensinh > 10) {
+        //         mpMax += (615000) * (player.taixiu.chuyensinh);
+        //     }
+        //     if (player.taixiu.chuyensinh > 20) {
+        //         mpMax += (917500) * (player.taixiu.chuyensinh);
+        //     }
+        // }
         //bổ khí
         if (this.player.itemTime != null && this.player.itemTime.isUseBoKhi) {
             this.mpMax *= 2;
@@ -1479,8 +1478,11 @@ public class NPoint {
                 && !this.isKhongLanh) {
             this.mpMax /= 2;
         }
-        if (this.player.zone != null && MapService.gI().mappk(this.player.zone.map)) {
-            this.mpMax -= ((double) this.mpMax * 30 / 100);
+        // if (this.player.zone != null && MapService.gI().mappk(this.player.zone.map)) {
+        //     this.mpMax -= ((double) this.mpMax * 30 / 100);
+        // }
+        if (this.player.effectSkill.isHoaLanh && !this.isKhongLanh) {
+            this.mpMax /= 2;
         }
         //xiên cá
         if (this.player.effectFlagBag.useXienCa) {
@@ -1794,9 +1796,9 @@ public class NPoint {
             this.dame += ((double) this.dame * 15 / 100);
         }
         //        set skh broly
-        if (this.player.setClothes.broly == 5) {
-            this.dame *= 2;
-        }
+        // if (this.player.setClothes.broly == 5) {
+        //     this.dame *= 2;
+        // }
         //thức ăn
         if (!this.player.isPet && this.player.itemTimesieucap.isEatMeal
                 || this.player.isPet && ((Pet) this.player).master.itemTimesieucap.isEatMeal) {
@@ -1827,9 +1829,12 @@ public class NPoint {
                 && !this.isKhongLanh) {
             this.dame /= 2;
         }
-        if (this.player.zone != null && MapService.gI().mappk(this.player.zone.map)) {
-            this.dame -= ((double) this.dame * 30 / 100);
+        if (this.player.effectSkill.isHoaLanh && !this.isKhongLanh) {
+            this.dame /= 2;
         }
+        // if (this.player.zone != null && MapService.gI().mappk(this.player.zone.map)) {
+        //     this.dame -= ((double) this.dame * 30 / 100);
+        // }
         if (player.taixiu.chuyensinh > 0) {
             if (player.taixiu.chuyensinh <= 10) {
                 dame += (35000) * player.taixiu.chuyensinh;
@@ -2094,11 +2099,11 @@ public class NPoint {
                 percentDameSkill = skillSelect.damage;
                 //////////SKH Thường///////////////
                if (this.player.setClothes.kakarot == 5) {
-                   if (this.player.setClothes.cuonghoaskh == 5) {
-                       percentXDame = 200; //tăng 100% dame
-                   } else {
+                //    if (this.player.setClothes.cuonghoaskh == 5) {
+                //        percentXDame = 200; //tăng 100% dame
+                //    } else {
                        percentXDame = 100;
-                   }
+                //    }
                }
                 /////////////SKH LEVEL
                 if (this.player.setClothes.kakarotc2 == 5) {
@@ -2118,9 +2123,9 @@ public class NPoint {
                         percentXDame = 160;
                     }
                 }
-                if (this.player.setClothes.supskhxd == 5) {
-                    percentXDame = 100; //tăng 100% dame
-                }
+                // if (this.player.setClothes.supskhxd == 5) {
+                //     percentXDame = 100; //tăng 100% dame
+                // }
                 break;
 
             case Skill.ANTOMIC:
@@ -2148,11 +2153,11 @@ public class NPoint {
                 percentDameSkill = skillSelect.damage;
                 ///skh thường
                if (this.player.setClothes.thienXinHang == 5) {
-                   if (this.player.setClothes.cuonghoaskh == 5) {
-                       percentXDame = 200;
-                   } else {
+                //    if (this.player.setClothes.cuonghoaskh == 5) {
+                //        percentXDame = 200;
+                //    } else {
                        percentXDame = 100;
-                   }
+                //    }
                }
                 //////////SKH LEVEL//////////////////////////
                 if (this.player.setClothes.thienXinHangc2 == 5) {
@@ -2192,11 +2197,11 @@ public class NPoint {
 
                 percentDameSkill = skillSelect.damage;
                if (this.player.setClothes.ocTieu == 5) {
-                   if (this.player.setClothes.cuonghoaskh == 5) {
-                       percentXDame = 200;
-                   } else {
+                //    if (this.player.setClothes.cuonghoaskh == 5) {
+                //        percentXDame = 200;
+                //    } else {
                        percentXDame = 100;
-                   }
+                //    }
                }
                 //////////SKH LEVEL//////////////////////////
                 if (this.player.setClothes.ocTieuc2 == 5) {
@@ -2216,13 +2221,13 @@ public class NPoint {
                         percentXDame = 160;
                     }
                 }
-                if (this.player.setClothes.supskhnm == 5) {
-                    percentXDame = 100;
-                }
+                // if (this.player.setClothes.supskhnm == 5) {
+                //     percentXDame = 100;
+                // }
 
-                if (this.player.setClothes.ocTieuc2 == 5) {
-                    percentXDame = 150;
-                }
+                // if (this.player.setClothes.ocTieuc2 == 5) {
+                //     percentXDame = 150;
+                // }
 
                 break;
             case Skill.DICH_CHUYEN_TUC_THOI:
@@ -2237,11 +2242,11 @@ public class NPoint {
             case Skill.QUA_CAU_KENH_KHI:
                 double dame = this.dame * 40;
                if (this.player.setClothes.kirin == 5) {
-                   if (this.player.setClothes.cuonghoaskh == 5) {
-                       dame *= 4;
-                   } else {
+                //    if (this.player.setClothes.cuonghoaskh == 5) {
+                //        dame *= 4;
+                //    } else {
                        dame *= 2;
-                   }
+                //    }
                }
                 if (this.player.setClothes.kirinc2 == 5) {
                     if (this.player.setClothes.level1 == 5) {
@@ -2261,12 +2266,12 @@ public class NPoint {
                     }
                 }
 
-                if (this.player.setClothes.supskhtd == 5) {
-                    dame *= 2;
-                }
-                if (this.player.setClothes.kirinc2 == 5) {
-                    dame *= 4;
-                }
+                // if (this.player.setClothes.supskhtd == 5) {
+                //     dame *= 2;
+                // }
+                // if (this.player.setClothes.kirinc2 == 5) {
+                //     dame *= 4;
+                // }
                 dame = dame + (Util.nextInt(-5, 5) * dame / 100);
                 return dame;
         }
@@ -2299,16 +2304,6 @@ public class NPoint {
             }
         }
         dameAttack += dameAttack * percentXDame / 100;
-        dameAttack = Util.GioiHannext(dameAttack - (dameAttack * 5 / 100), dameAttack + (dameAttack * 5 / 100));
-        if (player.isPl()) {
-            if (player.inventory.haveOption(player.inventory.itemsBody, 5, 159)) {
-                if (Util.canDoWithTime(player.lastTimeUseOption, 60000) && (player.playerSkill.skillSelect.template.id == Skill.KAMEJOKO || player.playerSkill.skillSelect.template.id == Skill.ANTOMIC || player.playerSkill.skillSelect.template.id == Skill.MASENKO)) {
-                    dameAttack *= player.inventory.getParam(player.inventory.itemsBody.get(5), 159);
-                    player.lastTimeUseOption = System.currentTimeMillis();
-                    Service.getInstance().sendThongBao(player, "|1|Bạn vừa gây ra x" + player.inventory.getParam(player.inventory.itemsBody.get(5), 159) + " Sát thương Chưởng");
-                }
-            }
-        }
         if (this.player.TrieuHoipet != null && this.player.TrieuHoipet.getStatus() != Thu_TrieuHoi.GOHOME
                 && (this.player.TrieuHoiCapBac == 6 || this.player.TrieuHoiCapBac == 9
                 || this.player.TrieuHoiCapBac == 10)) {
@@ -2320,6 +2315,16 @@ public class NPoint {
                 default:
                     dameAttack += dameAttack * (this.player.TrieuHoiLevel + 1) / 100;
                     break;
+            }
+        }
+        dameAttack = Util.GioiHannext(dameAttack - (dameAttack * 5 / 100), dameAttack + (dameAttack * 5 / 100));
+        if (player.isPl()) {
+            if (player.inventory.haveOption(player.inventory.itemsBody, 5, 159)) {
+                if (Util.canDoWithTime(player.lastTimeUseOption, 60000) && (player.playerSkill.skillSelect.template.id == Skill.KAMEJOKO || player.playerSkill.skillSelect.template.id == Skill.ANTOMIC || player.playerSkill.skillSelect.template.id == Skill.MASENKO)) {
+                    dameAttack *= player.inventory.getParam(player.inventory.itemsBody.get(5), 159);
+                    player.lastTimeUseOption = System.currentTimeMillis();
+                    Service.getInstance().sendThongBao(player, "|1|Bạn vừa gây ra x" + player.inventory.getParam(player.inventory.itemsBody.get(5), 159) + " Sát thương Chưởng");
+                }
             }
         }
         //check activation set
@@ -2394,24 +2399,24 @@ public class NPoint {
             if (this.intrinsic != null && this.intrinsic.id == 24) {
                 tiemNang += ((double) tiemNang * this.intrinsic.param1 / 100);
             }
-            if (this.power >= 40000000000L) {
-                tiemNang -= ((double) tiemNang * 40 / 100);
-            }
-            if (this.power >= 60000000000L) {
-                tiemNang -= ((double) tiemNang * 50 / 100);
-            }
-            if (this.power >= 80000000000L) {
-                tiemNang -= ((double) tiemNang * 60 / 100);
-            }
-            if (this.power >= 100_000_000_000L) {
-                tiemNang -= ((double) tiemNang * 70 / 100);
-            }
-            if (this.power >= 150_000_000_000L) {
-                tiemNang -= ((double) tiemNang * 80 / 100);
-            }
-            if (this.power >= 300_000_000_000L) {
-                tiemNang -= ((double) tiemNang * 90 / 100);
-            }
+            // if (this.power >= 40000000000L) {
+            //     tiemNang -= ((double) tiemNang * 40 / 100);
+            // }
+            // if (this.power >= 60000000000L) {
+            //     tiemNang -= ((double) tiemNang * 50 / 100);
+            // }
+            // if (this.power >= 80000000000L) {
+            //     tiemNang -= ((double) tiemNang * 60 / 100);
+            // }
+            // if (this.power >= 100_000_000_000L) {
+            //     tiemNang -= ((double) tiemNang * 70 / 100);
+            // }
+            // if (this.power >= 150_000_000_000L) {
+            //     tiemNang -= ((double) tiemNang * 80 / 100);
+            // }
+            // if (this.power >= 300_000_000_000L) {
+            //     tiemNang -= ((double) tiemNang * 90 / 100);
+            // }
             if (this.player.isPet) {
                 if (((Pet) this.player).master.charms.tdDeTu > System.currentTimeMillis()) {
                     tiemNang += tn * 2;
@@ -2599,16 +2604,16 @@ public class NPoint {
             return 20000;
         }
         if (limitPower == 7) {
-            return 24000;
+            return 22000;
         }
         if (limitPower == 8) {
-            return 28000;
+            return 24000;
         }
         if (limitPower == 9) {
-            return 35000;
+            return 28000;
         }
         if (limitPower == 10) {
-            return 40000;
+            return 32000;
         }
         return 0;
     }
@@ -2645,7 +2650,7 @@ public class NPoint {
             return 1800;
         }
         if (limitPower == 10) {
-            return 2500;
+            return 2000;
         }
         return 0;
     }
@@ -2670,16 +2675,16 @@ public class NPoint {
             return 10;
         }
         if (limitPower == 6) {
-            return 10;
+            return 11;
         }
         if (limitPower == 7) {
-            return 10;
+            return 12;
         }
         if (limitPower == 8) {
-            return 10;
+            return 13;
         }
         if (limitPower == 9) {
-            return 10;
+            return 14;
         }
         if (limitPower == 10) {
             return 15;
@@ -2783,10 +2788,7 @@ public class NPoint {
             }
         }
         if (type == 3) {
-            tiemNangUse = 50000000L;
-            for (int i = 0; i < this.defg; i++) {
-                tiemNangUse *= 5L;
-            }
+            tiemNangUse = 2 * (this.defg + 5) / 2 * 100000;
             if ((this.defg + point) <= getDefLimit()) {
                 if (doUseTiemNang(tiemNangUse)) {
                     defg += point;

@@ -55,7 +55,7 @@ public class Kuku extends Boss {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);
                 }
-                damage = damage;
+                // damage = damage;
             }
             this.nPoint.subHP(damage);
             if (isDie()) {

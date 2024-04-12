@@ -33,7 +33,7 @@ public class BossBabyVegeta extends
         int sb = Util.nextInt(1, 3);
         plKill.chienthan.dalamduoc++;
         plKill.achievement.plusCount(3);
-        plKill.inventory.event += sb;
+        plKill.pointsb += sb;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
         byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1); // Lấy danh sách đồ thần linh ở manager

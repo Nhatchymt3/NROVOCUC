@@ -26,7 +26,7 @@ public class Thucung extends Boss {
         int sb = Util.nextInt(1, 2);
         plKill.chienthan.dalamduoc++;
         plKill.achievement.plusCount(3);
-        plKill.inventory.event += sb;
+        plKill.pointsb += sb;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
         Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1266, Util.nextInt(1, 3), this.location.x, this.location.y, plKill.id));
     }

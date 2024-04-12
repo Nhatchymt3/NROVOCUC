@@ -30,7 +30,7 @@ public class SieuBoHung extends Boss {
           int sb = Util.nextInt(1, 3);
         plKill.chienthan.dalamduoc++;
         plKill.achievement.plusCount(3);
-        plKill.inventory.event += sb;
+        plKill.pointsb += sb;
                  Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(748,749), 1, this.location.x, this.location.y, plKill.id));
 
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");

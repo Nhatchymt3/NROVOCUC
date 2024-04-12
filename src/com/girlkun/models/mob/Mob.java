@@ -13,8 +13,6 @@ import com.girlkun.models.player.Location;
 import com.girlkun.models.player.Pet;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.player.Thu_TrieuHoi;
-import com.girlkun.models.reward.ItemMobReward;
-import com.girlkun.models.reward.MobReward;
 import com.girlkun.models.skill.PlayerSkill;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.network.io.Message;

@@ -20,7 +20,7 @@ public class MabuBoss extends Boss {
     @Override
     public void reward(Player plKill) {
         plKill.achievement.plusCount(3);
-        plKill.inventory.event++;
+        plKill.pointsb++;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được 1 điểm săn Boss");
         byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
         byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);

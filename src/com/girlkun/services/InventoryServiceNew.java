@@ -373,8 +373,15 @@ public class InventoryServiceNew {
                 index = 9;
                 break;
             case 11:
-                index = 8;
-                break;
+                if (player.isPet) {
+                    index = 7;
+                    break;
+                }else
+                {
+                    index = 8;
+                    break;
+                    
+                }
             case 75:
             case 72:
                 index = 10;

@@ -832,6 +832,9 @@ public class ChangeMapService {
                         return null;
                     }
                     break;
+                case 122: // ngũ hành sơn
+                case 123: // ngũ hành sơn
+                case 124: // ngũ hành sơn
                 case 30: //đảo bulong
                 case 34: //đông nam guru
                 case 38: //bờ vực đen

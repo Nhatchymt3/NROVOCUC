@@ -24,13 +24,12 @@ public final class MobMe extends Mob {
         if (this.player != null &&this.player.setClothes.pikkoroDaimao == 5) {
             this.point.dame *= 2;
         }
-        if ( this.player != null && this.player.setClothes.supskhnm == 5) {
-            this.point.dame *= 2;
-        }
+        // if ( this.player != null && this.player.setClothes.supskhnm == 5) {
+        //     this.point.dame *= 2;
+        // }
         if (this.player != null && this.player.setClothes.pikkoroDaimaoc2 == 5) {
             this.point.dame *= 4;
         }
-
         this.point.hp = this.point.maxHp;
         this.zone = player.zone;
         this.lastTimeSpawn = System.currentTimeMillis();
@@ -48,10 +47,10 @@ public final class MobMe extends Mob {
             this.mobMeDie();
             this.dispose();
         }
-        if (Util.canDoWithTime(lastTimeSpawn, timeSurvive) && this.player.setClothes.supskhnm != 5) {
-            this.mobMeDie();
-            this.dispose();
-        }
+        // if (Util.canDoWithTime(lastTimeSpawn, timeSurvive) && this.player.setClothes.supskhnm != 5) {
+        //     this.mobMeDie();
+        //     this.dispose();
+        // }
     }
 
     public void attack(Player pl, Mob mob) {
@@ -65,7 +64,7 @@ public final class MobMe extends Mob {
 
                     msg.writer().writeInt(this.id);
                     msg.writer().writeInt((int) pl.id);
-                    msg.writer().writeInt(1);
+                    msg.writer().writeInt((int)dameHit);
                     msg.writer().writeInt(Util.DoubleGioihan(pl.nPoint.hp));
 
                     Service.getInstance().sendMessAllPlayerInMap(this.zone, msg);

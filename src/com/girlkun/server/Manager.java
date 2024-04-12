@@ -126,11 +126,13 @@ public class Manager {
             + "ORDER BY hp DESC\n"
             + "LIMIT 20;";
     public static final String queryTopKI = "SELECT id, CAST( split_str(data_point,',',7) AS UNSIGNED) AS ki FROM player WHERE id NOT IN (SELECT id FROM account WHERE is_admin = 1) ORDER BY CAST( split_str(data_point,',',7)  AS UNSIGNED) DESC LIMIT 20;";
-    public static final String queryTopNV = "SELECT id, CAST(SPLIT_STR(SPLIT_STR(data_task, ',', 1), '[', 2) AS UNSIGNED) AS nv\n"
-            + "FROM player WHERE id NOT IN (SELECT id FROM account WHERE is_admin = 1) ORDER BY "
-            + " CAST(SPLIT_STR(SPLIT_STR(data_task, ',', 1), '[', 2) AS UNSIGNED) DESC,"
-            + " CAST(SPLIT_STR(data_task, ',', 2) AS UNSIGNED) DESC,"
-            + " CAST(SPLIT_STR(data_point, ',', 2) AS UNSIGNED) DESC LIMIT 50;";
+    public static final String queryTopNV = "SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_task, ',', 1), '[', -1) AS UNSIGNED) AS nv " 
+                    +"FROM player " 
+                    +"WHERE id NOT IN (SELECT id FROM account WHERE is_admin = 1) " 
+                    +"ORDER BY CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_task, ',', 1), '[', -1) AS UNSIGNED) DESC, " 
+                    +"CAST(SUBSTRING_INDEX(data_task, ',', -1) AS UNSIGNED) DESC, " 
+                    +"CAST(SUBSTRING_INDEX(data_point, ',', -1) AS UNSIGNED) DESC " 
+                    +"LIMIT 50;";
     public static final String querytopSB = "SELECT id, CAST( split_str( data_inventory,',',5)  AS UNSIGNED) AS event FROM player WHERE id NOT IN (SELECT id FROM account WHERE is_admin = 1) ORDER BY CAST( split_str( data_inventory,',',5)  AS UNSIGNED) DESC LIMIT 20;";
     public static final String querytopSK = "SELECT id, CAST( split_str( data_inventory,',',4)  AS UNSIGNED) AS event FROM player WHERE id NOT IN (SELECT id FROM account WHERE is_admin = 1) ORDER BY CAST( split_str( data_inventory,',',4)  AS UNSIGNED) DESC LIMIT 20;";
     public static final String queryTopPVP = "SELECT id, CAST( pointPvp AS UNSIGNED) AS pointPvp FROM player WHERE id NOT IN (SELECT id FROM account WHERE is_admin = 1) ORDER BY CAST( pointPvp AS UNSIGNED) DESC LIMIT 50;";
