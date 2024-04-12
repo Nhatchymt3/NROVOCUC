@@ -234,22 +234,35 @@ public class Manager {
     public static List<TOP> realTopSieuHang(Player pl) {
         List<TOP> tops = new ArrayList<>();
         try {
-            int limit = Math.min(pl.rankSieuHang <= 5 ? 10 - (int)pl.rankSieuHang : 5, 10);
-            int offset = Math.max((int)pl.rankSieuHang - 6, 0);
-            GirlkunResultSet rs = GirlkunDB.executeQuery("SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) AS rank FROM player WHERE CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) <= " + pl.rankSieuHang +
-            " UNION ALL " +
-            "SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) AS rank FROM player WHERE CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) > " + pl.rankSieuHang +
-            " ORDER BY rank ASC LIMIT " + limit + " OFFSET " + offset
-            );
-            while (rs.next()) {
-                String rankString = rs.getString("rank");
-                BigInteger rank = new BigInteger(rankString);
-                if (Math.abs(rank.intValue() - pl.rankSieuHang) <= 10) {
-                    TOP top = TOP.builder().id_player(rs.getInt("id")).build();
-                    top.setInfo1("");
-                    top.setInfo2("");
-                    tops.add(top);
-                }
+            // Lấy danh sách người chơi có rank thấp hơn rank của bạn và không phải là 0
+            GirlkunResultSet rs2 = null;
+            long offsetValue = 0;
+            if (pl.rankSieuHang <= 10) {
+                offsetValue = 0; // Sử dụng offsetValue là 0 khi rankSieuHang <= 10
+                rs2 = GirlkunDB.executeQuery(
+                    "SELECT id,  CAST(JSON_EXTRACT(data_point, '$[13]') AS UNSIGNED ) AS rank " +
+                    "FROM player " +
+                    "WHERE JSON_EXTRACT(data_point, '$[13]') <= " + pl.rankSieuHang + " AND JSON_EXTRACT(data_point, '$[13]') != 0 " +
+                    "ORDER BY rank asc " +  // Đảo ngược thứ tự ở đây
+                    "LIMIT " + offsetValue + ", 10"
+                );
+            } else {
+                offsetValue = Math.max(pl.rankSieuHang - 10, 0); // Sử dụng offsetValue là rankSieuHang - 10 khi rankSieuHang > 10
+                rs2 = GirlkunDB.executeQuery(
+                    "SELECT id, CAST(JSON_EXTRACT(data_point, '$[13]') AS UNSIGNED ) AS rank " +
+                    "FROM player " +
+                    "WHERE JSON_EXTRACT(data_point, '$[13]') <= " + pl.rankSieuHang + " AND JSON_EXTRACT(data_point, '$[13]') != 0 " +
+                    "ORDER BY rank asc " +  // Đảo ngược thứ tự ở đây
+                    "LIMIT " + offsetValue + ", 10"
+                );
+            }
+    
+            // Duyệt qua kết quả từ rs2 và thêm vào danh sách tops
+            while (rs2.next()) {
+                TOP top = TOP.builder().id_player(rs2.getInt("id")).build();
+                top.setInfo1("");
+                top.setInfo2("");
+                tops.add(top);
             }
         } catch (Exception e) {
             System.out.println("Lỗi lấy danh sách để pk siêu hạng");
@@ -259,11 +272,15 @@ public class Manager {
     }
     
     
-
+    
     public static List<TOP> realTopSieuHang(Connection con) {
         List<TOP> tops = new ArrayList<>();
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT id, CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(data_point, ',', 15), ',', -1) AS UNSIGNED) AS rank FROM player ORDER BY rank ASC LIMIT 100;");
+            PreparedStatement ps = con.prepareStatement("SELECT " 
+            +" id , " 
+            +"JSON_EXTRACT(data_point, '$[13]') AS rank " 
+            +"FROM player "
+            +"WHERE JSON_EXTRACT(data_point, '$[13]') != 0");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 long rank = rs.getLong("rank");

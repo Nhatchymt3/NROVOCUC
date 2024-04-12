@@ -493,6 +493,34 @@ public class Service {
         }
     }
 
+    // public void showListTop(Player player, List<TOP> tops, byte isPVP) {
+    //     Message msg;
+    //     try {
+    //         msg = new Message(-96);
+    //         msg.writer().writeByte(0);
+    //         msg.writer().writeUTF("Top");
+    //         msg.writer().writeByte(tops.size());
+    //         for (int i = 0; i < tops.size(); i++) {
+    //             TOP top = tops.get(i);
+    //             Player pl = GodGK.loadById(top.getId_player());
+    //             msg.writer().writeInt(i + 1);
+    //             msg.writer().writeInt((int) pl.id);
+    //             msg.writer().writeShort(pl.getHead());
+    //             if (player.getSession().version > 214) {
+    //                 msg.writer().writeShort(-1);
+    //             }
+    //             msg.writer().writeShort(pl.getBody());
+    //             msg.writer().writeShort(pl.getLeg());
+    //             msg.writer().writeUTF(pl.name);
+    //             msg.writer().writeUTF(top.getInfo1());
+    //             msg.writer().writeUTF(isPVP == 1 ? ("Sức Đánh: " + pl.nPoint.dameg + "\n" + "HP: " + pl.nPoint.hpg + "\n" + "KI: " + pl.nPoint.mpg + "\n" + "Điểm hạng: " + pl.rankSieuHang) : top.getInfo2());
+    //         }
+    //         player.sendMessage(msg);
+    //         msg.cleanup();
+    //     } catch (Exception e) {
+    //         System.out.println("11111");
+    //     }
+    // }
     public void showListTop(Player player, List<TOP> tops, byte isPVP) {
         Message msg;
         try {
@@ -503,7 +531,8 @@ public class Service {
             for (int i = 0; i < tops.size(); i++) {
                 TOP top = tops.get(i);
                 Player pl = GodGK.loadById(top.getId_player());
-                msg.writer().writeInt(i + 1);
+                msg.writer().writeInt(isPVP != 1 ? (i + 1) : (int) pl.rankSieuHang);
+//                msg.writer().writeInt(i + 1);
                 msg.writer().writeInt((int) pl.id);
                 msg.writer().writeShort(pl.getHead());
                 if (player.getSession().version > 214) {
@@ -513,12 +542,13 @@ public class Service {
                 msg.writer().writeShort(pl.getLeg());
                 msg.writer().writeUTF(pl.name);
                 msg.writer().writeUTF(top.getInfo1());
-                msg.writer().writeUTF(isPVP == 1 ? ("Sức Đánh: " + pl.nPoint.dameg + "\n" + "HP: " + pl.nPoint.hpg + "\n" + "KI: " + pl.nPoint.mpg + "\n" + "Điểm hạng: " + pl.rankSieuHang) : top.getInfo2());
+                msg.writer().writeUTF(isPVP == 1 ? top.getInfo2() : top.getInfo2() + pl.numKillSieuHang);
+                //               msg.writer().writeUTF(isPVP == 1 ? ("Sức Đánh: " + pl.nPoint.dame +"\n"+ "HP: " + pl.nPoint.hpMax +"\n"+ "KI: " + pl.nPoint.mpMax +"\n" + "Điểm hạng: " + pl.rankSieuHang) : top.getInfo2());
             }
             player.sendMessage(msg);
             msg.cleanup();
         } catch (Exception e) {
-            System.out.println("11111");
+            e.printStackTrace();
         }
     }
 

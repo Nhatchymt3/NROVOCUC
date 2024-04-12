@@ -444,8 +444,8 @@ public class PlayerDAO {
                 dataArray.add(0);
                 dataArray.add(hp);
                 dataArray.add(mp);
-                dataArray.add(player.numKillSieuHang);
                 dataArray.add(player.rankSieuHang);
+                dataArray.add(player.numKillSieuHang);
 
                 String point = dataArray.toJSONString();
                 dataArray.clear();
