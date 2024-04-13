@@ -540,6 +540,7 @@ public class Player {
         return -1;
     }
 
+    
     public short getHead() {
         if (effectSkill != null && effectSkill.isMonkey) {
             return (short) ConstPlayer.HEADMONKEY[effectSkill.levelMonkey - 1];

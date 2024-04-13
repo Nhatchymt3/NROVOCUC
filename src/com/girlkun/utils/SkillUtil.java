@@ -59,6 +59,11 @@ public class SkillUtil {
         return (skillId == Skill.KAMEJOKO || skillId == Skill.MASENKO || skillId == Skill.ANTOMIC);
     }
 
+    public static boolean isUseSkillCC(Player player) {
+        int skillId = player.playerSkill.skillSelect.template.id;
+        return (skillId == Skill.TROI || skillId == Skill.DICH_CHUYEN_TUC_THOI || skillId == Skill.THOI_MIEN || skillId == Skill.THAI_DUONG_HA_SAN);
+    }
+
     public static int getTimeMonkey(int level) { //thời gian tồn tại khỉ v
         return (level + 5) * 10000;
     }

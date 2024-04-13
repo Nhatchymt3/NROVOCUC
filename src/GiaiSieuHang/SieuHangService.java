@@ -12,6 +12,7 @@ import com.girlkun.services.Service;
 import com.girlkun.services.func.ChangeMapService;
 import com.girlkun.utils.Util;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SieuHangService {
@@ -69,13 +70,15 @@ public class SieuHangService {
 //                    .skillTemp(skillTemp)
 //                    .secondsRest(5)
 //                    .build();
+
+            List<Integer> skillnot = Arrays.asList(14, 23, 10, 26, 24, 25, 11);
             List<Skill> skillList = new ArrayList<>();
-            for (byte i = 0; i < pl.playerSkill.skills.size(); i++) {
-                Skill skill = pl.playerSkill.skills.get(i);
-                if (skill.point > 0) {
+            for (Skill skill : pl.playerSkill.skills) {
+                if (skill.point > 0 && !skillnot.contains(skill.template.id)) {
                     skillList.add(skill);
                 }
             }
+
             int[][] skillTemp = new int[skillList.size()][5];
             for (byte i = 0; i < skillList.size(); i++) {
                 Skill skill = skillList.get(i);

@@ -25,7 +25,7 @@ public abstract class PVP implements IPVP {
         this.start();
         PVPManager.gI().addPVP(this);
     }
-
+    
     @Override
     public void start() {
         this.started = true;

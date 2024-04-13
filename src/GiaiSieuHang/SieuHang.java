@@ -6,6 +6,9 @@ import com.girlkun.jdbc.daos.PlayerDAO;
 import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossStatus;
 import com.girlkun.models.boss.dhvt.BossDHVT;
+import com.girlkun.models.matches.PVP;
+import com.girlkun.models.matches.TYPE_LOSE_PVP;
+import com.girlkun.models.matches.TYPE_PVP;
 import com.girlkun.models.player.Player;
 import com.girlkun.server.Client;
 import com.girlkun.services.EffectSkillService;
@@ -97,6 +100,29 @@ public class SieuHang {
             }
             SieuHangService.gI().sendTypePK(player, boss);
             PlayerService.gI().changeAndSendTypePK(this.player, ConstPlayer.PK_PVP);
+            PVP pvp = new PVP(TYPE_PVP.THACH_DAU,player,boss) {
+                @Override
+                public void finish() {
+
+                }
+
+                @Override
+                public void update() {
+
+                }
+
+                @Override
+                public void reward(Player plWin) {
+
+                }
+
+                @Override
+                public void sendResult(Player plLose, TYPE_LOSE_PVP typeLose) {
+
+                }
+            };
+            player.pvp = pvp;
+            boss.pvp = pvp;
             boss.changeStatus(BossStatus.ACTIVE);
         }, 5000);
     }
@@ -167,6 +193,7 @@ public class SieuHang {
 
     public void endChallenge() {
         if (player.zone != null) {
+            player.pvp = null;
             PlayerService.gI().hoiSinh(player);
         }
         PlayerService.gI().changeAndSendTypePK(player, ConstPlayer.NON_PK);
@@ -176,6 +203,7 @@ public class SieuHang {
             }, 500);
         }
         if (boss != null) {
+            boss.pvp = null;
             boss.leaveMap();
         }
         SieuHangManager.gI().remove(this);

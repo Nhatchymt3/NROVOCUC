@@ -156,7 +156,7 @@ public class BossesData {
                         "Admin đẹp trai", // name
                         ConstPlayer.TRAI_DAT, // gender
                         new short[] { 1231, 1232, 1233, -1, 13, -1 }, // outfit {head, body, leg, bag, aura, eff}
-                        1, // dame
+                        5000000, // dame
                         new double[] { 500000000000L }, // hp
                         new int[] { 6 }, // map join
                         new int[][] {
@@ -553,7 +553,10 @@ public class BossesData {
             170220, //dame
             new double[]{250000000L}, //hp
             new int[]{97, 98, 99}, //map join
-            (int[][]) Util.addArray(FULL_GALICK, FULL_KAMEJOKO), //skill
+            new int[][] {
+                {Skill.LIEN_HOAN, 7, 10000},
+                {Skill.MASENKO, 7, 1000},
+                {Skill.TROI, 7, 50000}}, //skill
             new String[]{"|-1|Chào! Có Gôku ở đây không?",
                 "|-3|Tôi không nghĩ Gôku ở đây đâu!",
                 "|-2|Biến khỏi đây đi, Gôku không có ở đây đâu!",
@@ -585,7 +588,10 @@ public class BossesData {
             180000, //dame
             new double[]{250000000L}, //hp
             new int[]{97, 98, 99}, //map join
-            (int[][]) Util.addArray(FULL_KAMEJOKO), //skill
+            new int[][] {
+                {Skill.LIEN_HOAN, 7, 10000},
+                {Skill.MASENKO, 7, 1000},
+                {Skill.TROI, 7, 50000}}, //skill
             new String[]{}, //text chat 1
             new String[]{"|-1|Đừng tưởng ta đây là con gái mà dễ bắt nạt nhé",
                 "|-1|Khôn hồn thì chỉ chỗ Gôku cho bọn ta nhanh đi",
@@ -604,7 +610,10 @@ public class BossesData {
             300000, //dame
             new double[]{250000000L}, //hp
             new int[]{97, 98, 99}, //map join
-            (int[][]) Util.addArray(FULL_LIENHOAN, FULL_MASENKO), //skill
+            new int[][] {
+                {Skill.LIEN_HOAN, 7, 10000},
+                {Skill.MASENKO, 7, 1000},
+                {Skill.TROI, 7, 50000}}, //skill
             new String[]{}, //text chat 1
             new String[]{"|-1|Mau đền mạng cho những người bạn của ta",
                 "|-1|Sức mạnh của ta chênh nhau với các ngươi một trời một vực đấy!",

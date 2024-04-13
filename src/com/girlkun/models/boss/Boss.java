@@ -11,6 +11,7 @@ import com.girlkun.models.boss.list_boss.NRD.*;
 import com.girlkun.models.map.Zone;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
+import com.girlkun.network.io.Message;
 import com.girlkun.server.ServerNotify;
 import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.MapService;
@@ -451,14 +452,25 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
                 if (Util.getDistance(this, pl) <= this.getRangeCanAttackWithSkillSelect()) {
                     if (Util.isTrue(5, 20)) {
                         if (SkillUtil.isUseSkillChuong(this)) {
-                            this.moveTo(pl.location.x + (Util.getOne(-1, 1) * Util.nextInt(20, 200)),
+                            this.moveTo(pl.location.x + (Util.getOne(-1, 1) * Util.nextInt(20, 100)),
                                     Util.nextInt(10) % 2 == 0 ? pl.location.y : pl.location.y - Util.nextInt(0, 70));
-                        } else {
+                                    SkillService.gI().useSkill(this, pl, null, null);
+                        }else if (SkillUtil.isUseSkillCC(this)) {
+                            if (pl.effectSkill.isStun || pl.effectSkill.anTroi || pl.effectSkill.isThoiMien || pl.effectSkill.isBlindDCTT) {
+                                return;
+                            }else
+                            {
+                                this.moveTo(pl.location.x + (Util.getOne(-1, 1) * Util.nextInt(20, 100)),
+                                    Util.nextInt(10) % 2 == 0 ? pl.location.y : pl.location.y - Util.nextInt(0, 70));
+                                    SkillService.gI().useSkill(this, pl, null, null);
+                            }
+                        }
+                        else {
                             this.moveTo(pl.location.x + (Util.getOne(-1, 1) * Util.nextInt(10, 40)),
                                     Util.nextInt(10) % 2 == 0 ? pl.location.y : pl.location.y - Util.nextInt(0, 50));
-                        }
-                    }
-                    SkillService.gI().useSkill(this, pl, null, null);
+                                    SkillService.gI().useSkill(this, pl, null, null);
+                                }
+                            }
                     checkPlayerDie(pl);
                 } else {
                     if (Util.isTrue(1, 2)) {
@@ -486,7 +498,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         } else if (skillId == Skill.DRAGON || skillId == Skill.DEMON || skillId == Skill.GALICK) {
             return Skill.RANGE_ATTACK_CHIEU_DAM;
         }
-        return 752002;
+        return 500;
     }
 
     @Override
