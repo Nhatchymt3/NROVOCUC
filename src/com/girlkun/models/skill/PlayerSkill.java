@@ -29,7 +29,7 @@ public class PlayerSkill {
         return null;
     }
 
-    public byte[] skillShortCut = new byte[5];
+    public byte[] skillShortCut = new byte[11];
 
     public void sendSkillShortCut() {
         Message msg;

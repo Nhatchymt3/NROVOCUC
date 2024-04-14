@@ -613,7 +613,7 @@ public class PlayerDAO {
                 dataArray.add((player.itemTime.isUseMayDo ? (ItemTime.TIME_MAY_DO - (System.currentTimeMillis() - player.itemTime.lastTimeUseMayDo)) : 0));
                 dataArray.add((player.itemTime.isDuoikhi ? (ItemTime.TIME_DUOI_KHI - (System.currentTimeMillis() - player.itemTime.lastTimeDuoikhi)) : 0));
                 dataArray.add((player.itemTime.isgiodungkeo ? (ItemTime.TIME_GIO_DUNG_KEO - (System.currentTimeMillis() - player.itemTime.lastTimegiodungkeo)) : 0));
-                dataArray.add(player.itemTime.iconDuoi);
+                //dataArray.add(player.itemTime.iconDuoi);
                 dataArray.add((player.itemTime.isUseTDLT ? ((player.itemTime.timeTDLT - (System.currentTimeMillis() - player.itemTime.lastTimeUseTDLT)) / 60 / 1000) : 0));
                 dataArray.add((player.itemTime.isUseMayDo2 ? (ItemTime.TIME_MAY_DO2 - (System.currentTimeMillis() - player.itemTime.lastTimeUseMayDo2)) : 0));
                 dataArray.add((player.itemTime.isUseMayDoSC ? (ItemTime.TIME_MAY_DO - (System.currentTimeMillis() - player.itemTime.lastTimeUseMayDoSC)) : 0));

@@ -292,7 +292,7 @@ public class Controller implements IMessageHandler {
                     break;
                 case -113:
                     if (player != null) {
-                        for (int i = 0; i < 5; i++) {
+                        for (int i = 0; i <10; i++) {
                             player.playerSkill.skillShortCut[i] = _msg.reader().readByte();
                         }
                         player.playerSkill.sendSkillShortCut();
@@ -957,13 +957,11 @@ public class Controller implements IMessageHandler {
             }).start();
         }
 
-        if (player.nPoint.dame >= 35000000) {
+        if (player.nPoint.dame >= 5000000) {
             new Thread(() -> {
                 try {
                     Thread.sleep(10000);
-                    GirlkunDB.executeUpdate("update account set ban = 1 where id = ? and username = ?",
-                            player.getSession().userId, player.getSession().uu);
-                    Client.gI().kickSession(player.getSession());
+                    PlayerService.gI().banPlayer(player);
                 } catch (Exception e) {
                 }
             }).start();
@@ -979,9 +977,7 @@ public class Controller implements IMessageHandler {
                         // So sánh địa chỉ IP của người truy cập với các địa chỉ IP bị cấm
                         if (session.ipAddress.equals(bannedIP)) {
                             Thread.sleep(10000);
-                            GirlkunDB.executeUpdate("update account set ban = 1 where id = ? and username = ?",
-                                    player.getSession().userId, player.getSession().uu);
-                            Client.gI().kickSession(player.getSession());
+                            PlayerService.gI().banPlayer(player);
                         }
                     }
                 } catch (Exception e) {

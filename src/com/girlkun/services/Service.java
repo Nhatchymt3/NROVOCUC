@@ -2040,7 +2040,8 @@ public class Service {
             msg = new Message(-19);
             msg.writer().writeShort(itemMapId);
             msg.writer().writeInt((int) player.id);
-            sendMessAllPlayerIgnoreMe(player, msg);
+            // sendMessAllPlayerIgnoreMe(player, msg);
+            sendMessAnotherNotMeInMap(player, msg);
             msg.cleanup();
         } catch (Exception e) {
 

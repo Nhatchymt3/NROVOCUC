@@ -6,6 +6,7 @@ import com.girlkun.models.player.Player;
 import com.girlkun.network.io.Message;
 import com.girlkun.server.Client;
 import com.girlkun.server.Maintenance;
+import com.girlkun.services.PlayerService;
 import com.girlkun.services.Service;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.TimeUtil;
@@ -103,6 +104,11 @@ public class TransactionService implements Runnable {
                     if (trade != null) {
                         byte index = msg.reader().readByte();
                         int quantity = msg.reader().readInt();
+                        if (quantity < 0) {
+                            Service.getInstance().sendThongBao(pl, "bug cái đầu cu");
+                            trade.cancelTrade();
+                            PlayerService.gI().banPlayer(pl);
+                        }
                         if (quantity == 0) {//do
                             quantity = 1;
                         }

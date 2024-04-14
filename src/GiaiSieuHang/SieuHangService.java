@@ -74,7 +74,7 @@ public class SieuHangService {
             List<Integer> skillnot = Arrays.asList(14, 23, 10, 26, 24, 25, 11);
             List<Skill> skillList = new ArrayList<>();
             for (Skill skill : pl.playerSkill.skills) {
-                if (skill.point > 0 && !skillnot.contains(skill.template.id)) {
+                if (skill.point > 0 && !skillnot.contains((int)skill.template.id)) {
                     skillList.add(skill);
                 }
             }

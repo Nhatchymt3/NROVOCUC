@@ -666,7 +666,7 @@ public class ChangeMapService {
                     player.sendMessage(msg);
                     break;
                 case 2: //cho người chơi trong map
-                    Service.getInstance().sendMessAllPlayerIgnoreMe(player, msg);
+                    Service.getInstance().sendMessAnotherNotMeInMap(player, msg);
                     break;
             }
             msg.cleanup();
