@@ -16,7 +16,7 @@ public class BossCumber extends
         Boss {
     
     public BossCumber() throws Exception {
-        super(BossID.BOSS_Cumber, BossesData.CumberV2);
+        super(BossID.BOSS_Cumber, BossesData.CUMBER);
     }
     
     @Override

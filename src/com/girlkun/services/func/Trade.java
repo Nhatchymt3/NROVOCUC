@@ -186,7 +186,7 @@ public class Trade {
         }
         switch (item.template.type) {
             case 27: // item không thể giao dịch
-                if (item.template.id == 590 || item.template.id == 1129 || item.template.id == 921 || item.template.id == 1132 || item.template.id == 1312|| item.template.id == 1990 || item.template.id == 1989
+                if (item.template.id == 1129 || item.template.id == 921 || item.template.id == 1132 || item.template.id == 1312|| item.template.id == 1990 || item.template.id == 1989
                         || item.template.id == 1992 || item.template.id == 1995 || item.template.id == 1996 || item.template.id == 1997) {
                     return true;
                 } else if (item.template.id == 457 || item.template.id == 1066 || item.template.id == 1067 || item.template.id == 1068 || item.template.id == 1069 || item.template.id == 1070

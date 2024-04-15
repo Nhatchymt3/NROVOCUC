@@ -607,15 +607,15 @@ public class ShopServiceNew {
                                     pl.idmuanhieu = -1;
                                     return false;
                                 } else {
-                                    if (pl.inventory.ruby >= buySpec) {
-                                        pl.inventory.ruby -= buySpec;
+                                    if (pl.inventory.gold >= buySpec) {
+                                        pl.inventory.gold -= buySpec;
                                         InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i.template.id), 99);
                                         InventoryServiceNew.gI().sendItemBags(pl);
                                         InventoryServiceNew.gI().sendItemBody(pl);
                                         Service.getInstance().sendMoney(pl);
                                         return true;
                                     } else {
-                                        Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Hồng Ngọc Để Mua Vật Phẩm");
+                                        Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Vàng Để Mua Vật Phẩm");
                                         pl.soluongmuanhieu = 0;
                                         pl.idmuanhieu = -1;
                                         return false;

@@ -353,7 +353,7 @@ public class NpcFactory {
                                             if (trung3 != null && trung3.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changePicPet(player, 0);
+                                                PetService.gI().changeBrolyPet(player, 0);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -366,7 +366,7 @@ public class NpcFactory {
                                             if (trung3 != null && trung3.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changePicPet(player, 1);
+                                                PetService.gI().changeBrolyPet(player, 1);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -379,7 +379,7 @@ public class NpcFactory {
                                             if (trung3 != null && trung3.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changePicPet(player, 2);
+                                                PetService.gI().changeBrolyPet(player, 2);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -396,7 +396,7 @@ public class NpcFactory {
                                             if (trung4 != null && trung4.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changegohanzombie(player, 0);
+                                                PetService.gI().changeWukongPet(player, 0);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -409,7 +409,7 @@ public class NpcFactory {
                                             if (trung4 != null && trung4.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changegohanzombie(player, 1);
+                                                PetService.gI().changeWukongPet(player, 1);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -422,7 +422,7 @@ public class NpcFactory {
                                             if (trung4 != null && trung4.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changegohanzombie(player, 2);
+                                                PetService.gI().changeWukongPet(player, 2);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -439,7 +439,7 @@ public class NpcFactory {
                                             if (trung5 != null && trung5.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeGokuEVO(player, 0);
+                                                PetService.gI().changeFunsionPet(player, 0);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -452,7 +452,7 @@ public class NpcFactory {
                                             if (trung5 != null && trung5.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeGokuEVO(player, 1);
+                                                PetService.gI().changeFunsionPet(player, 1);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -465,7 +465,7 @@ public class NpcFactory {
                                             if (trung5 != null && trung5.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeGokuEVO(player, 2);
+                                                PetService.gI().changeFunsionPet(player, 2);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -2044,8 +2044,7 @@ public class NpcFactory {
                                         .replaceAll("%1", player.gender == ConstPlayer.TRAI_DAT ? "Quy lão Kamê"
                                                 : player.gender == ConstPlayer.NAMEC ? "Trưởng lão Guru" : "Vua Vegeta") + "Ta đang giữ tiền tiết kiệm của con\n|1| Hiện tại con đang có: " + player.getSession().vnd + "VND"
                                 + "\n|7| Chào mừng con đến với NRO :",
-                                "Nhận ngọc", "Nhận\nĐệ Tử", "Giftcode", "Điểm danh",
-                                "Nhận Vàng",
+                                "Nhận ngọc", "Giftcode",
                                 "Lệnh\ncơ bản"
                         );
 
@@ -2059,7 +2058,7 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
-                            case 0: // đổi mk
+                            case 0: //nhận ngọc
                                 if (player.inventory.gem >= 200000000) {
                                     this.npcChat(player, "Tham Lam");
                                     break;
@@ -2068,43 +2067,43 @@ public class NpcFactory {
                                 Service.getInstance().sendMoney(player);
                                 Service.getInstance().sendThongBao(player, "|1|Bạn vừa nhận được 20tr Ngọc xanh");
                                 break;
-                            case 1: //nhận ngọc
-                                if (player.pet == null) {
-                                    PetService.gI().createNormalPet(player, Util.nextInt(0, 2));
-                                    Service.getInstance().sendThongBao(player, "Bạn vừa nhận được đệ tử");
-                                } else {
-                                    this.npcChat(player, "Tham Lam");
-                                }
-                                break;
-                            case 2: //nhận đệ tử
+                            // case 1: //nhận đệ tử
+                            //     if (player.pet == null) {
+                            //         PetService.gI().createNormalPet(player, Util.nextInt(0, 2));
+                            //         Service.getInstance().sendThongBao(player, "Bạn vừa nhận được đệ tử");
+                            //     } else {
+                            //         this.npcChat(player, "Tham Lam");
+                            //     }
+                            //     break;
+                            case 1: 
                                 Input.gI().createFormGiftCode(player);
                                 break;
-                            case 3:
-                                if (player.diemdanh == 0) {
-                                    int soluongtv = 200;
-                                    int soluonghn = 200000;
-                                    Item thoivang = ItemService.gI().createNewItem((short) 457, soluongtv);
-                                    Item hongngoc = ItemService.gI().createNewItem((short) 861, soluonghn);
-                                    thoivang.itemOptions.add(new Item.ItemOption(30, 1));
-                                    InventoryServiceNew.gI().addItemBag(player, hongngoc);
-                                    InventoryServiceNew.gI().addItemBag(player, thoivang);
-                                    InventoryServiceNew.gI().sendItemBags(player);
-                                    player.diemdanh = System.currentTimeMillis();
-                                    Service.getInstance().sendThongBao(player, "|7|Bạn vừa nhận được x " + soluonghn + " " + hongngoc.template.name);
-                                    Service.getInstance().sendThongBao(player, "|7|Bạn vừa nhận được x " + soluongtv + " " + thoivang.template.name);
-                                } else {
-                                    this.npcChat(player, "Mai nhận tiếp nhé !!!!!!");
-                                }
-                                break;
-                            case 4:
-                                if (player.inventory.gold <= 10_000_000_000L) {
-                                    player.inventory.gold += 10_000_000_000L;
-                                    Service.gI().sendMoney(player);
-                                    this.npcChat(player, "Bạn đã nhận đươc 10 tỷ vàng");
-                                } else {
-                                    this.npcChat(player, "Tiêu hết đi rồi nhận");
-                                }
-                                break;
+                            // case 2:
+                            //     if (player.diemdanh == 0) {
+                            //         int soluongtv = 200;
+                            //         int soluonghn = 200000;
+                            //         Item thoivang = ItemService.gI().createNewItem((short) 457, soluongtv);
+                            //         Item hongngoc = ItemService.gI().createNewItem((short) 861, soluonghn);
+                            //         thoivang.itemOptions.add(new Item.ItemOption(30, 0));
+                            //         InventoryServiceNew.gI().addItemBag(player, hongngoc);
+                            //         InventoryServiceNew.gI().addItemBag(player, thoivang);
+                            //         InventoryServiceNew.gI().sendItemBags(player);
+                            //         player.diemdanh = System.currentTimeMillis();
+                            //         Service.getInstance().sendThongBao(player, "|7|Bạn vừa nhận được x " + soluonghn + " " + hongngoc.template.name);
+                            //         Service.getInstance().sendThongBao(player, "|7|Bạn vừa nhận được x " + soluongtv + " " + thoivang.template.name);
+                            //     } else {
+                            //         this.npcChat(player, "Mai nhận tiếp nhé !!!!!!");
+                            //     }
+                            //     break;
+                            // case 2:
+                            //     if (player.inventory.gold <= 10_000_000_000L) {
+                            //         player.inventory.gold += 10_000_000_000L;
+                            //         Service.gI().sendMoney(player);
+                            //         this.npcChat(player, "Bạn đã nhận đươc 10 tỷ vàng");
+                            //     } else {
+                            //         this.npcChat(player, "Tiêu hết đi rồi nhận");
+                            //     }
+                            //     break;
                             case 5:
                                 this.createOtherMenu(player, 1231, ""
                                         + "|7|CÁC LỆNH CƠ BẢN HIÊN TẠI CỦA GAME"
@@ -4344,7 +4343,7 @@ public class NpcFactory {
                     if (InventoryServiceNew.gI().getCountEmptyBody(player.pet) == 8) {
                         if (player.pet != null) {
                             int gender = player.pet.gender;
-                            PetService.gI().changegohanzombie(player, gender);
+                            PetService.gI().changeWukongPet(player, gender);
                             InventoryServiceNew.gI().subQuantityItemsBag(player, giokeoday, 99);
                             InventoryServiceNew.gI().sendItemBags(player);
                             this.npcChat(player, "|1|chức mừng bạn đã nhận được Đệ Tử Gohan Zombie");
@@ -6653,13 +6652,13 @@ public class NpcFactory {
                                     PetService.gI().createNormalPet(player, Util.nextInt(0, 2));
                                 } else {
                                     if (player.pet.typePet == 1) {
-                                        PetService.gI().changePicPet(player, Util.nextInt(0, 2));
+                                        PetService.gI().changeBrolyPet(player, Util.nextInt(0, 2));
                                     } else if (player.pet.typePet == 2) {
                                         PetService.gI().changeMabuPet(player, Util.nextInt(0, 2));
                                     } else if (player.pet.typePet == 3) {
-                                        PetService.gI().changegohanzombie(player, Util.nextInt(0, 2));
+                                        PetService.gI().changeWukongPet(player, Util.nextInt(0, 2));
                                     } else if (player.pet.typePet == 4) {
-                                        PetService.gI().changegohanzombie(player, Util.nextInt(0, 2));
+                                        PetService.gI().changeWukongPet(player, Util.nextInt(0, 2));
                                     }
                                     PetService.gI().changeBerusPet(player, Util.nextInt(0, 2));
                                 }
@@ -6778,7 +6777,7 @@ public class NpcFactory {
                                 break;
                             case 2:
                                 BossManager.gI().createBoss(BossID.GogetaSJJ4);
-                                BossManager.gI().createBoss(BossID.SUPER_ANDROID_17);
+                                BossManager.gI().createBoss(BossID.BLACKGOKU);
                                 break;
                             case 3:
                                 BossManager.gI().createBoss(BossID.SIEU_BO_HUNG);
@@ -7345,7 +7344,7 @@ public class NpcFactory {
                         switch (select) {
                             case 0:
                                 this.createOtherMenu(player, ConstNpc.MENU_FIND_PLAYER,
-                                        "|7|Ngài muốn làm gì ạ?", "Gọi", "Tele", "Đổi Tên", "Kick"
+                                        "|7|Ngài muốn làm gì ạ?", "Tele", "Gọi", "Đổi Tên", "Kick"
                                 );
                                 break;
                             case 1:
@@ -7519,19 +7518,19 @@ public class NpcFactory {
                                     break;
                                 case 3:
                                     if (player.pet != null) {
-                                        PetService.gI().changePicPet(onPlayer, gender);
+                                        PetService.gI().changeBrolyPet(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 4:
                                     if (player.pet != null) {
-                                        PetService.gI().changegohanzombie(onPlayer, gender);
+                                        PetService.gI().changeWukongPet(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 5:
                                     if (player.pet != null) {
-                                        PetService.gI().changeGokuEVO(onPlayer, gender);
+                                        PetService.gI().changeFunsionPet(onPlayer, gender);
                                         break;
                                     }
                                     break;

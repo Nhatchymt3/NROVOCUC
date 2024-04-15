@@ -14,7 +14,6 @@ public class BossID {
 
     public static final int Zamus = -2322;
 
-    public static final int BROLY = -2223;
     public static final int bossminuong = -222333;
     //
     public static final int BOSS_Toppo = -263;
@@ -49,6 +48,12 @@ public class BossID {
     public static final int SO_1 = -26;
     public static final int TIEU_DOI_TRUONG = -27;
     public static final int ADMIN_THAN = -7003;
+
+
+    public static final int BROLY = -1;
+    public static final int BROLY1 = -2;
+    public static final int BROLY2 = -3;
+    public static final int BROLY3 = -4;
 
 
     public static final int TDST = -223;
@@ -107,7 +112,7 @@ public class BossID {
     public static final int FIDE_ROBOT = -216;
 
     //super 17 saga
-    public static final int SUPER_ANDROID_17 = -247;
+    public static final int BLACKGOKU = -247;
     public static final int DR_MYUU = -219;
     public static final int DR_KORE_GT = -220;
 

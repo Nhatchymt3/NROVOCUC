@@ -474,7 +474,6 @@ public class GodGK {
                             player.itemTime.isgiodungkeo = timegiokeo != 0;
                             player.itemTime.isUseMayDo = timeMayDo != 0;
                             player.itemTime.isUseMayDoSC = timeMayDoSC != 0;
-                            player.itemTime.isgiodungkeo = timeMayDo != 0;
                             player.itemTime.isDuoikhi = timeDuoi != 0;
                             player.itemTime.isUseTDLT = timeUseTDLT != 0;
                             player.itemTime.isUseMayDo2 = timeMayDo2 != 0;

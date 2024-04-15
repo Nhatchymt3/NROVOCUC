@@ -517,7 +517,7 @@ public class TaskService {
                 case BossID.BOSS_Toppo:
                     doneTask(player, ConstTask.TASK_31_1);
                     break;
-                case BossID.SUPER_ANDROID_17:
+                case BossID.BLACKGOKU:
                     doneTask(player, ConstTask.TASK_31_2);
                     break;
                 case BossID.GogetaSJJ4:

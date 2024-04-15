@@ -18,6 +18,9 @@ public class Fusion {
 
     public void update() {
         if (typeFusion == ConstPlayer.LUONG_LONG_NHAT_THE && Util.canDoWithTime(lastTimeFusion, TIME_FUSION)) {
+            if (player.isBoss) {
+               return;
+            }
             this.player.pet.unFusion();
         }
     }

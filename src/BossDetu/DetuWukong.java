@@ -23,15 +23,8 @@ public class DetuWukong extends Boss {
     public void reward(Player plKill) {
         plKill.pointsb++;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được 1 điểm săn Boss");
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1); // Lấy danh sách đồ thần linh ở manager
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
-        int random = new Random().nextInt(100);
-        if (Util.isTrue(98, 100)) {
-            if (Util.isTrue(70, 100)) {
-                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(14, 15), Util.nextInt(1, 2), this.location.x, this.location.y, plKill.id));
-            } else {
+        if (Util.isTrue(70, 100)) {
                 Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1529, Util.nextInt(1, 3), this.location.x, this.location.y, plKill.id));
-            }
         } else {
             Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1741, 1, this.location.x, this.location.y, plKill.id));
         }

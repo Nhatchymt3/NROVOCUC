@@ -63,7 +63,7 @@ public class PetService {
         }).start();
     }
 
-    public void createPicPet(Player player, int gender, byte... limitPower) {
+    public void createBrolyPet(Player player, int gender, byte... limitPower) {
         new Thread(() -> {
             try {
                 createNewPet(player, false, false, true, false, false, false, false, false, false, false, (byte) gender);
@@ -77,7 +77,7 @@ public class PetService {
         }).start();
     }
 
-    public void createGohanZombie(Player player, int gender, byte... limitPower) {
+    public void createWukongPet(Player player, int gender, byte... limitPower) {
         new Thread(() -> {
             try {
                 createNewPet(player, false, false, false, true, false, false, false, false, false, false, (byte) gender);
@@ -208,7 +208,7 @@ public class PetService {
         createBerusPet(player, gender, limitPower);
     }
 
-    public void changePicPet(Player player, int gender) {
+    public void changeBrolyPet(Player player, int gender) {
         byte limitPower = player.pet.nPoint.limitPower;
         if (player.fusion.typeFusion != ConstPlayer.NON_FUSION) {
             player.pet.unFusion();
@@ -216,10 +216,10 @@ public class PetService {
         ChangeMapService.gI().exitMap(player.pet);
         player.pet.dispose();
         player.pet = null;
-        createPicPet(player, gender, limitPower);
+        createBrolyPet(player, gender, limitPower);
     }
 
-    public void changegohanzombie(Player player, int gender) {
+    public void changeWukongPet(Player player, int gender) {
         byte limitPower = player.pet.nPoint.limitPower;
         if (player.fusion.typeFusion != ConstPlayer.NON_FUSION) {
             player.pet.unFusion();
@@ -227,10 +227,10 @@ public class PetService {
         ChangeMapService.gI().exitMap(player.pet);
         player.pet.dispose();
         player.pet = null;
-        createGohanZombie(player, gender, limitPower);
+        createWukongPet(player, gender, limitPower);
     }
 
-    public void changeGokuEVO(Player player, int gender) {
+    public void changeFunsionPet(Player player, int gender) {
         byte limitPower = player.pet.nPoint.limitPower;
         if (player.fusion.typeFusion != ConstPlayer.NON_FUSION) {
             player.pet.unFusion();
@@ -350,8 +350,8 @@ public class PetService {
     public void createNewPet(Player player,
             boolean isMabu,
             boolean isBerus,
-            boolean isPic,
-            boolean isGohanZombie,
+            boolean isBroly,
+            boolean isWukong,
             boolean isGokuEVO,
             boolean isMabulv2,
             boolean isBeruslv2,
@@ -361,8 +361,8 @@ public class PetService {
             byte... gender) {
         // Tạo một mảng data chứa thông tin thuộc tính của thú cưng dựa vào loại thú cưng và giới tính
         int[] data = isMabu
-                ? isPic
-                        ? isGohanZombie
+                ? isBroly
+                        ? isWukong
                                 ? isGokuEVO
                                         ? isMabulv2
                                                 ? isBeruslv2
@@ -373,10 +373,10 @@ public class PetService {
                         : getDataPet() : getDataPet();
 
         Pet pet = new Pet(player);
-        pet.name = "$" + (isMabu ? "Mabư Cấp " + pet.level
-                : isBerus ? "Goku Cấp " + pet.level
-                        : isPic ? "Broly"
-                                : isGohanZombie ? "Wukong"
+        pet.name = "$" + (isMabu ? "Mabư"
+                : isBerus ? "Berus"
+                        : isBroly ? "Broly"
+                                : isWukong ? "Wukong"
                                         : isGokuEVO ? "Fushion Zamus"
                                                 : isMabulv2 ? "[LV2] Kid Bư"
                                                         : isBeruslv2 ? "[LV2] Hủy Diệt"
@@ -390,8 +390,8 @@ public class PetService {
 
         // Thiết lập các thuộc tính cơ bản cho thú cưng như ID, sức mạnh, loại thú cưng, v.v.
         pet.id = -player.id;
-        pet.nPoint.power = isMabu || isBerus || isPic || isGohanZombie || isGokuEVO || isMabulv2 || isFusionlv2 || isBeruslv2 || isSuperlv2 || isWukonglv2 ? 1500000 : 2000;
-        pet.typePet = (byte) (isMabu ? 1 : isBerus ? 2 : isPic ? 3 : isGohanZombie ? 4 : isGokuEVO ? 5 : isMabulv2 ? 6 : isBeruslv2 ? 7
+        pet.nPoint.power = isMabu || isBerus || isBroly || isWukong || isGokuEVO || isMabulv2 || isFusionlv2 || isBeruslv2 || isSuperlv2 || isWukonglv2 ? 1500000 : 2000;
+        pet.typePet = (byte) (isMabu ? 1 : isBerus ? 2 : isBroly ? 3 : isWukong ? 4 : isGokuEVO ? 5 : isMabulv2 ? 6 : isBeruslv2 ? 7
                 : isSuperlv2 ? 8 : isWukonglv2 ? 9 : isFusionlv2 ? 10 : 0);////
         pet.nPoint.stamina = 1000;
         pet.nPoint.maxStamina = 1000;

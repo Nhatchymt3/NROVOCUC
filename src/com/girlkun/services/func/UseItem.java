@@ -722,7 +722,7 @@ public class UseItem {
         if (InventoryServiceNew.gI().getCountEmptyBody(player.pet) == 8) {
             if (player.pet != null) {
                 int gender = player.pet.gender;
-                PetService.gI().changePicPet(player, gender);
+                PetService.gI().changeBrolyPet(player, gender);
                 InventoryServiceNew.gI().subQuantityItemsBag(player, item, 1);
                 InventoryServiceNew.gI().sendItemBags(player);
             } else {

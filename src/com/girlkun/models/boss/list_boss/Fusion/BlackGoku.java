@@ -26,7 +26,7 @@ import com.girlkun.models.boss.SmallBoss;
  *
  * @author delb1
  */
-public class SuperAndroid17 extends Boss {
+public class BlackGoku extends Boss {
 
     private Zamus adr17;
     protected boolean isReady;
@@ -36,8 +36,8 @@ public class SuperAndroid17 extends Boss {
     protected long lastTimecanAttack;
     public boolean canAttack;
 
-    public SuperAndroid17() throws Exception {
-        super(BossID.SUPER_ANDROID_17, BossesData.test);
+    public BlackGoku() throws Exception {
+        super(BossID.BLACKGOKU, BossesData.BLACKGOKU);
         this.adr17 = null;
         this.isReady = false;
         this.isFusion = false;
@@ -61,7 +61,7 @@ public class SuperAndroid17 extends Boss {
     public void createSmallBoss() {
         try {
 
-            this.adr17 = new Zamus(this, this.zone, (short) this.location.x, (short) this.location.y, BossesData.test1);
+            this.adr17 = new Zamus(this, this.zone, (short) this.location.x, (short) this.location.y, BossesData.ZAMUS);
         } catch (Exception ex) {
 
         }

@@ -30,7 +30,7 @@ public class Zamus extends SmallBoss {
     private short y;
 
     public Zamus() throws Exception {
-        super(BossID.Zamus, BossesData.test1);
+        super(BossID.Zamus, BossesData.ZAMUS);
     }
 
     public Zamus(Boss bigBoss, Zone zone, short x, short y, BossData data) throws Exception {
@@ -70,9 +70,9 @@ public class Zamus extends SmallBoss {
                 this.isReady = true;
                 this.nPoint.hp = 1;
                 this.effectSkill.removeSkillEffectWhenDie();
-                if (((SuperAndroid17) this.bigBoss).isReady) {
-                    ((SuperAndroid17) this.bigBoss).lastTimeFusion = System.currentTimeMillis();
-                    ((SuperAndroid17) this.bigBoss).lastTimecanAttack = System.currentTimeMillis();
+                if (((BlackGoku) this.bigBoss).isReady) {
+                    ((BlackGoku) this.bigBoss).lastTimeFusion = System.currentTimeMillis();
+                    ((BlackGoku) this.bigBoss).lastTimecanAttack = System.currentTimeMillis();
                 }
                 return 0;
             }

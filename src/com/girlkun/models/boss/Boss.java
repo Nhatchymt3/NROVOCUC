@@ -5,7 +5,7 @@ import com.girlkun.models.boss.iboss.IBossNew;
 import com.girlkun.models.boss.iboss.IBossOutfit;
 import com.girlkun.models.boss.list_boss.AnTrom;
 import com.girlkun.models.boss.list_boss.Fusion.GogetaSSJ4;
-import com.girlkun.models.boss.list_boss.Fusion.SuperAndroid17;
+import com.girlkun.models.boss.list_boss.Fusion.BlackGoku;
 import com.girlkun.models.boss.list_boss.MiNuong;
 import com.girlkun.models.boss.list_boss.NRD.*;
 import com.girlkun.models.map.Zone;
@@ -138,8 +138,8 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         if (effectSkill != null && effectSkill.isMonkey) {
             return (short) ConstPlayer.HEADMONKEY[effectSkill.levelMonkey - 1];
         }
-        if (this.id == BossID.SUPER_ANDROID_17) {
-            if (((SuperAndroid17) this).isFusion) {
+        if (this.id == BossID.BLACKGOKU) {
+            if (((BlackGoku) this).isFusion) {
                 return 1680;
             }
         }
@@ -157,8 +157,8 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         if (effectSkill != null && effectSkill.isMonkey) {
             return 193;
         }
-        if (this.id == BossID.SUPER_ANDROID_17) {
-            if (((SuperAndroid17) this).isFusion) {
+        if (this.id == BossID.BLACKGOKU) {
+            if (((BlackGoku) this).isFusion) {
                 return 1681;
             }
         }
@@ -175,8 +175,8 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         if (effectSkill != null && effectSkill.isMonkey) {
             return 194;
         }
-        if (this.id == BossID.SUPER_ANDROID_17) {
-            if (((SuperAndroid17) this).isFusion) {
+        if (this.id == BossID.BLACKGOKU) {
+            if (((BlackGoku) this).isFusion) {
                 return 1682;
             }
         } else if (this.id == BossID.GogetaSJJ4) {

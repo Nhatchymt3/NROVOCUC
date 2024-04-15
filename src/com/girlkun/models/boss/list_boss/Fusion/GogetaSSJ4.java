@@ -36,7 +36,7 @@ public class GogetaSSJ4 extends Boss {
     public boolean canAttack;
 
     public GogetaSSJ4() throws Exception {
-        super(BossID.GogetaSJJ4, BossesData.Rau);
+        super(BossID.GogetaSJJ4, BossesData.VEGETA4);
         this.gogeta = null;
         this.isReady = false;
         this.isFusion = false;
@@ -59,7 +59,7 @@ public class GogetaSSJ4 extends Boss {
 
     public void createSmallBoss() {
         try {
-            this.gogeta = new kakarot(this, this.zone, (short) this.location.x, (short) this.location.y, BossesData.Kakarot);
+            this.gogeta = new kakarot(this, this.zone, (short) this.location.x, (short) this.location.y, BossesData.KAKAROT4);
         } catch (Exception ex) {
 
         }

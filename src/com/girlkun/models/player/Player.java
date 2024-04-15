@@ -845,6 +845,13 @@ public class Player {
                         }
                 }
             }
+            if (this.pet != null && this.pet.status < 3) {
+                this.pet.angry(plAtt);
+            }
+            if (this.isPet && (((Pet) this).status < 3)) {
+                ((Pet) this).angry(plAtt);
+            }
+
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon - TileChinhxac, 100)) {
                 return 0;
             }

@@ -1189,6 +1189,7 @@ public class SkillService {
                     if (player.nPoint.mp >= player.playerSkill.skillSelect.manaUse) {
                         return true;
                     } else {
+                        Service.gI().sendThongBao(player, "Không đủ KI để sử dụng");
                         return false;
                     }
                 case 1:
@@ -1196,12 +1197,14 @@ public class SkillService {
                     if (player.nPoint.mp >= mpUse) {
                         return true;
                     } else {
+                        Service.gI().sendThongBao(player, "Không đủ KI để sử dụng");
                         return false;
                     }
                 case 2:
                     if (player.nPoint.mp > 0) {
                         return true;
                     } else {
+                        Service.gI().sendThongBao(player, "Không đủ KI để sử dụng");
                         return false;
                     }
                 default:

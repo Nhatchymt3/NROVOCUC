@@ -76,7 +76,8 @@ public class Mob {
 
     public static void initMopbKhiGas(Mob mob, byte level) {
         mob.point.dame = (level * 3250 * mob.level * 4) * 5;
-        mob.point.maxHp = (level * 12472 * mob.point.hp + level * 7263 * mob.tempId) / 2;
+        double hpmaxtemp = (level * 12472 * mob.point.hp + level * 7263 * mob.tempId) / 2;
+        mob.point.maxHp = hpmaxtemp > 2000000000L ? 17999999999L : hpmaxtemp  ;
 
     }
 
@@ -583,13 +584,13 @@ public class Mob {
         byte skhnm = (byte) new Random().nextInt(Manager.setnm.length);
         byte skhxd = (byte) new Random().nextInt(Manager.setxd.length);
 
-        if (player.cFlag >= 1 && Util.isTrue(100, 100) && this.tempId == 0 && hour % 2 != 0 && hour < 24) {
-            for (int i = 0; i < 4; i++) {
-                if (Util.isTrue(50, 100) && this.tempId == 0) {
-                    list.add(new ItemMap(zone, 590, 1, x, player.location.y, player.id));
-                }
-            }
-        }
+        // if (player.cFlag >= 1 && Util.isTrue(100, 100) && this.tempId == 0 && hour % 2 != 0 && hour < 24) {
+        //     for (int i = 0; i < 4; i++) {
+        //         if (Util.isTrue(50, 100) && this.tempId == 0) {
+        //             list.add(new ItemMap(zone, 590, 1, x, player.location.y, player.id));
+        //         }
+        //     }
+        // }
 
         //roi cskb
         if (player.itemTime.isUseMayDo && Util.isTrue(20, 100) && this.tempId > 57 && this.tempId < 66) {
@@ -722,9 +723,6 @@ public class Mob {
         //roi manhts    
         if (Util.isTrue(1, 300) && this.zone.map.mapId == 155 && player.setClothes.setDHD >= 5) {
             list.add(new ItemMap(zone, Manager.manhthiensu[randommanhthiensu], Util.nextInt(1, 3), this.location.x, this.location.y, player.id));
-        }
-        if (Util.isTrue(40, 100) && this.tempId < 1 && (this.zone.map.mapId == 131)) {
-            list.add(new ItemMap(zone, 590, Util.nextInt(15, 30), this.location.x, this.location.y, player.id));
         }
         if (Util.isTrue(1, 10000) && this.zone.map.mapId > 0 && this.zone.map.mapId < 203) {
             list.add(new ItemMap(zone, 17, 1, this.location.x, this.location.y, player.id));

@@ -3,6 +3,7 @@ package com.girlkun.models.boss;
 import BossDetu.DetuMabu;
 import com.girlkun.models.boss.list_boss.AnTrom;
 import com.girlkun.models.boss.list_boss.BLACK.*;
+import com.girlkun.models.boss.list_boss.Broly.Broly;
 import com.girlkun.models.boss.list_boss.Cooler.Cooler;
 
 import com.girlkun.models.boss.list_boss.FideBack.Kingcold;
@@ -20,7 +21,7 @@ import com.girlkun.models.boss.list_boss.ginyu.TDST;
 import com.girlkun.models.boss.list_boss.android.*;
 import com.girlkun.models.boss.list_boss.cell.SieuBoHung;
 import com.girlkun.models.boss.list_boss.cell.XenBoHung;
-import com.girlkun.models.boss.list_boss.Fusion.SuperAndroid17;
+import com.girlkun.models.boss.list_boss.Fusion.BlackGoku;
 import com.girlkun.models.boss.list_boss.Fusion.kakarot;
 
 import com.girlkun.models.boss.list_boss.FideBack.FideRobot;
@@ -144,7 +145,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.BOSS_NRO1S4);
             this.createBoss(BossID.BOSS_Cumber);
             this.createBoss(BossID.BOSS_Toppo);
-            this.createBoss(BossID.SUPER_ANDROID_17);
+            this.createBoss(BossID.BLACKGOKU);
             this.createBoss(BossID.GogetaSJJ4);
             this.createBoss(BossID.BROLY);
             this.createBoss(BossID.DTWUKONG);
@@ -274,8 +275,8 @@ public class BossManager implements Runnable {
                     return new BossCumber();
                 case BossID.BOSS_Toppo:
                     return new BossToppo();
-                case BossID.SUPER_ANDROID_17:
-                    return new SuperAndroid17();
+                case BossID.BLACKGOKU:
+                    return new BlackGoku();
 
                 case BossID.BOSS_BabyVegeta:
                     return new BossBabyVegeta();
@@ -285,7 +286,7 @@ public class BossManager implements Runnable {
                 case BossID.GogetaSJJ4:
                     return new GogetaSSJ4();
                 case BossID.BROLY:
-                    return new DetuMabu();
+                    return new Broly();
                 case BossID.AN_TROM:
                     return new AnTrom();
                 case BossID.OngGiaNoel:

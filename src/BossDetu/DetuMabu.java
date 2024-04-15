@@ -25,19 +25,13 @@ import java.util.Random;
 public class DetuMabu extends Boss {
 
     public DetuMabu() throws Exception {
-        super(BossID.BROLY, BossesData.Mabu);
+        super(BossID.MABU, BossesData.Mabu);
 
     }
 
     @Override
     public void reward(Player plKill) {
-        if (Util.isTrue(80, 100)) {
-            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 16, 1, this.location.x, this.location.y, plKill.id));
-
-        } else {
             Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1738, 1, this.location.x, this.location.y, plKill.id));
-
-        }
     }
 
     @Override

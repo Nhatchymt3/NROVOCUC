@@ -47,6 +47,7 @@ public class Pet extends Player {
 
     private static final int TIME_WAIT_AFTER_UNFUSION = 5000;
     private long lastTimeUnfusion;
+    private boolean canUseSkill2;
 
     public byte getStatus() {
         return this.status;
@@ -225,7 +226,37 @@ public class Pet extends Player {
 
         }
     }
+    public boolean isTargerDe(Player plAtt) {
+        return plAtt.isNewPet || plAtt.isPet || plAtt.isBoss || plAtt.isPl();
+    }
+    public void angry(Player plAtt) {
 
+        if (plAtt != null && plAtt != this && plAtt != this.master && isTargerDe(plAtt)) {
+            this.playerAttack = plAtt;
+            if (System.currentTimeMillis() - lastTimeAngry > 5000) {
+                if (this.playerAttack.isPet) {
+                    this.chat( "Mi làm ta nổi giận rồi đệ " + playerAttack.name
+                            .replace("$", ""));
+                } else if (this.playerAttack.isBoss) {
+                    this.chat( "Mi làm ta nổi giận rồi Boss " + playerAttack.name
+                            .replace("$", ""));
+                } else {
+                    this.chat(
+                            "Mi làm ta nổi giận rồi thằng " + playerAttack.name
+                                    .replace("$", ""));
+                }
+            }
+            lastTimeAngry = System.currentTimeMillis();
+
+            ANGRY = true;
+            this.mobAttack = null;
+        } else {
+            ANGRY = false;
+            this.playerAttack = null;
+        }
+    }
+    boolean ANGRY;
+    private long lastTimeAngry;
     public long lastTimeMoveIdle;
     private int timeMoveIdle;
     public boolean idle;
@@ -274,6 +305,46 @@ public class Pet extends Player {
             }
 
             moveIdle();
+            if (ANGRY) {
+                Player pl = this.zone.getPlayerInMap((int) playerAttack.id);
+                int disToPlayer = Util.getDistance(this, pl);
+                if (pl.isDie() || pl == null && (pl.typePk != 3 || pl.typePk != 5)) {
+                    playerAttack = null;
+                    ANGRY = false;
+                } else {
+                    mobAttack = null;
+                    if (playerAttack != null) {
+                        if (disToPlayer <= ARANGE_ATT_SKILL1  && !canUseSkill2) {
+                            // đấm
+                            this.playerSkill.skillSelect = getSkill(1);
+                            if (SkillService.gI().canUseSkillWithCooldown(this)) {
+                                if (SkillService.gI().canUseSkillWithMana(this)) {
+                                    PlayerService.gI().playerMove(this, pl.location.x + Util.nextInt(-20, 20),
+                                            pl.location.y);
+                                    SkillService.gI().useSkill(this, pl, null, null);
+                                } else {
+                                    askPea();
+                                }
+                            }
+                        } else {
+                            if (disToPlayer <= ARANGE_CAN_ATTACK + 50) {
+                                this.playerSkill.skillSelect = getSkill(2);
+                                if (this.playerSkill.skillSelect.skillId != -1) {
+                                    if (SkillService.gI().canUseSkillWithCooldown(this)) {
+                                        if (SkillService.gI().canUseSkillWithMana(this)) {
+                                            SkillService.gI().useSkill(this, pl, null, null);
+                                            this.canUseSkill2 = true;
+                                        } else {
+                                            askPea();
+                                            this.canUseSkill2 = false;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             switch (status) {
                 case FOLLOW:
                     followMaster(60);
@@ -285,7 +356,7 @@ public class Pet extends Player {
                     mobAttack = findMobAttack();
                     if (mobAttack != null) {
                         int disToMob = Util.getDistance(this, mobAttack);
-                        if (disToMob <= ARANGE_ATT_SKILL1) {
+                        if (disToMob <= ARANGE_ATT_SKILL1 && !canUseSkill2) {
                             //đấm
                             this.playerSkill.skillSelect = getSkill(1);
                             if (SkillService.gI().canUseSkillWithCooldown(this)) {
@@ -303,8 +374,10 @@ public class Pet extends Player {
                                 if (SkillService.gI().canUseSkillWithCooldown(this)) {
                                     if (SkillService.gI().canUseSkillWithMana(this)) {
                                         SkillService.gI().useSkill(this, playerAttack, mobAttack, null);
+                                        this.canUseSkill2 = true;
                                     } else {
                                         askPea();
+                                        this.canUseSkill2 = false;
                                     }
                                 }
                             }
@@ -751,6 +824,9 @@ public class Pet extends Player {
                 mobAtt = mob;
             }
         }
+        if (ANGRY == true) {
+            return null;
+        }
         return mobAtt;
     }
 
@@ -870,7 +946,7 @@ public class Pet extends Player {
             this.isTransform = !this.isTransform;
             Service.getInstance().Send_Caitrang(this);
             try {
-                Service.getInstance().chat(this, "Tao là thần");
+                Service.getInstance().chat(this, "Tao là thần huỷ diệt");
             } catch (Exception ex) {
                 Logger.getLogger(Pet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -879,7 +955,7 @@ public class Pet extends Player {
             this.isTransform = !this.isTransform;
             Service.getInstance().Send_Caitrang(this);
             try {
-                Service.getInstance().chat(this, "Tao là thần");
+                Service.getInstance().chat(this, "Tao người Xayda");
             } catch (Exception ex) {
                 Logger.getLogger(Pet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -888,7 +964,7 @@ public class Pet extends Player {
             this.isTransform = !this.isTransform;
             Service.getInstance().Send_Caitrang(this);
             try {
-                Service.getInstance().chat(this, "Tao là thần");
+                Service.getInstance().chat(this, "Tao là tề thiên đại thánh");
             } catch (Exception ex) {
                 Logger.getLogger(Pet.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -866,7 +866,6 @@ public class InventoryServiceNew {
                 }
                 //457-thỏi vàng; 590-bí kiếp
                 if (itemAdd.template.id == 457
-                        || itemAdd.template.id == 590
                         || itemAdd.template.id == 610
                         || itemAdd.template.type == 14
                         || itemAdd.template.type == 933

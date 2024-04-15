@@ -27,7 +27,7 @@ public class kakarot extends SmallBoss {
     private short y;
 
     public kakarot() throws Exception {
-        super(BossID.kakarot, BossesData.CumberV2);
+        super(BossID.kakarot, BossesData.KAKAROT4);
     }
 
     public kakarot(Boss bigBoss, Zone zone, short x, short y, BossData data) throws Exception {
