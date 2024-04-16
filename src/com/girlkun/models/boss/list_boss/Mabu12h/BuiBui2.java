@@ -6,6 +6,7 @@ import com.girlkun.models.boss.BossesData;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.server.Manager;
+import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.Service;
 import com.girlkun.utils.Util;
 
@@ -40,21 +41,37 @@ public class BuiBui2 extends Boss {
         }
         plKill.fightMabu.changePoint((byte) 40);
     }
-//    @Override
-//    public void active() {
-//        super.active(); //To change body of generated methods, choose Tools | Templates.
-//        if (Util.canDoWithTime(st, 300000)) {
-//            this.changeStatus(BossStatus.LEAVE_MAP);
-//        }
-//    }
-//
-//    @Override
-//    public void joinMap() {
-//        super.joinMap(); //To change body of generated methods, choose Tools | Templates.
-//        st = System.currentTimeMillis();
-//    }
-//    private long st;
-
+    @Override
+    public double injured(Player plAtt, double damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
+        if (this != null) {
+            this.nPoint.isBuiBui = true;
+        }
+        if (!this.isDie()) {
+            if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
+                this.chat("Xí hụt");
+                return 0;
+            }
+            damage = this.nPoint.subDameInjureWithDeff(damage);
+            if (!piercing && effectSkill.isShielding) {
+                if (damage > nPoint.hpMax) {
+                    EffectSkillService.gI().breakShield(this);
+                }
+                damage = 1;
+            }
+            if (damage >= 1000000) {
+                damage = 1000000;
+            }
+            this.nPoint.subHP(damage);
+            if (isDie()) {
+                this.setDie(plAtt);
+                die(plAtt);
+            }
+            return damage;
+        } else {
+            return 0;
+        }
+    }
 }
 
 

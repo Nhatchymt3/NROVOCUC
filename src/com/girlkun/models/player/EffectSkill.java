@@ -88,14 +88,16 @@ public class EffectSkill {
         public long lastTimeDanhHoi;
         public int timeDanhHoi;
 
-    //socola
-    public boolean isSocola;
-    public boolean isBinh;
-    public long lastTimeSocola;
-    public int timeSocola;
-    public long lastTimeBinh;
-    public int timeBinh;
-    public int countPem1hp;
+       // socola
+       public boolean isSocola;
+       public long lastTimeSocola;
+       public int timeSocola;
+       public int countPem1hp;
+       // binh
+   
+       public boolean isBinh;
+       public long lastTimeBinh;
+       public int timeBinh;
 
     public EffectSkill(Player player) {
         this.player = player;
@@ -155,6 +157,30 @@ public class EffectSkill {
         }
         if (tiLeHPHuytSao != 0 && Util.canDoWithTime(lastTimeHuytSao, 30000)) {
             EffectSkillService.gI().removeHuytSao(this.player);
+        }
+        if (isHoaDa && (Util.canDoWithTime(lastTimeHoaDa, 10000))) {
+            EffectSkillService.gI().removeHoaDa(this.player);
+        }
+        if (isLamCham && (Util.canDoWithTime(lastTimeLamCham, 20000))) {
+            EffectSkillService.gI().removeLamCham(this.player);
+        }
+        if (isHorny && (Util.canDoWithTime(lastTimeHorny, 20000))) {
+            EffectSkillService.gI().removeHorny(this.player);
+        }
+        if (isHoaLanh && (Util.canDoWithTime(lastTimeHoaLanh, 20000))) {
+            EffectSkillService.gI().removeHoaLanh(this.player);
+        }
+        if (isHoaCarot && (Util.canDoWithTime(lastTimeHoaCarot, 20000))) {
+            EffectSkillService.gI().removeHoaCarot(this.player);
+        }
+        if (isAnThan && (Util.canDoWithTime(lastTimeAnThan, 29000))) {
+            EffectSkillService.gI().removeAnThan(this.player);
+        }
+        if (isPhanTam && (Util.canDoWithTime(lastTimePhanTam, 20000))) {
+            EffectSkillService.gI().removePhanTam(this.player);
+        }
+        if (isDanhHoi && (Util.canDoWithTime(lastTimeDanhHoi, 29000))) {
+            EffectSkillService.gI().removeDanhHoi(this.player);
         }
     }
 

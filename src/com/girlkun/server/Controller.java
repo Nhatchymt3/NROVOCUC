@@ -957,7 +957,7 @@ public class Controller implements IMessageHandler {
             }).start();
         }
 
-        if (player.nPoint.dame >= 5000000) {
+        if (player.nPoint.dame >= 5000000 && !player.isAdmin()) {
             new Thread(() -> {
                 try {
                     Thread.sleep(10000);

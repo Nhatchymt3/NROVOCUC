@@ -50,10 +50,10 @@ public class BossID {
     public static final int ADMIN_THAN = -7003;
 
 
-    public static final int BROLY = -1;
-    public static final int BROLY1 = -2;
-    public static final int BROLY2 = -3;
-    public static final int BROLY3 = -4;
+    public static final int BROLY = -20000;
+    public static final int BROLY1 = -20002;
+    public static final int BROLY2 = -20001;
+    public static final int BROLY3 = -20004;
 
 
     public static final int TDST = -223;

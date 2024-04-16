@@ -10,6 +10,7 @@ import com.girlkun.models.skill.Skill;
 import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.Service;
 import com.girlkun.services.SkillService;
+import com.girlkun.services.TaskService;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
@@ -42,16 +43,13 @@ public class TrungUyTrang extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        if (Util.isTrue(80, 100)) {
-            ItemMap it = new ItemMap(this.zone, 15, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+        if (Util.isTrue(100, 100)) {
+            ItemMap it = new ItemMap(this.zone, 16, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
-            Service.getInstance().dropItemMap(this.zone, it);
-        } else {
-            ItemMap it = new ItemMap(this.zone, 14, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
-                    this.location.y - 24), plKill.id);
-            Service.getInstance().dropItemMap(this.zone, it);
+            Service.gI().dropItemMap(this.zone, it);
         }
-        this.zone.isTrungUyTrangAlive = false;
+         plKill.pointsb += 1;
+        TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 
     @Override

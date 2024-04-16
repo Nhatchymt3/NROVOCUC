@@ -83,23 +83,27 @@ public class GasService {
                         InventoryServiceNew.gI().sendItemBags(player);
                         gas.openKhiGas(player, player.clan, level);
                         try {
-                            long totalDame = 0;
-                            long totalHp = 0;
-                            for (Player play : player.clan.membersInGame) {
-                                totalDame += play.nPoint.dame;
-                                totalHp += play.nPoint.hpMax;
-                            }
-                            long dame = (totalHp / 20) * (level);
-                            long hp = (totalDame * 10) * (level);
-                            if (dame >= 2000000000L) {
-                                dame = 2000000000L;
-                            }
-                            if (hp >= 2000000000L) {
-                                hp = 2000000000L;
-                            }
-                            new DrLyChee(player.clan.khiGas.getMapById(148),level,(int) 1,(int) 1,BossID.DR_LYCHEE);
+                            // long totalDame = 0;
+                            // long totalHp = 0;
+                            // for (Player play : player.clan.membersInGame) {
+                            //     totalDame += play.nPoint.dame;
+                            //     totalHp += play.nPoint.hpMax;
+                            // }
+                            // long dame = (totalHp / 20) * (level);
+                            // long hp = (totalDame * 10) * (level);
+                            // if (dame >= 2000000000L) {
+                            //     dame = 2000000000L;
+                            // }
+                            // if (hp >= 2000000000L) {
+                            //     hp = 2000000000L;
+                            // }
+                            long bossDamage = (20 * level);
+                            long bossMaxHealth = (2 * level);
+                            bossDamage = Math.min(bossDamage, 200000000L);
+                            bossMaxHealth = Math.min(bossMaxHealth, 2000000000L);
+                            new DrLyChee(player.clan.khiGas.getMapById(148),level,(int) bossDamage,(int)bossMaxHealth,BossID.DR_LYCHEE);
 //                           
-                            new HaChiJack(player.clan.khiGas.getMapById(148),level,(int) 1,(int) 2, player);
+                            new HaChiJack(player.clan.khiGas.getMapById(148),level,(int) bossDamage,(int) bossMaxHealth, BossID.HACHIYACK);
                         } catch (Exception e) {
                             Logger.logException(GasService.class, e, "Lỗi init boss");
                         }

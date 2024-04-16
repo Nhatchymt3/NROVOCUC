@@ -7,6 +7,7 @@ import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.Service;
+import com.girlkun.services.TaskService;
 import com.girlkun.utils.Util;
 
 /**
@@ -41,17 +42,13 @@ public class TrungUyXanhLo extends Boss {
     }
     @Override
     public void reward(Player plKill) {
-        if (Util.isTrue(80, 100)) {
-            ItemMap it = new ItemMap(this.zone, 15, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+        if (Util.isTrue(100, 100)) {
+            ItemMap it = new ItemMap(this.zone, 661, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
-            Service.getInstance().dropItemMap(this.zone, it);
-        } else{
-            ItemMap it = new ItemMap(this.zone, 14, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
-                    this.location.y - 24), plKill.id);
-            Service.getInstance().dropItemMap(this.zone, it);
+            Service.gI().dropItemMap(this.zone, it);
         }
+        TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
-
     @Override
     public void active() {
         super.active(); //To change body of generated methods, choose Tools | Templates.

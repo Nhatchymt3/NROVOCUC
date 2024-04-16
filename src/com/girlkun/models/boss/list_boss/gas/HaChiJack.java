@@ -54,12 +54,12 @@ public class HaChiJack extends Boss {
     private static final int[][] FULL_DEMON = new int[][]{{Skill.DEMON, 1}, {Skill.DEMON, 2}, {Skill.DEMON, 3}, {Skill.DEMON, 4}, {Skill.DEMON, 5}, {Skill.DEMON, 6}, {Skill.DEMON, 7}};
   private long lastTimeHapThu;
     private int timeHapThu;
-       private long lastUpdate = System.currentTimeMillis();
+    private long lastUpdate = System.currentTimeMillis();
     private long timeJoinMap;
     private int initSuper = 0;
     protected Player playerAtt;
     private int timeLive = 200000000;
-    public HaChiJack(Zone zone ,int level, int dame, double hp, Player pl) throws Exception {
+    public HaChiJack(Zone zone ,int level, int dame, double hp, int id) throws Exception {
         super(BossID.HACHIYACK, new BossData(
                 "HaChiYack", //name
                 ConstPlayer.TRAI_DAT, //gender

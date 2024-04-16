@@ -70,6 +70,18 @@ public class NPoint {
 
     public boolean khangTDHS;
 
+    public boolean isThoDaiCa;
+    public boolean isDrabura;
+    public boolean isMabu;
+    public boolean isThieuDot;
+    public boolean isFrost;
+    public boolean isSieuThan;
+    public boolean isBuiBui;
+    public boolean isSexy;
+    public boolean isYacon;
+    public boolean isXinBaTo;
+    public boolean isSoiDaiCa;
+
     /**
      * Chỉ số cộng thêm
      */
@@ -238,11 +250,23 @@ public class NPoint {
                             case 23: // MP+#K
                                 this.mpAdd += io.param * 1000d;
                                 break;
+                            case 24:
+                                this.isBuiBui = true;
+                                break;
+                            case 25:
+                                this.isYacon = true;
+                                break;
+                            case 26: // +# HP/30s
+                                this.isDrabura = true;
+                                break;    
                             case 27: // +# HP/30s
                                 this.hpHoiAdd += io.param;
                                 break;
                             case 28: // +# KI/30s
                                 this.mpHoiAdd += io.param;
+                                break;
+                            case 29: 
+                                this.isMabu = true; 
                                 break;
                             case 47: // Giáp+#
                                 this.defAdd += io.param;
@@ -352,12 +376,24 @@ public class NPoint {
                         case 23: //MP+#K
                             this.mpAdd += io.param * 1000;
                             break;
+                        case 24:
+                            this.isBuiBui = true;
+                            break;
+                        case 25:
+                            this.isYacon = true;
+                            break;
+                        case 26: // +# HP/30s
+                            this.isDrabura = true;
+                            break;            
                         case 27: //+# HP/30s
                             this.hpHoiAdd += io.param;
                             break;
                         case 28: //+# KI/30s
                             this.mpHoiAdd += io.param;
                             break;
+                        case 29: 
+                            this.isMabu = true; 
+                            break;   
                         case 33: //dịch chuyển tức thời
                             this.teleport = true;
                             break;
@@ -424,6 +460,7 @@ public class NPoint {
                             this.khangTDHS = true;
                             break;
                         case 117: //Đẹp +#% SĐ cho mình và người xung quanh
+                            this.isSexy = true;
                             this.tlSDDep.add(io.param);
                             break;
                         case 147: //+#% sức đánh
@@ -622,6 +659,7 @@ public class NPoint {
         setMpHoi();
         setNeDon();
         setChisoGioiHan();
+        setSpeed();
     }
 
     private void setChisoGioiHan() {
@@ -1994,6 +2032,10 @@ public class NPoint {
         this.wearingVoHinh = false;
         this.isKhongLanh = false;
         this.khangTDHS = false;
+        this.isBuiBui = false;
+        this.isYacon = false;
+        this.isDrabura =false;
+        this.isMabu =false;
     }
 
     public void addHp(double hp) {
@@ -2852,6 +2894,17 @@ public class NPoint {
             return true;
         }
         return false;
+    }
+
+    private void setSpeed() {
+        if (this.player.effectSkill.isLamCham) {
+            this.speed = 1;
+        } else if (this.player.effectSkill.isDanhHoi) {
+            this.speed *= 2;
+        } else {
+            this.speed = 8;
+        }
+
     }
 
     //--------------------------------------------------------------------------

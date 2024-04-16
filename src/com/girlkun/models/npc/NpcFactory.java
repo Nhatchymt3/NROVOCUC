@@ -1561,9 +1561,9 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         if (player.getSession().is_gift_box) {
-                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội", "Nhận quà\nđền bù");
+                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội","Bản đồ kho báu", "Nhận quà\nđền bù");
                         } else {
-                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội");
+                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội","Lãnh địa\nbang hội","Bản đồ kho báu");
                         }
                     }
                 }
@@ -1574,27 +1574,27 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (player.iDMark.isBaseMenu()) {
                         switch (select) {
-//                            case 0:
-//                                if (Manager.KHUYEN_MAI_NAP != 1) {
-//                                    this.createOtherMenu(player, ConstNpc.QUY_DOI_HN,
-//                                            "|7|QUY ĐỔI HỒNG NGỌC\n|6|Quy đổi Hồng ngọc, giới hạn đổi không quá 1.000.000đ\n\n|1|Tiền hiện còn : " + " " + Util.format(player.getSession().vnd)
-//                                            + "\n\n|5|Nhập 10.000Đ được 10.000 Hồng ngọc"
-//                                            + "\n\n|3| Server đang x" + Manager.KHUYEN_MAI_NAP + " Quy đổi "
-//                                            + "(10.000Đ = " + Util.format(Manager.KHUYEN_MAI_NAP * 10000) + " Hồng ngọc)"
-//                                            + "\n\n|7|(>= 500.000đ Được tặng Vé chuyển Hồng ngọc)",
-//                                            "Đồng ý", "Từ chối");
-//                                } else if (Manager.SUKIEN == 1) {
-//                                    this.createOtherMenu(player, ConstNpc.QUY_DOI_HN,
-//                                            "|7|QUY ĐỔI HỒNG NGỌC\n|6|Quy đổi Hồng ngọc, giới hạn đổi không quá 1.000.000đ\n\n|1|Tiền hiện còn : " + " " + Util.format(player.getSession().vnd)
-//                                            + "\n\n|5|Nhập 10.000Đ được 10.000 Hồng ngọc và được 10 Điểm Sự kiện" + "\n\n|7|(>= 500.000đ Được tặng Vé chuyển Hồng ngọc)",
-//                                            "Đồng ý", "Từ chối");
-//                                } else {
-//                                    this.createOtherMenu(player, ConstNpc.QUY_DOI_HN,
-//                                            "|7|QUY ĐỔI HỒNG NGỌC\n|6|Quy đổi Hồng ngọc, giới hạn đổi không quá 1.000.000đ\n\n|1|Tiền hiện còn : " + " " + Util.format(player.getSession().vnd)
-//                                            + "\n\n|5|Nhập 10.000Đ được 10.000 Hồng ngọc" + "\n\n|7|(>= 500.000đ được x2 Hồng ngọc và Được tặng Vé chuyển Hồng ngọc)",
-//                                            "Đồng ý", "Từ chối");
-//                                }
-//                                break;
+                        //    case 0:
+                        //        if (Manager.KHUYEN_MAI_NAP != 1) {
+                        //            this.createOtherMenu(player, ConstNpc.QUY_DOI_HN,
+                        //                    "|7|QUY ĐỔI HỒNG NGỌC\n|6|Quy đổi Hồng ngọc, giới hạn đổi không quá 1.000.000đ\n\n|1|Tiền hiện còn : " + " " + Util.format(player.getSession().vnd)
+                        //                    + "\n\n|5|Nhập 10.000Đ được 10.000 Hồng ngọc"
+                        //                    + "\n\n|3| Server đang x" + Manager.KHUYEN_MAI_NAP + " Quy đổi "
+                        //                    + "(10.000Đ = " + Util.format(Manager.KHUYEN_MAI_NAP * 10000) + " Hồng ngọc)"
+                        //                    + "\n\n|7|(>= 500.000đ Được tặng Vé chuyển Hồng ngọc)",
+                        //                    "Đồng ý", "Từ chối");
+                        //        } else if (Manager.SUKIEN == 1) {
+                        //            this.createOtherMenu(player, ConstNpc.QUY_DOI_HN,
+                        //                    "|7|QUY ĐỔI HỒNG NGỌC\n|6|Quy đổi Hồng ngọc, giới hạn đổi không quá 1.000.000đ\n\n|1|Tiền hiện còn : " + " " + Util.format(player.getSession().vnd)
+                        //                    + "\n\n|5|Nhập 10.000Đ được 10.000 Hồng ngọc và được 10 Điểm Sự kiện" + "\n\n|7|(>= 500.000đ Được tặng Vé chuyển Hồng ngọc)",
+                        //                    "Đồng ý", "Từ chối");
+                        //        } else {
+                        //            this.createOtherMenu(player, ConstNpc.QUY_DOI_HN,
+                        //                    "|7|QUY ĐỔI HỒNG NGỌC\n|6|Quy đổi Hồng ngọc, giới hạn đổi không quá 1.000.000đ\n\n|1|Tiền hiện còn : " + " " + Util.format(player.getSession().vnd)
+                        //                    + "\n\n|5|Nhập 10.000Đ được 10.000 Hồng ngọc" + "\n\n|7|(>= 500.000đ được x2 Hồng ngọc và Được tặng Vé chuyển Hồng ngọc)",
+                        //                    "Đồng ý", "Từ chối");
+                        //        }
+                        //        break;
 //                            case 1:
 //                                if (Manager.KHUYEN_MAI_NAP != 1) {
 //                                    this.createOtherMenu(player, ConstNpc.QUY_DOI_TV,
@@ -1644,25 +1644,25 @@ public class NpcFactory {
                                     Service.getInstance().sendThongBao(player, "Yêu cầu có bang hội !!!");
                                 }
                                 break;
-                            // case 2:
-                            //     if (player.clan != null) {
-                            //         if (player.clan.banDoKhoBau != null) {
-                            //             this.createOtherMenu(player, ConstNpc.MENU_OPENED_BDKB,
-                            //                     "|7|BẢN ĐỒ KHO BÁU\n|6|Bang hội của con đang đi Bản đồ Kho báu cấp độ "
-                            //                     + player.clan.banDoKhoBau.level + "\nCon có muốn đi theo không?",
-                            //                     "Đồng ý", "Từ chối");
-                            //         } else {
-                            //             this.createOtherMenu(player, ConstNpc.MENU_OPEN_BDKB,
-                            //                     "|7|BẢN ĐỒ KHO BÁU\n|6|Bản đồ Kho báu đã chuẩn bị tiếp nhận các đợt tấn công của quái vật\n"
-                            //                     + "các con hãy giúp chúng ta tiêu diệt quái vật \n"
-                            //                     + "Ở đây có ta lo\nNhớ chọn cấp độ vừa sức mình nhé",
-                            //                     "Chọn\ncấp độ", "Từ chối");
-                            //         }
-                            //     } else {
-                            //         this.npcChat(player, "Con phải có bang hội ta mới có thể cho con đi");
-                            //     }
-                            //     break;
                             case 2:
+                                if (player.clan != null) {
+                                    if (player.clan.banDoKhoBau != null) {
+                                        this.createOtherMenu(player, ConstNpc.MENU_OPENED_BDKB,
+                                                "|7|BẢN ĐỒ KHO BÁU\n|6|Bang hội của con đang đi Bản đồ Kho báu cấp độ "
+                                                + player.clan.banDoKhoBau.level + "\nCon có muốn đi theo không?",
+                                                "Đồng ý", "Từ chối");
+                                    } else {
+                                        this.createOtherMenu(player, ConstNpc.MENU_OPEN_BDKB,
+                                                "|7|BẢN ĐỒ KHO BÁU\n|6|Bản đồ Kho báu đã chuẩn bị tiếp nhận các đợt tấn công của quái vật\n"
+                                                + "các con hãy giúp chúng ta tiêu diệt quái vật \n"
+                                                + "Ở đây có ta lo\nNhớ chọn cấp độ vừa sức mình nhé",
+                                                "Chọn\ncấp độ", "Từ chối");
+                                    }
+                                } else {
+                                    this.npcChat(player, "Con phải có bang hội ta mới có thể cho con đi");
+                                }
+                                break;
+                            case 3:
                                 if (player.getSession().is_gift_box) {
                                     if (PlayerDAO.setIs_gift_box(player)) {
                                         player.getSession().is_gift_box = false;

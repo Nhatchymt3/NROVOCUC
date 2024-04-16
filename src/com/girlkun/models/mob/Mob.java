@@ -75,22 +75,13 @@ public class Mob {
     }
 
     public static void initMopbKhiGas(Mob mob, byte level) {
-        mob.point.dame = (level * 3250 * mob.level * 4) * 5;
-        double hpmaxtemp = (level * 12472 * mob.point.hp + level * 7263 * mob.tempId) / 2;
-        mob.point.maxHp = hpmaxtemp > 2000000000L ? 17999999999L : hpmaxtemp  ;
-
+        mob.point.dame = level * 4250 * mob.level * 3;
+        mob.point.maxHp = level * 22472 * mob.level * 2 + level * 107263 * mob.tempId;
     }
 
     public static void initMopbbdkb(Mob mob, byte level) {
-        mob.point.dame = (level * 3250 * mob.level * 4) * 5;
-        mob.point.maxHp = (level * 12472 * mob.point.hp + level * 7263 * mob.tempId) / 2;
-        if (mob.point.dame >= 2000000000L) {
-            mob.point.dame = 2000000000L;
-        }
-        if (mob.point.maxHp >= 2000000000L) {
-            mob.point.maxHp = 2000000000L;
-        }
-
+        mob.point.dame = level * 4250 * mob.level * 3;
+        mob.point.maxHp = level * 20000 * mob.level * 2 + level * 107263 * mob.tempId;
     }
 
     public void setTiemNang() {
@@ -220,11 +211,22 @@ public class Mob {
         tiemNang = Util.DoubleGioihan(pl.nPoint.calSucManhTiemNang(tiemNang));
         if (pl.zone.map.mapId >= 122 && pl.zone.map.mapId <= 124) {
             if (pl.nPoint.power < 80000000000L) {
-                tiemNang *= 4;
+                tiemNang *= 2;
             }else
             {
                 tiemNang =0;
             } 
+        }
+        //khi ga
+        if (pl.zone.map.mapId > 184 && pl.zone.map.mapId <= 188) {
+            tiemNang *= 4;
+        }
+        //bdkb
+        if (pl.zone.map.mapId > 135 && pl.zone.map.mapId <= 138) {
+            tiemNang *= 4;
+        }
+        if (pl.zone.map.mapId > 53 && pl.zone.map.mapId <= 62) {
+            tiemNang *= 4;
         }
         if (pl.zone.map.mapId == 155) {
             tiemNang *= 5;
@@ -445,6 +447,7 @@ public class Mob {
     }
 
     public void sendMobHoiSinh() {
+        this.point.hp = Util.DoubleGioihan(this.point.maxHp);
         Message msg;
         try {
             msg = new Message(-13);

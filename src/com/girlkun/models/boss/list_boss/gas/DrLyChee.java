@@ -39,8 +39,8 @@ public class DrLyChee extends Boss {
                 "Drabura Frost", //name
                 ConstPlayer.TRAI_DAT, //gender
                 new short[]{1309, 1310, 1311, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-               ((10000 * level)), //dame
-                new double[]{((1000000000L * level))}, //hp
+                ((10000 + dame) * level), //dame
+                new double[]{(((500000 + hp) * level))}, //hp
                 new int[]{148}, //map join
                 new int[][]{
                 {Skill.DEMON, 3, 1}, {Skill.DEMON, 6, 2}, {Skill.DRAGON, 7, 3}, {Skill.DRAGON, 1, 4}, {Skill.GALICK, 5, 5},

@@ -1632,104 +1632,100 @@ public class BossesData {
     );
     //**************************************************************************Team Mabu 12h
     public static final BossData MABU_12H = new BossData(
-            "Mabư",
-            ConstPlayer.XAYDA,
-            new short[]{297, 298, 299, -1, -1, -1},
-            1000000,
-            new double[]{2000000000L},
-            new int[]{120},
-            new int[][]{
-                //                {Skill.TU_SAT, 7, 100000},
-                {Skill.KHIEN_NANG_LUONG, 7, 50000},
-                {Skill.DE_TRUNG, 7, 10000},
-                {Skill.SOCOLA, 7, 1000},
-                {Skill.DEMON, 7, 1000}},
-            new String[]{"|-2|Ma nhân Bư đã xuất hiện rồi"}, //text chat 1
-            new String[]{"|-1|Thấy ảo chưa nè!"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            REST_20_S
-    );
-    public static final BossData DRABURA = new BossData(
-            "Ma Vương Dabura",
-            ConstPlayer.XAYDA,
-            new short[]{418, 419, 420, -1, -1, -1},
-            100000,
-            new double[]{1000000000L},
-            new int[]{114},
-            new int[][]{
-                {Skill.LIEN_HOAN, 7, 1000},
-                {Skill.DEMON, 7, 10000}},
-            new String[]{"|-2|Ma nhân Bư đã xuất hiện rồi"}, //text chat 1
-            new String[]{"|-1|Thấy ảo chưa nè!"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            REST_1_M
-    );
-    public static final BossData DRABURA_2 = new BossData(
-            "Ma Vương Dabura",
-            ConstPlayer.XAYDA,
-            new short[]{418, 419, 420, -1, -1, -1},
-            200000,
-            new double[]{1000000000L},
-            new int[]{115},
-            new int[][]{
-                {Skill.LIEN_HOAN, 7, 1000},
-                {Skill.DEMON, 7, 10000}},
-            new String[]{"|-2|Ma nhân Bư đã xuất hiện rồi"}, //text chat 1
-            new String[]{"|-1|Thấy ảo chưa nè!"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            REST_1_M
-    );
-    public static final BossData BUI_BUI = new BossData(
-            "Bui Bui",
-            ConstPlayer.XAYDA,
-            new short[]{451, 452, 453, -1, -1, -1},
-            200000,
-            new double[]{7000000000L},
-            new int[]{117},
-            new int[][]{
-                {Skill.LIEN_HOAN, 7, 1000},
-                {Skill.DEMON, 7, 10000}},
-            new String[]{"|-2|Ma nhân Bư đã xuất hiện rồi"}, //text chat 1
-            new String[]{"|-1|Thấy ảo chưa nè!"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            REST_1_M
-    );
+                        "Mabư",
+                        ConstPlayer.XAYDA,
+                        new short[] { 297, 298, 299, -1, -1, -1 },
+                        180000,
+                        new double[] { 800000000 },
+                        new int[] { 120 },
+                        new int[][] {
+                                        { Skill.LIEN_HOAN, 7, 200 },
+                                        { Skill.KHIEN_NANG_LUONG, 7, 50000 },
+                                        { Skill.THAI_DUONG_HA_SAN, 7, 70000 },
+                                        { Skill.DICH_CHUYEN_TUC_THOI, 7, 100000 },
 
-    public static final BossData BUI_BUI_2 = new BossData(
-            "Bui Bui",
-            ConstPlayer.XAYDA,
-            new short[]{451, 452, 453, -1, -1, -1},
-            20000,
-            new double[]{8000000000L},
-            new int[]{118},
-            new int[][]{
-                {Skill.LIEN_HOAN, 7, 1000},
-                {Skill.DEMON, 7, 10000}},
-            new String[]{"|-2|Ma nhân Bư đã xuất hiện rồi"}, //text chat 1
-            new String[]{"|-1|Thấy ảo chưa nè!"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            REST_1_M
-    );
-    public static final BossData YACON = new BossData(
-            "Yacôn",
-            ConstPlayer.XAYDA,
-            new short[]{415, 416, 417, -1, -1, -1},
-            200000,
-            new double[]{8000000000L},
-            new int[]{119},
-            new int[][]{
-                {Skill.DEMON, 7, 100}},
-            new String[]{"|-2|Ma nhân Bư đã xuất hiện rồi"}, //text chat 1
-            new String[]{"|-1|Thấy ảo chưa nè!"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            REST_1_M
-    );
+                                        { Skill.KAMEJOKO, 7, 1000 } },
+                        new String[] { "|-2|Ma nhân Bư đã xuất hiện rồi" }, // text chat 1
+                        new String[] { "|-1|Thấy ảo chưa nè!" }, // text chat 2
+                        new String[] { "|-1|Nhớ mặt tao đấy",
+                                        "|-1|Tobe continue.." }, // text chat 3
+                        REST_10_M);
+        public static final BossData DRABURA = new BossData(
+                        "Ma Vương Dabura",
+                        ConstPlayer.XAYDA,
+                        new short[] { 418, 419, 420, -1, -1, -1 },
+                        100000,
+                        new double[] { 500000000 },
+                        new int[] { 114 },
+                        new int[][] {
+                                        { Skill.LIEN_HOAN, 7, 300 },
+                                        { Skill.DEMON, 7, 10000 } },
+                        new String[] { "|-2|Ma nhân Bư đã xuất hiện rồi" }, // text chat 1
+                        new String[] { "|-1|Thấy ảo chưa nè!" }, // text chat 2
+                        new String[] { "|-1|Nhớ mặt tao đấy",
+                                        "|-1|Tobe continue.." }, // text chat 3
+                        REST_10_M);
+        public static final BossData DRABURA_2 = new BossData(
+                        "Ma Vương Dabura",
+                        ConstPlayer.XAYDA,
+                        new short[] { 418, 419, 420, -1, -1, -1 },
+                        100000,
+                        new double[] { 1000000000 },
+                        new int[] { 119 },
+                        new int[][] {
+                                        { Skill.LIEN_HOAN, 7, 300 },
+                                        { Skill.DEMON, 7, 10000 } },
+                        new String[] { "|-2|Ma nhân Bư đã xuất hiện rồi" }, // text chat 1
+                        new String[] { "|-1|Thấy ảo chưa nè!" }, // text chat 2
+                        new String[] { "|-1|Nhớ mặt tao đấy",
+                                        "|-1|Tobe continue.." }, // text chat 3
+                        REST_10_M);
+        public static final BossData BUI_BUI = new BossData(
+                        "Bui Bui",
+                        ConstPlayer.XAYDA,
+                        new short[] { 451, 452, 453, -1, -1, -1 },
+                        100000,
+                        new double[] { 700000000 },
+                        new int[] { 115 },
+                        new int[][] {
+                                        { Skill.LIEN_HOAN, 7, 300 },
+                                        { Skill.DEMON, 7, 10000 } },
+                        new String[] { "|-2|Ma nhân Bư đã xuất hiện rồi" }, // text chat 1
+                        new String[] { "|-1|Thấy ảo chưa nè!" }, // text chat 2
+                        new String[] { "|-1|Nhớ mặt tao đấy",
+                                        "|-1|Tobe continue.." }, // text chat 3
+                        REST_10_M);
+
+        public static final BossData BUI_BUI_2 = new BossData(
+                        "Bui Bui",
+                        ConstPlayer.XAYDA,
+                        new short[] { 451, 452, 453, -1, -1, -1 },
+                        100000,
+                        new double[] { 800000000 },
+                        new int[] { 117 },
+                        new int[][] {
+                                        { Skill.LIEN_HOAN, 7, 300 },
+                                        { Skill.DEMON, 7, 10000 } },
+                        new String[] { "|-2|Ma nhân Bư đã xuất hiện rồi" }, // text chat 1
+                        new String[] { "|-1|Thấy ảo chưa nè!" }, // text chat 2
+                        new String[] { "|-1|Nhớ mặt tao đấy",
+                                        "|-1|Tobe continue.." }, // text chat 3
+                        REST_10_M);
+        public static final BossData YACON = new BossData(
+                        "Yacôn",
+                        ConstPlayer.XAYDA,
+                        new short[] { 415, 416, 417, -1, -1, -1 },
+                        100000,
+                        new double[] { 900000000 },
+                        new int[] { 118 },
+                        new int[][] {
+                                        { Skill.DEMON, 7, 300 } },
+                        new String[] { "|-2|Ma nhân Bư đã xuất hiện rồi" }, // text chat 1
+                        new String[] { "|-1|Thấy ảo chưa nè!" }, // text chat 2
+                        new String[] { "|-1|Nhớ mặt tao đấy",
+                                        "|-1|Tobe continue.." }, // text chat 3
+                        REST_10_M);
+        //
 
     public static final BossData COOLER_1 = new BossData(
             "Cooler", //name

@@ -568,6 +568,30 @@ public class EffectSkillService {
         Service.gI().point(player);
         Service.gI().Send_Info_NV(player);
     }
+      // **
+    // Cải trang Thỏ Đại Ca
+    public void setHoaCarot(Player player, long lastTimeHoaCarot, int timeHoaCarot) {
+        player.effectSkill.lastTimeHoaCarot = lastTimeHoaCarot;
+        player.effectSkill.timeHoaCarot = timeHoaCarot;
+        player.effectSkill.isHoaCarot = true;
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+
+    }
+
+    public void removeHoaCarot(Player player) {
+        player.effectSkill.isHoaCarot = false;
+        try {
+            Service.gI().chat(player,"Mẹ mày béo ?");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        Service.gI().Send_Caitrang(player);
+        Service.gI().point(player);
+        Service.gI().Send_Info_NV(player);
+    }
+
 
     //hiệu ứng biến khỉ
     public void sendEffectMonkey(Player player) {

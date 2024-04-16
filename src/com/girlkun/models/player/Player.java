@@ -546,6 +546,10 @@ public class Player {
             return (short) ConstPlayer.HEADMONKEY[effectSkill.levelMonkey - 1];
         } else if (effectSkill != null && effectSkill.isSocola) {
             return 412;
+        }else if (this.effectSkill != null && this.effectSkill.isHoaCarot) {
+                return 406;
+        } else if (effectSkill != null && this.effectSkill.isHoaDa) {
+                return 454;
         } else if (effectSkill != null && effectSkill.isBinh) {
             return 1321;
         } else if (fusion != null && fusion.typeFusion != ConstPlayer.NON_FUSION) {
@@ -574,6 +578,10 @@ public class Player {
             return 193;
         } else if (effectSkill != null && effectSkill.isSocola) {
             return 413;
+        } else if (effectSkill != null && effectSkill.isHoaDa) {
+            return 455;
+        } else if (effectSkill != null && effectSkill.isHoaCarot) {
+            return 407;
         } else if (effectSkill != null && effectSkill.isBinh) {
             return 1322;
         } else if (fusion != null && fusion.typeFusion != ConstPlayer.NON_FUSION) {
@@ -605,6 +613,10 @@ public class Player {
             return 194;
         } else if (effectSkill != null && effectSkill.isSocola) {
             return 414;
+        } else if (effectSkill != null && effectSkill.isHoaDa) {
+            return 456;
+        } else if (effectSkill != null && effectSkill.isHoaCarot) {
+            return 408;    
         } else if (effectSkill != null && effectSkill.isBinh) {
             return 1323;
         } else if (fusion != null && fusion.typeFusion != ConstPlayer.NON_FUSION) {
@@ -825,6 +837,7 @@ public class Player {
 
     //--------------------------------------------------------------------------
     public double injured(Player plAtt, double damage, boolean piercing, boolean isMobAttack) {
+        this.checkAnThan(plAtt);
         if (!this.isDie()) {
             int TileChinhxac = 0;
             if (plAtt != null) {
