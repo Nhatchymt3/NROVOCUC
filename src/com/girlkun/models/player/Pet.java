@@ -659,9 +659,9 @@ public class Pet extends Player {
         if (this.typePet == 1) {
             return 297;
         } else if (this.typePet == 2) {
-            return 1318;
+            return 511;
         } else if (this.typePet == 3) {
-            return 291;
+            return 103;
         } else if (this.typePet == 4) {  //cải trang gohan xác ướp
             return 462;
         } else if (this.typePet == 5) { //pet goku EVO

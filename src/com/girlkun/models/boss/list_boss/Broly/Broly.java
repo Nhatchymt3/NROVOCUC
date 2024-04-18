@@ -125,7 +125,7 @@ public class Broly extends Boss {
         ChangeMapService.gI().exitMap(this);
         if (Util.isTrue((int)increaseRatio ,100)) { // Sử dụng tỉ lệ để xác định liệu có gọi SuperBroly hay không
             try {
-                new SuperBroly(zone, x, y);
+                // new SuperBroly(zone, x, y);
             } catch (Exception ex) {
                 // Xử lý ngoại lệ nếu cần
             }

@@ -48,7 +48,7 @@ public class BlackGoku extends Boss {
         BossData data = this.data[this.currentLevel];
         this.name = String.format(data.getName(), Util.nextInt(0, 100));
         this.gender = data.getGender();
-        this.nPoint.mpg = 23_07_2003;
+        this.nPoint.mpg = 1_6_2000;
         this.nPoint.dameg = (long) data.getDame();
         this.nPoint.hpg = (long) data.getHp()[Util.nextInt(0, data.getHp().length - 1)];
         this.nPoint.hp = nPoint.hpg;

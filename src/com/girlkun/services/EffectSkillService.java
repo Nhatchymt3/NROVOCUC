@@ -465,7 +465,7 @@ public class EffectSkillService {
     public void removeHorny(Player player) {
         player.effectSkill.isHorny = false;
         try {
-            Service.gI().chat(player,"Mình vừa sửa cái gì thế nhỉ ?");
+            Service.gI().chat(player,"Mình vừa sủa cái gì thế nhỉ ?");
         } catch (Exception e) {
             // TODO: handle exception
         }

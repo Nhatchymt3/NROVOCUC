@@ -49,6 +49,7 @@ public class Mob {
     public long lastTimeDie;
     public int lvMob = 0;
     public int status = 5;
+    private int action = 0;
 
     public boolean isMobMe;
 
@@ -123,6 +124,9 @@ public class Mob {
                 if (this.tempId == 0 && damage > 10) {
                     damage = 10;
                 }
+                if (this.tempId == 70 && damage > 1000000) {
+                    damage = 1000000;
+                }
             }
             if (plAtt != null) {
                 switch (plAtt.playerSkill.skillSelect.template.id) {
@@ -186,6 +190,8 @@ public class Mob {
         } else {
             pDameHit = Util.DoubleGioihan(dame) * 100 / Util.DoubleGioihan(point.getHpFull());
         }
+
+        
 
         long tiemNang = pDameHit * maxTiemNang / 100;
         if (n >= 0) {
@@ -273,6 +279,79 @@ public class Mob {
                 case ConstMap.MAP_KHI_GAS:
                     break;
                 default:
+                if (isDie() && this.tempId == 70 && (System.currentTimeMillis() - lastTimeDie) > 3000 && level <= 2) {
+                    if (level == 0) {
+                        level = 1;
+                        action = 6;
+                        this.point.hp = this.point.maxHp;
+                    } else if (level == 1) {
+                        level = 2;
+                        action = 5;
+                        this.point.hp = this.point.maxHp;
+                    } else if (level == 2) {
+                        level = 3;
+                        action = 9;
+                    }
+                    int trai = 0;
+                    int phai = 1;
+                    int next = 0;
+        
+                    for (int i = 0; i < 30; i++) {
+                        int X = next == 0 ? -7 * trai : 7 * phai;
+                        if (next == 0) {
+                            trai++;
+                        } else {
+                            phai++;
+                        }
+                        next = next == 0 ? 1 : 0;
+                        if (trai > 10) {
+                            trai = 0;
+                        }
+                        if (phai > 10) {
+                            phai = 0;
+                        }
+                        
+                        ItemMap itemMap = new ItemMap(zone, 1184, Util.nextInt(1, 2),
+                                location.x + X + Util.nextInt(10, 20), location.y, -1);
+                        Service.getInstance().dropItemMap(zone, itemMap);
+                    }
+                    if (Util.isTrue(40, 100)) {
+                        for (int i = 0; i < Util.nextInt(1, 3); i++) {
+                            ItemMap itemMap2 = new ItemMap(zone, 568, 1, location.x + Util.nextInt(-100, 100), location.y, -1);
+                            Service.getInstance().dropItemMap(zone, itemMap2);
+                        }
+                        Random random = new Random();
+                        if (Util.isTrue(50, 100)) {
+                            for (int i = 0; i < Util.nextInt(3, 6); i++) {
+                                byte randomItemIndexDoTl = (byte) random.nextInt(Manager.itemIds_TL.length);
+                                ItemMap itemMap3 = Util.ratiItem(zone, Manager.itemIds_TL[randomItemIndexDoTl], 1,
+                                        location.x + Util.nextInt(-100, 100), location.y, -1);
+                                Service.getInstance().dropItemMap(zone, itemMap3);
+                            }
+                        }
+                    }
+                    Service.gI().sendBigBoss2(zone, action, this);
+                    if (level <= 2) {
+                        Message msg = null;
+                        try {
+                            msg = new Message(-9);
+                            msg.writer().writeByte(this.id);
+                            msg.writer().writeInt((int) this.point.hp);
+                            msg.writer().writeInt(1);
+                            Service.gI().sendMessAllPlayerInMap(zone, msg);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            if (msg != null) {
+                                msg.cleanup();
+                                msg = null;
+                            }
+                        }
+                    } else {
+                        location.x = -1000;
+                        location.y = -1000;
+                    }
+                }
                     if (Util.canDoWithTime(lastTimeDie, 5000)) {
                         this.randomSieuQuai();
                         this.hoiSinh();
@@ -281,7 +360,149 @@ public class Mob {
             }
         }
         effectSkill.update();
+        if (tempId == 70) {
+            BigbossAttack();
+        } 
         attackPlayer();
+    }
+
+    private boolean isHaveEffectSkill() {
+        return effectSkill.isAnTroi || effectSkill.isBlindDCTT || effectSkill.isStun || effectSkill.isThoiMien
+                || effectSkill.isSocola;
+    }
+    private void BigbossAttack() {
+        if (!isDie() && !isHaveEffectSkill() && Util.canDoWithTime(lastTimeAttackPlayer, 1000)) {
+            Message msg = null;
+            try {
+                switch (tempId) {
+                    case 70: // Hirudegarn
+                        if (!Util.canDoWithTime(lastTimeAttackPlayer, 2000)) {
+                            return;
+                        }
+                        if (this.isDie()) {
+                            return;
+                        }
+                        // 0: bắn - 1: Quật đuôi - 2: dậm chân - 3: Bay - 4: tấn công - 5: Biến hình -
+                        // 6: Biến hình lên cấp
+                        // 7: vận chiêu - 8: Di chuyển - 9: Die
+                        int[] idAction = new int[] { 1, 2, 3, 7 };
+                        if (this.level >= 2) {
+
+                            idAction = new int[] { 1, 2 };
+                        }
+                        action = action == 7 ? 0 : idAction[Util.nextInt(0, idAction.length - 1)];
+                        int index = Util.nextInt(0, zone.getPlayers().size() - 1);
+                        Player player = zone.getPlayers().get(index);
+                        if (player == null || player.isDie()) {
+                            return;
+                        }
+                        if (action == 1) {
+                            location.x = (short) player.location.x;
+                            Service.getInstance().sendBigBoss2(zone, 8, this);
+                        }
+                        msg = new Message(101);
+                        msg.writer().writeByte(action);
+                        if (action >= 0 && action <= 4) {
+                            if (action == 1) {
+                                msg.writer().writeByte(1);
+                                int dame = (int) player.injured(player, (int) this.point.getDameAttack(), false, true);
+                                if (dame <= 0) {
+                                    dame = 1;
+                                }
+
+                                msg.writer().writeInt((int) player.id);
+                                msg.writer().writeInt(dame);
+                            } else if (action == 3) {
+                                location.x = (short) player.location.x;
+                                msg.writer().writeShort(location.x);
+                                msg.writer().writeShort(location.y);
+                            } else {
+                                msg.writer().writeByte(zone.getHumanoids().size());
+                                for (int i = 0; i < zone.getHumanoids().size(); i++) {
+                                    Player pl = zone.getHumanoids().get(i);
+                                    int dame = (int) player.injured(player, (int) this.point.getDameAttack(), false,
+                                            true);
+                                    if (dame <= 0) {
+                                        dame = 1;
+                                    }
+
+                                    msg.writer().writeInt((int) pl.id);
+                                    msg.writer().writeInt(dame);
+                                }
+                            }
+                        } else {
+                            if (action == 6 || action == 8) {
+                                location.x = (short) player.location.x;
+                                msg.writer().writeShort(location.x);
+                                msg.writer().writeShort(location.y);
+                            }
+                        }
+                        Service.getInstance().sendMessAllPlayerInMap(zone, msg);
+                        lastTimeAttackPlayer = System.currentTimeMillis();
+                        break;
+                    case 71: // Vua Bạch Tuộc
+                        int[] idAction2 = new int[] { 3, 4, 5 };
+                        action = action == 7 ? 0 : idAction2[Util.nextInt(0, idAction2.length - 1)];
+                        int index2 = Util.nextInt(0, zone.getPlayers().size() - 1);
+                        Player player2 = zone.getPlayers().get(index2);
+                        if (player2 == null || player2.isDie()) {
+                            return;
+                        }
+                        msg = new Message(102);
+                        msg.writer().writeByte(action);
+                        if (action >= 0 && action <= 5) {
+                            if (action != 5) {
+                                msg.writer().writeByte(1);
+                                int dame = (int) player2.injured(player2, (int) this.point.getDameAttack(), false,
+                                        true);
+                                if (dame <= 0) {
+                                    dame = 1;
+                                }
+                                msg.writer().writeInt((int) player2.id);
+                                msg.writer().writeInt(dame);
+                            }
+                            if (action == 5) {
+                                location.x = (short) player2.location.x;
+                                msg.writer().writeShort(location.x);
+                            }
+                        } else {
+
+                        }
+                        Service.getInstance().sendMessAllPlayerInMap(zone, msg);
+                        lastTimeAttackPlayer = System.currentTimeMillis();
+                        break;
+                    case 72: // Rôbốt bảo vệ
+                        int[] idAction3 = new int[] { 0, 1, 2,7 };
+                        action = action == 7 ? 0 : idAction3[Util.nextInt(0, idAction3.length - 1)];
+                        int index3 = Util.nextInt(0, zone.getPlayers().size() - 1);
+                        Player player3 = zone.getPlayers().get(index3);
+                        if (player3 == null || player3.isDie()) {
+                            return;
+                        }
+                        msg = new Message(102);
+                        msg.writer().writeByte(action);
+                        if (action >= 0 && action <= 2) {
+                            msg.writer().writeByte(1);
+                            int dame = (int) player3.injured(player3, (int) this.point.getDameAttack(), false, true);
+                            if (dame <= 0) {
+                                dame = 1;
+                            }
+                            msg.writer().writeInt((int) player3.id);
+                            msg.writer().writeInt(dame);
+                        }
+                        Service.getInstance().sendMessAllPlayerInMap(zone, msg);
+                        lastTimeAttackPlayer = System.currentTimeMillis();
+                        break;
+                }
+            } catch (Exception e) {
+                // Util.debug("ERROR BIG BOSS");
+            } finally {
+                if (msg != null) {
+                    msg.cleanup();
+                    msg = null;
+                }
+            }
+        }
     }
 
     private void attackPlayer() {

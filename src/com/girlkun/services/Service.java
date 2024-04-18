@@ -1385,6 +1385,23 @@ public class Service {
         }
     }
 
+    public void sendBigBoss2(Zone map, int action, Mob bigboss) {
+        Message msg = null;
+        try {
+            msg = new Message(101);
+            msg.writer().writeByte(action);
+            msg.writer().writeShort(bigboss.location.x);
+            msg.writer().writeShort(bigboss.location.y);
+            sendMessAllPlayerInMap(map, msg);
+        } catch (Exception e) {
+        } finally {
+            if (msg != null) {
+                msg.cleanup();
+                msg = null;
+            }
+        }
+    }
+
     public double exp_level1(double sucmanh) {
         if (sucmanh < 3000) {
             return 3000;
@@ -1646,21 +1663,21 @@ public class Service {
             addSMTN(masterr, type, param, true);
         }
          else {
-            // if (player.nPoint.power > player.nPoint.getPowerLimit()) {
-            //     type = 1;
-            // }
-            // switch (type) {
-            //     case 1:
-            //         player.nPoint.tiemNangUp(param);
-            //         break;
-            //     case 2:
+            if (player.nPoint.power > player.nPoint.getPowerLimit()) {
+                type = 1;
+            }
+            switch (type) {
+                case 1:
+                    player.nPoint.tiemNangUp(param);
+                    break;
+                case 2:
                     player.nPoint.powerUp(param);
                     player.nPoint.tiemNangUp(param);
-            //         break;
-            //     default:
-            //         player.nPoint.powerUp(param);
-            //         break;
-            // }
+                    break;
+                default:
+                    player.nPoint.powerUp(param);
+                    break;
+            }
             PlayerService.gI().sendTNSM(player, type, param);
             if (isOri) {
                 if (player.clan != null) {

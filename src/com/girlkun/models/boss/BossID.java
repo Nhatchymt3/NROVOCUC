@@ -51,7 +51,7 @@ public class BossID {
 
 
     public static final int BROLY = -20000;
-    public static final int BROLY1 = -20002;
+    public static final int SUPERBROLY = -20002;
     public static final int BROLY2 = -20001;
     public static final int BROLY3 = -20004;
 

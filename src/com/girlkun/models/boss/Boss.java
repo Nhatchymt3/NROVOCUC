@@ -97,7 +97,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         BossData data = this.data[this.currentLevel];
         this.name = String.format(data.getName(), Util.nextInt(0, 100));
         this.gender = data.getGender();
-        this.nPoint.mpg = 7_5_2002;
+        this.nPoint.mpg = 1_6_2000;
         this.nPoint.dameg = (long) data.getDame();
         this.nPoint.hpg = (long) data.getHp()[Util.nextInt(0, data.getHp().length - 1)];
         this.nPoint.hp = nPoint.hpg;
@@ -266,6 +266,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
                 break;
             case JOIN_MAP:
                 this.joinMap();
+                timejoin =System.currentTimeMillis();
                 this.changeStatus(BossStatus.CHAT_S);
                 break;
             case CHAT_S:
@@ -320,7 +321,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         this.initBase();
         this.changeToTypeNonPK();
     }
-
+    public long timejoin;
     @Override
     public void joinMap() {
         if (zoneFinal != null) {

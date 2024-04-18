@@ -4,6 +4,7 @@ import BossDetu.DetuMabu;
 import com.girlkun.models.boss.list_boss.AnTrom;
 import com.girlkun.models.boss.list_boss.BLACK.*;
 import com.girlkun.models.boss.list_boss.Broly.Broly;
+import com.girlkun.models.boss.list_boss.Broly.SuperBroly;
 import com.girlkun.models.boss.list_boss.Cooler.Cooler;
 
 import com.girlkun.models.boss.list_boss.FideBack.Kingcold;
@@ -22,7 +23,7 @@ import com.girlkun.models.boss.list_boss.android.*;
 import com.girlkun.models.boss.list_boss.cell.SieuBoHung;
 import com.girlkun.models.boss.list_boss.cell.XenBoHung;
 import com.girlkun.models.boss.list_boss.Fusion.BlackGoku;
-import com.girlkun.models.boss.list_boss.Fusion.kakarot;
+import com.girlkun.models.boss.list_boss.Fusion.KakarotSSJ4;
 
 import com.girlkun.models.boss.list_boss.FideBack.FideRobot;
 
@@ -147,7 +148,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.BOSS_Toppo);
             this.createBoss(BossID.BLACKGOKU);
             this.createBoss(BossID.GogetaSJJ4);
-            this.createBoss(BossID.BROLY);
+            this.createBoss(BossID.SUPERBROLY);
             this.createBoss(BossID.DTWUKONG);
             this.createBoss(BossID.BOSS_BabyVegeta);
             this.createBoss(BossID.Picolo_Daikamao);
@@ -285,8 +286,8 @@ public class BossManager implements Runnable {
 
                 case BossID.GogetaSJJ4:
                     return new GogetaSSJ4();
-                case BossID.BROLY:
-                    return new Broly();
+                case BossID.SUPERBROLY:
+                    return new SuperBroly();
                 case BossID.AN_TROM:
                     return new AnTrom();
                 case BossID.OngGiaNoel:
@@ -326,7 +327,7 @@ public class BossManager implements Runnable {
                     && !(boss instanceof Zamus)
                     && !(boss instanceof AnTrom)
                     && !(boss instanceof OngGiaNoel)
-                    && !(boss instanceof kakarot)
+                    && !(boss instanceof KakarotSSJ4)
                     && !MapService.gI().isMapBlackBallWar(boss.data[0].getMapJoin()[0])
                     )
                     .collect(Collectors.toList());
@@ -381,6 +382,7 @@ public class BossManager implements Runnable {
             e.printStackTrace();
         }
     }
+    
 
     public void dobosss(Player player) {
         Message msg;
@@ -399,7 +401,7 @@ public class BossManager implements Runnable {
                     && !MapService.gI().isMapNhanBan(boss.data[0].getMapJoin()[0])
                     && !(boss instanceof MiNuong)
                     && !(boss instanceof Zamus)
-                    && !(boss instanceof kakarot)
+                    && !(boss instanceof KakarotSSJ4)
                     && !MapService.gI().isMapBlackBallWar(boss.data[0].getMapJoin()[0])
                     )
                     .collect(Collectors.toList());

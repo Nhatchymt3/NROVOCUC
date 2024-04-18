@@ -27,7 +27,7 @@ import java.util.Random;
  */
 public class GogetaSSJ4 extends Boss {
 
-    private kakarot gogeta;
+    private KakarotSSJ4 gogeta;
     protected boolean isReady;
     public boolean isFusion;
     protected long lastTimeFusion;
@@ -59,7 +59,7 @@ public class GogetaSSJ4 extends Boss {
 
     public void createSmallBoss() {
         try {
-            this.gogeta = new kakarot(this, this.zone, (short) this.location.x, (short) this.location.y, BossesData.KAKAROT4);
+            this.gogeta = new KakarotSSJ4(this, this.zone, (short) this.location.x, (short) this.location.y, BossesData.KAKAROT4);
         } catch (Exception ex) {
 
         }

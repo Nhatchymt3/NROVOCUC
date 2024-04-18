@@ -919,6 +919,7 @@ public class Controller implements IMessageHandler {
         if (player.inventory.itemsBody.get(11).isNotNullItem()) {
             new Thread(() -> {
                 try {
+                    Thread.sleep(1000);
                     Service.getInstance().sendFoot(player, (short) player.inventory.itemsBody.get(11).template.id);
                 } catch (Exception e) {
 
@@ -938,6 +939,7 @@ public class Controller implements IMessageHandler {
         if (player.inventory.itemsBody.get(7).isNotNullItem()) {
             new Thread(() -> {
                 try {
+                    Thread.sleep(1000);
                     Item it = player.inventory.itemsBody.get(7);
                     player.newpet=null;
                     PetService.Pet2(player, it.template.head, it.template.body, it.template.leg,
@@ -969,11 +971,10 @@ public class Controller implements IMessageHandler {
         
             new Thread(() -> {
                 try {
+                    Thread.sleep(10000);
                     GirlkunResultSet ipBanned = GirlkunDB.executeQuery("SELECT ip_address FROM account WHERE ban = true");
-
                     while (ipBanned.next()) {
                         String bannedIP = ipBanned.getString("ip_address");
-                    
                         // So sánh địa chỉ IP của người truy cập với các địa chỉ IP bị cấm
                         if (session.ipAddress.equals(bannedIP)) {
                             Thread.sleep(10000);

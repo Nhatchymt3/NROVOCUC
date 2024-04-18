@@ -1,6 +1,7 @@
 package com.girlkun.server;
 
 import com.girlkun.models.player.Player;
+import com.girlkun.models.boss.BossManager;
 import com.girlkun.models.player.GiftcodeViet;
 import com.girlkun.network.io.Message;
 import com.girlkun.services.Service;
@@ -90,7 +91,7 @@ public class ServerNotify extends Thread {
     public void notify(String text) {
         this.notifies.add(text);
     }
-
+    
     public void sendNotifyTab(Player player) {
         Message msg;
         try {
@@ -98,7 +99,7 @@ public class ServerNotify extends Thread {
             msg.writer().writeByte(10);
 
             msg.writer().writeShort(0);
-            msg.writer().writeUTF("Thông tin Nro Nro");
+            msg.writer().writeUTF("Thông tin Nro VoCuc");
             msg.writer().writeUTF( "\n  Set kích hoạt đổi ở đảo kame"
                     + "\n  Nạp thẻ, đăng ký vui lòng lên Web");
 
@@ -148,4 +149,5 @@ public class ServerNotify extends Thread {
         } catch (Exception ignored) {
         }
     }
+  
 }

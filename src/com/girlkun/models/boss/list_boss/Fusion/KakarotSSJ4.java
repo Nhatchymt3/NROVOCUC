@@ -20,17 +20,17 @@ import com.girlkun.models.boss.SmallBoss;
  *
  * @author delb1
  */
-public class kakarot extends SmallBoss {
+public class KakarotSSJ4 extends SmallBoss {
 
     protected boolean isReady;
     private short x;
     private short y;
 
-    public kakarot() throws Exception {
+    public KakarotSSJ4() throws Exception {
         super(BossID.kakarot, BossesData.KAKAROT4);
     }
 
-    public kakarot(Boss bigBoss, Zone zone, short x, short y, BossData data) throws Exception {
+    public KakarotSSJ4(Boss bigBoss, Zone zone, short x, short y, BossData data) throws Exception {
         super(BossID.kakarot, bigBoss, data);
         this.isReady = false;
         this.zone = zone;
