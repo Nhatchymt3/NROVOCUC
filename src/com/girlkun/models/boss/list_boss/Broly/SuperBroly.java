@@ -11,6 +11,7 @@ import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.PetService;
+import com.girlkun.services.Service;
 import com.girlkun.services.SkillService;
 import com.girlkun.services.func.ChangeMapService;
 import com.girlkun.utils.Logger;
@@ -48,7 +49,7 @@ public class SuperBroly extends Boss {
     private long st;
     public Boolean checlSkill(Skill skill)
     {
-        if (skill.skillId ==Skill.DEMON || skill.skillId ==Skill.DRAGON || skill.skillId == Skill.GALICK) {
+        if (skill.template.id ==Skill.DEMON || skill.template.id ==Skill.DRAGON || skill.template.id == Skill.GALICK) {
             return true;
         }
         return false;
@@ -75,6 +76,7 @@ public class SuperBroly extends Boss {
             }else
             {
                 damage = 0;
+                Service.gI().sendThongBao(plAtt, ("Đấm thường đi bồ"));
             }
             this.nPoint.subHP(damage);
             if (isDie()) {
