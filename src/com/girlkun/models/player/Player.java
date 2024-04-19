@@ -2,6 +2,7 @@ package com.girlkun.models.player;
 
 import BoMong.BoMong;
 import com.girlkun.models.map.MapMaBu.MapMaBu;
+import com.girlkun.models.map.MapSatan.MapSatan;
 import com.girlkun.models.skill.PlayerSkill;
 
 import java.util.List;
@@ -384,6 +385,7 @@ public class Player {
                     DoanhTraiService.gI().update(this);
                     BlackBallWar.gI().update(this);
                     MapMaBu.gI().update(this);
+                    MapSatan.gI().update(this);
                     TimeReset.gI().update(this); //time reset ngày
                     if (!this.isBoss && this.iDMark != null && this.iDMark.isGoToGas() && Util.canDoWithTime(this.iDMark.getLastTimeGotoGas(), 6000)) {
                         ChangeMapService.gI().changeMapBySpaceShip(this, 149, -1, 163);

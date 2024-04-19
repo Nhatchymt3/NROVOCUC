@@ -112,6 +112,14 @@ public class Mob {
                 || this.tempId == 62 || this.tempId == 63 || this.tempId == 64 || this.tempId == 65;
     }
 
+    public Boolean checlSkill(Skill skill)
+    {
+        if (skill.template.id ==Skill.DEMON || skill.template.id ==Skill.DRAGON || skill.template.id == Skill.GALICK) {
+            return true;
+        }
+        return false;
+    }
+
     public synchronized void injured(Player plAtt, double damage, boolean dieWhenHpFull) {
         if (!this.isDie()) {
             if (damage >= this.point.hp) {
@@ -124,8 +132,17 @@ public class Mob {
                 if (this.tempId == 0 && damage > 10) {
                     damage = 10;
                 }
-                if (this.tempId == 70 && damage > 1000000) {
-                    damage = 1000000;
+                if (this.tempId == 70) {
+                    if (checlSkill(plAtt.playerSkill.skillSelect)) {
+                
+                        if (damage >= 1000000) {
+                            damage = 1000000;
+                        }
+                    }else
+                    {
+                        damage = 0;
+                        Service.gI().sendThongBao(plAtt, ("Đấm thường đi bồ"));
+                    }
                 }
             }
             if (plAtt != null) {
@@ -278,80 +295,78 @@ public class Mob {
                     break;
                 case ConstMap.MAP_KHI_GAS:
                     break;
-                default:
-                if (isDie() && this.tempId == 70 && (System.currentTimeMillis() - lastTimeDie) > 3000 && level <= 2) {
-                    if (level == 0) {
-                        level = 1;
-                        action = 6;
-                        this.point.hp = this.point.maxHp;
-                    } else if (level == 1) {
-                        level = 2;
-                        action = 5;
-                        this.point.hp = this.point.maxHp;
-                    } else if (level == 2) {
-                        level = 3;
-                        action = 9;
-                    }
-                    int trai = 0;
-                    int phai = 1;
-                    int next = 0;
-        
-                    for (int i = 0; i < 30; i++) {
-                        int X = next == 0 ? -7 * trai : 7 * phai;
-                        if (next == 0) {
-                            trai++;
+                case ConstMap.MAP_SATAN:
+                    if (isDie() && this.tempId == 70 && (System.currentTimeMillis() - lastTimeDie) > 3000 && level <= 2) {
+                        if (level == 0) {
+                            level = 1;
+                            action = 6;
+                            this.point.hp = this.point.maxHp;
+                        } else if (level == 1) {
+                            level = 2;
+                            action = 5;
+                            this.point.hp = this.point.maxHp;
+                        } else if (level == 2) {
+                            level = 3;
+                            action = 9;
+                        }
+                        int trai = 0;
+                        int phai = 1;
+                        int next = 0;
+            
+                        for (int i = 0; i < 30; i++) {
+                            int X = next == 0 ? -7 * trai : 7 * phai;
+                            if (next == 0) {
+                                trai++;
+                            } else {
+                                phai++;
+                            }
+                            next = next == 0 ? 1 : 0;
+                            if (trai > 10) {
+                                trai = 0;
+                            }
+                            if (phai > 10) {
+                                phai = 0;
+                            }
+                        }
+                        if (Util.isTrue(40, 100)) {
+                            for (int i = 0; i < Util.nextInt(1, 3); i++) {
+                                ItemMap itemMap2 = new ItemMap(zone, 1738, 1, location.x + Util.nextInt(-100, 100), location.y, -1);
+                                Service.getInstance().dropItemMap(zone, itemMap2);
+                            }
+                            Random random = new Random();
+                            if (Util.isTrue(20, 100)) {
+                                for (int i = 0; i < Util.nextInt(1, 3); i++) {
+                                    byte randomItemIndexDoTl = (byte) random.nextInt(Manager.itemIds_TL.length);
+                                    ItemMap itemMap3 = Util.ratiItem(zone, Manager.itemIds_TL[randomItemIndexDoTl], 1,
+                                            location.x + Util.nextInt(-100, 100), location.y, -1);
+                                    Service.getInstance().dropItemMap(zone, itemMap3);
+                                }
+                            }
+                        }
+                        Service.gI().sendBigBoss2(zone, action, this);
+                        if (level <= 2) {
+                            Message msg = null;
+                            try {
+                                msg = new Message(-9);
+                                msg.writer().writeByte(this.id);
+                                msg.writer().writeInt((int) this.point.hp);
+                                msg.writer().writeInt(1);
+                                Service.gI().sendMessAllPlayerInMap(zone, msg);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            } finally {
+                                if (msg != null) {
+                                    msg.cleanup();
+                                    msg = null;
+                                }
+                            }
                         } else {
-                            phai++;
-                        }
-                        next = next == 0 ? 1 : 0;
-                        if (trai > 10) {
-                            trai = 0;
-                        }
-                        if (phai > 10) {
-                            phai = 0;
-                        }
-                        
-                        ItemMap itemMap = new ItemMap(zone, 1184, Util.nextInt(1, 2),
-                                location.x + X + Util.nextInt(10, 20), location.y, -1);
-                        Service.getInstance().dropItemMap(zone, itemMap);
-                    }
-                    if (Util.isTrue(40, 100)) {
-                        for (int i = 0; i < Util.nextInt(1, 3); i++) {
-                            ItemMap itemMap2 = new ItemMap(zone, 568, 1, location.x + Util.nextInt(-100, 100), location.y, -1);
-                            Service.getInstance().dropItemMap(zone, itemMap2);
-                        }
-                        Random random = new Random();
-                        if (Util.isTrue(50, 100)) {
-                            for (int i = 0; i < Util.nextInt(3, 6); i++) {
-                                byte randomItemIndexDoTl = (byte) random.nextInt(Manager.itemIds_TL.length);
-                                ItemMap itemMap3 = Util.ratiItem(zone, Manager.itemIds_TL[randomItemIndexDoTl], 1,
-                                        location.x + Util.nextInt(-100, 100), location.y, -1);
-                                Service.getInstance().dropItemMap(zone, itemMap3);
-                            }
+                            location.x = -1000;
+                            location.y = -1000;
                         }
                     }
-                    Service.gI().sendBigBoss2(zone, action, this);
-                    if (level <= 2) {
-                        Message msg = null;
-                        try {
-                            msg = new Message(-9);
-                            msg.writer().writeByte(this.id);
-                            msg.writer().writeInt((int) this.point.hp);
-                            msg.writer().writeInt(1);
-                            Service.gI().sendMessAllPlayerInMap(zone, msg);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        } finally {
-                            if (msg != null) {
-                                msg.cleanup();
-                                msg = null;
-                            }
-                        }
-                    } else {
-                        location.x = -1000;
-                        location.y = -1000;
-                    }
-                }
+                break;
+                default:
                     if (Util.canDoWithTime(lastTimeDie, 5000)) {
                         this.randomSieuQuai();
                         this.hoiSinh();

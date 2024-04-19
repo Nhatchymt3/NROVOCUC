@@ -718,10 +718,10 @@ public class Util {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 13));
         }
         if (Util.isTrue(1, 100)) { // tỉ lệ rơi set kich hoạt
-            if (randomPercentage < 25) { //tỉ lệ ra set kich hoạt broly cả 3 hành tinh đều mặc đc
-                it.options.add(new Item.ItemOption(210, 1));
-                it.options.add(new Item.ItemOption(213, 1));
-            } else if (randomPercentage < 75) { // 75%
+            // if (randomPercentage < 25) { //tỉ lệ ra set kich hoạt broly cả 3 hành tinh đều mặc đc
+            //     it.options.add(new Item.ItemOption(210, 1));
+            //     it.options.add(new Item.ItemOption(213, 1));
+            // } else if (randomPercentage < 75) { // 75%
                 if (it.itemTemplate.gender == 0) {
                     if (Util.isTrue(60, 100)) { // skh 1 tỉ lệ 60%
                         it.options.add(new Item.ItemOption(127, 1));
@@ -756,7 +756,7 @@ public class Util {
                         it.options.add(new Item.ItemOption(138, 1));
                     }
                 }
-            }
+            // }
         }
         /// option măc định
         it.options.add(new Item.ItemOption(209, 1)); //đồ rơi từ boss

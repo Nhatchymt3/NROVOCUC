@@ -79,6 +79,8 @@ public class Zone {
     public boolean isbulon13Alive;
     public boolean isbulon14Alive;
 
+    public boolean finishMapSatan;
+
     private void udMob() {
         for (Mob mob : this.mobs) {
             mob.update();

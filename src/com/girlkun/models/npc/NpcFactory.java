@@ -37,6 +37,7 @@ import com.girlkun.models.kygui.ShopKyGuiService;
 import com.girlkun.models.map.Map;
 import com.girlkun.models.map.blackball.BlackBallWar;
 import com.girlkun.models.map.MapMaBu.MapMaBu;
+import com.girlkun.models.map.MapSatan.MapSatan;
 import com.girlkun.models.map.doanhtrai.DoanhTrai;
 import com.girlkun.models.map.doanhtrai.DoanhTraiService;
 import com.girlkun.models.map.gas.Gas;
@@ -306,7 +307,7 @@ public class NpcFactory {
                             case ConstNpc.DTBERUS:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 1) {
                                             if (trung2 != null && trung2.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung2, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -315,11 +316,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử bư");
                                         }
                                         break;
                                     case 1:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 1) {
                                             if (trung2 != null && trung2.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung2, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -328,11 +329,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử bư");
                                         }
                                         break;
                                     case 2:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 1) {
                                             if (trung2 != null && trung2.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung2, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -341,7 +342,7 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử bư");
                                         }
                                         break;
                                 }
@@ -349,7 +350,7 @@ public class NpcFactory {
                             case ConstNpc.DTSUPER:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 2) {
                                             if (trung3 != null && trung3.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -358,11 +359,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử berus");
                                         }
                                         break;
                                     case 1:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 2) {
                                             if (trung3 != null && trung3.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -371,11 +372,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử berus");
                                         }
                                         break;
                                     case 2:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 2) {
                                             if (trung3 != null && trung3.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -384,7 +385,7 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử berus");
                                         }
                                         break;
                                 }
@@ -392,7 +393,7 @@ public class NpcFactory {
                             case ConstNpc.DTWUKONG:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 3) {
                                             if (trung4 != null && trung4.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -401,11 +402,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử broly");
                                         }
                                         break;
                                     case 1:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 3) {
                                             if (trung4 != null && trung4.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -414,11 +415,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử broly");
                                         }
                                         break;
                                     case 2:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 3) {
                                             if (trung4 != null && trung4.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -427,7 +428,7 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử broly");
                                         }
                                         break;
                                 }
@@ -435,7 +436,7 @@ public class NpcFactory {
                             case ConstNpc.DTZAMUS:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 4) {
                                             if (trung5 != null && trung5.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -444,11 +445,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử wukong");
                                         }
                                         break;
                                     case 1:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 4) {
                                             if (trung5 != null && trung5.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -457,11 +458,11 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử wukong");
                                         }
                                         break;
                                     case 2:
-                                        if (player.pet != null) {
+                                        if (player.pet != null && player.pet.type >= 4) {
                                             if (trung5 != null && trung5.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
@@ -470,7 +471,7 @@ public class NpcFactory {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
                                         } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
+                                            this.npcChat(player, "|7| Bạn chưa có đệ tử wukong");
                                         }
                                         break;
                                 }
@@ -4778,6 +4779,77 @@ public class NpcFactory {
         };
     }
 
+    public static Npc tapion(int mapId, int status, int cx, int cy, int tempId, int avartar) {
+        return new Npc(mapId, status, cx, cy, tempId, avartar) {
+            @Override
+            public void openBaseMenu(Player player) {
+                if (canOpenNpc(player)) {
+                    if (this.mapId == 19) {
+                        try {
+                            MapSatan.gI().setTimeJoinMapSatan();
+                            if (this.mapId == 19) {
+                                long now = System.currentTimeMillis();
+                                if (now > MapSatan.TIME_OPEN_SATAN && now < MapSatan.TIME_CLOSE_SATAN) {
+                                    this.createOtherMenu(player, ConstNpc.MENU_OPEN_SANTA, "Đại chiến Hirudegan đã mở, "
+                                            + "ngươi có muốn tham gia không?",
+                                            "Hướng dẫn\nthêm", "Tham gia", "Từ chối");
+                                } else {
+                                    this.createOtherMenu(player, ConstNpc.MENU_NOT_OPEN_SANTA,
+                                            "Ta có thể giúp gì cho ngươi?", "Hướng dẫn", "Từ chối");
+                                }
+
+                            }
+                        } catch (Exception ex) {
+                            Logger.error("Lỗi mở menu tapion");
+                        }
+
+                    } else if (this.mapId == 126) {
+                        this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ta có thể giúp gì cho ngươi ?",
+                                "Quay về", "Từ chối");
+                    } else {
+                        super.openBaseMenu(player);
+                    }
+                }
+            }
+
+            @Override
+            public void confirmMenu(Player player, int select) {
+                if (canOpenNpc(player)) {
+                    if (this.mapId == 19) {
+                        switch (player.iDMark.getIndexMenu()) {
+                            case ConstNpc.MENU_REWARD_SANTA:
+                                break;
+                            case ConstNpc.MENU_OPEN_SANTA:
+                                if (select == 0) {
+                                    NpcService.gI().createTutorial(player, this.avartar, ConstNpc.HUONG_DAN_MAP_SATAN);
+                                } else if (select == 1) {
+                                    if (!player.getSession().actived) {
+                                        Service.gI().sendThongBao(player,
+                                                "Vui lòng kích hoạt tài khoản để sử dụng chức năng này");
+                                    } else
+                                        ChangeMapService.gI().changeMap(player, 126, Util.nextInt(0, 8), 163, 336);
+                                }
+                                break;
+                            case ConstNpc.MENU_NOT_OPEN_BDW:
+                                if (select == 0) {
+                                    NpcService.gI().createTutorial(player, this.avartar, ConstNpc.HUONG_DAN_MAP_SATAN);
+                                }
+                        }
+                    } else if (this.mapId == 126) {
+                        if (player.iDMark.getIndexMenu() == ConstNpc.BASE_MENU) {
+                            if (select == 0) {
+                                ChangeMapService.gI().changeMapBySpaceShip(player, player.gender + 21, 0, -1);
+                            }
+                        }
+                    }
+                }
+
+            };
+
+        };
+
+    }
+
     public static Npc linhCanh(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
@@ -6120,6 +6192,8 @@ public class NpcFactory {
                     return drDrief(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.CARGO:
                     return cargo(mapId, status, cx, cy, tempId, avatar);
+                case ConstNpc.TAPION:
+                    return tapion(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.CUI:
                     return cui(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.SANTA:
@@ -7502,64 +7576,64 @@ public class NpcFactory {
                             int gender = onPlayer.gender;
                             switch (select) {
                                 case 0:
-                                    PetService.gI().changeNormalPet(onPlayer, gender);
+                                    PetService.gI().createNormalPet(onPlayer, gender);
                                     break;
                                 case 1:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changeMabuPet(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 2:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changeBerusPet(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 3:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changeBrolyPet(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 4:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changeWukongPet(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 5:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changeFunsionPet(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 6:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changemabulv2(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 7:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changhuydietlv2(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 8:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changsuperlv2(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 9:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changwukonglv2(onPlayer, gender);
                                         break;
                                     }
                                     break;
                                 case 10:
-                                    if (player.pet != null) {
+                                    if (onPlayer.pet != null) {
                                         PetService.gI().changefusionlv2(onPlayer, gender);
                                         break;
                                     }

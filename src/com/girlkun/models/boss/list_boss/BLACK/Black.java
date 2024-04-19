@@ -28,7 +28,7 @@ public class Black extends Boss {
         byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1); // Lấy danh sách đồ thần linh ở manager
         if (Util.isTrue(80, 100)) {
             if (Util.isTrue(60, 100)) {
-                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(15, 16), 1, this.location.x, this.location.y, plKill.id));
+                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 17, 1, this.location.x, this.location.y, plKill.id));
             } else {
                 if (Util.isTrue(50, 100)) {
                     Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 992, 1, this.location.x, this.location.y, plKill.id));

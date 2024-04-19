@@ -384,6 +384,10 @@ public class MapService {
         return mapId == 159;
     }
 
+    public boolean isMapSatan(int mapId) {
+        return mapId == 126;
+    }
+
     public boolean isMapHuyDiet(int mapId) {
         return mapId >= 146 && mapId <= 148;
     }

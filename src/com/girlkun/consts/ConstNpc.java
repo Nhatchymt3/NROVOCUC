@@ -20,6 +20,11 @@ public class ConstNpc {
             + "4) Các vị tướng trong trại rất mạnh nhé, các ngươi không đơn giản có thể đánh bại họ bằng cách bình thường như đánh quái được đâu\n"
             + "5) Muốn vào, ngươi phải đi cùng một người đồng đội cùng bang (phải đứng gần ngươi). Nhưng ta khuyên là nên đi 3-4 người cùng.\n"
             + "6) Mỗi lần vào, ngươi chỉ có 30 phút để đánh. Sau 30 phút mà ngươi vẫn không thắng, ta sẽ cho máy bay chở ngươi về nhà.";
+        public static final String HUONG_DAN_MAP_SATAN = "Mỗi ngày từ 22h đến 23h tại thành phố Satan sẽ xảy ra 1 cuộc đại chiến\n"
+            + "Người nào tham gia đánh bại các boss ở map sẽ nhận được những món đồ giá trị\n"
+            + "Đồ thần linh, trứng đệ Mabu ...\n"
+            + "Cố gắng tồn tại và chiến đấu đến Boss cuối cùng\n"
+            + "Hãy cùng nhau bảo vệ thành phố Satan";
 
     public static final String HUONG_DAN_BLACK_BALL_WAR = "Mỗi ngày từ 20h đến 21h các hành tinh có Ngọc Rồng Sao Đen sẽ xảy ra 1 cuộc đại chiến\n"
             + "Người nào tìm thấy và giữ được Ngọc Rồng Sao Đen sẽ mang phần thưởng về cho bang của mình trong vòng 1 ngày\n"
@@ -286,6 +291,11 @@ public class ConstNpc {
     public static final int MAGIC_TREE_CONFIRM_UPGRADE = 503;
     public static final int MAGIC_TREE_UPGRADE = 504;
     public static final int MAGIC_TREE_CONFIRM_UNUPGRADE = 505;
+
+    // index menu tapion
+    public static final int MENU_NOT_OPEN_SANTA = 500;
+    public static final int MENU_OPEN_SANTA = 501;
+    public static final int MENU_REWARD_SANTA = 502;
 
     //index menu mabu egg
     public static final int CAN_NOT_OPEN_EGG = 500;

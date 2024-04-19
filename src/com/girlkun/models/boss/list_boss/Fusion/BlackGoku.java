@@ -116,14 +116,11 @@ public class BlackGoku extends Boss {
         Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(748, 749), 1, this.location.x, this.location.y, plKill.id));
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
         byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1); // Lấy danh sách đồ thần linh ở manager
-        byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         int random = new Random().nextInt(100);
         if (random < 30) {
             Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1529, 1, this.location.x, this.location.y, plKill.id));
-        } else if (random < 60) {
-            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 861, Util.nextInt(1, 1000), this.location.x, this.location.y, plKill.id));
         } else if (random < 80) {
-            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));;
+            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone,17, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));;
         } else if (random < 90) {
             Service.getInstance().dropItemMap(this.zone, Util.randomoptionct(zone, 1443, 1, this.location.x, this.location.y, plKill.id));
         } else {

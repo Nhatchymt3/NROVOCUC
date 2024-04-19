@@ -153,7 +153,6 @@ public class PlayerService {
                     if (player.getSession().version > 214) {
                         msg.writer().writeShort(-1);
                     }
-
                     msg.writer().writeShort(bodyValue); //body
 
                     msg.writer().writeShort(legValue); //leg

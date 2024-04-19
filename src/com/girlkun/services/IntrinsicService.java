@@ -98,12 +98,12 @@ public class IntrinsicService {
             }
 
     public void showConfirmOpenVip(Player player) {
-        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC_VIP, -1, "Bạn muốn đổi Nội Tại khác\nvới giá là 2 tỉ vàng ?", "Mở\nNội Tại", "Từ chối");
+        NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC_VIP, -1, "Bạn muốn đổi Nội Tại khác\nvới giá là 2 tỉ vàng ?", "Mở\nNội Tại VIP", "Từ chối");
     }
 
     public void showConfirmOpen(Player player) {
         NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_OPEN_INTRINSIC, -1,
-                "Bạn có muốn mở Nội Tại\nvới giá là 100 ngọc và\ntái lập giá vàng quay lại ban đầu không?", "Mở\nNội VIP", "Từ chối");
+                "Bạn có muốn mở Nội Tại\nvới giá là 100 ngọc và\ntái lập giá vàng quay lại ban đầu không?", "Mở\nNội", "Từ chối");
     }
 
     private void changeIntrinsicVip(Player player) {

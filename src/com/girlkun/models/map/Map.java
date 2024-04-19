@@ -6,6 +6,7 @@ import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossID;
 import com.girlkun.models.boss.BossManager;
 import com.girlkun.models.map.MapMaBu.MapMaBu;
+import com.girlkun.models.map.MapSatan.MapSatan;
 import com.girlkun.models.map.bdkb.BanDoKhoBau;
 import com.girlkun.models.map.bdkb.BanDoKhoBauService;
 import com.girlkun.models.map.doanhtrai.DoanhTrai;
@@ -98,6 +99,9 @@ public class Map implements Runnable {
                 break;
             case ConstMap.MAP_BAN_DO_KHO_BAU:
                 nZone = BanDoKhoBau.MAX_AVAILABLE;
+                break;
+            case ConstMap.MAP_SATAN:
+                nZone = MapSatan.AVAILABLE;
                 break;
         }
 

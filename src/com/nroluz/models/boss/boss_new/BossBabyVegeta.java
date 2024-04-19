@@ -41,7 +41,7 @@ public class BossBabyVegeta extends
             if (Util.isTrue(50, 100)) {                
                 Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1518, Util.nextInt(1, 30), this.location.x, this.location.y, plKill.id));
             } else {
-                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(15, 16), 1, this.location.x, this.location.y, plKill.id));
+                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 17, 1, this.location.x, this.location.y, plKill.id));
                 
             }
         } else {

@@ -17,6 +17,7 @@ public class ConstMap {
     public static final byte MAP_BAN_DO_KHO_BAU = 4;
     public static final byte MAP_MA_BU = 5;
     public static final byte MAP_KHI_GAS = 6;
+    public static final byte MAP_SATAN = 7;
 
 
     //type change map

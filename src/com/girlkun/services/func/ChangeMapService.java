@@ -8,6 +8,7 @@ import com.girlkun.models.boss.list_boss.MiNuong;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.map.Map;
 import com.girlkun.models.map.MapMaBu.MapMaBu;
+import com.girlkun.models.map.MapSatan.MapSatan;
 import com.girlkun.models.map.WayPoint;
 import com.girlkun.models.map.Zone;
 import com.girlkun.models.map.bdkb.BanDoKhoBauService;
@@ -412,6 +413,7 @@ public class ChangeMapService {
             }
             checkJoinSpecialMap(pl);
             checkJoinMapMaBu(pl);
+            checkJoinMapSatan(pl);
         } else {
             int plX = pl.location.x;
             if (pl.location.x >= pl.zone.map.mapWidth - 60) {
@@ -725,7 +727,7 @@ public class ChangeMapService {
             player.iDMark.setGotoFuture(true);
             player.type = 0;
             spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
-            effectChangeMap(player, 30, EFFECT_GO_TO_TUONG_LAI);
+            effectChangeMap(player, 60, EFFECT_GO_TO_TUONG_LAI);
         }
     }
 
@@ -735,7 +737,7 @@ public class ChangeMapService {
             player.iDMark.setGoToGas(true);
             player.type = 1;
             spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
-            effectChangeMap(player, 30, EFFECT_GO_TO_BDKG);
+            effectChangeMap(player, 60, EFFECT_GO_TO_BDKG);
         }
     }
 
@@ -745,7 +747,7 @@ public class ChangeMapService {
             player.iDMark.setGoToBDKB(true);
             player.type = 2;
             spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
-            effectChangeMap(player, 30, EFFECT_GO_TO_BDKG);
+            effectChangeMap(player, 60, EFFECT_GO_TO_BDKG);
         }
     }
 
@@ -1009,6 +1011,16 @@ public class ChangeMapService {
                 case 119:
                 case 120:
                     MapMaBu.gI().joinMapMabu(player);
+                    break;
+            }
+        }
+    }
+    private void checkJoinMapSatan(Player player) {
+        if (player != null && player.zone != null) {
+            switch (player.zone.map.mapId) {
+                // mapsâtn
+                case 126:
+                    MapSatan.gI().joinMapSatan(player);
                     break;
             }
         }
