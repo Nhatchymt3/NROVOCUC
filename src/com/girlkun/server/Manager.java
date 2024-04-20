@@ -81,7 +81,7 @@ public class Manager {
     public static byte RATE_EXP_SERVER = 2;
     public static boolean LOCAL = false;
     public static byte SUKIEN = 0;// sau khi chinh
-    public static int KHUYEN_MAI_NAP = 200;
+    public static int KHUYEN_MAI_NAP = 3;
 
     public static MapTemplate[] MAP_TEMPLATES;
     public static final List<com.girlkun.models.map.Map> MAPS = new ArrayList<>();

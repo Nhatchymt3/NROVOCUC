@@ -1747,7 +1747,7 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (player.iDMark.isBaseMenu()) {
-                            int thoivang = 2;
+                            int thoivang = 1;
                             int hongngoc = 1000;
                             switch (select) {
                                 case 0:
@@ -1756,9 +1756,8 @@ public class NpcFactory {
                                             + "\b\b|7|Rút thỏi vàng và hồng ngọc giới hạn không quá 1.000.000 đ"
                                             + "\b\b|5|Số tiền của bạn còn: " + Util.format(player.getSession().vnd) + " VNĐ"
                                             + "\b|2|Sever hiện tại đang X " + Manager.KHUYEN_MAI_NAP + "  Rút tiền"
-                                            + "\b|1|1.000VNĐ = " + Util.format(Manager.KHUYEN_MAI_NAP * thoivang) + " Thỏi vàng"
-                                            + "\b|1|1.000VNĐ = " + Util.format(Manager.KHUYEN_MAI_NAP * hongngoc) + " Hồng ngọc",
-                                            "Thỏi Vàng", "Hồng ngọc", "Từ chối");
+                                            + "\b|1|1.000VNĐ = " + Util.format(Manager.KHUYEN_MAI_NAP * thoivang) + " Thỏi vàng",
+                                            "Thỏi Vàng","Từ chối");
                                     break;
                                 case 1:
                                     this.createOtherMenu(player, 2,
@@ -1792,9 +1791,9 @@ public class NpcFactory {
                                 case 0:
                                     Input.gI().createFormQDTV(player);
                                     break;
-                                case 1:
-                                    Input.gI().createFormQDHN(player);
-                                    break;
+                                // case 1:
+                                //     Input.gI().createFormQDHN(player);
+                                //     break;
                             }
                         } else if (player.iDMark.getIndexMenu() == 3) {
                             switch (select) {
@@ -1802,8 +1801,8 @@ public class NpcFactory {
                                     if (player.getSession().vnd >= 10000) {
                                         PlayerDAO.subvnd(player, 10000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 30);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 30);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 10k");
                                     } else {
@@ -1815,8 +1814,8 @@ public class NpcFactory {
                                     if (player.getSession().vnd >= 20000) {
                                         PlayerDAO.subvnd(player, 20000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 60);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 60);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 20k");
                                         InventoryServiceNew.gI().sendItemBags(player);
@@ -1830,8 +1829,8 @@ public class NpcFactory {
                                     if (player.getSession().vnd >= 50000) {
                                         PlayerDAO.subvnd(player, 50000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 90);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 90);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 50k");
                                         InventoryServiceNew.gI().sendItemBags(player);
@@ -1844,8 +1843,8 @@ public class NpcFactory {
                                     if (player.getSession().vnd >= 100000) {
                                         PlayerDAO.subvnd(player, 100000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 300);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 300);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 100k");
 
@@ -1857,8 +1856,8 @@ public class NpcFactory {
                                     if (player.getSession().vnd >= 200000) {
                                         PlayerDAO.subvnd(player, 200000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 600);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 600);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 200k");
 
@@ -1870,8 +1869,8 @@ public class NpcFactory {
                                     if (player.getSession().vnd >= 500000) {
                                         PlayerDAO.subvnd(player, 500000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 1500);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 1500);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 500k");
                                     } else {
@@ -1884,9 +1883,8 @@ public class NpcFactory {
                                 case 0:
                                     if (player.getSession().tongnap >= 10000) {
                                         PlayerDAO.subtongnap(player, 10000);
-
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 10);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 10);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 10k");
                                     } else {
@@ -1898,8 +1896,8 @@ public class NpcFactory {
                                     if (player.getSession().tongnap >= 20000) {
                                         PlayerDAO.subtongnap(player, 20000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 20);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 20);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 20k");
                                         InventoryServiceNew.gI().sendItemBags(player);
@@ -1913,8 +1911,8 @@ public class NpcFactory {
                                     if (player.getSession().tongnap >= 50000) {
                                         PlayerDAO.subtongnap(player, 50000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 50);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 50);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 50k");
                                         InventoryServiceNew.gI().sendItemBags(player);
@@ -1927,8 +1925,8 @@ public class NpcFactory {
                                     if (player.getSession().tongnap >= 100000) {
                                         PlayerDAO.subtongnap(player, 100000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 150);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 150);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 100k");
 
@@ -1940,8 +1938,8 @@ public class NpcFactory {
                                     if (player.getSession().tongnap >= 200000) {
                                         PlayerDAO.subtongnap(player, 200000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 300);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 300);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 200k");
 
@@ -1954,8 +1952,8 @@ public class NpcFactory {
                                     if (player.getSession().tongnap >= 500000) {
                                         PlayerDAO.subtongnap(player, 500000);
 
-                                        Item thoivang = ItemService.gI().createNewItem((short) 1529, 800);
-                                        InventoryServiceNew.gI().addItemBag(player, thoivang);
+                                        Item xuvang = ItemService.gI().createNewItem((short) 1529, 800);
+                                        InventoryServiceNew.gI().addItemBag(player, xuvang);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         this.npcChat(player, "|1|Bạn đã nhận thành công mốc 500k");
                                     } else {
@@ -3875,7 +3873,7 @@ public class NpcFactory {
                                 case 0:
                                     this.createOtherMenu(player, ConstNpc.MENU_DI_CHUYEN,
                                             "|7|Con muốn đi đâu?"
-                                            + "\n|7|Map Ngũ Hành Sơn x4 Tnsm"
+                                            + "\n|7|Map Ngũ Hành Sơn x2 Tnsm"
                                             + "\n|7|LƯU Ý: Chỉ hỗ trợ cho tân thủ dưới 80 tỷ", "Map Ngũ\nHành Sơn", "Từ chối");
                                     break;
                             }
