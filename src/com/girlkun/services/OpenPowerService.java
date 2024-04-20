@@ -25,7 +25,7 @@ public class OpenPowerService {
 
     public boolean openPowerSpeed(Player player) {
         if (player.nPoint.limitPower < NPoint.MAX_LIMIT) {
-            if (player.nPoint.power >= player.pet.nPoint.getPowerLimit()) {
+            if (player.nPoint.power >= player.nPoint.getPowerLimit()) {
             player.nPoint.limitPower++;
             if (player.nPoint.limitPower > NPoint.MAX_LIMIT) {
                 player.nPoint.limitPower = NPoint.MAX_LIMIT;
