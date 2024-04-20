@@ -114,7 +114,7 @@ public class Mob {
 
     public Boolean checlSkill(Skill skill)
     {
-        if (skill.template.id !=Skill.TU_SAT && skill.template.id == Skill.LIEN_HOAN_CHUONG && skill.template.id != Skill.SUPER_KAME) {
+        if (skill.template.id !=Skill.TU_SAT && skill.template.id != Skill.LIEN_HOAN_CHUONG && skill.template.id != Skill.SUPER_KAME) {
             return true;
         }
         return false;
