@@ -17,8 +17,7 @@ public class Traidatnhanban extends Boss {
     public Traidatnhanban(int bossID, BossData bossData, Zone zone, Player plTarget) throws Exception {
         super(bossID, bossData);
         this.zone = zone;
-        this.playerTarger = plTarget;
-        this.playerTarger = plTarget;
+        this.lockPlayerTarget = plTarget;
     }
 
     @Override

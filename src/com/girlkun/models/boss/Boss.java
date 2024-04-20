@@ -59,6 +59,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     protected long lastTimeTargetPlayer;
     protected int timeTargetPlayer;
     public Player playerTarger;
+    public Player lockPlayerTarget;
 
     protected Boss parentBoss;
     public Boss[][] bossAppearTogether;
@@ -217,25 +218,20 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     @Override
     public Player getPlayerAttack() {
-        if (this instanceof AnTrom && (this.playerTarger == this.pet || this.playerTarger == this.TrieuHoipet || this.playerTarger == this.newpet || Util.canDoWithTime(this.lastTimeTargetPlayer, this.timeTargetPlayer))) {
-            this.playerTarger = this.zone.getRandomPlayerInMapPlayer();
+        if (this.zone != null && (this.playerTarger == null || Util.canDoWithTime(this.lastTimeTargetPlayer, this.timeTargetPlayer))) {
+            this.playerTarger = this.zone.getRandomPlayerInMap();
             this.lastTimeTargetPlayer = System.currentTimeMillis();
-            this.timeTargetPlayer = Util.nextInt(1000, 2000);
-        } else {
-            if (this.playerTarger != null && (this.playerTarger.isDie() || !this.zone.equals(this.playerTarger.zone))) {
-                this.playerTarger = null;
-            }
-            if (this.playerTarger != null && this.playerTarger.effectSkin != null && this.playerTarger.effectSkin.isVoHinh) {
-                this.playerTarger = null;
-                this.lastTimeTargetPlayer = System.currentTimeMillis();
-                this.timeTargetPlayer = Util.nextInt(1000, 2000);
-            }
-            if (this.playerTarger == null || Util.canDoWithTime(this.lastTimeTargetPlayer, this.timeTargetPlayer)) {
-                this.playerTarger = this.zone.getRandomPlayerInMap();
-                this.lastTimeTargetPlayer = System.currentTimeMillis();
-                this.timeTargetPlayer = Util.nextInt(5000, 7000);
-            }
+            this.timeTargetPlayer = Util.nextInt(5000, 7000);
         }
+        if (this.zone != null && this.playerTarger != null && (this.playerTarger.isDie() || !this.zone.equals(this.playerTarger.zone)
+                || this.playerTarger.effectSkin.isVoHinh || this.playerTarger.isNewPet)) {
+            this.playerTarger = null;
+        }
+        if (this.lockPlayerTarget != null) {
+            this.playerTarger = this.lockPlayerTarget;
+            return this.lockPlayerTarget;
+        }
+
         return this.playerTarger;
     }
 

@@ -17,7 +17,7 @@ public class Namecnhanban extends Boss {
     public Namecnhanban(int bossID, BossData bossData, Zone zone, Player plTarget) throws Exception {
         super(bossID, bossData);
         this.zone = zone;
-        this.playerTarger = plTarget;
+        this.lockPlayerTarget = plTarget;
     }
 
     @Override
