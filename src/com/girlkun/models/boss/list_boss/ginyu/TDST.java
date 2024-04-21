@@ -18,18 +18,9 @@ public class TDST extends Boss {
     }
 
     @Override
-    public void moveTo(int x, int y) {
-        if (this.currentLevel == 1) {
-            return;
-        }
-        super.moveTo(x, y);
-    }
-
-    @Override
     public void reward(Player plKill) {
         super.reward(plKill);
         Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(748, 749), 1, this.location.x, this.location.y, plKill.id));
-
         if (this.currentLevel == 1) {
             return;
         }
@@ -51,7 +42,7 @@ public class TDST extends Boss {
     @Override
     public void active() {
         super.active();
-        if (Util.canDoWithTime(st, 30 * 60 * 1000)) {
+        if (Util.canDoWithTime(st, 600000)) {
             this.changeStatus(BossStatus.LEAVE_MAP);
         }
     }

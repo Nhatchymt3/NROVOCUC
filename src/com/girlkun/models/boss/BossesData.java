@@ -351,7 +351,7 @@ public class BossesData {
 
     //************************************************************************** Boss Fide đại ca
     public static final BossData FIDE_DAI_CA_1 = new BossData(
-            "Fide Nro 1", //name
+            "Fide đại ca 1", //name
             ConstPlayer.XAYDA, //gender
             new short[]{183, 184, 185, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             6000, //dame
@@ -1405,9 +1405,8 @@ public class BossesData {
             new double[]{2_000_000_000L}, //hp
             new int[]{92, 93, 94, 96, 97, 98, 99, 100}, //map join
             new int[][]{
+                {Skill.TROI,7,100000},
                 {Skill.KAMEJOKO, 5, 3000},
-                {Skill.TAI_TAO_NANG_LUONG, 1, 13000},
-                {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.QUA_CAU_KENH_KHI, 7, 120000}},
             //skill
             new String[]{}, //text chat 1

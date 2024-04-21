@@ -56,6 +56,10 @@ public class Input {
     public static final int DOI_XU = 521;
     public static final int VE_HONG_NGOC = 522;
     public static final int MUA_NHIEU_VP = 523;
+    public static final int QUY_DOI_XTOD = 524;
+    public static final int QUY_DOI_DTOX = 525;
+    public static final int QUY_DOI_VTOD = 526;
+    public static final int QUY_DOI_VTOX = 527;
     public static final int buffcs = 1523;
     ///doithoivangnhanh
 
@@ -926,6 +930,70 @@ public class Input {
                         Service.getInstance().sendThongBao(player, "|7|Số tiền nhập phải là bội số của 1000");
                     }
                     break;
+                case QUY_DOI_XTOD:
+                    int XTOD = Integer.parseInt(text[0]);
+                    Item dongxu = InventoryServiceNew.gI().findItemBag(player, 1529);
+                    if (XTOD*2 <= dongxu.quantity) {
+                        if (XTOD <= 0 || XTOD >= 5000) {
+                            Service.getInstance().sendThongBao(player, "|7|Quá giới hạn mỗi lần tối đa 5000");
+                        } else{
+                            Item dangusac = ItemService.gI().createNewItem((short) 674, XTOD);
+                            InventoryServiceNew.gI().subQuantityItemsBag(player, dongxu, XTOD*2);
+                            InventoryServiceNew.gI().addItemBag(player, dangusac);
+                            InventoryServiceNew.gI().sendItemBags(player);
+                        }
+                    } else {
+                        Service.getInstance().sendThongBao(player, "|7|Số xu vàng không đủ");
+                    }
+                    break;
+                case QUY_DOI_DTOX:
+                    int DTOX = Integer.parseInt(text[0]);
+                    Item dangusac = InventoryServiceNew.gI().findItemBag(player, 674);
+                    if (DTOX*2 <= dangusac.quantity) {
+                        if (DTOX <= 0 || DTOX >= 5000) {
+                            Service.getInstance().sendThongBao(player, "|7|Quá giới hạn mỗi lần tối đa 5000");
+                        } else{
+                            Item xu = ItemService.gI().createNewItem((short) 1529, DTOX);
+                            InventoryServiceNew.gI().subQuantityItemsBag(player, dangusac, DTOX*2);
+                            InventoryServiceNew.gI().addItemBag(player, xu);
+                            InventoryServiceNew.gI().sendItemBags(player);
+                        }
+                    } else {
+                        Service.getInstance().sendThongBao(player, "|7|Số xu vàng không đủ");
+                    }
+                    break;
+                case QUY_DOI_VTOD:
+                    int VTOD = Integer.parseInt(text[0]);
+                    Item vangd = InventoryServiceNew.gI().findItemBag(player, 457);
+                    if (VTOD <= vangd.quantity) {
+                        if (VTOD <= 0 || VTOD >= 5000) {
+                            Service.getInstance().sendThongBao(player, "|7|Quá giới hạn mỗi lần tối đa 5000");
+                        } else{
+                            Item da = ItemService.gI().createNewItem((short) 674, VTOD);
+                            InventoryServiceNew.gI().subQuantityItemsBag(player, vangd, VTOD);
+                            InventoryServiceNew.gI().addItemBag(player, da);
+                            InventoryServiceNew.gI().sendItemBags(player);
+                        }
+                    } else {
+                        Service.getInstance().sendThongBao(player, "|7|Số xu vàng không đủ");
+                    }
+                    break;
+                case QUY_DOI_VTOX:
+                    int VTOX = Integer.parseInt(text[0]);
+                    Item vangx = InventoryServiceNew.gI().findItemBag(player, 457);
+                    if (VTOX <= vangx.quantity) {
+                        if (VTOX <= 0 || VTOX >= 5000) {
+                            Service.getInstance().sendThongBao(player, "|7|Quá giới hạn mỗi lần tối đa 5000");
+                        } else{
+                            Item xu = ItemService.gI().createNewItem((short) 1529, VTOX);
+                            InventoryServiceNew.gI().subQuantityItemsBag(player, vangx, VTOX);
+                            InventoryServiceNew.gI().addItemBag(player, xu);
+                            InventoryServiceNew.gI().sendItemBags(player);
+                        }
+                    } else {
+                        Service.getInstance().sendThongBao(player, "|7|Số xu vàng không đủ");
+                    }
+                    break;
                 case QUY_DOI_COIN_1: // quỷ đổi thỏi vàng
                     int goldTrade1 = Integer.parseInt(text[0]);
                     if (goldTrade1 % 1000 == 0) {
@@ -1147,6 +1215,18 @@ public class Input {
 
     public void createFormQDHN(Player pl) {
         createForm(pl, QUY_DOI_COIN, "ĐỔI HỒNG NGỌC", new SubInput("Nhập số lượng muốn đổi", NUMERIC));
+    }
+    public void createFormXTOD(Player pl) {
+        createForm(pl, QUY_DOI_XTOD, "ĐỔI ĐÁ NGŨ SẮC", new SubInput("Nhập số lượng muốn đổi", NUMERIC));
+    }
+    public void createFormDTOX(Player pl) {
+        createForm(pl, QUY_DOI_DTOX, "ĐỔI XU VÀNG", new SubInput("Nhập số lượng muốn đổi", NUMERIC));
+    }
+    public void createFormVTOD(Player pl) {
+        createForm(pl, QUY_DOI_VTOD, "ĐỔI ĐÁ NGŨ SẮC", new SubInput("Nhập số lượng muốn đổi", NUMERIC));
+    }
+    public void createFormVTOX(Player pl) {
+        createForm(pl, QUY_DOI_VTOX, "ĐỔI XU VÀNG", new SubInput("Nhập số lượng muốn đổi", NUMERIC));
     }
 
     public void createFormQDTV(Player pl) {

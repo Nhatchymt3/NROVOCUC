@@ -188,6 +188,7 @@ public class ConstNpc {
     public static final int MENU_ACCPET_GO_TO_GAS = 538;
     public static final int MENU_OPEN_GAS = 539;
     public static final int MENU_OPENED_GAS = 540;
+    public static final int QUY_DOI_VP = 13;
     //index than vu tru
     ////sự kiện
     public static final int NHAN_QUA_MENU = 5103;

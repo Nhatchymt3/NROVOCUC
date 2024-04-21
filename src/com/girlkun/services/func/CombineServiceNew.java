@@ -1315,7 +1315,7 @@ public class CombineServiceNew {
                 fusionskh(player);
                 break;
             case NHAP_NGOC_RONG:
-                test(player);
+                nhapngocrong(player);
                 break;
             case AN_TRANG_BI:
                 antrangbi(player);
@@ -2199,7 +2199,7 @@ public class CombineServiceNew {
         reOpenItemCombine(player);
     }
 
-    private void test(Player player) {
+    private void nhapngocrong(Player player) {
         InventoryServiceNew inventoryService = InventoryServiceNew.gI();
         CombineNew combineNew = player.combineNew;
 
@@ -2518,7 +2518,7 @@ public class CombineServiceNew {
                 return;
             }
             int gem = player.combineNew.gemCombine;
-            if (player.inventory.ruby < gem) {
+            if (player.inventory.gem < gem) {
                 Service.gI().sendThongBao(player, "Không đủ Hồng ngọc để thực hiện");
                 return;
             }
@@ -2535,7 +2535,7 @@ public class CombineServiceNew {
 
             if (levelbongtai == 242 && bongtai != null && manhVo != null && manhVo.quantity >= 99) {
                 player.inventory.gold -= gold;
-                player.inventory.ruby -= gem;
+                player.inventory.gem -= gem;
                 if (Util.isTrue(30, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);//xoa mãnh mvbt
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
@@ -2558,7 +2558,7 @@ public class CombineServiceNew {
             }
             if (levelbongtai == 243 && bongtai != null && manhVo != null && manhVo.quantity >= 999) {
                 player.inventory.gold -= gold;
-                player.inventory.ruby -= gem;
+                player.inventory.gem -= gem;
                 if (Util.isTrue(20, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 999);//xoa mãnh mvbt
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
@@ -2581,7 +2581,7 @@ public class CombineServiceNew {
             }
             if (levelbongtai == 244 && bongtai != null && manhVo != null && manhVo.quantity >= 99) {
                 player.inventory.gold -= gold;
-                player.inventory.ruby -= gem;
+                player.inventory.gem -= gem;
                 if (Util.isTrue(10, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);//xoa mãnh mvbt
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);

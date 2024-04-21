@@ -1558,9 +1558,9 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         if (player.getSession().is_gift_box) {
-                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội", "Lãnh địa\nbang hội","Bản đồ kho báu", "Nhận quà\nđền bù");
+                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Quy đổi","Giải tán bang hội", "Lãnh địa\nbang hội","Bản đồ kho báu", "Nhận quà\nđền bù");
                         } else {
-                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Giải tán bang hội","Lãnh địa\nbang hội","Bản đồ kho báu");
+                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "Chào con, con muốn ta giúp gì nào?", "Quy đổi","Giải tán bang hội","Lãnh địa\nbang hội","Bản đồ kho báu");
                         }
                     }
                 }
@@ -1614,6 +1614,15 @@ public class NpcFactory {
 //                                }
 //                                break;
                             case 0:
+                            this.createOtherMenu(player, ConstNpc.QUY_DOI_VP,
+                                    "|7|Bạn muốn quy đổi thứ gì"
+                                    + "\n|1|2 xu vàng = 1 đá ngũ sắc \n"
+                                    + "\n|1|2 đá ngũ sắc = 1 xu vàng\n"
+                                    + "\n|1|1 thỏi vàng = 1 đá ngũ sắc\n"
+                                    + "\n|1|1 thỏi vàng  = 1 xu\n",
+                                    "XU => ĐÁ","ĐÁ => XU","VÀNG => ĐÁ","ĐÁ => XU");
+                            break;
+                            case 1:
                                 Clan clan = player.clan;
                                 if (clan != null) {
                                     ClanMember cm = clan.getClanMember((int) player.id);
@@ -1634,14 +1643,14 @@ public class NpcFactory {
                                 }
                                 Service.getInstance().sendThongBao(player, "Có bang hội đâu ba!!!");
                                 break;
-                            case 1:
+                            case 2:
                                 if (player.clan != null) {
                                     ChangeMapService.gI().changeMapBySpaceShip(player, 153, -1, -1);
                                 } else {
                                     Service.getInstance().sendThongBao(player, "Yêu cầu có bang hội !!!");
                                 }
                                 break;
-                            case 2:
+                            case 3:
                                 if (player.clan != null) {
                                     if (player.clan.banDoKhoBau != null) {
                                         this.createOtherMenu(player, ConstNpc.MENU_OPENED_BDKB,
@@ -1659,7 +1668,7 @@ public class NpcFactory {
                                     this.npcChat(player, "Con phải có bang hội ta mới có thể cho con đi");
                                 }
                                 break;
-                            case 3:
+                            case 4:
                                 if (player.getSession().is_gift_box) {
                                     if (PlayerDAO.setIs_gift_box(player)) {
                                         player.getSession().is_gift_box = false;
@@ -1701,10 +1710,19 @@ public class NpcFactory {
                                 BanDoKhoBauService.gI().openBanDoKhoBau(player, Byte.parseByte(String.valueOf(PLAYERID_OBJECT.get(player.id))));
                                 break;
                         }
-                    } else if (player.iDMark.getIndexMenu() == ConstNpc.QUY_DOI_HN) {
+                    } else if (player.iDMark.getIndexMenu() == ConstNpc.QUY_DOI_VP) {
                         switch (select) {
                             case 0:
-                                Input.gI().createFormQDHN(player);
+                                Input.gI().createFormXTOD(player);
+                                break;
+                            case 1:
+                                Input.gI().createFormDTOX(player);
+                                break;
+                            case 2:
+                                Input.gI().createFormVTOD(player);
+                                break;
+                            case 3:
+                                Input.gI().createFormVTOX(player);
                                 break;
 
                         }
@@ -2039,7 +2057,7 @@ public class NpcFactory {
                                         .replaceAll("%1", player.gender == ConstPlayer.TRAI_DAT ? "Quy lão Kamê"
                                                 : player.gender == ConstPlayer.NAMEC ? "Trưởng lão Guru" : "Vua Vegeta") + "Ta đang giữ tiền tiết kiệm của con\n|1| Hiện tại con đang có: " + player.getSession().vnd + "VND"
                                 + "\n|7| Chào mừng con đến với NRO :",
-                                "Nhận ngọc", "Giftcode",
+                                "Nhận ngọc", "Giftcode","Đổi mật khẩu",
                                 "Lệnh\ncơ bản"
                         );
 
@@ -2099,7 +2117,10 @@ public class NpcFactory {
                             //         this.npcChat(player, "Tiêu hết đi rồi nhận");
                             //     }
                             //     break;
-                            case 5:
+                            case 2:
+                                Input.gI().createFormChangePassword(player);
+                                break;
+                            case 3:
                                 this.createOtherMenu(player, 1231, ""
                                         + "|7|CÁC LỆNH CƠ BẢN HIÊN TẠI CỦA GAME"
                                         + "\n|1|chat > auto: hiển thị menu tự động"
