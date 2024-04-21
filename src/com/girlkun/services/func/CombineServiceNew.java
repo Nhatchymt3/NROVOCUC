@@ -2050,8 +2050,8 @@ public class CombineServiceNew {
             int solandap = player.combineNew.quantities;
             boolean flag = false;
             while (player.combineNew.quantities > 0 && !player.combineNew.itemsCombine.isEmpty() && !flag) {
-                if (player.inventory.ruby < gem) {
-                    Service.getInstance().sendThongBao(player, "Không đủ ngọc hồng để thực hiện");
+                if (player.inventory.gem < gem) {
+                    Service.getInstance().sendThongBao(player, "Không đủ ngọc để thực hiện");
                     return;
                 }
                 Item trangBi = null;
@@ -2128,7 +2128,7 @@ public class CombineServiceNew {
                 Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện");
                 break;
             } // Kiểm tra và thông báo nếu không đủ ngọc để thực hiện
-            else if (player.inventory.ruby < gem) {
+            else if (player.inventory.gem < gem) {
                 Service.gI().sendThongBao(player, "Không đủ ngọc để thực hiện");
                 break;
             }
