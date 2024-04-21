@@ -3473,7 +3473,7 @@ public class CombineServiceNew {
     public boolean isTrangBiPhaLeHoa(Item item) {
         if (item != null && item.isNotNullItem()) {
             if ((
-                    // item.template.type <= 5 ||
+                    item.template.type < 5 ||
                     item.template.type == 32 
                     // || item.template.type == 24 || item.template.type == 23
                     // || item.template.id == 1179
