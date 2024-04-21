@@ -162,9 +162,8 @@ public class BossesData {
                                         { Skill.LIEN_HOAN, 7, 300 },
                                         { Skill.KAMEJOKO, 7, 500 },
                                         { Skill.DICH_CHUYEN_TUC_THOI, 3, 60000 },
-                                        {Skill.TAI_TAO_NANG_LUONG,3,40000},
                                         { Skill.THOI_MIEN, 7, 22000 },
-                                        { Skill.KHIEN_NANG_LUONG, 7, 100000 },
+                                        { Skill.QUA_CAU_KENH_KHI, 7, 100000 },
                         },
 
                         // skill
@@ -1309,9 +1308,8 @@ public class BossesData {
             new int[]{92, 93, 94, 96, 97, 98, 99, 100}, //map join
             new int[][]{
                 //                {Skill.DICH_CHUYEN_TUC_THOI, 7, 15000},
-                {Skill.TAI_TAO_NANG_LUONG, 1, 13000},
+                {Skill.TROI,7,100000},
                 {Skill.KAMEJOKO, 5, 3000},
-                {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.QUA_CAU_KENH_KHI, 7, 120000}},
             //skill
             new String[]{}, //text chat 1
@@ -1334,9 +1332,8 @@ public class BossesData {
             new int[]{92, 93, 94, 96, 97, 98, 99, 100}, //map join
             new int[][]{
                 //                {Skill.DICH_CHUYEN_TUC_THOI, 7, 15000},
-                {Skill.TAI_TAO_NANG_LUONG, 1, 13000},
+                {Skill.TROI,7,100000},
                 {Skill.KAMEJOKO, 5, 3000},
-                {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.QUA_CAU_KENH_KHI, 7, 120000}},
             //skill
             new String[]{}, //text chat 1
@@ -1359,9 +1356,8 @@ public class BossesData {
             new int[]{92, 93, 94, 96, 97, 98, 99, 100}, //map join
             new int[][]{
                 //                {Skill.DICH_CHUYEN_TUC_THOI, 7, 15000},
-                {Skill.TAI_TAO_NANG_LUONG, 1, 13000},
+                {Skill.TROI,7,100000},
                 {Skill.KAMEJOKO, 5, 3000},
-                {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.QUA_CAU_KENH_KHI, 7, 120000}},
             //skill
             new String[]{}, //text chat 1
@@ -2110,7 +2106,7 @@ public class BossesData {
             new short[]{618, 619, 620, 51, -1, -1},
             1,
             new double[]{100},
-            new int[]{5},
+            new int[]{5, 84, 0, 7, 14},
             new int[][]{
                 {Skill.DEMON, 5, 15000}},
             new String[]{"|-1|Tới giờ làm việc, lụm lụm", "|-1|Cảm giác mình vào phải khu người nghèo :))"}, //text chat 1
