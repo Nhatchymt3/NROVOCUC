@@ -140,16 +140,17 @@ public class TaiXiu implements Runnable {
                         if (!TaiXiu.gI().PlayersTai.isEmpty()) {
                             for (int i = 0; i < PlayersTai.size(); i++) {
                                 Player pl = this.PlayersTai.get(i);
-                                if (pl != null && Client.gI().getPlayer(pl.name) != null) {
+                                if (pl != null ) {
                                   
-                                    int goldC = pl.goldTai + pl.goldTai * 80 / 100;
+                                    Item tvthang = ItemService.gI().createNewItem((short) 457);
+                                    tvthang.quantity = (int) Math.round(pl.goldTai * 1.8);
+                                    int sovthang = tvthang.quantity;
+                                    InventoryServiceNew.gI().addItemBag(pl, tvthang);
+                                    InventoryServiceNew.gI().sendItemBags(pl);
                                     Service.getInstance().sendThongBao(pl, "Số hệ thống quay ra\n" + x + " : "
                                             + y + " : " + z + "\n|5|Tổng là : " + tong + "\n(TÀI)\n\n|1|Bạn đã chiến thắng!!");
-                                    Service.getInstance().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + Util.format(goldC) + " Hồng ngọc");
-                                    pl.inventory.ruby += goldC;
+                                    Service.getInstance().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + Util.format(sovthang) + " Thỏi Vàng");
                                     pl.taixiu.win += pl.goldTai * 80 / 100;
-                                    Service.getInstance().sendMoney(pl);
-                                    InventoryServiceNew.gI().sendItemBags(pl);
                                     Message m;
                                     try {
                                         m = new Message(-126);
@@ -166,7 +167,7 @@ public class TaiXiu implements Runnable {
                         }
                         for (int i = 0; i < PlayersXiu.size(); i++) {
                             Player pl = this.PlayersXiu.get(i);
-                            if (pl != null && Client.gI().getPlayer(pl.name) != null) {
+                            if (pl != null ) {
                                 Service.getInstance().sendThongBao(pl, "Số hệ thống quay ra\n" + x + " : "
                                         + y + " : " + z + "\n|5|Tổng là : " + tong + "\n(TÀI)\n\n|7|Trắng tay gòi, chơi lại đi!!!");
 
@@ -187,16 +188,17 @@ public class TaiXiu implements Runnable {
                         if (!TaiXiu.gI().PlayersXiu.isEmpty()) {
                             for (int i = 0; i < PlayersXiu.size(); i++) {
                                 Player pl = this.PlayersXiu.get(i);
-                                if (pl != null && Client.gI().getPlayer(pl.name) != null) {
+                                if (pl != null ) {
 
-                                    int goldC = pl.goldXiu + pl.goldXiu * 80 / 100;
+                                    Item tvthang = ItemService.gI().createNewItem((short) 457);
+                                    tvthang.quantity = (int) Math.round(pl.goldXiu * 1.8);
+                                    int sovthang = tvthang.quantity;
+                                    InventoryServiceNew.gI().addItemBag(pl, tvthang);
+                                    InventoryServiceNew.gI().sendItemBags(pl);
                                     Service.getInstance().sendThongBao(pl, "Số hệ thống quay ra\n" + x + " : "
                                             + y + " : " + z + "\n|5|Tổng là : " + tong + "\n(XỈU)\n\n|1|Bạn đã chiến thắng!!");
-                                    Service.getInstance().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + Util.format(goldC) + " Hồng ngọc");
-                                    pl.inventory.ruby += goldC;
+                                    Service.getInstance().sendThongBao(pl, "Chúc mừng bạn đã dành chiến thắng và nhận được " + Util.format(sovthang) + " Thỏi vàng");
                                     pl.taixiu.win += pl.goldXiu * 80 / 100;
-                                    Service.getInstance().sendMoney(pl);
-                                    InventoryServiceNew.gI().sendItemBags(pl);
                                     Message m;
                                     try {
                                         m = new Message(-126);
@@ -214,7 +216,7 @@ public class TaiXiu implements Runnable {
                         }
                         for (int i = 0; i < PlayersTai.size(); i++) {
                             Player pl = this.PlayersTai.get(i);
-                            if (pl != null && Client.gI().getPlayer(pl.name) != null) {
+                            if (pl != null ) {
 
                                 Service.getInstance().sendThongBao(pl, "Số hệ thống quay ra\n" + x + " : "
                                         + y + " : " + z + "\n|5|Tổng là : " + tong + "\n(XỈU)\n\n|7|Trắng tay gòi, chơi lại đi!!!");

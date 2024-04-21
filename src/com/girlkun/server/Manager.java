@@ -886,7 +886,6 @@ public class Manager {
                 int quantity = rs.getInt("quantity");
                 byte isUp = rs.getByte("isUpTop");
                 boolean isBuy = rs.getByte("isBuy") == 1;
-                long thoigian = rs.getLong("Thoi_gian");
                 List<Item.ItemOption> op = new ArrayList<>();
                 JSONArray jsa2 = (JSONArray) JSONValue.parse(rs.getString("itemOption"));
                 for (int j = 0; j < jsa2.size(); ++j) {
@@ -895,7 +894,8 @@ public class Manager {
                     int param = Integer.parseInt(jso2.get("param").toString());
                     op.add(new Item.ItemOption(idOptions, param));
                 }
-                ShopKyGuiManager.gI().listItem.add(new ItemKyGui(i, itemId, idPl, tab, gold, gem, quantity, isUp, op, isBuy, thoigian));
+                ShopKyGuiManager.gI().listItem
+                        .add(new ItemKyGui(i, itemId, idPl, tab, gold, gem, quantity, isUp, op, isBuy));
             }
             Logger.success("Thông báo tải dữ liệu item ký gửi [" + ShopKyGuiManager.gI().listItem.size() + "]!\n");
 

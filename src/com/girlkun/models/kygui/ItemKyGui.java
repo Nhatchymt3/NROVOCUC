@@ -21,17 +21,19 @@ public class ItemKyGui {
     public ItemKyGui() {
     }
 
-    public ItemKyGui(int i, short id, int plId, byte t, int gold, int gem, int q, byte isUp, List<ItemOption> op, boolean b, long tg) {
+    public int getId() {
+        return this.id;
+    }
+    public ItemKyGui(int i,short id,int plId,byte t,int gold,int gem,int q,byte isUp,List<ItemOption> op,boolean b){
         this.id = i;
         itemId = id;
-        player_sell = plId;
+        player_sell=plId;
         tab = t;
         goldSell = gold;
         gemSell = gem;
-        quantity = q;
+        quantity =q;
         isUpTop = isUp;
         options = op;
         isBuy = b;
-        thoigian = tg;
     }
 }

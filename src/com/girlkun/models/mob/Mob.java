@@ -764,19 +764,19 @@ public class Mob {
         List<ItemMap> itemReward = new ArrayList<>();
         try {
             int mapid = player.zone.map.mapId;
-            if ((!player.isPet && player.setClothes.setDTS == 5) || (player.isPet && ((Pet) player).setClothes.setDTS == 5)) {
-                if (Util.isTrue(30, 100)) {
-                    byte random = 1;
-                    if (Util.isTrue(2, 100)) {
-                        random = 2;
-                    }
-                    Item i = Manager.RUBY_REWARDS.get(Util.nextInt(0, Manager.RUBY_REWARDS.size() - 1));
-                    i.quantity = random;
-                    InventoryServiceNew.gI().addItemBag(player, i);
-                    InventoryServiceNew.gI().sendItemBags(player);
-                    Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + random + " hồng ngọc");
-                }
-            }
+            // if ((!player.isPet && player.setClothes.setDTS == 5) || (player.isPet && ((Pet) player).setClothes.setDTS == 5)) {
+            //     if (Util.isTrue(30, 100)) {
+            //         byte random = 1;
+            //         if (Util.isTrue(2, 100)) {
+            //             random = 2;
+            //         }
+            //         Item i = Manager.RUBY_REWARDS.get(Util.nextInt(0, Manager.RUBY_REWARDS.size() - 1));
+            //         i.quantity = random;
+            //         InventoryServiceNew.gI().addItemBag(player, i);
+            //         InventoryServiceNew.gI().sendItemBags(player);
+            //         Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + random + " hồng ngọc");
+            //     }
+            // }
 
             itemReward = this.getItemMobReward(player, this.location.x + Util.nextInt(-10, 10),
                     this.location.y);
@@ -983,25 +983,25 @@ public class Mob {
             list.add(Util.ratiItem1(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, player.id));
         }
 
-        if (MapService.gI().isMapBanDoKhoBau(player.zone.map.mapId)) {
-            int levell = player.clan.banDoKhoBau.level;
-            int slhn = 1 * (levell / 10);
-            if (Util.nextInt(0, 80) < 70) {
-                list.add(new ItemMap(zone, 861, slhn, x, player.location.y, player.id));
-                Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + slhn + " hồng ngọc");
-            }
-        }
-        if (Util.isTrue(30, 100) && this.tempId > 76 && this.tempId < 78) {
-            byte random = 1;
-            if (Util.isTrue(2, 100)) {
-                random = 2;
-            }
-            Item i = Manager.RUBY_REWARDS.get(Util.nextInt(0, Manager.RUBY_REWARDS.size() - 1));
-            i.quantity = random;
-            InventoryServiceNew.gI().addItemBag(player, i);
-            InventoryServiceNew.gI().sendItemBags(player);
-            Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + random + " hồng ngọc");
-        }
+        // if (MapService.gI().isMapBanDoKhoBau(player.zone.map.mapId)) {
+        //     int levell = player.clan.banDoKhoBau.level;
+        //     int slhn = 1 * (levell / 10);
+        //     if (Util.nextInt(0, 80) < 70) {
+        //         list.add(new ItemMap(zone, 861, slhn, x, player.location.y, player.id));
+        //         Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + slhn + " hồng ngọc");
+        //     }
+        // }
+        // if (Util.isTrue(30, 100) && this.tempId > 76 && this.tempId < 78) {
+        //     byte random = 1;
+        //     if (Util.isTrue(2, 100)) {
+        //         random = 2;
+        //     }
+        //     Item i = Manager.RUBY_REWARDS.get(Util.nextInt(0, Manager.RUBY_REWARDS.size() - 1));
+        //     i.quantity = random;
+        //     InventoryServiceNew.gI().addItemBag(player, i);
+        //     InventoryServiceNew.gI().sendItemBags(player);
+        //     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + random + " hồng ngọc");
+        // }
         //=====================================trung thu=========================
         if (Manager.SUKIEN == 1 && Util.isTrue(5, 100)) {// 1 là sự kiện trung thu
             if (this.isQuaiBay()) {

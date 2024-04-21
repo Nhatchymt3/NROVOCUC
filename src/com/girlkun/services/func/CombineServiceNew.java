@@ -2076,7 +2076,7 @@ public class CombineServiceNew {
                         }
                     }
                     if (star < starEmpty) {
-                        player.inventory.ruby -= gem;
+                        player.inventory.gem -= gem;
                         int optionId = getOptionDaPhaLe(daPhaLe);
                         int param = getParamDaPhaLe(daPhaLe);
                         Item.ItemOption option = null;
@@ -2151,7 +2151,7 @@ public class CombineServiceNew {
                 if (star < MAX_STAR_ITEM) {
                     // Trừ tài nguyên và kiểm tra thành công hoặc thất bại
                     player.inventory.gold -= gold;
-                    player.inventory.ruby -= gem;
+                    player.inventory.gem -= gem;
                     byte ratio = (optionStar != null && optionStar.param > 4) ? (byte) 2 : 1;
                     // Kiểm tra và xác định trạng thái thành công hoặc thất bại
                     flag = Util.isTrue(player.combineNew.ratioCombine, 100 * ratio);

@@ -120,7 +120,7 @@ public class ServerManager {
                 try {
                     long start = System.currentTimeMillis();
                     MartialCongressManager.gI().update();
-                    ShopKyGuiManager.gI().save();
+                    //ShopKyGuiManager.gI().save();
                     SieuHangManager.gI().update();
                     long timeUpdate = System.currentTimeMillis() - start;
                     if (timeUpdate < delay) {
@@ -288,7 +288,7 @@ public class ServerManager {
         } catch (Exception e) {
             Logger.error("Lỗi save clan!...................................\n");
         }
-        ShopKyGuiManager.gI().save();
+        //ShopKyGuiManager.gI().save();
         Client.gI().close();
         Logger.success("SUCCESSFULLY MAINTENANCE!...................................\n");
 

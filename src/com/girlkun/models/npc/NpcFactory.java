@@ -980,13 +980,13 @@ public class NpcFactory {
                                         "|7|TÍCH ĐIỂM SỰ KIỆN TRUNG THU"
                                         + "\n\n|1|Khi đổi điểm thì sẽ được cộng điểm đua top trung thu\n"
                                         + "|2|Mốc 500 Điểm\n"
-                                        + "|4|200 Mảnh thiên sứ ngẫu nhiên, 50 rương thần linh, 30 Hộp quà Trung thu, 30 Thẻ gia hạn, 1 Phiếu giảm giá + 250k HN \n"
+                                        + "|4|200 Mảnh thiên sứ ngẫu nhiên, 50 rương thần linh, 30 Hộp quà Trung thu, 1 Phiếu giảm giá + 25 TV \n"
                                         + "|2|Mốc 300 Điểm\n"
-                                        + "|4|100 Mảnh thiên sứ ngẫu nhiên, 40 rương thần linh, 10 Thẻ gia hạn, 15 Hộp Trung thu + 150k HN \n"
+                                        + "|4|100 Mảnh thiên sứ ngẫu nhiên, 40 rương thần linh, 15 Hộp Trung thu + 15 TV \n"
                                         + "|2|Mốc 200 Điểm\n"
-                                        + "|4|50 Mảnh thiên sứ ngẫu nhiên, 30 rương thần linh, 5 Thẻ gia hạn, 10 Hộp Trung thu + 100k HN \n"
+                                        + "|4|50 Mảnh thiên sứ ngẫu nhiên, 30 rương thần linh, 10 Hộp Trung thu + 100k HN \n"
                                         + "|2|Mốc 50 Điểm\n"
-                                        + "|4|10 Mảnh thiên sứ ngẫu nhiên, 5 rương thần linh + 25k HN"
+                                        + "|4|10 Mảnh thiên sứ ngẫu nhiên, 5 rương thần linh"
                                         + "\n\n|7|Điểm sự kiện : " + Util.format(player.NguHanhSonPoint) + " Điểm"
                                         + "\n|1|Điểm Top Trung thu : " + Util.format(player.inventory.coupon) + " Điểm",
                                         "500 Điểm", "300 Điểm", "200 Điểm", "50 Điểm");
@@ -1115,26 +1115,25 @@ public class NpcFactory {
                                 } else {
                                     player.NguHanhSonPoint -= 500;
                                     player.inventory.coupon += 500;
-                                    player.inventory.ruby += 2500;
                                     Service.getInstance().sendMoney(player);
                                     Item manhthiensu = ItemService.gI().createNewItem((short) manh);
                                     Item ruongthan = ItemService.gI().createNewItem((short) 1334);
                                     Item hoptt = ItemService.gI().createNewItem((short) 1342);
+                                    Item tv = ItemService.gI().createNewItem((short) 457);
                                     Item phieugg = ItemService.gI().createNewItem((short) 459);
-                                    Item thegh = ItemService.gI().createNewItem((short) 1346);
                                     phieugg.itemOptions.add(new Item.ItemOption(30, 1));
                                     manhthiensu.quantity = 200;
                                     ruongthan.quantity = 50;
                                     hoptt.quantity = 30;
-                                    thegh.quantity = 30;
+                                    tv.quantity =25;
                                     InventoryServiceNew.gI().addItemBag(player, manhthiensu);
                                     InventoryServiceNew.gI().addItemBag(player, ruongthan);
                                     InventoryServiceNew.gI().addItemBag(player, hoptt);
+                                    InventoryServiceNew.gI().addItemBag(player, tv);
                                     InventoryServiceNew.gI().addItemBag(player, phieugg);
-                                    InventoryServiceNew.gI().addItemBag(player, thegh);
                                     InventoryServiceNew.gI().sendItemBags(player);
                                     this.npcChat(player, "|4|Bạn nhận được 200 " + manhthiensu.template.name
-                                            + ", 50 Rương thần linh, 30 Hộp Trung thu, 30 Thẻ gia hạn, 1 Phiếu giảm giá và 250k Hồng ngọc");
+                                            + ", 50 Rương thần linh, 30 Hộp Trung thu, 1 Phiếu giảm giá và 25 thỏi vàng");
                                 }
                                 break;
                             }
@@ -1148,23 +1147,22 @@ public class NpcFactory {
                                 } else {
                                     player.NguHanhSonPoint -= 300;
                                     player.inventory.coupon += 300;
-                                    player.inventory.ruby += 100;
                                     Service.getInstance().sendMoney(player);
                                     Item manhthiensu = ItemService.gI().createNewItem((short) manh);
                                     Item ruongthan = ItemService.gI().createNewItem((short) 1334);
                                     Item hoptt = ItemService.gI().createNewItem((short) 1342);
-                                    Item thegh = ItemService.gI().createNewItem((short) 1346);
+                                    Item tv = ItemService.gI().createNewItem((short) 457);
                                     manhthiensu.quantity = 100;
                                     ruongthan.quantity = 40;
                                     hoptt.quantity = 15;
-                                    thegh.quantity = 10;
+                                    tv.quantity =15;
                                     InventoryServiceNew.gI().addItemBag(player, manhthiensu);
                                     InventoryServiceNew.gI().addItemBag(player, ruongthan);
                                     InventoryServiceNew.gI().addItemBag(player, hoptt);
-                                    InventoryServiceNew.gI().addItemBag(player, thegh);
+                                    InventoryServiceNew.gI().addItemBag(player, tv);
                                     InventoryServiceNew.gI().sendItemBags(player);
                                     this.npcChat(player, "|4|Bạn nhận được 100 " + manhthiensu.template.name
-                                            + ", 40 Rương thần linh, 15 Hộp Trung thu, 10 Thẻ gia hạn và 150k Hồng ngọc");
+                                            + ", 40 Rương thần linh, 15 Hộp Trung thu, 10 Thẻ gia hạn và 15 Thỏi vàng");
                                 }
                                 break;
                             }
@@ -1178,23 +1176,22 @@ public class NpcFactory {
                                 } else {
                                     player.NguHanhSonPoint -= 200;
                                     player.inventory.coupon += 200;
-                                    player.inventory.ruby += 1000;
                                     Service.getInstance().sendMoney(player);
                                     Item manhthiensu = ItemService.gI().createNewItem((short) manh);
                                     Item ruongthan = ItemService.gI().createNewItem((short) 1334);
                                     Item hoptt = ItemService.gI().createNewItem((short) 1342);
-                                    Item thegh = ItemService.gI().createNewItem((short) 1346);
+                                    Item tv = ItemService.gI().createNewItem((short) 457);
                                     manhthiensu.quantity = 50;
                                     ruongthan.quantity = 30;
                                     hoptt.quantity = 10;
-                                    thegh.quantity = 5;
+                                    tv.quantity = 10;
                                     InventoryServiceNew.gI().addItemBag(player, manhthiensu);
                                     InventoryServiceNew.gI().addItemBag(player, ruongthan);
                                     InventoryServiceNew.gI().addItemBag(player, hoptt);
-                                    InventoryServiceNew.gI().addItemBag(player, thegh);
+                                    InventoryServiceNew.gI().addItemBag(player, tv);
                                     InventoryServiceNew.gI().sendItemBags(player);
                                     this.npcChat(player, "|4|Bạn nhận được 50 " + manhthiensu.template.name
-                                            + ", 30 Rương thần linh, 10 Hộp Trung thu, 5 Thẻ gia hạn và 100k Hồng ngọc");
+                                            + ", 30 Rương thần linh, 10 Hộp Trung thu và 10 thỏi vàng");
                                 }
                                 break;
                             }
@@ -1208,7 +1205,6 @@ public class NpcFactory {
                                 } else {
                                     player.NguHanhSonPoint -= 50;
                                     player.inventory.coupon += 50;
-                                    player.inventory.ruby += 20;
                                     Service.getInstance().sendMoney(player);
                                     Item manhthiensu = ItemService.gI().createNewItem((short) manh);
                                     Item ruongthan = ItemService.gI().createNewItem((short) 1334);
@@ -1218,7 +1214,7 @@ public class NpcFactory {
                                     InventoryServiceNew.gI().addItemBag(player, ruongthan);
                                     InventoryServiceNew.gI().sendItemBags(player);
                                     this.npcChat(player, "|4|Bạn nhận được 10 " + manhthiensu.template.name
-                                            + ", 5 Rương thần linh và 25k Hồng ngọc");
+                                            + ", 5 Rương thần linh ");
                                 }
                                 break;
                             }
@@ -6978,8 +6974,8 @@ public class NpcFactory {
                                                 + "\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " + TaiXiu.gI().y + " : " + TaiXiu.gI().z + " " + (ketqua >= 10 ? "Tài" : "Xỉu")
                                                 + "\n|1|Kết quả kì trước" + "\n"
                                                 + "|3| " + TaiXiu.gI().tongHistoryString
-                                                + "\n\n|1|Tổng Cược TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
-                                                + "\n\n|1|Tổng Cược XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n"
+                                                + "\n\n|1|Tổng Cược TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                                + "\n\n|1|Tổng Cược XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n"
                                                 + "\n|5|Đếm ngược: " + time, "Cập nhập", "Cược\n'Tài'", "Cược\n'Xỉu' ", "Đóng");
                                     }
                                     break;
@@ -7003,8 +6999,8 @@ public class NpcFactory {
                                 case 0:
                                     createOtherMenu(player, ConstNpc.TAIXIU, "\n|7|---Trò chơi may mắn---\n"
                                             + "\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " + TaiXiu.gI().y + " : " + TaiXiu.gI().z
-                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
-                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n"
+                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n"
                                             + "\n|5|Thời gian còn lại: " + time, "Cập nhập", "Cược\n'Tài'", "Cược\n'Xỉu' ", "Đóng");
                                     break;
                             }
@@ -7013,8 +7009,8 @@ public class NpcFactory {
                                 case 0:
                                     createOtherMenu(player, ConstNpc.TAIXIU, "\n|7|---Trò chơi may mắn---\n"
                                             + "\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " + TaiXiu.gI().y + " : " + TaiXiu.gI().z
-                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
-                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n"
+                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n"
                                             + "\n|5|Thời gian còn lại: " + time, "Cập nhập", "Cược\n'Tài'", "Cược\n'Xỉu' ", "Đóng");
                                     break;
                             }
@@ -7023,8 +7019,8 @@ public class NpcFactory {
                                 case 0:
                                     createOtherMenu(player, ConstNpc.TAIXIU, "\n|7|---Trò chơi may mắn---\n"
                                             + "\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " + TaiXiu.gI().y + " : " + TaiXiu.gI().z
-                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
-                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n"
+                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n"
                                             + "\n|5|Thời gian còn lại: " + time, "Cập nhập", "Cược\n'Tài'", "Cược\n'Xỉu' ", "Đóng");
                                     break;
                             }
@@ -7033,8 +7029,8 @@ public class NpcFactory {
                                 case 0:
                                     createOtherMenu(player, ConstNpc.TAIXIU, "\n|7|---Trò chơi may mắn---\n"
                                             + "\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " + TaiXiu.gI().y + " : " + TaiXiu.gI().z
-                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
-                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n"
+                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n"
                                             + "\n|5|Thời gian còn lại: " + time, "Cập nhập", "Cược\n'Tài'", "Cược\n'Xỉu' ", "Đóng");
                                     break;
                             }
@@ -7043,8 +7039,8 @@ public class NpcFactory {
                                 case 0:
                                     createOtherMenu(player, ConstNpc.TAIXIU, "\n|7|---Trò chơi may mắn---\n"
                                             + "\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " + TaiXiu.gI().y + " : " + TaiXiu.gI().z
-                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
-                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n"
+                                            + "\n\n|1|Tổng nhà 'Tài'=> " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\n|1|Tổng nhà 'Xỉu'=> " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n"
                                             + "\n|5|Thời gian còn lại: " + time, "Cập nhập", "Cược\n'Tài'", "Cược\n'Xỉu' ", "Đóng");
                                     break;
                             }
