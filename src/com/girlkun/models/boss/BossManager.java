@@ -20,6 +20,11 @@ import com.girlkun.models.boss.list_boss.Fusion.Zamus;
 import com.girlkun.models.boss.list_boss.cell.Xencon;
 import com.girlkun.models.boss.list_boss.ginyu.TDST;
 import com.girlkun.models.boss.list_boss.android.*;
+import com.girlkun.models.boss.list_boss.bojack.Bido;
+import com.girlkun.models.boss.list_boss.bojack.Bojack;
+import com.girlkun.models.boss.list_boss.bojack.Bujin;
+import com.girlkun.models.boss.list_boss.bojack.Kogu;
+import com.girlkun.models.boss.list_boss.bojack.Zangya;
 import com.girlkun.models.boss.list_boss.cell.SieuBoHung;
 import com.girlkun.models.boss.list_boss.cell.XenBoHung;
 import com.girlkun.models.boss.list_boss.Fusion.BlackGoku;
@@ -155,6 +160,11 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.gokussj);
             this.createBoss(BossID.thucung);
             this.createBoss(BossID.lanme);
+            this.createBoss(BossID.BIDO_GIANGHO);
+            this.createBoss(BossID.ZANGYA_GIANGHO);
+            this.createBoss(BossID.KOGU_GIANGHO);
+            this.createBoss(BossID.BUJIN_GIANGHO);
+            this.createBoss(BossID.BOJACK_GIANGHO);
             if (bossongia == false) {
                 this.createBoss(BossID.OngGiaNoel);
             }
@@ -214,7 +224,16 @@ public class BossManager implements Runnable {
                     return new Yacon();
                 case BossID.MABU_12H:
                     return new MabuBoss();
-
+                case BossID.ZANGYA_GIANGHO:
+                    return new Zangya();
+                case BossID.BUJIN_GIANGHO:
+                    return new Bujin();
+                case BossID.BIDO_GIANGHO:
+                    return new Bido();
+                case BossID.KOGU_GIANGHO:
+                    return new Kogu();
+                case BossID.BOJACK_GIANGHO:
+                    return new Bojack();
                 case BossID.bossminuong:
                     return new Boss_Minuong();
                 case BossID.Rong_1Sao:

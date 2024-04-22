@@ -50,6 +50,15 @@ public class BossID {
     public static final int ADMIN_THAN = -7003;
 
 
+    // bojack
+    public static final int BOJACK_GIANGHO = -4000;
+    public static final int BIDO_GIANGHO = -4001;
+    public static final int ZANGYA_GIANGHO = -4002;
+    public static final int KOGU_GIANGHO = -4003;
+    public static final int BUJIN_GIANGHO = -4004;
+    public static final int BOJACK_TEAM = -4004;
+
+    
     public static final int BROLY = -20000;
     public static final int SUPERBROLY = -20002;
     public static final int BROLY2 = -20001;

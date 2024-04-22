@@ -39,14 +39,17 @@ public final class MobMe extends Mob {
 
     @Override
     public void update() {
-        if (Util.canDoWithTime(lastTimeSpawn, timeSurvive) && this.player.setClothes.pikkoroDaimao != 5) {
-            this.mobMeDie();
-            this.dispose();
+        if (this.player!=null) {
+            if (Util.canDoWithTime(lastTimeSpawn, timeSurvive) && this.player.setClothes.pikkoroDaimao != 5) {
+                this.mobMeDie();
+                this.dispose();
+            }
+            if (Util.canDoWithTime(lastTimeSpawn, timeSurvive) && this.player.setClothes.pikkoroDaimaoc2 != 5) {
+                this.mobMeDie();
+                this.dispose();
+            }
         }
-        if (Util.canDoWithTime(lastTimeSpawn, timeSurvive) && this.player.setClothes.pikkoroDaimaoc2 != 5) {
-            this.mobMeDie();
-            this.dispose();
-        }
+       
         // if (Util.canDoWithTime(lastTimeSpawn, timeSurvive) && this.player.setClothes.supskhnm != 5) {
         //     this.mobMeDie();
         //     this.dispose();

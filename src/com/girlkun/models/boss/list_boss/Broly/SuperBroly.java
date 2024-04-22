@@ -68,10 +68,15 @@ public class SuperBroly extends Boss {
                 }
                 damage = 1;
             }
-            if (checlSkill(plAtt.playerSkill.skillSelect)) {
-                
-                if (damage >= 500000) {
-                    damage = 500000;
+            if (plAtt != null) {
+                if (checlSkill(plAtt.playerSkill.skillSelect)) {
+                    if (damage >= 500000) {
+                        damage = 500000;
+                    }
+                }else
+                {
+                    damage = 0;
+                    Service.gI().sendThongBao(plAtt, ("Đấm thường đi bồ"));
                 }
             }else
             {

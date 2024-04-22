@@ -12,6 +12,7 @@ import com.girlkun.models.boss.BossStatus;
 import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.Service;
 import com.girlkun.services.TaskService;
+import com.girlkun.services.func.ChangeMapService;
 import com.girlkun.utils.Util;
 import com.girlkun.services.PlayerService;
 import java.util.Random;
@@ -60,6 +61,7 @@ public class SieuBoHung extends Boss {
 
     @Override
     public void active() {
+        this.hapThu();
         super.active();
         if (Util.canDoWithTime(st, 30 * 60 * 1000)) {
             this.changeStatus(BossStatus.LEAVE_MAP);
@@ -96,6 +98,28 @@ public class SieuBoHung extends Boss {
         } else {
             return 0;
         }
+    }
+    private void hapThu() {
+        if (!Util.canDoWithTime(this.lastTimeHapThu, this.timeHapThu) || !Util.isTrue(1, 100)) {
+            return;
+        }
+
+        Player pl = this.zone.getRandomPlayerInMap();
+        if (pl == null || pl.isDie()) {
+            return;
+        }
+       ChangeMapService.gI().changeMapYardrat(this, this.zone, pl.location.x, pl.location.y);
+       this.nPoint.dameg += (pl.nPoint.dame * 5 / 100);
+       this.nPoint.hpg += (pl.nPoint.hp * 2 / 100);
+       this.nPoint.critg++;
+       this.nPoint.calPoint();
+       PlayerService.gI().hoiPhuc(this, pl.nPoint.hp, 0);
+       pl.injured(null, pl.nPoint.hpMax, true, false);
+       Service.gI().sendThongBao(pl, "Bạn vừa bị " + this.name + " hấp thu!");
+       this.chat(2, "Ui cha cha, kinh dị quá. " + pl.name + " vừa bị tên " + this.name + " nuốt chửng kìa!!!");
+       this.chat("Haha, ngọt lắm đấy " + pl.name + "..");
+       this.lastTimeHapThu = System.currentTimeMillis();
+       this.timeHapThu = Util.nextInt(15000, 20000);
     }
 
 }

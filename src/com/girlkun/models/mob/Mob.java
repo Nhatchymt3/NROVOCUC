@@ -114,7 +114,7 @@ public class Mob {
 
     public Boolean checlSkill(Skill skill)
     {
-        if (skill.template.id !=Skill.TU_SAT && skill.template.id != Skill.LIEN_HOAN_CHUONG && skill.template.id != Skill.SUPER_KAME) {
+        if (skill.template.id !=Skill.TU_SAT && skill.template.id != Skill.LIEN_HOAN_CHUONG && skill.template.id != Skill.SUPER_KAME && skill.template.id != Skill.MAKANKOSAPPO ) {
             return true;
         }
         return false;
@@ -132,17 +132,8 @@ public class Mob {
                 if (this.tempId == 0 && damage > 10) {
                     damage = 10;
                 }
-                if (this.tempId == 70) {
-                    if (checlSkill(plAtt.playerSkill.skillSelect)) {
-                
-                        if (damage >= 1000000) {
-                            damage = 1000000;
-                        }
-                    }else
-                    {
-                        damage = 0;
-                        Service.gI().sendThongBao(plAtt, ("Đấm thường đi bồ"));
-                    }
+                if (this.tempId == 70) {                
+                    damage = this.point.gethp()/100;
                 }
             }
             if (plAtt != null) {
@@ -329,18 +320,14 @@ public class Mob {
                             }
                         }
                         if (Util.isTrue(40, 100)) {
-                            for (int i = 0; i < Util.nextInt(1, 3); i++) {
-                                ItemMap itemMap2 = new ItemMap(zone, 1738, 1, location.x + Util.nextInt(-100, 100), location.y, -1);
-                                Service.getInstance().dropItemMap(zone, itemMap2);
-                            }
+                            ItemMap itemMap2 = new ItemMap(zone, 1738, 1, location.x + Util.nextInt(-100, 100), location.y, -1);
+                            Service.getInstance().dropItemMap(zone, itemMap2);
                             Random random = new Random();
                             if (Util.isTrue(20, 100)) {
-                                for (int i = 0; i < Util.nextInt(1, 3); i++) {
                                     byte randomItemIndexDoTl = (byte) random.nextInt(Manager.itemIds_TL.length);
                                     ItemMap itemMap3 = Util.ratiItem(zone, Manager.itemIds_TL[randomItemIndexDoTl], 1,
                                             location.x + Util.nextInt(-100, 100), location.y, -1);
                                     Service.getInstance().dropItemMap(zone, itemMap3);
-                                }
                             }
                         }
                         Service.gI().sendBigBoss2(zone, action, this);
@@ -976,7 +963,7 @@ public class Mob {
             list.add(new ItemMap(zone, 20, 1, this.location.x, this.location.y, player.id));
         }
         //rơi đồ thân linh
-        if (Util.isTrue(1, 2000) && MapService.gI().isMapCold(this.zone.map)) {
+        if (Util.isTrue(1, 10000) && MapService.gI().isMapCold(this.zone.map)) {
             if (player.chienthan.tasknow == 2) {
                 player.chienthan.dalamduoc++; //cộng điểm chiến thần
             }

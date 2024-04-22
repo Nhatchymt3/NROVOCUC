@@ -634,7 +634,6 @@ public class CombineServiceNew {
                     }
                     if (bongTai != null && manhVo != null && manhVo.quantity >= 99 && bongTai.template.id == 454) {
                         player.combineNew.goldCombine = 500000000;
-                        player.combineNew.gemCombine = 1000;
                         player.combineNew.ratioCombine = 50;
                         String npcSay = "Bông tai Porata cấp 2" + "\n|2|";
                         for (Item.ItemOption io : bongTai.itemOptions) {
@@ -644,7 +643,7 @@ public class CombineServiceNew {
                         if (player.combineNew.goldCombine <= player.inventory.gold) {
                             npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
                             baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
-                                    "Nâng cấp\ncần " + player.combineNew.gemCombine + " Hồng ngọc");
+                                    "Nâng cấp\ncần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng");
                         } else {
                             npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
                             baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
@@ -652,7 +651,6 @@ public class CombineServiceNew {
                     } else if (bongTai != null && manhVo != null && manhVo.quantity >= 999 && bongTai.template.id == 921) {
 
                         player.combineNew.goldCombine = 1000000000;
-                        player.combineNew.gemCombine = 5000;
                         player.combineNew.ratioCombine = 40;
 
                         String npcSay = "Bông tai Porata cấp 3" + "\n|2|";
@@ -663,7 +661,7 @@ public class CombineServiceNew {
                         if (player.combineNew.goldCombine <= player.inventory.gold) {
                             npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
                             baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
-                                    "Nâng cấp\ncần " + player.combineNew.gemCombine + " Hồng ngọc");
+                                    "Nâng cấp\ncần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng");
                         } else {
                             npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
                             baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
@@ -671,7 +669,6 @@ public class CombineServiceNew {
                     } else if (bongTai != null && manhVo != null && manhVo.quantity >= 9999 && bongTai.template.id == 1165) {
 
                         player.combineNew.goldCombine = 1000000000;
-                        player.combineNew.gemCombine = 15000;
                         player.combineNew.ratioCombine = 30;
                         String npcSay = "Bông tai Porata cấp 4" + "\n|2|";
                         for (Item.ItemOption io : bongTai.itemOptions) {
@@ -681,7 +678,7 @@ public class CombineServiceNew {
                         if (player.combineNew.goldCombine <= player.inventory.gold) {
                             npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
                             baHatMit.createOtherMenu(player, ConstNpc.MENU_START_COMBINE, npcSay,
-                                    "Nâng cấp\ncần " + player.combineNew.gemCombine + " Hồng ngọc");
+                                    "Nâng cấp\ncần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng");
                         } else {
                             npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
                             baHatMit.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
@@ -2517,11 +2514,6 @@ public class CombineServiceNew {
                 Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện");
                 return;
             }
-            int gem = player.combineNew.gemCombine;
-            if (player.inventory.gem < gem) {
-                Service.gI().sendThongBao(player, "Không đủ Hồng ngọc để thực hiện");
-                return;
-            }
             for (Item.ItemOption io : bongtai.itemOptions) {
                 if (io.optionTemplate.id == 242 || io.optionTemplate.id == 243 || io.optionTemplate.id == 244) {
                     levelbongtai = io.optionTemplate.id;
@@ -2535,7 +2527,6 @@ public class CombineServiceNew {
 
             if (levelbongtai == 242 && bongtai != null && manhVo != null && manhVo.quantity >= 99) {
                 player.inventory.gold -= gold;
-                player.inventory.gem -= gem;
                 if (Util.isTrue(30, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);//xoa mãnh mvbt
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
@@ -2558,7 +2549,6 @@ public class CombineServiceNew {
             }
             if (levelbongtai == 243 && bongtai != null && manhVo != null && manhVo.quantity >= 999) {
                 player.inventory.gold -= gold;
-                player.inventory.gem -= gem;
                 if (Util.isTrue(20, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 999);//xoa mãnh mvbt
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);
@@ -2581,7 +2571,6 @@ public class CombineServiceNew {
             }
             if (levelbongtai == 244 && bongtai != null && manhVo != null && manhVo.quantity >= 99) {
                 player.inventory.gold -= gold;
-                player.inventory.gem -= gem;
                 if (Util.isTrue(10, 100)) {
                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhVo, 99);//xoa mãnh mvbt
                     InventoryServiceNew.gI().subQuantityItemsBag(player, bongtai, 1);

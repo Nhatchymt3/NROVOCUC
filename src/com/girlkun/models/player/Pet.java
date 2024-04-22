@@ -230,7 +230,11 @@ public class Pet extends Player {
         return plAtt.isNewPet || plAtt.isPet || plAtt.isBoss || plAtt.isPl();
     }
     public void angry(Player plAtt) {
-
+        if (this.playerAttack != null &&  ANGRY == true) {
+            if (this.zone != null && this.zone.getPlayerInMap((int) playerAttack.id) !=null) {
+                return;
+            }
+        }
         if (plAtt != null && plAtt != this && plAtt != this.master && isTargerDe(plAtt)) {
             this.playerAttack = plAtt;
             if (System.currentTimeMillis() - lastTimeAngry > 5000) {
@@ -812,6 +816,9 @@ public class Pet extends Player {
     }
 
     private Mob findMobAttack() {
+        if (ANGRY == true) {
+            return null;
+        }
         int dis = ARANGE_CAN_ATTACK;
         Mob mobAtt = null;
         for (Mob mob : zone.mobs) {
@@ -823,9 +830,6 @@ public class Pet extends Player {
                 dis = d;
                 mobAtt = mob;
             }
-        }
-        if (ANGRY == true) {
-            return null;
         }
         return mobAtt;
     }
