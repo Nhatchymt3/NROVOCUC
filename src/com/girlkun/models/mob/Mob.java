@@ -134,7 +134,7 @@ public class Mob {
                 }
                 if (this.tempId == 70) {                
                     damage = this.point.gethp()/100;
-                    if (damage > 1) {
+                    if (damage < 1) {
                         damage = 1;
                     }
                 }
