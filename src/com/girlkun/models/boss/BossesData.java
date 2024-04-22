@@ -133,6 +133,7 @@ public class BossesData {
                             { Skill.DRAGON, 7, 1000 },
                             { Skill.KAMEJOKO, 7, 1000 },
                             { Skill.DICH_CHUYEN_TUC_THOI, 7, 30000 },
+                            {Skill.TROI,7,200000},
             }, // skill//skill
             new String[] {}, // text chat 1
             new String[] { "|-1|Sao thế hả? Ta mới chỉ khởi động thôi mà!",
@@ -151,7 +152,7 @@ public class BossesData {
             "Zangya đại ca", // name
             ConstPlayer.XAYDA, // gender
             new short[] { 332, 333, 334, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-            41111, // dame
+            50000, // dame
             new double[] { 190000000 }, // hp
             new int[] { 2, 3, 27, 28,17, 18, 35, 36,11, 12, 31, 32 }, // map join
             new int[][] {
@@ -159,6 +160,7 @@ public class BossesData {
                             { Skill.THOI_MIEN, 7, 30000 },
                             { Skill.MASENKO, 7, 1000 },
                             { Skill.ANTOMIC, 7, 10000 },
+                            {Skill.TROI,7,200000},
             }, // skill//skill
             new String[] {}, // text chat 1
             new String[] { "|-1|Oải rồi hả?", "|-1|Ê cố lên nhóc",
@@ -174,12 +176,12 @@ public class BossesData {
             "Kogu đại ca", // name
             ConstPlayer.XAYDA, // gender
             new short[] { 329, 330, 331, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-            41111, // dame
+            50000, // dame
             new double[] { 180000000 }, // hp
             new int[] { 2, 3, 27, 28,17, 18, 35, 36,11, 12, 31, 32 }, // map join
             new int[][] {
                             { Skill.LIEN_HOAN, 7, 300 },
-
+                            {Skill.TROI,7,200000},
                             { Skill.MASENKO, 7, 1000 },
                             { Skill.ANTOMIC, 7, 10000 },
             }, // skill//skill
@@ -197,10 +199,11 @@ public class BossesData {
             "Bujin đại ca", // name
             ConstPlayer.XAYDA, // gender
             new short[] { 341, 342, 343, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-            41111, // dame
+            50000, // dame
             new double[] { 170000000 }, // hp
             new int[] { 2, 3, 27, 28, 17, 18, 35, 36,11, 12, 31, 32 }, // map join
             new int[][] {
+                            {Skill.TROI,7,200000},
                             { Skill.LIEN_HOAN, 7, 300 },
                             { Skill.MASENKO, 7, 1000 },
                             { Skill.ANTOMIC, 7, 1000 },
@@ -218,10 +221,11 @@ public class BossesData {
             "Bido đại ca", // name
             ConstPlayer.XAYDA, // gender
             new short[] { 323, 324, 325, -1, -1, -1 }, // outfit {head, body, leg, bag, aura, eff}
-            41111, // dame
+            50000, // dame
             new double[] { 160000000 }, // hp
             new int[] { 2, 3, 27, 28,17, 18, 35, 36,11, 12, 31, 32 }, // map join
             new int[][] {
+                            {Skill.TROI,7,200000},
                             { Skill.LIEN_HOAN, 7, 300 },
                             { Skill.KAMEJOKO, 7, 10000 },
                             { Skill.MASENKO, 7, 1000 },
