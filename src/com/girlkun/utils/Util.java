@@ -683,10 +683,10 @@ public class Util {
         if (ntl == tempId) {
             it.options.add(new Item.ItemOption(14, new Random().nextInt(3) + 13));
         }
-        if (Util.isTrue(10, 100)) {
-            it.options.add(new Item.ItemOption(210, Util.nextInt(1, 3))); // Hạn sử dụng từ 1 đến 3 ngày
-            it.options.add(new Item.ItemOption(213, Util.nextInt(1, 3))); // Hạn sử dụng từ 1 đến 3 ngày
-        }
+        // if (Util.isTrue(10, 100)) {
+        //     it.options.add(new Item.ItemOption(210, Util.nextInt(1, 3))); // Hạn sử dụng từ 1 đến 3 ngày
+        //     it.options.add(new Item.ItemOption(213, Util.nextInt(1, 3))); // Hạn sử dụng từ 1 đến 3 ngày
+        // }
         /// option măc định
         it.options.add(new Item.ItemOption(209, 1)); //đồ rơi từ boss
         it.options.add(new Item.ItemOption(21, 15));

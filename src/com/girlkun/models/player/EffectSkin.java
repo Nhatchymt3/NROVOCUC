@@ -739,12 +739,10 @@ public class EffectSkin {
     }
 
     private void updateVoHinh() {
-        if (this.player.nPoint.wearingVoHinh) {
-            if (Util.canDoWithTime(lastTimeAttack, 5000)) {
-                isVoHinh = true;
-            } else {
-                isVoHinh = false;
-            }
+        if (Util.canDoWithTime(lastTimeAttack, 10000) && this.player.nPoint.wearingVoHinh) {
+            isVoHinh = true;
+        } else {
+            isVoHinh = false;
         }
     }
 

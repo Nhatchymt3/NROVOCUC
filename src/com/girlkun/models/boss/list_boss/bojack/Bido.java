@@ -18,7 +18,7 @@ public class Bido extends Boss {
         
         for (int i = -100; i <= 100; i += 20) {
             if (i != 0) { // Loại trừ tọa độ 0
-                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 457, 1, this.location.x + i, this.zone.map.yPhysicInTop(this.location.x,this.location.y), -1));  
+                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 457, 1, this.location.x + i, this.zone.map.yPhysicInTop(this.location.x,this.location.y -24), -1));  
             }
         }
     }

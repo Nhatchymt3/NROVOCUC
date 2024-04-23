@@ -2,11 +2,9 @@ package com.girlkun.models.shop;
 
 import com.girlkun.consts.ConstNpc;
 import com.girlkun.data.ItemData;
-import com.girlkun.jdbc.daos.ShopDAO;
 import com.girlkun.models.item.Item;
 import com.girlkun.models.player.Inventory;
 import com.girlkun.models.player.Player;
-import com.girlkun.models.player.SetClothes;
 import com.girlkun.network.io.Message;
 import com.girlkun.server.Manager;
 import com.girlkun.services.InventoryServiceNew;
@@ -16,10 +14,7 @@ import com.girlkun.services.Service;
 import com.girlkun.services.func.Input;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.Util;
-import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
-//import static sun.audio.AudioPlayer.player;
 
 public class ShopServiceNew {
 
@@ -591,7 +586,7 @@ public class ShopServiceNew {
                     isBuy = false;
                 }
                 break;
-            case 861:
+            case 457:
                 if (itemShop.tabShop.shop.tagName.equals("BILL")) {
                     for (Item i : pl.inventory.itemsBag) { //lặp qua item có trong hành trang
                         if (i.template != null) {

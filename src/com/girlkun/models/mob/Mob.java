@@ -840,7 +840,7 @@ public class Mob {
         }
 
         //roi ngocrong
-        if (Util.isTrue(5, 100)) {
+        if (Util.isTrue(1, 200)) {
             list.add(new ItemMap(zone, Manager.itemIds_NR[randomngocrong], Util.nextInt(1, 2), this.location.x, this.location.y, player.id));
         }
         // if (Util.isTrue(1, 1000)) {
@@ -919,7 +919,7 @@ public class Mob {
 
         //////////////////////////////////////////////////////////////////////////
         //roi thuc an đã fix
-        if (Util.isTrue(50, 100) && player.setClothes.godClothes && MapService.gI().isMapCold(this.zone.map)) {
+        if (Util.isTrue(1, 100) && player.setClothes.godClothes && MapService.gI().isMapCold(this.zone.map)) {
             list.add(new ItemMap(zone, Manager.thucan[randomthucan], 1, this.location.x, this.location.y, player.id));
         }
         /// roi sao pha le 
@@ -953,20 +953,8 @@ public class Mob {
         if (Util.isTrue(1, 300) && this.zone.map.mapId == 155 && player.setClothes.setDHD >= 5) {
             list.add(new ItemMap(zone, Manager.manhthiensu[randommanhthiensu], Util.nextInt(1, 3), this.location.x, this.location.y, player.id));
         }
-        if (Util.isTrue(1, 10000) && this.zone.map.mapId > 0 && this.zone.map.mapId < 203) {
-            list.add(new ItemMap(zone, 17, 1, this.location.x, this.location.y, player.id));
-        }
-        if (Util.isTrue(3, 10000) && this.zone.map.mapId > 0 && this.zone.map.mapId < 203) {
-            list.add(new ItemMap(zone, 18, 1, this.location.x, this.location.y, player.id));
-        }
-        if (Util.isTrue(4, 10000) && this.zone.map.mapId > 0 && this.zone.map.mapId < 203) {
-            list.add(new ItemMap(zone, 19, 1, this.location.x, this.location.y, player.id));
-        }
-        if (Util.isTrue(5, 10000) && this.zone.map.mapId > 0 && this.zone.map.mapId < 203) {
-            list.add(new ItemMap(zone, 20, 1, this.location.x, this.location.y, player.id));
-        }
         //rơi đồ thân linh
-        if (Util.isTrue(1, 10000) && MapService.gI().isMapCold(this.zone.map)) {
+        if (Util.isTrue(1, 50000) && MapService.gI().isMapCold(this.zone.map)) {
             if (player.chienthan.tasknow == 2) {
                 player.chienthan.dalamduoc++; //cộng điểm chiến thần
             }
