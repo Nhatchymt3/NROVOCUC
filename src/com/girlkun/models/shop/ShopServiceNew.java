@@ -2,9 +2,11 @@ package com.girlkun.models.shop;
 
 import com.girlkun.consts.ConstNpc;
 import com.girlkun.data.ItemData;
+import com.girlkun.jdbc.daos.ShopDAO;
 import com.girlkun.models.item.Item;
 import com.girlkun.models.player.Inventory;
 import com.girlkun.models.player.Player;
+import com.girlkun.models.player.SetClothes;
 import com.girlkun.network.io.Message;
 import com.girlkun.server.Manager;
 import com.girlkun.services.InventoryServiceNew;
@@ -14,7 +16,10 @@ import com.girlkun.services.Service;
 import com.girlkun.services.func.Input;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.Util;
+import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
+//import static sun.audio.AudioPlayer.player;
 
 public class ShopServiceNew {
 
@@ -602,18 +607,20 @@ public class ShopServiceNew {
                                     pl.idmuanhieu = -1;
                                     return false;
                                 } else {
-                                    if (pl.inventory.gold >= buySpec) {
-                                        pl.inventory.gold -= buySpec;
-                                        InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i.template.id), 99);
-                                        InventoryServiceNew.gI().sendItemBags(pl);
-                                        InventoryServiceNew.gI().sendItemBody(pl);
-                                        Service.getInstance().sendMoney(pl);
-                                        return true;
-                                    } else {
-                                        Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Vàng Để Mua Vật Phẩm");
+                                    if (InventoryServiceNew.gI().findItemBag(pl, itSpec) == null || !InventoryServiceNew.gI().findItemBag(pl, itSpec).isNotNullItem()) {
+                                        Service.getInstance().sendThongBao(pl, "Không tìm thấy " + itS.template.name);
+                                        isBuy = false;
                                         pl.soluongmuanhieu = 0;
                                         pl.idmuanhieu = -1;
-                                        return false;
+                                    } else if (InventoryServiceNew.gI().findItemBag(pl, itSpec).quantity < buySpec) {
+                                        Service.getInstance().sendThongBao(pl, "Bạn không có đủ " + buySpec + " " + itS.template.name);
+                                        isBuy = false;
+                                        pl.soluongmuanhieu = 0;
+                                        pl.idmuanhieu = -1;
+                                    } else {
+                                        InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i.template.id), 99);
+                                        InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, itSpec), buySpec);
+                                        isBuy = true;
                                     }
                                 }
                             }
@@ -624,39 +631,39 @@ public class ShopServiceNew {
                     pl.idmuanhieu = -1;
                     return false;
                 }
-                for (Item i : pl.inventory.itemsBag) {
-                    if (i.template != null) {
-                        if (ItemData.phieu.contains((int) i.template.id)) {
-                            if (InventoryServiceNew.gI().findItemBag(pl, i.template.id).quantity > 0) {
-                                if (pl.inventory.ruby >= buySpec) {
-                                    InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i.template.id), 1);
-                                    InventoryServiceNew.gI().sendItemBags(pl);
-                                    Service.getInstance().sendMoney(pl);
-                                } else {
-                                    Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Hồng Ngọc Để Mua Vật Phẩm");
-                                    isBuy = false;
-                                    pl.soluongmuanhieu = 0;
-                                    pl.idmuanhieu = -1;
-                                }
-                            } else {
-                                Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Phiếu giảm giá Để Mua Vật Phẩm");
-                                isBuy = false;
-                                pl.soluongmuanhieu = 0;
-                                pl.idmuanhieu = -1;
-                            }
-                        }
-                    }
-                }
-                if (pl.inventory.ruby >= buySpec) {
-                    pl.inventory.ruby -= buySpec;
-                    Service.getInstance().sendMoney(pl);
-                    isBuy = true;
-                } else {
-                    Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Hồng Ngọc Để Mua Vật Phẩm");
-                    isBuy = false;
-                    pl.soluongmuanhieu = 0;
-                    pl.idmuanhieu = -1;
-                }
+                // for (Item i : pl.inventory.itemsBag) {
+                //     if (i.template != null) {
+                //         if (ItemData.phieu.contains((int) i.template.id)) {
+                //             if (InventoryServiceNew.gI().findItemBag(pl, i.template.id).quantity > 0) {
+                //                 if (pl.inventory.ruby >= buySpec) {
+                //                     InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i.template.id), 1);
+                //                     InventoryServiceNew.gI().sendItemBags(pl);
+                //                     Service.getInstance().sendMoney(pl);
+                //                 } else {
+                //                     Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Hồng Ngọc Để Mua Vật Phẩm");
+                //                     isBuy = false;
+                //                     pl.soluongmuanhieu = 0;
+                //                     pl.idmuanhieu = -1;
+                //                 }
+                //             } else {
+                //                 Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Phiếu giảm giá Để Mua Vật Phẩm");
+                //                 isBuy = false;
+                //                 pl.soluongmuanhieu = 0;
+                //                 pl.idmuanhieu = -1;
+                //             }
+                //         }
+                //     }
+                // }
+                // if (pl.inventory.ruby >= buySpec) {
+                //     pl.inventory.ruby -= buySpec;
+                //     Service.getInstance().sendMoney(pl);
+                //     isBuy = true;
+                // } else {
+                //     Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Hồng Ngọc Để Mua Vật Phẩm");
+                //     isBuy = false;
+                //     pl.soluongmuanhieu = 0;
+                //     pl.idmuanhieu = -1;
+                // }
                 break;
             default:
                 if (InventoryServiceNew.gI().findItemBag(pl, itSpec) == null || !InventoryServiceNew.gI().findItemBag(pl, itSpec).isNotNullItem()) {
