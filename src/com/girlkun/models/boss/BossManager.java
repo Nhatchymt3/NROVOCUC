@@ -326,15 +326,6 @@ public class BossManager implements Runnable {
         return !player.zone.getBosses().isEmpty();
     }
 
-    public void bossNotify(Boss boss) {
-        if (boss.getSecondsNotify() == 0) {
-            return;
-        }
-        if (Util.canDoWithTime(boss.getLastTimeNotify(), boss.getSecondsNotify())) {
-            boss.setLastTimeNotify(System.currentTimeMillis());
-        }
-    }
-
     public void showListBoss(Player player) {
         
 

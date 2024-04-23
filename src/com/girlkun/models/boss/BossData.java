@@ -31,9 +31,7 @@ public class BossData {
     private String[] textE;
 
     private int secondsRest;
-
-    private int secondsNotify;
-
+    
     private TypeAppear typeAppear;
 
     private int[] bossesAppearTogether;
@@ -97,25 +95,10 @@ public class BossData {
         this.secondsRest = secondsRest;
     }
 
-    public BossData(String name, byte gender, short[] outfit, double dame, double[] hp,
-            int[] mapJoin, int[][] skillTemp, String[] textS, String[] textM,
-            String[] textE, int secondsRest, int secondsNotify) {
-        this(name, gender, outfit, dame, hp, mapJoin, skillTemp, textS, textM, textE);
-        this.secondsRest = secondsRest;
-        this.secondsNotify = secondsNotify;
-    }
-
     public BossData(String name, byte gender, short[] outfit, long dame, double[] hp,
             int[] mapJoin, int[][] skillTemp, String[] textS, String[] textM,
             String[] textE, int secondsRest, int[] bossesAppearTogether) {
         this(name, gender, outfit, dame, hp, mapJoin, skillTemp, textS, textM, textE, secondsRest);
-        this.bossesAppearTogether = bossesAppearTogether;
-    }
-
-    public BossData(String name, byte gender, short[] outfit, long dame, double[] hp,
-            int[] mapJoin, int[][] skillTemp, String[] textS, String[] textM,
-            String[] textE, int secondsRest, int secondsNotify, int[] bossesAppearTogether) {
-        this(name, gender, outfit, dame, hp, mapJoin, skillTemp, textS, textM, textE, secondsRest, secondsNotify);
         this.bossesAppearTogether = bossesAppearTogether;
     }
 

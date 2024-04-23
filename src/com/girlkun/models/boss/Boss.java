@@ -26,9 +26,7 @@ import com.girlkun.utils.Util;
 import com.nroluz.models.boss.boss_new.OngGiaNoel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import lombok.Data;
 
-@Data
 
 public class Boss extends Player implements IBossNew, IBossOutfit {
 
@@ -41,14 +39,11 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     protected long lastTimeRest;
     protected int secondsRest;
-    private int secondsNotify;
 
     protected Boss bossInstance;
     public int mapHoTong;
     private int typeBoss;
     protected long lastTimeChatS;
-    private long lastTimeNotify;
-    private long timeToRestart;
     protected int timeChatS;
     protected byte indexChatS;
 
@@ -78,7 +73,6 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         }
         this.data = data;
         this.secondsRest = this.data[0].getSecondsRest();
-        this.secondsNotify = this.data[0].getSecondsNotify();
         this.bossStatus = BossStatus.REST;
         BossManager.gI().addBoss(this);
 
@@ -90,7 +84,6 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
                     Boss boss = BossManager.gI().createBoss(this.data[i].getBossesAppearTogether()[j]);
                     if (boss != null) {
                         boss.parentBoss = this;
-                        this.timeToRestart = -1;
                         this.bossAppearTogether[i][j] = boss;
                     }
                 }
@@ -253,7 +246,6 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     @Override
     public void update() {
         super.update();
-        bossNotify();
         this.nPoint.mp = this.nPoint.mpg;
         if (this.effectSkill.isHaveEffectSkill()) {
             return;
@@ -384,26 +376,6 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
             return;
         }
         ServerNotify.gI().notify("BOSS " + this.name + " vừa xuất hiện tại " + this.zone.map.mapName);
-        this.lastTimeNotify = System.currentTimeMillis();
-    }
-
-    public void bossNotify() {
-        if (this.secondsNotify == 0) {
-            return;
-        }
-        if (this != null && !this.isDie() && this.zone != null && Util.canDoWithTime(this.lastTimeNotify, this.secondsNotify * 1000)) {
-            this.lastTimeNotify = System.currentTimeMillis();
-            if (timeToRestart == -1 && data[0].getBossesAppearTogether() != null && data[0].getBossesAppearTogether().length > 1) {
-                for (Boss boss : bossAppearTogether[0]) {
-                    if (boss != null && boss.zone != null) {
-                        ServerNotify.gI().notify("BOSS " + boss.name + " vừa xuất hiện tại " + boss.zone.map.mapName);
-                    }
-                }
-                ServerNotify.gI().notify("BOSS " + this.name + " vừa xuất hiện tại " + this.zone.map.mapName);
-            } else if (this.data[0].getBossesAppearTogether() == null) {
-                ServerNotify.gI().notify("BOSS " + this.name + " vừa xuất hiện tại " + this.zone.map.mapName);
-            }
-        }
     }
 
     @Override
