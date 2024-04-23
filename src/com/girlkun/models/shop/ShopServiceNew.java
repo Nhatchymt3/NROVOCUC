@@ -631,40 +631,6 @@ public class ShopServiceNew {
                     pl.idmuanhieu = -1;
                     return false;
                 }
-                // for (Item i : pl.inventory.itemsBag) {
-                //     if (i.template != null) {
-                //         if (ItemData.phieu.contains((int) i.template.id)) {
-                //             if (InventoryServiceNew.gI().findItemBag(pl, i.template.id).quantity > 0) {
-                //                 if (pl.inventory.ruby >= buySpec) {
-                //                     InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i.template.id), 1);
-                //                     InventoryServiceNew.gI().sendItemBags(pl);
-                //                     Service.getInstance().sendMoney(pl);
-                //                 } else {
-                //                     Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Hồng Ngọc Để Mua Vật Phẩm");
-                //                     isBuy = false;
-                //                     pl.soluongmuanhieu = 0;
-                //                     pl.idmuanhieu = -1;
-                //                 }
-                //             } else {
-                //                 Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Phiếu giảm giá Để Mua Vật Phẩm");
-                //                 isBuy = false;
-                //                 pl.soluongmuanhieu = 0;
-                //                 pl.idmuanhieu = -1;
-                //             }
-                //         }
-                //     }
-                // }
-                // if (pl.inventory.ruby >= buySpec) {
-                //     pl.inventory.ruby -= buySpec;
-                //     Service.getInstance().sendMoney(pl);
-                //     isBuy = true;
-                // } else {
-                //     Service.getInstance().sendThongBao(pl, "Bạn Không Đủ Hồng Ngọc Để Mua Vật Phẩm");
-                //     isBuy = false;
-                //     pl.soluongmuanhieu = 0;
-                //     pl.idmuanhieu = -1;
-                // }
-                break;
             default:
                 if (InventoryServiceNew.gI().findItemBag(pl, itSpec) == null || !InventoryServiceNew.gI().findItemBag(pl, itSpec).isNotNullItem()) {
                     Service.getInstance().sendThongBao(pl, "Không tìm thấy " + itS.template.name);
