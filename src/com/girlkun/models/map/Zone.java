@@ -97,7 +97,7 @@ public class Zone {
     private void udPlayer() {
         List<Player> copyList = new ArrayList<>(notBosses);
         for (Player pl : copyList) {
-            if (!pl.isPet && !pl.isNewPet && !pl.isTrieuhoipet) {
+            if (!pl.isNewPet && !pl.isTrieuhoipet) {
                 pl.update();
             } else {
                 notBosses.remove(pl);

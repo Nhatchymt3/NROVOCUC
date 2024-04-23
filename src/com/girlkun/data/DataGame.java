@@ -14,19 +14,13 @@ import com.girlkun.models.skill.Skill;
 import com.girlkun.models.Template.MobTemplate;
 import com.girlkun.models.Template.NpcTemplate;
 import com.girlkun.models.Template.SkillTemplate;
-import com.girlkun.models.item.Item;
-import com.girlkun.models.player.Player;
 import com.girlkun.network.session.ISession;
 import com.girlkun.network.io.Message;
-import com.girlkun.server.Client;
 import com.girlkun.server.Manager;
 import com.girlkun.server.io.MySession;
-import com.girlkun.services.PlayerService;
 import com.girlkun.utils.Logger;
 import static com.girlkun.utils.Logger.RED;
 import static com.girlkun.utils.Logger.RESET;
-import com.girlkun.utils.Util;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -44,7 +38,7 @@ public class DataGame {
     public static int vsRes = 752011;
 
     public static String LINK_IP_PORT = "Girlkun75-1:127.0.0.1:14445:0";
-    private static final String MOUNT_NUM = "733:1,734:2,735:3,743:4,744:5,746:6,795:7,849:8,897:9,920:10";
+    private static final String MOUNT_NUM = "733:1,734:2,735:3,743:4,744:5,746:6,795:7,849:8,897:9,920:10,1142:15";
     public static final Map MAP_MOUNT_NUM = new HashMap();
 
     static {

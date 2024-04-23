@@ -264,37 +264,13 @@ public class NpcFactory {
                             case ConstNpc.DTMABU:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null) {
-                                            if (trung1 != null && trung1.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung1, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeMabuPet(player, 0);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
-                                        }
-                                        break;
                                     case 1:
-                                        if (player.pet != null) {
-                                            if (trung1 != null && trung1.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung1, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeMabuPet(player, 1);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử thường");
-                                        }
-                                        break;
                                     case 2:
                                         if (player.pet != null) {
                                             if (trung1 != null && trung1.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung1, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeMabuPet(player, 2);
+                                                PetService.gI().changeMabuPet(player, select);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -307,37 +283,13 @@ public class NpcFactory {
                             case ConstNpc.DTBERUS:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null && player.pet.type >= 1) {
-                                            if (trung2 != null && trung2.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung2, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeBerusPet(player, 0);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử bư");
-                                        }
-                                        break;
                                     case 1:
-                                        if (player.pet != null && player.pet.type >= 1) {
-                                            if (trung2 != null && trung2.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung2, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeBerusPet(player, 1);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử bư");
-                                        }
-                                        break;
                                     case 2:
-                                        if (player.pet != null && player.pet.type >= 1) {
+                                        if (player.pet != null && player.pet.typePet >= 1) {
                                             if (trung2 != null && trung2.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung2, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeBerusPet(player, 2);
+                                                PetService.gI().changeBerusPet(player, select);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -350,37 +302,13 @@ public class NpcFactory {
                             case ConstNpc.DTSUPER:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null && player.pet.type >= 2) {
-                                            if (trung3 != null && trung3.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeBrolyPet(player, 0);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử berus");
-                                        }
-                                        break;
                                     case 1:
-                                        if (player.pet != null && player.pet.type >= 2) {
-                                            if (trung3 != null && trung3.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeBrolyPet(player, 1);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử berus");
-                                        }
-                                        break;
                                     case 2:
-                                        if (player.pet != null && player.pet.type >= 2) {
+                                        if (player.pet != null && player.pet.typePet >= 2) {
                                             if (trung3 != null && trung3.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung3, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeBrolyPet(player, 2);
+                                                PetService.gI().changeBrolyPet(player, select);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -393,37 +321,13 @@ public class NpcFactory {
                             case ConstNpc.DTWUKONG:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null && player.pet.type >= 3) {
-                                            if (trung4 != null && trung4.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeWukongPet(player, 0);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử broly");
-                                        }
-                                        break;
                                     case 1:
-                                        if (player.pet != null && player.pet.type >= 3) {
-                                            if (trung4 != null && trung4.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeWukongPet(player, 1);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử broly");
-                                        }
-                                        break;
                                     case 2:
-                                        if (player.pet != null && player.pet.type >= 3) {
+                                        if (player.pet != null && player.pet.typePet >= 3) {
                                             if (trung4 != null && trung4.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung4, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeWukongPet(player, 2);
+                                                PetService.gI().changeWukongPet(player, select);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }
@@ -436,37 +340,13 @@ public class NpcFactory {
                             case ConstNpc.DTZAMUS:
                                 switch (select) {
                                     case 0:
-                                        if (player.pet != null && player.pet.type >= 4) {
-                                            if (trung5 != null && trung5.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeFunsionPet(player, 0);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử wukong");
-                                        }
-                                        break;
                                     case 1:
-                                        if (player.pet != null && player.pet.type >= 4) {
-                                            if (trung5 != null && trung5.quantity >= 1) {
-                                                InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
-                                                InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeFunsionPet(player, 1);
-                                            } else {
-                                                this.npcChat(player, "|7|Bạn không có trứng");
-                                            }
-                                        } else {
-                                            this.npcChat(player, "|7| Bạn chưa có đệ tử wukong");
-                                        }
-                                        break;
                                     case 2:
-                                        if (player.pet != null && player.pet.type >= 4) {
+                                        if (player.pet != null && player.pet.typePet >= 4) {
                                             if (trung5 != null && trung5.quantity >= 1) {
                                                 InventoryServiceNew.gI().subQuantityItemsBag(player, trung5, 1);
                                                 InventoryServiceNew.gI().sendItemBags(player);
-                                                PetService.gI().changeFunsionPet(player, 2);
+                                                PetService.gI().changeFunsionPet(player, select);
                                             } else {
                                                 this.npcChat(player, "|7|Bạn không có trứng");
                                             }

@@ -11,6 +11,7 @@ import com.girlkun.services.PlayerService;
 import com.girlkun.services.Service;
 import com.girlkun.models.boss.BossStatus;
 import com.girlkun.services.TaskService;
+import com.girlkun.services.func.ChangeMapService;
 import com.girlkun.utils.Util;
 
 import java.util.Random;
@@ -33,21 +34,23 @@ public class XenBoHung extends Boss {
                  Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(748,749), 1, this.location.x, this.location.y, plKill.id));
 
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
-        ItemMap it = new ItemMap(this.zone, 16, 1, this.location.x, this.location.y, plKill.id);
-        Service.getInstance().dropItemMap(this.zone, it);
-        ItemMap it1 = new ItemMap(this.zone, 2030, 2, this.location.x - 10, this.zone.map.yPhysicInTop(this.location.x,
-                this.location.y - 24), plKill.id);
-        Service.getInstance().dropItemMap(this.zone, it1);
+        if (Util.isTrue(50, 100)) {
+            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 16, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+            this.location.y - 24), plKill.id));
+        }
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
          if (Util.isTrue(50, 100)) {
-            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 674, 1, this.location.x, this.location.y, plKill.id));
+            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 674, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+            this.location.y - 24), plKill.id));
         } else {
-            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1529, 1, this.location.x, this.location.y, plKill.id));
+            Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1529, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+            this.location.y - 24), plKill.id));
         }
     }
 
     @Override
     public void joinMap() {
+        this.hapThu();
         super.joinMap(); //To change body of generated methods, choose Tools | Templates.
         st = System.currentTimeMillis();
     }
@@ -76,6 +79,29 @@ public class XenBoHung extends Boss {
         } else {
             return 0;
         }
+    }
+
+    private void hapThu() {
+        if (!Util.canDoWithTime(this.lastTimeHapThu, this.timeHapThu) || !Util.isTrue(1, 100)) {
+            return;
+        }
+
+        Player pl = this.zone.getRandomPlayerInMap();
+        if (pl == null || pl.isDie()) {
+            return;
+        }
+       ChangeMapService.gI().changeMapYardrat(this, this.zone, pl.location.x, pl.location.y);
+       this.nPoint.dameg += (pl.nPoint.dame * 5 / 100);
+       this.nPoint.hpg += (pl.nPoint.hp * 2 / 100);
+       this.nPoint.critg++;
+       this.nPoint.calPoint();
+       PlayerService.gI().hoiPhuc(this, pl.nPoint.hp, 0);
+       pl.injured(null, pl.nPoint.hpMax, true, false);
+       Service.gI().sendThongBao(pl, "Bạn vừa bị " + this.name + " hấp thu!");
+       this.chat(2, "Ui cha cha, kinh dị quá. " + pl.name + " vừa bị tên " + this.name + " nuốt chửng kìa!!!");
+       this.chat("Haha, ngọt lắm đấy " + pl.name + "..");
+       this.lastTimeHapThu = System.currentTimeMillis();
+       this.timeHapThu = Util.nextInt(15000, 20000);
     }
 }
 

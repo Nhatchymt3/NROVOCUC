@@ -114,7 +114,7 @@ public class Mob {
 
     public Boolean checlSkill(Skill skill)
     {
-        if (skill.template.id !=Skill.TU_SAT && skill.template.id != Skill.LIEN_HOAN_CHUONG && skill.template.id != Skill.SUPER_KAME && skill.template.id != Skill.MAKANKOSAPPO ) {
+        if (skill.template.id !=Skill.TU_SAT && skill.template.id != Skill.LIEN_HOAN_CHUONG && skill.template.id != Skill.SUPER_KAME && skill.template.id != Skill.MAKANKOSAPPO && skill.template.id != Skill.QUA_CAU_KENH_KHI && skill.template.id != Skill.MA_PHONG_BA ) {
             return true;
         }
         return false;
@@ -133,10 +133,15 @@ public class Mob {
                     damage = 10;
                 }
                 if (this.tempId == 70) {                
-                    damage = this.point.gethp()/100;
-                    if (damage < 1) {
-                        damage = 1;
-                    }
+                  if (checlSkill(plAtt.playerSkill.skillSelect)) {
+                        damage = this.point.gethp()/100;
+                        if (damage < 1) {
+                            damage = 1;
+                        }
+                  }else
+                  {
+                    damage = 0 ;
+                  }
                 }
             }
             if (plAtt != null) {

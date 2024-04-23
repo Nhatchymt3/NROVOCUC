@@ -722,22 +722,22 @@ public class SkillService {
                         mobTarget.effectSkill.setTroi(System.currentTimeMillis(), timeHold);
                     }
                     affterUseSkill(player, player.playerSkill.skillSelect.template.id);
-                    if (plTarget != null
-                            && plTarget.isBoss
-                            && MapService.gI().isMapHuyDiet(player.zone.map.mapId)
-                            && Util.isTrue(40, 100)) {
-                        EffectSkillService.gI().removeUseTroi(player);
-                        EffectSkillService.gI().removeAnTroi(plTarget);
-                        Service.getInstance().chat(plTarget, "Chiêu đó không có tác dụng đâu kaka");
-                    }
-                    if (plTarget != null
-                            && plTarget.isBoss
-                            && MapService.gI().isMap1sao(player.zone.map.mapId)
-                            && Util.isTrue(99, 100)) {
-                        EffectSkillService.gI().removeUseTroi(player);
-                        EffectSkillService.gI().removeAnTroi(plTarget);
-                        Service.getInstance().chat(plTarget, "Chiêu đó không có tác dụng đâu kaka");
-                    }
+                    // if (plTarget != null
+                    //         && plTarget.isBoss
+                    //         && MapService.gI().isMapHuyDiet(player.zone.map.mapId)
+                    //         && Util.isTrue(40, 100)) {
+                    //     EffectSkillService.gI().removeUseTroi(player);
+                    //     EffectSkillService.gI().removeAnTroi(plTarget);
+                    //     Service.getInstance().chat(plTarget, "Chiêu đó không có tác dụng đâu kaka");
+                    // }
+                    // if (plTarget != null
+                    //         && plTarget.isBoss
+                    //         && MapService.gI().isMap1sao(player.zone.map.mapId)
+                    //         && Util.isTrue(99, 100)) {
+                    //     EffectSkillService.gI().removeUseTroi(player);
+                    //     EffectSkillService.gI().removeAnTroi(plTarget);
+                    //     Service.getInstance().chat(plTarget, "Chiêu đó không có tác dụng đâu kaka");
+                    // }
                     break;
             }
             if (!player.isBoss) {
@@ -1099,7 +1099,7 @@ public class SkillService {
             try {
                 msg = new Message(44);
                 msg.writer().writeInt((int) plInjure.id);
-                msg.writer().writeUTF("Hp của ta:\b|7| " + Util.format(plInjure.nPoint.hp));
+                msg.writer().writeUTF("Hp của bố:\b|7| " + Util.format(plInjure.nPoint.hp));
                 Service.getInstance().sendMessAllPlayerInMap(plInjure, msg);
                 msg.cleanup();
             } catch (Exception e) {

@@ -31,7 +31,7 @@ public class DetuBroly extends Boss {
     public void reward(Player plKill) {
          plKill.pointsb ++;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được 1 điểm săn Boss");
-        if (Util.isTrue(70, 100)) {
+        if (Util.isTrue(80, 100)) {
                 Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1529, Util.nextInt(1, 3), this.location.x, this.location.y, plKill.id));
         } else {
             Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1740, 1, this.location.x, this.location.y, plKill.id));

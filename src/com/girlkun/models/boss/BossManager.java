@@ -61,6 +61,7 @@ import com.girlkun.network.io.Message;
 import com.girlkun.server.ServerManager;
 import com.girlkun.services.ItemMapService;
 import com.girlkun.services.MapService;
+import com.girlkun.utils.Util;
 import com.nroluz.models.boss.boss_new.BossAndroid17;
 import com.nroluz.models.boss.boss_new.BossCumber; //new
 import com.nroluz.models.boss.boss_new.BossToppo; //new
@@ -323,6 +324,15 @@ public class BossManager implements Runnable {
 
     public boolean existBossOnPlayer(Player player) {
         return !player.zone.getBosses().isEmpty();
+    }
+
+    public void bossNotify(Boss boss) {
+        if (boss.getSecondsNotify() == 0) {
+            return;
+        }
+        if (Util.canDoWithTime(boss.getLastTimeNotify(), boss.getSecondsNotify())) {
+            boss.setLastTimeNotify(System.currentTimeMillis());
+        }
     }
 
     public void showListBoss(Player player) {

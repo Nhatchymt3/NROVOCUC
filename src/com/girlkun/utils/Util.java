@@ -426,7 +426,7 @@ public class Util {
         }
         it.options.add(new Item.ItemOption(209, 1)); // đồ rơi từ boss
         it.options.add(new Item.ItemOption(21, 15)); // ycsm 15 tỉ
-        it.options.add(new Item.ItemOption(30, 1)); // ko thể gd
+        // it.options.add(new Item.ItemOption(30, 1)); // ko thể gd
         if (Util.isTrue(90, 100)) {// tỉ lệ ra spl
             it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 1));
         } else if (Util.isTrue(4, 100)) {
@@ -769,10 +769,9 @@ public class Util {
         it.options.add(new Item.ItemOption(50, (Util.nextInt(20, 45))));//đồ rơi từ boss
         it.options.add(new Item.ItemOption(77, (Util.nextInt(20, 45))));//đồ
         it.options.add(new Item.ItemOption(103, (Util.nextInt(20, 45))));//đồ
-        it.options.add(new Item.ItemOption(209, 40));//đồ rơi từ boss
-        if (Util.isTrue(90, 100)) {// tỉ lệ ra spl 1-3 sao 70%
-            it.options.add(new Item.ItemOption(93, 1));//đồ rơi từ boss
-        } else if (Util.isTrue(4, 100)) {// tỉ lệ ra spl 5-7 sao 4%
+        it.options.add(new Item.ItemOption(209, 40));
+        it.options.add(new Item.ItemOption(93, 1));//đồ rơi từ boss
+        if (Util.isTrue(4, 100)) {// tỉ lệ ra spl 5-7 sao 4%
             it.options.add(new Item.ItemOption(107, new Random().nextInt(3) + 5));
         } else {// tỉ lệ ra spl 1-5 sao 6%
             it.options.add(new Item.ItemOption(107, new Random().nextInt(2) + 3));

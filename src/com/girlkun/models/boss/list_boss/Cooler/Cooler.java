@@ -29,23 +29,13 @@ public class Cooler extends Boss {
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được 1 điểm săn Boss");
         byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
         byte randomDo1 = (byte) new Random().nextInt(Manager.itemIds_CUI.length - 1);
-        if (Util.isTrue(BossManager.ratioReward, 100)) {
+        if (Util.isTrue(20, 100)) {
             if (Util.isTrue(1, 20)) {
-                Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 2031, 5, this.location.x, this.location.y, plKill.id));
+                Service.getInstance().dropItemMap(this.zone, Util.RaitiDoc12(zone, Manager.itemIds_TL[randomDo1], 1, this.location.x, this.location.y, plKill.id));
             } else {
-                Service.getInstance().dropItemMap(this.zone, Util.ratiItem(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
+                Service.getInstance().dropItemMap(this.zone, Util.ratiDTL(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, plKill.id));
             }
 
-        } else if (Util.isTrue(20, 100)) {
-            int a = 20;
-            for (int i = 0; i < 1; i++) {
-                ItemMap it1 = new ItemMap(this.zone, 16, 1, this.location.x + a, this.zone.map.yPhysicInTop(this.location.x,
-                        this.location.y - 24), plKill.id);
-                Service.getInstance().dropItemMap(this.zone, it1);
-                a += 10;
-            }
-            ItemMap it1 = new ItemMap(this.zone, 2030, 5, this.location.x - a, this.zone.map.yPhysicInTop(this.location.x,
-                    this.location.y - 24), plKill.id);
         } else {
             if (Util.isTrue(50, 100)) {
                 Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 674, 1, this.location.x, this.location.y, plKill.id));

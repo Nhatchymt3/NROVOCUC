@@ -7,11 +7,9 @@ import com.girlkun.models.boss.list_boss.AnTrom;
 import com.girlkun.models.boss.list_boss.Fusion.GogetaSSJ4;
 import com.girlkun.models.boss.list_boss.Fusion.BlackGoku;
 import com.girlkun.models.boss.list_boss.MiNuong;
-import com.girlkun.models.boss.list_boss.NRD.*;
 import com.girlkun.models.map.Zone;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
-import com.girlkun.network.io.Message;
 import com.girlkun.server.ServerNotify;
 import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.MapService;
@@ -23,12 +21,14 @@ import com.girlkun.services.func.ChangeMapService;
 import static com.girlkun.utils.Logger.GREEN;
 import static com.girlkun.utils.Logger.RED;
 import static com.girlkun.utils.Logger.RESET;
-import static com.girlkun.utils.Logger.YELLOW;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
 import com.nroluz.models.boss.boss_new.OngGiaNoel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lombok.Data;
+
+@Data
 
 public class Boss extends Player implements IBossNew, IBossOutfit {
 
@@ -41,11 +41,14 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     protected long lastTimeRest;
     protected int secondsRest;
+    private int secondsNotify;
 
     protected Boss bossInstance;
     public int mapHoTong;
     private int typeBoss;
     protected long lastTimeChatS;
+    private long lastTimeNotify;
+    private long timeToRestart;
     protected int timeChatS;
     protected byte indexChatS;
 
@@ -75,6 +78,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         }
         this.data = data;
         this.secondsRest = this.data[0].getSecondsRest();
+        this.secondsNotify = this.data[0].getSecondsNotify();
         this.bossStatus = BossStatus.REST;
         BossManager.gI().addBoss(this);
 
@@ -86,6 +90,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
                     Boss boss = BossManager.gI().createBoss(this.data[i].getBossesAppearTogether()[j]);
                     if (boss != null) {
                         boss.parentBoss = this;
+                        this.timeToRestart = -1;
                         this.bossAppearTogether[i][j] = boss;
                     }
                 }
@@ -248,6 +253,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     @Override
     public void update() {
         super.update();
+        bossNotify();
         this.nPoint.mp = this.nPoint.mpg;
         if (this.effectSkill.isHaveEffectSkill()) {
             return;
@@ -378,6 +384,26 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
             return;
         }
         ServerNotify.gI().notify("BOSS " + this.name + " vừa xuất hiện tại " + this.zone.map.mapName);
+        this.lastTimeNotify = System.currentTimeMillis();
+    }
+
+    public void bossNotify() {
+        if (this.secondsNotify == 0) {
+            return;
+        }
+        if (this != null && !this.isDie() && this.zone != null && Util.canDoWithTime(this.lastTimeNotify, this.secondsNotify * 1000)) {
+            this.lastTimeNotify = System.currentTimeMillis();
+            if (timeToRestart == -1 && data[0].getBossesAppearTogether() != null && data[0].getBossesAppearTogether().length > 1) {
+                for (Boss boss : bossAppearTogether[0]) {
+                    if (boss != null && boss.zone != null) {
+                        ServerNotify.gI().notify("BOSS " + boss.name + " vừa xuất hiện tại " + boss.zone.map.mapName);
+                    }
+                }
+                ServerNotify.gI().notify("BOSS " + this.name + " vừa xuất hiện tại " + this.zone.map.mapName);
+            } else if (this.data[0].getBossesAppearTogether() == null) {
+                ServerNotify.gI().notify("BOSS " + this.name + " vừa xuất hiện tại " + this.zone.map.mapName);
+            }
+        }
     }
 
     @Override
@@ -611,7 +637,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     public void moveTo(int x, int y) {
         byte dir = (byte) (this.location.x - x < 0 ? 1 : -1);
         byte move = (byte) Util.nextInt(40, 60);
-        PlayerService.gI().playerMove(this, this.location.x + (dir == 1 ? move : -move), y + (Util.isTrue(3, 10) ? -10 : 0));
+        PlayerService.gI().playerMove(this, this.location.x + (dir == 1 ? move : -move), y + (Util.isTrue(3, 10) ? -50 : 0));
     }
 
     public void chat(String text) {

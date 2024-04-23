@@ -1018,8 +1018,7 @@ public class BossesData {
             new int[]{92, 93, 94, 96, 97, 98, 99, 100}, //map join
             new int[][]{
                 {Skill.KAMEJOKO, 5, 3000},
-                {Skill.TAI_TAO_NANG_LUONG, 1, 13000},
-                {Skill.KHIEN_NANG_LUONG, 7, 100000},
+                {Skill.TAI_TAO_NANG_LUONG, 1, 15000},
                 {Skill.QUA_CAU_KENH_KHI, 7, 120000}},
             //skill
             new String[]{}, //text chat 1
@@ -1864,7 +1863,6 @@ public class BossesData {
             new int[]{106, 107, 108, 109, 110}, //map join
             new int[][]{
                 {Skill.DE_TRUNG, 7, 1000},
-                {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.KAMEJOKO, 1, 400},
                 {Skill.LIEN_HOAN, 2, 300},},//skill//skill
             new String[]{}, //text chat 1
