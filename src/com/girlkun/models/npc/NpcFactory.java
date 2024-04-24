@@ -1500,7 +1500,7 @@ public class NpcFactory {
                                     + "\n|1|2 đá ngũ sắc = 1 xu vàng\n"
                                     + "\n|1|1 thỏi vàng = 1 đá ngũ sắc\n"
                                     + "\n|1|1 thỏi vàng  = 1 xu\n",
-                                    "XU => ĐÁ","ĐÁ => XU","VÀNG => ĐÁ","ĐÁ => XU");
+                                    "XU => ĐÁ","ĐÁ => XU","VÀNG => ĐÁ","VÀNG => XU");
                             break;
                             case 1:
                                 Clan clan = player.clan;
@@ -2581,7 +2581,9 @@ public class NpcFactory {
                                     CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.PHA_LE_HOA_TRANG_BI);
                                     break;
                                 case 2:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.AN_TRANG_BI);
+                                        this.createOtherMenu(player, ConstNpc.MENU_AN,
+                                        "|7|TINH ẤN",
+                                        "Tinh ấn", "Xoá tinh ấn");
                                     break;
                                 case 3: //nâng cấp Chân mệnh
                                     this.createOtherMenu(player, 5701,
@@ -2604,28 +2606,32 @@ public class NpcFactory {
 
                             }
 
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.SELECTSKH) {
-                            switch (select) {
-                                case 0:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_SKH_VIP);
-                                    break;
-                                case 1:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.CUONGHOASKH);
-                                    break;
-                                case 2:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.FUSION_SKH);
-                                    break;
+                        } 
+                        // else if (player.iDMark.getIndexMenu() == ConstNpc.SELECTSKH) {
+                        //     switch (select) {
+                        //         case 0:
+                        //             CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_SKH_VIP);
+                        //             break;
+                        //         case 1:
+                        //             CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.CUONGHOASKH);
+                        //             break;
+                        //         case 2:
+                        //             CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.FUSION_SKH);
+                        //             break;
 
-                            }
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENUFUSIONSKH) {
+                        //     }
+                        // } 
+                        // else if (player.iDMark.getIndexMenu() == ConstNpc.MENUFUSIONSKH) {
+                        //     if (select == 0) {
+                        //         CombineServiceNew.gI().startCombine(player);
+                        //     }
+                        // } 
+                        else if (player.iDMark.getIndexMenu() == ConstNpc.MENUCUONGHOASKH) {
                             if (select == 0) {
                                 CombineServiceNew.gI().startCombine(player);
                             }
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENUCUONGHOASKH) {
-                            if (select == 0) {
-                                CombineServiceNew.gI().startCombine(player);
-                            }
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINELVL) {
+                        } 
+                        else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINELVL) {
                             if (select == 0) {
                                 CombineServiceNew.gI().startCombine(player);
                             }
@@ -2660,10 +2666,22 @@ public class NpcFactory {
                                     break;
 
                             }
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
+                        }else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_AN) {
+                            switch (select) {
+                                case 0:
+                                CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.AN_TRANG_BI);
+                                    break;
+                                case 1:
+                                CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.AN_CLEAR);
+                                    break;
+                            }
+                        } 
+                        
+                        else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_START_COMBINE) {
                             switch (player.combineNew.typeCombine) {
                                 case CombineServiceNew.EP_SAO_TRANG_BI:
                                 case CombineServiceNew.AN_TRANG_BI:
+                                case CombineServiceNew.AN_CLEAR:
                                 case CombineServiceNew.CHUYEN_HOA_TRANG_BI:
                                 case CombineServiceNew.NANG_CAP_CHAN_MENH:
                                 case CombineServiceNew.RANDOM_SKHC2:

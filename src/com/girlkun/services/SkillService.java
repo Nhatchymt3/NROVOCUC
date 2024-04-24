@@ -1137,6 +1137,9 @@ public class SkillService {
                     dameHit = mob.point.maxHp / 10;
                 }
             }
+            if (mob.tempId == 70) {
+                dameHit = 0;
+            }
             hutHPMP(plAtt, dameHit, true);
             sendPlayerAttackMob(plAtt, mob);
             mob.injured(plAtt, dameHit, dieWhenHpFull);

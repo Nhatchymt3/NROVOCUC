@@ -90,6 +90,9 @@ public final class MobMe extends Mob {
                     if (mob.point.hp <= 1) {
                         dame = 1;
                     }
+                    if (mob.tempId == 70) {
+                        dame = 0;
+                    }
 
                     long tnsm = mob.getTiemNangForPlayer(this.player, dame);
 

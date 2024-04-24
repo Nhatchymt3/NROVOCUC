@@ -210,6 +210,7 @@ public class ConstNpc {
     public static final int MENU_NANG_DOI_SKH_VIP = 506;
     public static final int MENU_CHUYEN_HOA_DO_HUY_DIET = 507;
     public static final int MENU_RANDOM_SKH = 508;
+    public static final int MENU_AN = 590;
 
     public static final int TANG_DE_TU = 52324;
     //index menu linh canh
