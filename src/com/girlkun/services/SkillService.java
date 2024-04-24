@@ -879,9 +879,14 @@ public class SkillService {
                         int rangeBom = SkillUtil.getRangeBom(player.playerSkill.skillSelect.point);
                         double dame = player.nPoint.hpMax;
                         for (Mob mob : player.zone.mobs) {
-                            mob.injured(player, dame, true);
+                            //mob.injured(player, dame, true);
                             if (Util.getDistance(player, mob) <= rangeBom) { //khoảng cách có tác dụng bom
-                                mob.injured(player, dame, true);
+                                if (mob.tempId == 70) {
+                                    mob.injured(player, 0, true);
+                                }else
+                                {
+                                    mob.injured(player, dame, true);
+                                }
                             }
                         }
                         List<Player> playersMap = null;

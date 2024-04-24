@@ -959,7 +959,7 @@ public class Mob {
             list.add(new ItemMap(zone, Manager.manhthiensu[randommanhthiensu], Util.nextInt(1, 3), this.location.x, this.location.y, player.id));
         }
         //rơi đồ thân linh
-        if (Util.isTrue(1, 50000) && MapService.gI().isMapCold(this.zone.map)) {
+        if (Util.isTrue(1, 5000) && MapService.gI().isMapCold(this.zone.map)) {
             if (player.chienthan.tasknow == 2) {
                 player.chienthan.dalamduoc++; //cộng điểm chiến thần
             }

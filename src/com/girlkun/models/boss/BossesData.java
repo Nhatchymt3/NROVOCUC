@@ -1933,7 +1933,7 @@ public class BossesData {
             new short[]{1431, 1432, 1433, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             Util.nextInt(100, 500000), //dame
             new double[]{7_000_000_000L}, //hp
-            new int[]{169}, //map join
+            new int[]{122,124,125}, //map join
             new int[][]{{Skill.KAMEJOKO, 7, 6, 5, 4, 3, 2, 1, 100},
             {Skill.ANTOMIC, 7, 6, 5, 4, 3, 2, 1, 100},
             {Skill.MASENKO, 7, 6, 5, 4, 3, 2, 1, 100},
