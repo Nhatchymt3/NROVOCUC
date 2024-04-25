@@ -924,7 +924,7 @@ public class Mob {
 
         //////////////////////////////////////////////////////////////////////////
         //roi thuc an đã fix
-        if (Util.isTrue(1, 100) && player.setClothes.godClothes && MapService.gI().isMapCold(this.zone.map)) {
+        if (Util.isTrue(1, 100) && player.setClothes.setDTL == 5 && MapService.gI().isMapCold(this.zone.map)) {
             list.add(new ItemMap(zone, Manager.thucan[randomthucan], 1, this.location.x, this.location.y, player.id));
         }
         /// roi sao pha le 

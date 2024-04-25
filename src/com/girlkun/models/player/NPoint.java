@@ -771,9 +771,9 @@ public class NPoint {
             this.hpMax += ((double) this.hpMax * 30 / 100);
         }
         //set solomon
-        if (this.player.setClothes.setzeni >= 3) {
-            this.hpMax += ((double) this.hpMax * 20 / 100);
-        }
+        // if (this.player.setClothes.setzeni >= 3) {
+        //     this.hpMax += ((double) this.hpMax * 20 / 100);
+        // }
         //ngọc rồng đen 1 sao
         if (this.player.rewardBlackBall.timeOutOfDateReward[0] > System.currentTimeMillis()) {
             this.hpMax += ((double) this.hpMax * RewardBlackBall.R1S_1 / 100);
@@ -1056,9 +1056,9 @@ public class NPoint {
             this.mpMax += (this.mpMax * RewardBlackBall.R3S_1 / 100);
         }
         //set 
-        if (this.player.setClothes.setzeni >= 3) {
-            this.mpMax += ((double) this.mpMax * 20 / 100);
-        }
+        // if (this.player.setClothes.setzeni >= 3) {
+        //     this.mpMax += ((double) this.mpMax * 20 / 100);
+        // }
 
         //set nhật ấn
         if (this.player.setClothes.nhatan == 5) {
@@ -1371,10 +1371,10 @@ public class NPoint {
             this.dame += ((double) this.dame * RewardBlackBall.R1S_2 / 100);
         }
         //set solomon
-        if (this.player.setClothes.setzeni >= 2) {
-            this.dame += ((double) this.dame * 15 / 100);
-            this.tlDameCrit.add(20);
-        }
+        // if (this.player.setClothes.setzeni >= 2) {
+        //     this.dame += ((double) this.dame * 15 / 100);
+        //     this.tlDameCrit.add(20);
+        // }
         //set nguyệt ấn
         if (this.player.setClothes.nguyetan == 5) {
             this.dame += ((double) this.dame * 20 / 100);

@@ -556,7 +556,6 @@ public class ShopServiceNew {
 
             }
         }
-        player.setClothes.godClothes = false;
         InventoryServiceNew.gI().addItemBag(player, item);
         InventoryServiceNew.gI().sendItemBags(player);
         InventoryServiceNew.gI().sendItemBody(player);
@@ -601,7 +600,7 @@ public class ShopServiceNew {
                                     pl.soluongmuanhieu = 0;
                                     pl.idmuanhieu = -1;
                                     return false;
-                                } else if (pl.setClothes.godClothes == false) {
+                                } else if (pl.setClothes.setDTL == 5) {
                                     Service.getInstance().sendThongBao(pl, "Yều cầu mặc đủ set thần linh");
                                     pl.soluongmuanhieu = 0;
                                     pl.idmuanhieu = -1;

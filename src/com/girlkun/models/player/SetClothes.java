@@ -57,7 +57,7 @@ public class SetClothes {
 
     public byte cuonghoaskh;
 
-    public boolean godClothes;
+    // public boolean godClothes;
     public int ctHaiTac = -1;
     public int ctbattu = -1;
 
@@ -87,19 +87,19 @@ public class SetClothes {
         upskh7();
         upskh8();
         upskh9();
-        this.godClothes = true;
-        for (int i = 0; i < 5; i++) {
-            Item item = this.player.inventory.itemsBody.get(i);
-            if (item.isNotNullItem()) {
-                if (item.template.id < 555 || item.template.id > 567) {
-                    this.godClothes = false;
-                    break;
-                }
-            } else {
-                this.godClothes = false;
-                break;
-            }
-        }
+        // this.godClothes = true;
+        // for (int i = 0; i < 5; i++) {
+        //     Item item = this.player.inventory.itemsBody.get(i);
+        //     if (item.isNotNullItem()) {
+        //         if (item.template.id < 555 || item.template.id > 567) {
+        //             this.godClothes = false;
+        //             break;
+        //         }
+        //     } else {
+        //         this.godClothes = false;
+        //         break;
+        //     }
+        // }
         Item ct = this.player.inventory.itemsBody.get(5);
         if (ct.isNotNullItem()) {
             switch (ct.template.id) {
@@ -820,6 +820,7 @@ public class SetClothes {
                         case 21:
                             if (io.param == 80) {
                                 setDHD++;
+                                isActSet = true;
                             }
                             break;
                     }
@@ -901,7 +902,7 @@ public class SetClothes {
         this.tinhan = 0;
         this.nhatan = 0;
         this.nguyetan = 0;
-        this.godClothes = false;
+        // this.godClothes = false;
         this.ctHaiTac = -1;
         this.ctbattu = -1;
     }

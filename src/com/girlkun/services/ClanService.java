@@ -516,6 +516,8 @@ public class ClanService {
 
                 Service.getInstance().sendFlagBag(player);
                 sendMyClan(player);
+
+                checkDoneTaskJoinClan(clan);
             }
         }
     }

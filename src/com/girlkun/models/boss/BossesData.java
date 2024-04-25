@@ -1950,7 +1950,7 @@ public class BossesData {
                 "|-1|Được thôi, nếu muốn chết đến vậy, ta rất vui lòng!!"
             }, //text chat 2
             new String[]{"|-1|Khôngggggggg!!"}, //text chat 3
-            REST_3_H //type appear
+            REST_1_H //type appear
     );
 
     public static final BossData BOSS_DETU_BERUS = new BossData(

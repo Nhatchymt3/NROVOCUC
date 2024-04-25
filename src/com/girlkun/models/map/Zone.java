@@ -515,13 +515,15 @@ public class Zone {
     public void infoPlayer(Player plReceive, Player plInfo) {
         Message msg;
         try {
-            String name;//test
+            String name;
             msg = new Message(-5);
             msg.writer().writeInt((int) plInfo.id);
             if (plInfo.clan != null) {
                 msg.writer().writeInt(plInfo.clan.id);
+                name = "[" + plInfo.clan.name + "]" + plInfo.name;
             } else {
                 msg.writer().writeInt(-1);
+                name = plInfo.name;
             }
             msg.writer().writeByte(Service.getInstance().getCurrLevel(plInfo));
             msg.writer().writeBoolean(false);
@@ -529,7 +531,7 @@ public class Zone {
             msg.writer().writeByte(plInfo.gender);
             msg.writer().writeByte(plInfo.gender);
             msg.writer().writeShort(plInfo.getHead());
-            msg.writer().writeUTF(plInfo.name);//plInfo.name
+            msg.writer().writeUTF(name);//plInfo.name
             msg.writer().writeInt(Util.DoubleGioihan(plInfo.nPoint.hp));
             msg.writer().writeInt(Util.DoubleGioihan(plInfo.nPoint.hpMax));
             msg.writer().writeShort(plInfo.getBody());
@@ -556,6 +558,7 @@ public class Zone {
             msg.cleanup();
         } catch (Exception e) {
             System.out.println("lỗi tại infoPlayer" + e);
+            e.printStackTrace();
         }
         Service.getInstance().sendFlagPlayerToMe(plReceive, plInfo);
 
