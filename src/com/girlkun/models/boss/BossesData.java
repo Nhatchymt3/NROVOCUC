@@ -1584,7 +1584,7 @@ public class BossesData {
     public static final BossData Rong_1Sao = new BossData(
             "Rồng Syn 1 Sao", //name
             ConstPlayer.XAYDA, //gender
-            new short[]{204, 205, 206, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            new short[]{1336, 1337, 1338, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             1000000, //dame
             new double[]{2000000000}, //hp
             new int[]{85}, //map join
@@ -2219,7 +2219,7 @@ public class BossesData {
             new short[]{618, 619, 620, 51, -1, -1},
             1,
             new double[]{100},
-            new int[]{5, 84, 0, 7, 14},
+            new int[]{5},
             new int[][]{
                 {Skill.DEMON, 5, 15000}},
             new String[]{"|-1|Tới giờ làm việc, lụm lụm", "|-1|Cảm giác mình vào phải khu người nghèo :))"}, //text chat 1

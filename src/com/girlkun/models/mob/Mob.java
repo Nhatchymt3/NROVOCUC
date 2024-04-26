@@ -959,11 +959,13 @@ public class Mob {
             list.add(new ItemMap(zone, Manager.manhthiensu[randommanhthiensu], Util.nextInt(1, 3), this.location.x, this.location.y, player.id));
         }
         //rơi đồ thân linh
-        if (Util.isTrue(1, 5000) && MapService.gI().isMapCold(this.zone.map)) {
-            if (player.chienthan.tasknow == 2) {
-                player.chienthan.dalamduoc++; //cộng điểm chiến thần
-            }
+        if (Util.isTrue(5, 50000) && MapService.gI().isMapCold(this.zone.map)) {
+            // if (player.chienthan.tasknow == 2) {
+            //     player.chienthan.dalamduoc++; //cộng điểm chiến thần
+            // }
+
             list.add(Util.ratiItem1(zone, Manager.itemIds_TL[randomDo], 1, this.location.x, this.location.y, player.id));
+            System.out.println("rơi đồ tl: "+ player.name);
         }
 
         // if (MapService.gI().isMapBanDoKhoBau(player.zone.map.mapId)) {

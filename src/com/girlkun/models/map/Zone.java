@@ -386,7 +386,7 @@ public class Zone {
                 Service.getInstance().sendThongBao(player, "Không thể nhặt Vệ tinh");
             }
         } else {
-            Service.getInstance().sendThongBao(player, "Không thể thực hiện");
+            //Service.getInstance().sendThongBao(player, "Không thể thực hiện");
             removeItemMap(itemMap);
         }
         TaskService.gI().checkDoneTaskPickItem(player, itemMap);
