@@ -23,7 +23,7 @@ public class MabuBoss extends Boss {
         plKill.achievement.plusCount(3);
         plKill.pointsb++;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được 1 điểm săn Boss");
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length );
         byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         if (Util.isTrue(2, 100)) {
             if (Util.isTrue(1, 5)) {

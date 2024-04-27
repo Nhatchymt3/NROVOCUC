@@ -147,7 +147,7 @@ public class AnTrom extends Boss {
                 if (ramdonPlayer.zone.map.mapId != 51 && ramdonPlayer.zone.map.mapId != 113 && ramdonPlayer.zone.map.mapId != 129 && this.zone.getPlayers().size() <= 0 && System.currentTimeMillis() > this.lastTimeJoinMap) {
                     if (ramdonPlayer.id != -1000000) {
                         lastTimeJoinMap = System.currentTimeMillis() + timeChangeMap;
-                        System.err.println("Ăn Trộm Đã Tìm Thấy: " + this.zone.getPlayers().size() + " Player");
+                        //System.err.println("Ăn Trộm Đã Tìm Thấy: " + this.zone.getPlayers().size() + " Player");
                         ChangeMapService.gI().spaceShipArrive(this, (byte) 2, ChangeMapService.DEFAULT_SPACE_SHIP);
                         ChangeMapService.gI().exitMap(this);
                         this.zoneFinal = null;

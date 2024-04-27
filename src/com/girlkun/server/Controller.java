@@ -321,8 +321,8 @@ public class Controller implements IMessageHandler {
                                         if (option.optionTemplate.id == 251) {
                                             if (option.param > 0) {
                                                 option.param--;
-                                                ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
                                                 InventoryServiceNew.gI().sendItemBody(player);
+                                                ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
                                             
                                             } else {
                                             Service.getInstance().sendThongBao(player, "|7|Bạn đã hết lượt dịch chuyển");
@@ -334,7 +334,7 @@ public class Controller implements IMessageHandler {
                                     if (player.isAdmin()) {
                                         if (player.haveBeQuynh == false) {
                                             ChangeMapService.gI().changeMapInYard(player, bosse.zone, bosse.location.x);
-                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            //InventoryServiceNew.gI().sendItemBags(player);
                                         } else {
                                             Service.getInstance().sendThongBao(player, "|7|Không thể thực hiện khi đang Hộ tống");
                                         }

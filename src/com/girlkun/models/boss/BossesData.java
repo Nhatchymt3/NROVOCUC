@@ -215,7 +215,7 @@ public class BossesData {
                             "|-1|HAHAHAHA", "|-1|Chỉ là bọn con nít"
             }, // text chat 2
             new String[] {}, // text chat 3
-            REST_10_M);
+            TypeAppear.APPEAR_WITH_ANOTHER);
 
     public static final BossData BIDO_GIANGHO = new BossData(
             "Bido đại ca", // name

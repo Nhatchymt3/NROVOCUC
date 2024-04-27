@@ -382,12 +382,13 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     public boolean chatS() {
         if (Util.canDoWithTime(lastTimeChatS, timeChatS)) {
             if (this.indexChatS == this.data[this.currentLevel].getTextS().length) {
+                
                 return true;
             }
             String textChat = this.data[this.currentLevel].getTextS()[this.indexChatS];
             int prefix = Integer.parseInt(textChat.substring(1, textChat.lastIndexOf("|")));
             textChat = textChat.substring(textChat.lastIndexOf("|") + 1);
-            if (!this.chat(prefix, textChat)) {
+            if (!this.chat(prefix, textChat) &&(System.currentTimeMillis() - timejoin) < 300000) {
                 return false;
             }
             this.lastTimeChatS = System.currentTimeMillis();

@@ -115,7 +115,7 @@ public class BlackGoku extends Boss {
          plKill.pointsb  += sb;
         Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, Util.nextInt(748, 749), 1, this.location.x, this.location.y, plKill.id));
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1); // Lấy danh sách đồ thần linh ở manager
+        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length ); // Lấy danh sách đồ thần linh ở manager
         int random = new Random().nextInt(100);
         if (random < 30) {
             Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 1529, 1, this.location.x, this.location.y, plKill.id));

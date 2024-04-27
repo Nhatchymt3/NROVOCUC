@@ -25,7 +25,7 @@ public class DetuBerus extends Boss {
     public void reward(Player plKill) {
          plKill.pointsb ++;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được 1 điểm săn Boss");
-        // byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1); // Lấy danh sách đồ thần linh ở manager
+        // byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length ); // Lấy danh sách đồ thần linh ở manager
         // byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         // int random = new Random().nextInt(100);
         if (Util.isTrue(70, 100)) {

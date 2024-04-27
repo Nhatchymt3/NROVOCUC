@@ -617,7 +617,7 @@ public class InventoryServiceNew {
             msg.cleanup();
         } catch (Exception e) {
         }
-        //Service.getInstance().Send_Caitrang(player);
+        Service.getInstance().Send_Caitrang(player);
     }
 
     public void sendItemBox(Player player) {

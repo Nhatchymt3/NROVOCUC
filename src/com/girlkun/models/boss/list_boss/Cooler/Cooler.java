@@ -27,8 +27,8 @@ public class Cooler extends Boss {
     public void reward(Player plKill) {
         plKill.pointsb++;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được 1 điểm săn Boss");
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
-        byte randomDo1 = (byte) new Random().nextInt(Manager.itemIds_CUI.length - 1);
+        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length );
+        byte randomDo1 = (byte) new Random().nextInt(Manager.itemIds_CUI.length);
         if (Util.isTrue(20, 100)) {
             if (Util.isTrue(1, 20)) {
                 Service.getInstance().dropItemMap(this.zone, Util.RaitiDoc12(zone, Manager.itemIds_TL[randomDo1], 1, this.location.x, this.location.y, plKill.id));

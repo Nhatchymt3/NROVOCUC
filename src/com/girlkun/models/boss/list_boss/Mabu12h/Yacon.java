@@ -21,7 +21,7 @@ public class Yacon extends Boss {
     @Override
     public void reward(Player plKill) {
         plKill.achievement.plusCount(3);
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1);
+        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length );
         byte randomNR = (byte) new Random().nextInt(Manager.itemIds_NR_SB.length);
         byte randomc12 = (byte) new Random().nextInt(Manager.itemDC12.length -1);
 

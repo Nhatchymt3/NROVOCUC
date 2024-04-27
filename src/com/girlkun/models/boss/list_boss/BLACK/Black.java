@@ -25,7 +25,7 @@ public class Black extends Boss {
         plKill.achievement.plusCount(3);
         plKill.pointsb += sb;
         Service.getInstance().sendThongBao(plKill, "Bạn đã nhận được +" + sb + " điểm săn Boss");
-        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length - 1); // Lấy danh sách đồ thần linh ở manager
+        byte randomDo = (byte) new Random().nextInt(Manager.itemIds_TL.length ); // Lấy danh sách đồ thần linh ở manager
         if (Util.isTrue(80, 100)) {
             if (Util.isTrue(60, 100)) {
                 Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 17, 1, this.location.x, this.location.y, plKill.id));
